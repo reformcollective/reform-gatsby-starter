@@ -1,7 +1,29 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/browser-apis/
- */
+import "fonts/typography.css"
+import "fonts/reset.css"
+import gsap from "gsap"
+import { CSSPlugin } from "gsap/CSSPlugin"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { ScrollToPlugin } from "gsap/ScrollToPlugin"
+import { MorphSVGPlugin } from "gsap/MorphSVGPlugin"
+import { CustomEase } from "gsap/CustomEase"
+import { ScrollSmoother } from "gsap/ScrollSmoother"
+import type { GatsbyBrowser } from "gatsby"
 
-// You can delete this file if you're not using it
+gsap.registerPlugin(
+  CSSPlugin,
+  CustomEase,
+  MorphSVGPlugin,
+  ScrollToPlugin,
+  ScrollTrigger,
+  ScrollSmoother
+)
+
+console.log(`
+⣿⣿⠿⠟⠛⣿⣿⣿⣿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⣿⠏⠀⠀⠀⣿⣿⣿⣿⣿⡇⠀⠀⠀⢰⡶⠶⢶⣄⠀⠀⠀⠀⠀⣰⠶⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⣿⠀⠀⠀⠀⣿⣿⣿⣿⣿⡇⠀⠀⠀⢸⣧⣤⣼⡟⣠⣚⣓⣦⡘⣿⠛⣢⡖⠛⢶⡄⣾⡖⠂⣿⠒⠻⣦⠚⢷⡄
+⣿⣆⠀⠀⠀⣿⣿⣿⣿⣿⡇⠀⠀⠀⢸⡇⠀⢸⣿⠹⣍⣉⣭⠀⣿⠀⠹⣧⣀⣼⠇⣿⠀⠀⣿⠀⠀⣿⠀⢸⡇
+⣿⣿⣶⣶⣤⣿⣿⣿⣿⣿⡇
+    Designed & Developed by Reform Collective
+         https://reformcollective.com
+`)
