@@ -1,11 +1,4 @@
-import { useContext } from "react"
-import { useLocation } from "@reach/router"
-import { LoaderContext } from "components/Providers"
-
-
 export const isBrowser = () => typeof window !== "undefined"
-
-
 
 export const addDebouncedEventListener = (
   element: Window | HTMLElement,
