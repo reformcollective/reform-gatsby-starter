@@ -1,7 +1,7 @@
 import * as React from "react"
 import Layout from "components/Layout"
 
-const NotFoundPage = () => (
+const FourOhFour = () => (
   <Layout
     pageAttributes={{
       title: "404: Not Found",
@@ -13,4 +13,4 @@ const NotFoundPage = () => (
   </Layout>
 )
 
-export default NotFoundPage
+export default FourOhFour
