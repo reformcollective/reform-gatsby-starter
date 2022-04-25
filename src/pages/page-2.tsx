@@ -9,6 +9,7 @@ const SecondPage = () => (
       description: "This is page 2.",
     }}
   >
+    <InternalLink to="/">Go back to the homepage</InternalLink>
     <h1>Hi from the second page</h1>
     <h1>Hi from the second page</h1>
     <h1>Hi from the second page</h1>
@@ -73,7 +74,6 @@ const SecondPage = () => (
     <h1>Hi from the second page</h1>
     <h1>Hi from the second page</h1>
     <p>Welcome to page 2</p>
-    <InternalLink to="/">Go back to the homepage</InternalLink>
   </Layout>
 )
 

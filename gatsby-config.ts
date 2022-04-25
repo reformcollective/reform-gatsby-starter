@@ -23,19 +23,18 @@ const config: GatsbyConfig = {
     //     spaceId: process.env.CONTENTFUL_SPACE_ID,
     //   },
     // },
-    // TODO setup manifest
-    // {
-    //   resolve: "gatsby-plugin-manifest",
-    //   options: {
-    //     name: `Reform Starter`, // TODO add name
-    //     short_name: `Reform`, // TODO add short name
-    //     start_url: `/`,
-    //     background_color: `#ffffff`, // TODO add theme color
-    //     theme_color: `#ffffff`,
-    //     display: `minimal-ui`,
-    //     icon: `src/images/icon.png`, //TODO add favicon
-    //   },
-    // },
+    {
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        name: `Reform Starter`, // TODO add name
+        short_name: `Reform`, // TODO add short name
+        start_url: `/`,
+        background_color: `#ffffff`, // TODO add theme color
+        theme_color: `#ffffff`,
+        display: `minimal-ui`,
+        icon: `src/images/global/icon.png`, //TODO add favicon
+      },
+    },
     {
       resolve: "gatsby-plugin-root-import",
       options: {
