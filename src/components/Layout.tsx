@@ -1,22 +1,23 @@
 import React from "react"
 import styled from "styled-components"
-import SEO from "components/Seo"
+import SEO, { PageAttributes } from "components/Seo"
 import Header from "components/Header"
 import Footer from "components/Footer"
+import Scroll from "components/Scroll"
 
 interface props {
-  children: React.ReactNode
-  title?: string
+  pageAttributes: PageAttributes
+  children: React.ReactNode | React.ReactNode[]
 }
 
-const Layout: React.FC<props> = ({ children, title }) => {
+const Layout: React.FC<props> = ({ children, pageAttributes }) => {
   return (
-    <div>
-      <SEO title={title} />
+    <Scroll>
+      <SEO pageAttributes={pageAttributes} />
       <Header />
       <Main>{children}</Main>
       <Footer />
-    </div>
+    </Scroll>
   )
 }
 

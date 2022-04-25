@@ -5,8 +5,12 @@ import Layout from "../components/Layout"
 import Seo from "../components/Seo"
 
 const UsingDSG = () => (
-  <Layout>
-    <Seo title="Using DSG" />
+  <Layout
+    pageAttributes={{
+      title: "Using DSG",
+      description: "This is the description of the page.",
+    }}
+  >
     <h1>Hello from a DSG Page</h1>
     <p>This page is not created until requested by a user.</p>
     <p>

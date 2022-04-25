@@ -8,7 +8,7 @@
     "@gatsbyjs/reach-router": "^1.3.7",
     "@rjwadley/eslint-plugin-format-gsap": "^0.0.3",
     "dotenv": "16.0.0",
-    "eslint": "^7.32.0",
+    "eslint": "^8.14.0",
     "eslint-plugin-ssr-friendly": "^1.0.6",
     "gatsby": "^4.12.1",
     "gatsby-link": "^4.12.1",

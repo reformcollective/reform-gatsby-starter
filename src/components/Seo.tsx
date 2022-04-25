@@ -1,17 +1,43 @@
 import React from "react"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
-interface SEOProps {
-  description?: string
+export interface PageAttributes {
+  title: string | undefined
+  description: string
   lang?: string
-  title?: string | undefined
-  image?: string
   url?: string
+  image?: string
 }
-const SEO: React.FC<SEOProps> = ({ description, lang, title, image, url }) => {
-  return <div>SEO is not yet set up!</div>
 
-  // static query was here
+type props = {
+  pageAttributes: PageAttributes
+}
+
+const SEO: React.FC<props> = ({ pageAttributes: seo }) => {
+  return (
+    <div>
+      SEO is not yet set up!
+      <Helmet title={seo.title} />
+    </div>
+  )
+
+  seo.lang = seo.lang ?? "en"
+  const { description, lang, title, image, url } = seo
+
+  // const { site } = useStaticQuery(
+  //   graphql`
+  //     query {
+  //       site {
+  //         siteMetadata {
+  //           title
+  //           description
+  //           image
+  //           siteUrl
+  //         }
+  //       }
+  //     }
+  //   `
+  // )
 
   // const metaDescription = description || site.siteMetadata.description
   // const currentTitle = title || site.siteMetadata?.title
