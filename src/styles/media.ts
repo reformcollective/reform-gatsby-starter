@@ -3,7 +3,7 @@ export const tablet = 1024
 export const desktop = 1440
 
 const media = {
-  apple: '@supports (-webkit-touch-callout: none)',
+  apple: "@supports (-webkit-touch-callout: none)",
   mobile: `@media screen and (max-width: ${mobile}px)`,
   tablet: `@media screen and (min-width: ${
     mobile + 1

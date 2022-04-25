@@ -7,7 +7,6 @@ const text = {
   mobile: {},
 }
 
-
 export const strokeText = `
   text-fill-color: transparent;
   -webkit-background-clip: text;
