@@ -1,10 +1,11 @@
 import { useMedia } from "utils/hooks"
 
 const text = {
-  fullWidth: {},
-  desktop: {},
-  tablet: {},
-  mobile: {},
+  h1: useMedia(``, ``, ``, ``),
+  h2: useMedia(``, ``, ``, ``),
+  h3: useMedia(``, ``, ``, ``),
+  h4: useMedia(``, ``, ``, ``),
+  h5: useMedia(``, ``, ``, ``),
 }
 
 export const strokeText = `
