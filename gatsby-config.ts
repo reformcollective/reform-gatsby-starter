@@ -2,7 +2,7 @@ import type { GatsbyConfig } from "gatsby"
 const path = require("path")
 
 const config: GatsbyConfig = {
-  // TODO add metadata
+  // TODO add proper metadata
   siteMetadata: {
     title: `Reform Starter`,
     siteUrl: `https://www.yourdomain.tld`,
@@ -32,7 +32,7 @@ const config: GatsbyConfig = {
         background_color: `#ffffff`, // TODO add theme color
         theme_color: `#ffffff`,
         display: `minimal-ui`,
-        icon: `src/images/global/icon.png`, //TODO add favicon
+        icon: `./src/images/global/icon.png`, //TODO add favicon
       },
     },
     {
