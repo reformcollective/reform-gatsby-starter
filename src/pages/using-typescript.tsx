@@ -1,9 +1,9 @@
 // If you don't want to use TypeScript you can delete this file!
 import * as React from "react"
-import { PageProps, Link, graphql } from "gatsby"
+import { PageProps, graphql } from "gatsby"
 
 import Layout from "../components/Layout"
-import Seo from "../components/Seo"
+import InternalLink from "components/InternalLink"
 
 type DataProps = {
   site: {
@@ -39,7 +39,7 @@ const UsingTypescript: React.FC<PageProps<DataProps>> = ({ data, path }) => (
       </a>
       .
     </p>
-    <Link to="/">Go back to the homepage</Link>
+    <InternalLink to="/">Go back to the homepage</InternalLink>
   </Layout>
 )
 

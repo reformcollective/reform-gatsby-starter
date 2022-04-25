@@ -1,6 +1,5 @@
 import React from "react"
 import { Helmet } from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
 export interface PageAttributes {
   title: string | undefined
   description: string
@@ -21,8 +20,8 @@ const SEO: React.FC<props> = ({ pageAttributes: seo }) => {
     </div>
   )
 
-  seo.lang = seo.lang ?? "en"
-  const { description, lang, title, image, url } = seo
+  // seo.lang = seo.lang ?? "en"
+  // const { description, lang, title, image, url } = seo
 
   // const { site } = useStaticQuery(
   //   graphql`
