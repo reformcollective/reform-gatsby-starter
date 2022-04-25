@@ -1,5 +1,5 @@
 import type { GatsbyConfig } from "gatsby"
-import path from "path"
+const path = require("path")
 
 const config: GatsbyConfig = {
   // TODO add metadata
