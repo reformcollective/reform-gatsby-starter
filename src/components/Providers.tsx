@@ -10,11 +10,6 @@ export const ScreenContext = createContext({
   mobile: false,
 })
 
-export const SubscribeFormOpenContext = createContext<{
-  open: boolean
-  setOpen: Function
-}>({ open: false, setOpen: () => false })
-
 export const LoaderContext = createContext<{
   load: string
   setLoad: Function
@@ -29,7 +24,6 @@ export const LoaderContext = createContext<{
 
 interface props {
   children: React.ReactNode
-  title?: string
 }
 
 const Providers: React.FC<props> = ({ children }) => {
