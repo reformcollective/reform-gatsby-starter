@@ -6,3 +6,4 @@ Setup:
 2. Complete TODO items in the following files
    1. `gatsby-config.ts`
    2. `src/components/Seo.tsx`
+3. Add any typography to `src/styles/typography.css`

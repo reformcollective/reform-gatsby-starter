@@ -1,5 +1,5 @@
-import "fonts/typography.css"
-import "fonts/reset.css"
+import "styles/typography.css"
+import "styles/reset.css"
 import gsap from "gsap"
 import { CSSPlugin } from "gsap/CSSPlugin"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -7,7 +7,7 @@ import { ScrollToPlugin } from "gsap/ScrollToPlugin"
 import { MorphSVGPlugin } from "gsap/MorphSVGPlugin"
 import { CustomEase } from "gsap/CustomEase"
 import { ScrollSmoother } from "gsap/ScrollSmoother"
-import type { GatsbyBrowser } from "gatsby"
+// import type { GatsbyBrowser } from "gatsby"
 
 gsap.registerPlugin(
   CSSPlugin,
