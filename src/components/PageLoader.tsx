@@ -31,7 +31,7 @@ const PageLoader: React.FC<props> = ({
       if (initialLoad) {
         startTransition(() => {
           tl.to(loader.current, {
-            duration: 2,
+            duration: 1,
             opacity: 0,
             onComplete: () => {
               setInitialLoad(false)
@@ -41,7 +41,7 @@ const PageLoader: React.FC<props> = ({
       } else if (pageToLoad && !isCurrentPage(pageToLoad)) {
         startTransition(() => {
           tl.to(loader.current, {
-            duration: 1,
+            duration: 0.5,
             opacity: 1,
             onComplete: () => {
               navigate(pageToLoad)
@@ -52,7 +52,7 @@ const PageLoader: React.FC<props> = ({
       } else {
         startTransition(() => {
           tl.to(loader.current, {
-            duration: 1,
+            duration: 0.5,
             opacity: 0,
           })
         })
