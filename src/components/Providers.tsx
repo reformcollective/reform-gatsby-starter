@@ -1,6 +1,7 @@
 import React, { createContext, useState, useEffect } from "react"
 import { desktop, tablet, mobile } from "styles/media"
 import { addDebouncedEventListener, isBrowser } from "utils/functions"
+import PageLoader from "./PageLoader"
 
 export const ScreenContext = createContext({
   fullWidth: false,
@@ -14,6 +15,18 @@ export const SubscribeFormOpenContext = createContext<{
   setOpen: Function
 }>({ open: false, setOpen: () => false })
 
+export const LoaderContext = createContext<{
+  load: string
+  setLoad: Function
+  loaderIsReady: boolean
+  setLoaderIsReady: Function
+}>({
+  load: "",
+  setLoad: () => false,
+  loaderIsReady: false,
+  setLoaderIsReady: () => false,
+})
+
 interface props {
   children: React.ReactNode
   title?: string
@@ -24,6 +37,9 @@ const Providers: React.FC<props> = ({ children }) => {
   const [d, setD] = useState<boolean>(false)
   const [t, setT] = useState<boolean>(false)
   const [m, setM] = useState<boolean>(false)
+  const [loaderIsReady, setLoaderIsReady] = useState<boolean>(false)
+  const [load, setLoad] = useState<string>("")
+  const [initialLoad, setInitialLoad] = useState<boolean>(true)
 
   useEffect(() => {
     if (isBrowser()) {
@@ -53,7 +69,16 @@ const Providers: React.FC<props> = ({ children }) => {
     <ScreenContext.Provider
       value={{ fullWidth: fw, desktop: d, tablet: t, mobile: m }}
     >
-      {children}
+      <LoaderContext.Provider
+        value={{ load, setLoad, loaderIsReady, setLoaderIsReady }}
+      >
+        <PageLoader
+          setInitialLoad={setInitialLoad}
+          initialLoad={initialLoad}
+          pageToLoad={load}
+        />
+        {loaderIsReady && children}
+      </LoaderContext.Provider>
     </ScreenContext.Provider>
   )
 }

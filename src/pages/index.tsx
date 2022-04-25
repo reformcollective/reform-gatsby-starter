@@ -1,9 +1,8 @@
 import * as React from "react"
-import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-
 import Layout from "../components/Layout"
-import Seo from "../components/Seo"
+import InternalLink from "components/InternalLink"
+import { Link } from "gatsby"
 
 const IndexPage = () => (
   <Layout
@@ -72,8 +71,11 @@ const IndexPage = () => (
       style={{ marginBottom: `1.45rem` }}
     />
     <p>
-      <Link to="/page-2/">Go to page 2</Link> <br />
-      <Link to="/using-typescript/">Go to "Using TypeScript"</Link> <br />
+      <InternalLink to="/page-2/">Go to page 2</InternalLink> <br />
+      <InternalLink to="/using-typescript/">
+        Go to "Using TypeScript"
+      </InternalLink>
+      <br />
     </p>
   </Layout>
 )

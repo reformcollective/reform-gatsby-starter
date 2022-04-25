@@ -42,20 +42,10 @@ const config: GatsbyConfig = {
         src: path.resolve("src"),
       },
     },
-    // ! plugin crashes build
-    // {
-    //   resolve: `gatsby-plugin-layout`,
-    //   options: {
-    //     component: require.resolve(`./src/components/Providers.tsx`),
-    //   },
-    // },
-    // ! typescript support is built in, why do we need these?
     {
-      resolve: `gatsby-plugin-typescript`,
+      resolve: `gatsby-plugin-layout`,
       options: {
-        isTSX: true, // defaults to false
-        jsxPragma: `jsx`, // defaults to "React"
-        allExtensions: true, // defaults to false
+        component: path.resolve("./src/components/Providers.tsx"),
       },
     },
     {

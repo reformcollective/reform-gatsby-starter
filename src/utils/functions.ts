@@ -31,3 +31,6 @@ export const shuffle = <T>(array: T[]) => {
   }
   return array
 }
+
+export const pause = (ms: number) =>
+  new Promise(resolve => setTimeout(resolve, ms))
