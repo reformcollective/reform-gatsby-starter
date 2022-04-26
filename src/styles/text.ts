@@ -1,62 +1,24 @@
-import { useMediaFunction } from "utils/hooks"
-
 //TODO replace text with proper sizes
 
 const text = {
-  h1: useMediaFunction(
-    `
-    //fullwidth
-    font-size: 50px;
-  `,
-    `
-    //desktop
-    font-size: 3.472vw;
-  `,
-    `
-    //tablet
-    font-size: 5.995vw;
-  `,
-    `
-    //mobile
-    font-size: 13.333vw;
-  `
-  ),
-  h2: useMediaFunction(
-    `
-    //fullwidth
-    font-size: 50px;
-  `,
-    `
-    //desktop
-    font-size: 3.472vw;
-  `,
-    `
-    //tablet
-    font-size: 5.995vw;
-  `,
-    `
-    //mobile
-    font-size: 13.333vw;
-  `
-  ),
-  h3: useMediaFunction(
-    `
-    //fullwidth
-    font-size: 50px;
-  `,
-    `
-    //desktop
-    font-size: 3.472vw;
-  `,
-    `
-    //tablet
-    font-size: 5.995vw;
-  `,
-    `
-    //mobile
-    font-size: 13.333vw;
-  `
-  ),
+  h1: {
+    fullwidth: "",
+    desktop: "",
+    tablet: "",
+    mobile: "",
+  },
+  h2: {
+    fullwidth: "",
+    desktop: "",
+    tablet: "",
+    mobile: "",
+  },
+  h3: {
+    fullwidth: "",
+    desktop: "",
+    tablet: "",
+    mobile: "",
+  },
 }
 
 export const strokeText = `
