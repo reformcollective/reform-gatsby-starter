@@ -23,9 +23,6 @@ const PageLoader: React.FC<props> = ({
   }, [])
 
   useEffect(() => {
-    console.log("pageToLoad", pageToLoad === "" ? "home" : pageToLoad)
-    console.log("initialLoad", initialLoad)
-    console.log("pathname", window.location.pathname)
     if (loader.current) {
       const tl = gsap.timeline()
       if (initialLoad) {
