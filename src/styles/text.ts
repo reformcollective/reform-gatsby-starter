@@ -1,24 +1,52 @@
 //TODO replace text with proper sizes
 
+import media from "./media"
+
+const fonts = {
+  primary: "",
+  secondary: "",
+}
+
 const text = {
-  h1: {
-    fullwidth: "",
-    desktop: "",
-    tablet: "",
-    mobile: "",
-  },
-  h2: {
-    fullwidth: "",
-    desktop: "",
-    tablet: "",
-    mobile: "",
-  },
-  h3: {
-    fullwidth: "",
-    desktop: "",
-    tablet: "",
-    mobile: "",
-  },
+  h1: `
+    ${fonts.primary}
+    color: orange;
+    ${media.desktop} {
+      color: red;
+    }
+    ${media.tablet} {
+      color: green;
+    }
+    ${media.mobile} {
+      color: blue;
+    }
+  `,
+  h2: `
+    ${fonts.primary}
+    color: orange
+    ${media.desktop} {
+      color: red;
+    }
+    ${media.tablet} {
+      color: green;
+    }
+    ${media.mobile} {
+      color: blue;
+    }
+  `,
+  h3: `
+    ${fonts.primary}
+    color: orange
+    ${media.desktop} {
+      color: red;
+    }
+    ${media.tablet} {
+      color: green;
+    }
+    ${media.mobile} {
+      color: blue;
+    }
+  `,
 }
 
 export const strokeText = `
