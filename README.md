@@ -2,7 +2,7 @@
 
 Setup:
 
-1. Clone and setup git for new repo
+1. Clone and setup git for new repo (make sure to remove the old remote if needed)
 2. Update `package.json` to include proper metadata for the new project
 3. Complete TODO items in `gatsby-config.ts`
 4. Add any typography to `src/styles/typography.css`
