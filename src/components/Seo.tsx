@@ -1,14 +1,22 @@
-import React, { useContext } from "react"
+import { graphql, useStaticQuery } from "gatsby"
+import React from "react"
 import { Helmet } from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
-interface SEOProps {
-  description?: string
+export interface PageAttributes {
+  title: string | undefined
+  description: string
   lang?: string
-  title?: string | undefined
-  image?: string
   url?: string
+  image?: string
 }
-const SEO: React.FC<SEOProps> = ({ description, lang, title, image, url }) => {
+
+type props = {
+  pageAttributes: PageAttributes
+}
+
+const SEO: React.FC<props> = ({ pageAttributes: seo }) => {
+  seo.lang = seo.lang ?? "en"
+  const { description, lang, title, image, url } = seo
+
   const { site } = useStaticQuery(
     graphql`
       query {
