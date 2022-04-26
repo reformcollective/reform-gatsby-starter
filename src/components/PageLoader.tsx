@@ -29,6 +29,9 @@ const PageLoader: React.FC<props> = ({
     if (loader.current) {
       const tl = gsap.timeline()
       if (initialLoad) {
+        /**
+         * Transitions for the initial load sequence
+         */
         startTransition(() => {
           tl.to(loader.current, {
             duration: 1,
@@ -39,6 +42,9 @@ const PageLoader: React.FC<props> = ({
           })
         })
       } else if (pageToLoad && !isCurrentPage(pageToLoad)) {
+        /**
+         * Transitions for leaving a page
+         */
         startTransition(() => {
           tl.to(loader.current, {
             duration: 0.5,
@@ -50,11 +56,14 @@ const PageLoader: React.FC<props> = ({
           })
         })
       } else {
+        /**
+         * Transitions for entering a page
+         */
         startTransition(() => {
           tl.to(loader.current, {
             duration: 0.5,
             opacity: 0,
-          })
+          }, 0.2)
         })
       }
     }
