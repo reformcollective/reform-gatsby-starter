@@ -1,9 +1,11 @@
-import React from "react"
+import React, { useContext, useEffect } from "react"
 import styled from "styled-components"
 import SEO, { PageAttributes } from "components/Seo"
 import Header from "components/Header"
 import Footer from "components/Footer"
 import Scroll from "components/Scroll"
+import { LoaderContext } from "./Providers"
+import { documentReady } from "utils/functions"
 
 interface props {
   pageAttributes: PageAttributes
@@ -11,13 +13,26 @@ interface props {
 }
 
 const Layout: React.FC<props> = ({ children, pageAttributes }) => {
+  const { setNewPageHasLoaded } = useContext(LoaderContext)
+
+  useEffect(() => {
+    //on dom ready
+    documentReady(() => {
+      setNewPageHasLoaded(true)
+    })
+  }, [])
+
   return (
-    <Scroll>
-      <SEO pageAttributes={pageAttributes} />
+    <>
       <Header />
-      <Main>{children}</Main>
-      <Footer />
-    </Scroll>
+      <Scroll>
+        <SEO pageAttributes={pageAttributes} />
+        <Main>
+          {children}
+          <Footer />
+        </Main>
+      </Scroll>
+    </>
   )
 }
 

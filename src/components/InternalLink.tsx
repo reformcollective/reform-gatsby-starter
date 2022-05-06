@@ -7,11 +7,11 @@ type props = {
 }
 
 const InternalLink: React.FC<props> = ({ children, to }) => {
-  const { setLoad } = useContext(LoaderContext)
+  const { loadPage } = useContext(LoaderContext)
 
   const handleClick: React.MouseEventHandler = e => {
     e.nativeEvent.preventDefault()
-    setLoad(to)
+    loadPage(to)
   }
 
   return (

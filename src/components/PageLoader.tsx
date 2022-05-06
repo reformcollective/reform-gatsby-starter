@@ -16,7 +16,14 @@ const PageLoader: React.FC<props> = ({
   setInitialLoad,
 }) => {
   const loader = useRef<HTMLDivElement>(null)
-  const { setLoaderIsReady, setLoad } = useContext(LoaderContext)
+  const {
+    setLoaderIsReady,
+    loadPage,
+    setPreviousRoute,
+    setFinished,
+    newPageHasLoaded,
+    setNewPageHasLoaded,
+  } = useContext(LoaderContext)
 
   useEffect(() => {
     setLoaderIsReady(true)
@@ -25,7 +32,10 @@ const PageLoader: React.FC<props> = ({
   useEffect(() => {
     if (loader.current) {
       const tl = gsap.timeline()
-      if (initialLoad) {
+      if (initialLoad && newPageHasLoaded) {
+        setFinished(false)
+        setNewPageHasLoaded(false)
+
         /**
          * Transitions for the initial load sequence
          */
@@ -35,10 +45,13 @@ const PageLoader: React.FC<props> = ({
             opacity: 0,
             onComplete: () => {
               setInitialLoad(false)
+              setFinished(true)
             },
           })
         })
       } else if (pageToLoad && !isCurrentPage(pageToLoad)) {
+        setFinished(false)
+
         /**
          * Transitions for leaving a page
          */
@@ -48,11 +61,14 @@ const PageLoader: React.FC<props> = ({
             opacity: 1,
             onComplete: () => {
               navigate(pageToLoad)
-              setLoad("")
+              setPreviousRoute(pageToLoad)
+              loadPage("")
             },
           })
         })
-      } else {
+      } else if (newPageHasLoaded) {
+        setNewPageHasLoaded(false)
+
         /**
          * Transitions for entering a page
          */
@@ -60,11 +76,14 @@ const PageLoader: React.FC<props> = ({
           tl.to(loader.current, {
             duration: 0.5,
             opacity: 0,
+            onComplete: () => {
+              setFinished(true)
+            },
           }, 0.2)
         })
       }
     }
-  }, [pageToLoad, initialLoad])
+  }, [pageToLoad, initialLoad, newPageHasLoaded])
 
   return (
     <Wrapper ref={loader}>
