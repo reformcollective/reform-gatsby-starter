@@ -50,18 +50,6 @@ export const unregisterTransition = (
   }
 }
 
-interface TransitionLinkProps {
-  /**
-   * the page to navigate to when clicked
-   */
-  to: string
-  /**
-   * the transition to use when navigating
-   */
-  transition?: string
-  children: React.ReactNode
-}
-
 /**
  * load a page, making use of the specified transition
  * @param to page to load
@@ -91,6 +79,18 @@ export const loadPage = (to: string, transition?: string) => {
 
     exitAnimations.forEach(t => t.play(0))
   }, entranceDuration * 1000)
+}
+
+interface TransitionLinkProps {
+  /**
+   * the page to navigate to when clicked
+   */
+  to: string
+  /**
+   * the transition to use when navigating
+   */
+  transition?: string
+  children: React.ReactNode
 }
 
 /**
