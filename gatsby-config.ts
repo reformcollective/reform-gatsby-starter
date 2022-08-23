@@ -8,7 +8,7 @@ const config: GatsbyConfig = {
     title: `Reform Starter`,
     description: `A starter for Gatsby`,
     siteUrl: `https://www.yourdomain.tld`,
-    image: `./src/images/logo.png`,
+    image: `https://example.com/logo.png`,
   },
   plugins: [
     "gatsby-plugin-styled-components",
