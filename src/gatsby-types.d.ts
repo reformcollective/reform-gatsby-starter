@@ -1760,6 +1760,7 @@ type Query_sitePageArgs = {
 type Query_sitePluginArgs = {
   browserAPIs: InputMaybe<StringQueryOperatorInput>;
   children: InputMaybe<NodeFilterListInput>;
+  gatsbyPath: InputMaybe<StringQueryOperatorInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
   name: InputMaybe<StringQueryOperatorInput>;
@@ -2622,6 +2623,7 @@ type SitePageFieldsEnum =
   | 'pluginCreator.children.internal.type'
   | 'pluginCreator.children.parent.children'
   | 'pluginCreator.children.parent.id'
+  | 'pluginCreator.gatsbyPath'
   | 'pluginCreator.id'
   | 'pluginCreator.internal.content'
   | 'pluginCreator.internal.contentDigest'
@@ -2719,6 +2721,7 @@ type SitePageSortInput = {
 type SitePlugin = Node & {
   readonly browserAPIs: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
   readonly children: ReadonlyArray<Node>;
+  readonly gatsbyPath: Maybe<Scalars['String']>;
   readonly id: Scalars['ID'];
   readonly internal: Internal;
   readonly name: Maybe<Scalars['String']>;
@@ -2730,6 +2733,11 @@ type SitePlugin = Node & {
   readonly resolve: Maybe<Scalars['String']>;
   readonly ssrAPIs: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
   readonly version: Maybe<Scalars['String']>;
+};
+
+
+type SitePlugin_gatsbyPathArgs = {
+  filePath: InputMaybe<Scalars['String']>;
 };
 
 type SitePluginConnection = {
@@ -2821,6 +2829,7 @@ type SitePluginFieldsEnum =
   | 'children.parent.internal.type'
   | 'children.parent.parent.children'
   | 'children.parent.parent.id'
+  | 'gatsbyPath'
   | 'id'
   | 'internal.content'
   | 'internal.contentDigest'
@@ -2884,6 +2893,7 @@ type SitePluginFieldsEnum =
 type SitePluginFilterInput = {
   readonly browserAPIs: InputMaybe<StringQueryOperatorInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
+  readonly gatsbyPath: InputMaybe<StringQueryOperatorInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
   readonly name: InputMaybe<StringQueryOperatorInput>;
@@ -3013,6 +3023,18 @@ type GatsbyImageSharpFluid_withWebp_noBase64Fragment = { readonly aspectRatio: n
 type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = { readonly tracedSVG: string | null, readonly aspectRatio: number, readonly src: string, readonly srcSet: string, readonly srcWebp: string | null, readonly srcSetWebp: string | null, readonly sizes: string };
 
 type GatsbyImageSharpFluidLimitPresentationSizeFragment = { readonly maxHeight: number, readonly maxWidth: number };
+
+type SitePluginsHomeQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type SitePluginsHomeQuery = { readonly allSitePlugin: { readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly name: string | null } }> } };
+
+type SitePluginTemplateQueryVariables = Exact<{
+  id: InputMaybe<Scalars['String']>;
+}>;
+
+
+type SitePluginTemplateQuery = { readonly sitePlugin: { readonly id: string, readonly name: string | null } | null };
 
 
 }
