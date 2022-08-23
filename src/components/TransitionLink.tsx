@@ -2,6 +2,8 @@ import React from "react"
 
 import { navigate } from "gatsby-link"
 
+console.log("HI")
+
 const allTransitions: Record<
   string,
   { inTimeline: gsap.core.Timeline[]; outTimeline: gsap.core.Timeline[] }
@@ -72,6 +74,7 @@ export const loadPage = (to: string, transition?: string) => {
 
   setTimeout(async () => {
     await navigate(to)
+    // TODO wait for page to finish rendering? use hook?
 
     const exitAnimations = transition
       ? allTransitions[transition]?.outTimeline ?? []
