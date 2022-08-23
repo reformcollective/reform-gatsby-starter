@@ -1,6 +1,3 @@
-declare module "gsap/ScrollTrigger"
-declare module "gsap/all"
-
 declare global {}
 
 export interface ScreenContextTypes {

@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@rjwadley/eslint-plugin-format-gsap": "^0.1.1",
+    "@types/styled-components": "^5.1.26",
     "dotenv": "16.0.1",
     "eslint": "^8.22.0",
     "eslint-plugin-ssr-friendly": "^1.0.6",
