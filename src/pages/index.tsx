@@ -3,9 +3,9 @@ import React from "react"
 import { graphql, PageProps } from "gatsby"
 import styled from "styled-components"
 
-import InternalLink from "components/InternalLink"
 import Layout from "components/Layout"
 import SEO from "components/Seo"
+import { TransitionLink } from "components/TransitionLink"
 import media from "styles/media"
 import textStyles from "styles/text"
 
@@ -19,17 +19,15 @@ export default function IndexPage({
       <Filler>
         <h1>Welcome to Your Gatsby Site</h1>
         <br />
-        <InternalLink to="/page-2/">Go to page 2</InternalLink>
+        <TransitionLink to="/page-2/">Go to page 2</TransitionLink>
       </Filler>
       <Filler>
         <h1>Please enjoy the following template pages:</h1> <br />
         {pluginList.map(({ node }) => (
-          <>
-            <InternalLink to={`/${node.id}`} key={node.id}>
-              {node.name}
-            </InternalLink>
+          <TransitionLink to={`/${node.id}`} key={node.id}>
+            {node.name}
             <br />
-          </>
+          </TransitionLink>
         ))}
       </Filler>
     </Layout>

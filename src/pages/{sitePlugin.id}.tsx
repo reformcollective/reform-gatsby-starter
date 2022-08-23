@@ -2,9 +2,9 @@ import React from "react"
 
 import { graphql, HeadProps, PageProps } from "gatsby"
 
-import InternalLink from "components/InternalLink"
 import Layout from "components/Layout"
 import SEO from "components/Seo"
+import { TransitionLink } from "components/TransitionLink"
 import { Filler } from "pages"
 
 /**
@@ -19,7 +19,7 @@ export default function TemplateSample({
       <Filler>
         <h1>Hello from the {data.sitePlugin?.name} page</h1>
         <br />
-        <InternalLink to="/">Go back to the homepage</InternalLink>
+        <TransitionLink to="/">Go back to the homepage</TransitionLink>
       </Filler>
       <Filler>
         <h1>This page is entirely dedicated to {data.sitePlugin?.name}</h1>
