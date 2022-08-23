@@ -1,121 +1,36 @@
 import React from "react"
 
 import { graphql, PageProps } from "gatsby"
+import styled from "styled-components"
 
 import InternalLink from "components/InternalLink"
 import Layout from "components/Layout"
 import SEO from "components/Seo"
+import textStyles from "styles/text"
 
-export default function IndexPage(
-  pageContext: PageProps<Queries.SitePluginsHomeQuery>
-) {
-  const { data } = pageContext
-  const { edges } = data.allSitePlugin
+export default function IndexPage({
+  data,
+}: PageProps<Queries.SitePluginsHomeQuery>) {
+  const { edges: pluginList } = data.allSitePlugin
 
   return (
     <Layout>
-      <p>
-        <InternalLink to="/page-2/">Go to page 2</InternalLink> <br />
+      <Filler>
+        <h1>Welcome to Your Gatsby Site</h1>
         <br />
-      </p>
-      {edges.map(({ node }) => (
-        <InternalLink to={`/${node.id}`} key={node.id}>
-          {node.name}
-        </InternalLink>
-      ))}
-      <h1>Hi people</h1>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <h1>Hi people</h1>
-      <h1>Hi people</h1>
-      <h1>Hi people</h1>
-      <h1>Hi people</h1>
-      <h1>Hi people</h1>
-      <h1>Hi people</h1>
-      <h1>Hi people</h1>
-      <h1>Hi people</h1>
-      <h1>Hi people</h1>
-      <h1>Hi people</h1>
-      <h1>Hi people</h1>
-      <h1>Hi people</h1>
-      <h1>Hi people</h1>
-      <h1>Hi people</h1>
-      <h1>Hi people</h1>
-      <h1>Hi people</h1>
-      <h1>Hi people</h1>
-      <h1>Hi people</h1>
-      <h1>Hi people</h1>
-      <h1>Hi people</h1>
-      <h1>Hi people</h1>
-      <h1>Hi people</h1>
-      <h1>Hi people</h1>
-      <h1>Hi people</h1>
-      <h1>Hi people</h1>
-      <h1>Hi people</h1>
-      <h1>Hi people</h1>
-      <h1>Hi people</h1>
-      <h1>Hi people</h1>
-      <h1>Hi people</h1>
-      <h1>Hi people</h1>
-      <h1>Hi people</h1>
-      <h1>Hi people</h1>
-      <h1>Hi people</h1>
-      <h1>Hi people</h1>
-      <h1>Hi people</h1>
-      <h1>Hi people</h1>
-      <h1>Hi people</h1>
-      <h1>Hi people</h1>
-      <h1>Hi people</h1>
-      <h1>Hi people</h1>
-      <h1>Hi people</h1>
+        <InternalLink to="/page-2/">Go to page 2</InternalLink>
+      </Filler>
+      <Filler>
+        <h1>Please enjoy the following template pages:</h1> <br />
+        {pluginList.map(({ node }) => (
+          <>
+            <InternalLink to={`/${node.id}`} key={node.id}>
+              {node.name}
+            </InternalLink>
+            <br />
+          </>
+        ))}
+      </Filler>
     </Layout>
   )
 }
@@ -135,4 +50,14 @@ export const query = graphql`
       }
     }
   }
+`
+
+export const Filler = styled.div`
+  ${textStyles.h1};
+  min-height: 70vh;
+  border-radius: 10px;
+  background-color: #f0f0f0;
+  margin: 100px;
+  padding: 100px;
+  text-align: center;
 `

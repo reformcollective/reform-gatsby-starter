@@ -25,7 +25,7 @@ export default function SEO({
     description: description || defaultDescription,
     image: `${siteUrl}${image}`,
     url: `${siteUrl}/${pathname || ``}`,
-    creator: "", // TODO add username
+    creator: "", // TODO add username?
   }
 
   return (

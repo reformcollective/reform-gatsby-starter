@@ -14,12 +14,12 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <Scroll>
       <Header />
-      <Main>
-        {children}
-        <Footer />
-      </Main>
+      <Main>{children}</Main>
+      <Footer />
     </Scroll>
   )
 }
 
-const Main = styled.main``
+const Main = styled.main`
+  overflow-x: hidden;
+`

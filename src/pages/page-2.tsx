@@ -3,75 +3,22 @@ import React from "react"
 import InternalLink from "components/InternalLink"
 import Layout from "components/Layout"
 import SEO from "components/Seo"
+import { Filler } from "pages"
 
 export default function SecondPage() {
   return (
     <Layout>
-      <InternalLink to="/">Go back to the homepage</InternalLink>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <h1>Hi from the second page</h1>
-      <p>Welcome to page 2</p>
+      <Filler>
+        <h1>Hi from the second page</h1>
+        <br />
+        <InternalLink to="/">Go back to the homepage</InternalLink>
+      </Filler>
+      <Filler>
+        <h1>Please enjoy your stay</h1>
+      </Filler>
+      <Filler>
+        <h1>We hope you like this page</h1>
+      </Filler>
     </Layout>
   )
 }

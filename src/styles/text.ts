@@ -1,10 +1,12 @@
 import { css } from "styled-components"
 
 const fonts = {
-  primary: "Roboto, sans-serif",
-} as const
+  primary: css`
+    font-family: sans-serif;
+  `,
+}
 
-const text = {
+const textStyles = {
   h1: css`
     ${fonts.primary}
   `,
@@ -14,7 +16,7 @@ const text = {
   h3: css`
     ${fonts.primary}
   `,
-} as const
+}
 
 export const strokeText = css`
   -webkit-background-clip: text;
@@ -45,4 +47,4 @@ export const transparentText = css`
   background-clip: text;
 `
 
-export default text
+export default textStyles
