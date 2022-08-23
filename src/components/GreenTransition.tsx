@@ -11,12 +11,15 @@ export default function GreenTransition() {
   const wrapperRef = useRef<HTMLDivElement>(null)
 
   const slideIn = () => {
-    gsap.set(wrapperRef.current, { opacity: 1, xPercent: -100 })
-    gsap.to(wrapperRef.current, {
-      duration: 1,
-      xPercent: 0,
-      ease: "power1.in",
-    })
+    gsap.fromTo(wrapperRef.current, {
+        opacity: 1,
+        xPercent: -100,
+      },
+      {
+        duration: 1,
+        xPercent: 0,
+        ease: "power1.in",
+      })
 
     return 1
   }
@@ -30,12 +33,14 @@ export default function GreenTransition() {
     return 1
   }
   const fadeIn = () => {
-    gsap.set(wrapperRef.current, { x: 0, xPercent: 0, opacity: 0 })
-    gsap.to(wrapperRef.current, {
-      duration: 1,
-      opacity: 1,
-      ease: "power1.in",
-    })
+    gsap.fromTo(wrapperRef.current, {
+        opacity: 0,
+      },
+      {
+        duration: 1,
+        opacity: 1,
+        ease: "power1.in",
+      })
 
     return 1
   }

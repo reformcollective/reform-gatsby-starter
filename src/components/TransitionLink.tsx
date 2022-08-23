@@ -2,6 +2,7 @@
 import React, { useEffect } from "react"
 
 import { navigate } from "gatsby-link"
+import gsap from "gsap"
 
 import { sleep } from "utils/functions"
 
@@ -82,17 +83,31 @@ export const loadPage = async (to: string, transition?: string) => {
     return
   }
 
+  const animationContext = gsap.context(() => {})
   const enterAnimations = transition
     ? allTransitions[transition]?.inAnimation ?? []
     : []
 
-  // run each animation and get the duration of the longest one
+  // run each animation, add it to the context, and get the duration of the longest one
   const entranceDuration = enterAnimations.reduce((acc, t) => {
-    return Math.max(acc, t())
+    let duration = 0
+    animationContext.add(() => {
+      duration = t()
+    })
+    return Math.max(acc, duration)
   }, 0)
 
   setTimeout(async () => {
-    waitingForPageToLoad = true
+    // if we're on the page we want to go to, we don't wait for new page load
+    if (
+      window.location.pathname !== to &&
+      window.location.pathname !== `${to}/` &&
+      window.location.pathname !== `/${to}` &&
+      window.location.pathname !== `/${to}/`
+    )
+      waitingForPageToLoad = true
+
+    // actually navigate to the page
     await navigate(to)
     while (waitingForPageToLoad) await sleep(10)
 
@@ -100,13 +115,29 @@ export const loadPage = async (to: string, transition?: string) => {
       ? allTransitions[transition]?.outAnimation ?? []
       : []
 
+    // run each animation, add it to the context, and get the duration of the longest one
     const exitDuration = exitAnimations.reduce((acc, t) => {
-      return Math.max(acc, t())
+      let duration = 0
+      animationContext.add(() => {
+        duration = t()
+      })
+      return Math.max(acc, duration)
     }, 0)
+
     setTimeout(() => {
+      animationContext.revert()
       animationInProgress = false
-    }, exitDuration * 1000)
+    }, exitDuration * 1000 + 10)
   }, entranceDuration * 1000)
+}
+
+/**
+ * tracks when a page is done loading, for use in layout
+ */
+export function usePageLoad() {
+  useEffect(() => {
+    waitingForPageToLoad = false
+  }, [])
 }
 
 interface TransitionLinkProps {
@@ -140,13 +171,4 @@ export function TransitionLink({
       {children}
     </a>
   )
-}
-
-/**
- * tracks when a page is done loading, for use in layout
- */
-export function usePageLoad() {
-  useEffect(() => {
-    waitingForPageToLoad = false
-  }, [])
 }
