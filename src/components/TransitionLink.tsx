@@ -41,6 +41,32 @@ interface TransitionLinkProps {
   children: React.ReactNode
 }
 
+export const loadPage = (to: string, transition?: string) => {
+  if (!transition) {
+    navigate(to)
+    return
+  }
+
+  const enterAnimations = transition
+    ? allTransitions[transition]?.inTimeline ?? []
+    : []
+  const entranceDuration = enterAnimations.reduce((acc, t) => {
+    return Math.max(acc, t.duration())
+  }, 0)
+
+  enterAnimations.forEach(t => t.play(0))
+
+  setTimeout(async () => {
+    await navigate(to)
+
+    const exitAnimations = transition
+      ? allTransitions[transition]?.outTimeline ?? []
+      : []
+
+    exitAnimations.forEach(t => t.play(0))
+  }, entranceDuration * 1000)
+}
+
 export function TransitionLink({
   to,
   transition = undefined,
@@ -48,29 +74,7 @@ export function TransitionLink({
 }: TransitionLinkProps) {
   const handleClick: React.MouseEventHandler = e => {
     e.preventDefault()
-    if (!transition) {
-      navigate(to)
-      return
-    }
-
-    const enterAnimations = transition
-      ? allTransitions[transition]?.inTimeline ?? []
-      : []
-    const entranceDuration = enterAnimations.reduce((acc, t) => {
-      return Math.max(acc, t.duration())
-    }, 0)
-
-    enterAnimations.forEach(t => t.play(0))
-
-    setTimeout(async () => {
-      await navigate(to)
-
-      const exitAnimations = transition
-        ? allTransitions[transition]?.outTimeline ?? []
-        : []
-
-      exitAnimations.forEach(t => t.play(0))
-    }, entranceDuration * 1000)
+    loadPage(to, transition)
   }
 
   return (
