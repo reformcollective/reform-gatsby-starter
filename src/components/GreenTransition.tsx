@@ -23,15 +23,21 @@ export default function GreenTransition() {
 
     return 1
   }
+
   const slideOut = () => {
-    gsap.to(wrapperRef.current, {
-      duration: 1,
-      xPercent: 100,
-      ease: "power1.out",
-    })
+    gsap.fromTo(wrapperRef.current, {
+        xPercent: 0,
+        opacity: 1,
+      },
+      {
+        duration: 1,
+        xPercent: 100,
+        ease: "power1.out",
+      })
 
     return 1
   }
+
   const fadeIn = () => {
     gsap.fromTo(wrapperRef.current, {
         opacity: 0,
@@ -44,12 +50,16 @@ export default function GreenTransition() {
 
     return 1
   }
+
   const fadeOut = () => {
-    gsap.to(wrapperRef.current, {
-      duration: 1,
-      opacity: 0,
-      ease: "power1.out",
-    })
+    gsap.fromTo(wrapperRef.current, {
+        opacity: 1,
+      },
+      {
+        duration: 1,
+        opacity: 0,
+        ease: "power1.out",
+      })
 
     return 1
   }
