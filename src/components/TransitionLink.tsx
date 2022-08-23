@@ -3,6 +3,8 @@ import React, { useEffect } from "react"
 
 import { navigate } from "gatsby-link"
 
+import { sleep } from "utils/functions"
+
 /**
  * A function that runs an animation and returns the duration of that animation in seconds
  */
@@ -140,13 +142,11 @@ export function TransitionLink({
   )
 }
 
+/**
+ * tracks when a page is done loading, for use in layout
+ */
 export function usePageLoad() {
   useEffect(() => {
     waitingForPageToLoad = false
   }, [])
 }
-
-const sleep = (ms: number) =>
-  new Promise(resolve => {
-    setTimeout(resolve, ms)
-  })
