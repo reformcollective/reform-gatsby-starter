@@ -1,10 +1,11 @@
 import "styles/typography.css"
 import "styles/reset.css"
 import React from "react"
+
 import Providers from "components/Providers"
-import PageLoader from "components/PageLoader"
 // import type { GatsbyBrowser } from "gatsby"
 
+// eslint-disable-next-line no-console
 console.log(`
 ⣿⣿⠿⠟⠛⣿⣿⣿⣿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⣿⠏⠀⠀⠀⣿⣿⣿⣿⣿⡇⠀⠀⠀⢰⡶⠶⢶⣄⠀⠀⠀⠀⠀⣰⠶⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -20,5 +21,5 @@ export const wrapRootElement = ({ element }: { element: React.ReactNode }) => {
 }
 
 export const wrapPageElement = ({ element }: { element: React.ReactNode }) => {
-  return <PageLoader>{element}</PageLoader>
+  return <div>{element}</div>
 }

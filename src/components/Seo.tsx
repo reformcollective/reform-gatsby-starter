@@ -1,103 +1,72 @@
-import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
-// import { Helmet } from "react-helmet"
-export interface PageAttributes {
-  title: string | undefined
-  description: string
-  lang?: string
-  url?: string
-  image?: string
+
+import { graphql, useStaticQuery } from "gatsby"
+
+type SEOProps = {
+  title?: string
+  description?: string
+  pathname?: string
 }
 
-type props = {
-  pageAttributes: PageAttributes
+export default function SEO({
+  title = undefined,
+  description = undefined,
+  pathname = undefined,
+}: SEOProps) {
+  const {
+    title: defaultTitle,
+    description: defaultDescription,
+    image,
+    siteUrl,
+  } = useSiteMetadata()
+
+  const seo = {
+    title: title || defaultTitle,
+    description: description || defaultDescription,
+    image: `${siteUrl}${image}`,
+    url: `${siteUrl}${pathname || ``}`,
+    creator: "", // TODO add username
+  }
+
+  return (
+    <>
+      {/* basic head elements */}
+      <title>{seo.title}</title>
+      <meta name="description" content={seo.description} />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, minimal-ui"
+      />
+
+      {/* twitter seo */}
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:creator" content={seo.creator} />
+      <meta name="twitter:title" content={seo.title} />
+      <meta name="twitter:description" content={seo.description} />
+      <meta name="twitter:image" content={seo.image} />
+
+      {/* og seo */}
+      <meta property="og:title" content={seo.title} />
+      <meta property="og:description" content={seo.description} />
+      <meta property="og:image" content={seo.image} />
+      <meta property="og:url" content={seo.url} />
+      <meta property="og:type" content="website" />
+    </>
+  )
 }
 
-const SEO: React.FC<props> = ({ pageAttributes: seo }) => {
-  seo.lang = seo.lang ?? "en"
-  const { description, lang, title, image, url } = seo
-
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            image
-            siteUrl
-          }
+export const useSiteMetadata = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+          description
+          image
+          siteUrl
         }
       }
-    `
-  )
-
-  const metaDescription = description || site.siteMetadata.description
-  const currentTitle = title || site.siteMetadata?.title
-  const currentImage = image || site.siteMetadata?.image
-  const currentURL = url || site.siteMetadata?.siteUrl
-
-  return <div />
-
-  // return (
-  //   <Helmet
-  //     htmlAttributes={{
-  //       lang,
-  //     }}
-  //     title={currentTitle}
-  //     meta={[
-  //       {
-  //         name: `description`,
-  //         content: metaDescription,
-  //       },
-  //       {
-  //         property: `og:title`,
-  //         content: currentTitle,
-  //       },
-  //       {
-  //         property: "og:image",
-  //         content: currentImage,
-  //       },
-  //       {
-  //         property: `og:description`,
-  //         content: metaDescription,
-  //       },
-  //       {
-  //         property: `og:type`,
-  //         content: `website`,
-  //       },
-  //       {
-  //         property: `og:url`,
-  //         content: currentURL,
-  //       },
-  //       {
-  //         name: `twitter:card`,
-  //         content: `summary`,
-  //       },
-  //       {
-  //         name: `twitter:image`,
-  //         content: currentImage,
-  //       },
-  //       {
-  //         name: `twitter:creator`,
-  //         content: ``,
-  //       },
-  //       {
-  //         name: `twitter:title`,
-  //         content: currentTitle,
-  //       },
-  //       {
-  //         name: `twitter:description`,
-  //         content: metaDescription,
-  //       },
-  //       {
-  //         name: "viewport",
-  //         content:
-  //           "width=device-width, initial-scale=1, maximum-scale=1, minimal-ui",
-  //       },
-  //     ]}
-  //   />
-  // )
+    }
+  `)
+  return data.site.siteMetadata
 }
-
-export default SEO

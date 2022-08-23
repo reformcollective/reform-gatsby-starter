@@ -1,32 +1,20 @@
-import React, { useContext, useEffect } from "react"
-import styled from "styled-components"
-import SEO, { PageAttributes } from "components/Seo"
-import Header from "components/Header"
-import Footer from "components/Footer"
-import Scroll from "components/Scroll"
-import { documentReady } from "utils/functions"
-import { LoaderContext } from "./Providers"
+import React from "react"
 
-interface props {
-  pageAttributes: PageAttributes
-  children: React.ReactNode | React.ReactNode[]
+import styled from "styled-components"
+
+import Footer from "components/Footer"
+import Header from "components/Header"
+import Scroll from "components/Scroll"
+
+interface LayoutProps {
+  children: React.ReactNode
 }
 
-const Layout: React.FC<props> = ({ children, pageAttributes }) => {
-  const { setNewPageHasLoaded } = useContext(LoaderContext)
-
-  useEffect(() => {
-    // on dom ready
-    documentReady(() => {
-      setNewPageHasLoaded(true)
-    })
-  }, [])
-
+export default function Layout({ children }: LayoutProps) {
   return (
     <>
       <Header />
       <Scroll>
-        <SEO pageAttributes={pageAttributes} />
         <Main>
           {children}
           <Footer />
@@ -35,7 +23,5 @@ const Layout: React.FC<props> = ({ children, pageAttributes }) => {
     </>
   )
 }
-
-export default Layout
 
 const Main = styled.main``

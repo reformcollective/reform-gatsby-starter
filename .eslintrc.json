@@ -35,7 +35,36 @@
       {
         "functions": "defaultArguments"
       }
-    ]
+    ],
+
+    // import order
+    "import/order": [
+      "warn",
+      {
+        "groups": ["builtin", "external", "internal"],
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "external",
+            "position": "before"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["react"],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ],
+
+    /**
+     *  Temporary Rules
+     */
+
+    // i just know everyone would cry about these
+    "consistent-return": "off"
+    // "react/function-component-definition": "off"
   },
   "parserOptions": {
     "project": ["./tsconfig.json"]

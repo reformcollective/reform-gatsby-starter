@@ -1,17 +1,16 @@
-import React, { useContext } from "react"
-import { LoaderContext } from "./Providers"
+import React from "react"
 
-type props = {
+import { navigate } from "gatsby-link"
+
+type InternalLinkProps = {
   children: React.ReactNode | React.ReactNode[]
   to: string
 }
 
-const InternalLink: React.FC<props> = ({ children, to }) => {
-  const { loadPage } = useContext(LoaderContext)
-
+export default function InternalLink({ children, to }: InternalLinkProps) {
   const handleClick: React.MouseEventHandler = e => {
     e.nativeEvent.preventDefault()
-    loadPage(to)
+    navigate(to)
   }
 
   return (
@@ -20,5 +19,3 @@ const InternalLink: React.FC<props> = ({ children, to }) => {
     </a>
   )
 }
-
-export default InternalLink

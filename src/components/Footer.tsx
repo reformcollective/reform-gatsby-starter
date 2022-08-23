@@ -1,11 +1,14 @@
 import * as React from "react"
+
 import styled from "styled-components"
 
-const Footer = () => (
-  <Wrapper>
-    <h1>Footer Stuff</h1>
-  </Wrapper>
-)
+export default function Footer() {
+  return (
+    <Wrapper>
+      <h1>Footer Stuff</h1>
+    </Wrapper>
+  )
+}
 
 const Wrapper = styled.footer`
   background-color: rebeccapurple;
@@ -13,5 +16,3 @@ const Wrapper = styled.footer`
   display: grid;
   place-items: center;
 `
-
-export default Footer

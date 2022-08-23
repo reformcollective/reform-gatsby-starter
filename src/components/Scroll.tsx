@@ -1,11 +1,12 @@
 import React, { useEffect } from "react"
+
 import ScrollSmoother from "gsap/ScrollSmoother"
 
-type props = {
+type ScrollProps = {
   children: React.ReactNode
 }
 
-const Scroll: React.FC<props> = ({ children }) => {
+export default function Scroll({ children }: ScrollProps) {
   useEffect(() => {
     ScrollSmoother.create({
       smooth: 1, // how long (in seconds) it takes to "catch up" to the native scroll position
@@ -19,5 +20,3 @@ const Scroll: React.FC<props> = ({ children }) => {
     </div>
   )
 }
-
-export default Scroll

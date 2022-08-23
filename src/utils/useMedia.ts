@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useState } from "react"
+
 import { desktop, tablet, mobile } from "styles/media"
+
 import { isBrowser } from "./functions"
 
 export default function useMedia<Type>(fw: Type, d: Type, t: Type, m: Type) {
