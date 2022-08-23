@@ -46,7 +46,7 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-layout`,
       options: {
-        component: path.resolve("./src/components/Providers.tsx"),
+        component: path.resolve("./src/components/Providers/index.tsx"),
       },
     },
     {

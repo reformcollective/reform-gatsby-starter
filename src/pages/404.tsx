@@ -1,8 +1,9 @@
-import * as React from "react"
+import React from "react"
 
 import Layout from "components/Layout"
+import SEO from "components/Seo"
 
-function FourOhFour() {
+export default function FourOhFour() {
   return (
     <Layout>
       <h1>404: Not Found</h1>
@@ -11,4 +12,12 @@ function FourOhFour() {
   )
 }
 
-export default FourOhFour
+export function Head() {
+  return (
+    <SEO
+      title="404: Not Found"
+      description="This page could not be found."
+      pathname="404"
+    />
+  )
+}

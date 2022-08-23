@@ -1,7 +1,8 @@
-import * as React from "react"
+import React from "react"
 
 import InternalLink from "components/InternalLink"
 import Layout from "components/Layout"
+import SEO from "components/Seo"
 
 export default function IndexPage() {
   return (
@@ -105,4 +106,8 @@ export default function IndexPage() {
       <h1>Hi people</h1>
     </Layout>
   )
+}
+
+export function Head() {
+  return <SEO title="Home" description="This is the homepage!" pathname="" />
 }

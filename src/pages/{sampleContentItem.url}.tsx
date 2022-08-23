@@ -1,9 +1,10 @@
-import * as React from "react"
+import React from "react"
 
 import InternalLink from "components/InternalLink"
 import Layout from "components/Layout"
+import SEO from "components/Seo"
 
-function TemplateSample() {
+export default function TemplateSample() {
   return (
     <Layout>
       <h1>Hello from a template Page</h1>
@@ -12,4 +13,12 @@ function TemplateSample() {
   )
 }
 
-export default TemplateSample
+export function Head() {
+  return (
+    <SEO
+      title="Template Page"
+      description="This template page is an example"
+      pathname="template-page-id"
+    />
+  )
+}
