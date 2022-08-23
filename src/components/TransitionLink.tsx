@@ -1,4 +1,5 @@
-import React from "react"
+/* eslint-disable no-await-in-loop */
+import React, { useEffect } from "react"
 
 import { navigate } from "gatsby-link"
 
@@ -65,13 +66,13 @@ export const unregisterTransition = (
 }
 
 let animationInProgress = false
+let waitingForPageToLoad = false
 /**
  * load a page, making use of the specified transition
  * @param to page to load
  * @param transition the transition to use
  */
 export const loadPage = async (to: string, transition?: string) => {
-  // eslint-disable-next-line no-await-in-loop
   while (animationInProgress) await sleep(10)
   animationInProgress = true
   if (!transition) {
@@ -89,8 +90,9 @@ export const loadPage = async (to: string, transition?: string) => {
   }, 0)
 
   setTimeout(async () => {
+    waitingForPageToLoad = true
     await navigate(to)
-    // TODO wait for page to finish rendering? use hook somehow?
+    while (waitingForPageToLoad) await sleep(10)
 
     const exitAnimations = transition
       ? allTransitions[transition]?.outAnimation ?? []
@@ -136,6 +138,12 @@ export function TransitionLink({
       {children}
     </a>
   )
+}
+
+export function usePageLoad() {
+  useEffect(() => {
+    waitingForPageToLoad = false
+  }, [])
 }
 
 const sleep = (ms: number) =>
