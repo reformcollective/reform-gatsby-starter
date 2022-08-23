@@ -2,85 +2,106 @@ import React from "react"
 
 import { navigate } from "gatsby-link"
 
-console.log("HI")
+/**
+ * A function that runs an animation and returns the duration of that animation in seconds
+ */
+type Animation = () => number
 
+/**
+ * Object tracking all the registered transitions
+ */
 const allTransitions: Record<
   string,
-  { inTimeline: gsap.core.Timeline[]; outTimeline: gsap.core.Timeline[] }
+  {
+    inAnimation: Animation[]
+    outAnimation: Animation[]
+  }
 > = {}
 
 /**
  * register a transition that can be run with a transitionLink or by using loadPage
  * @param name the name of the transition
- * @param inTimeline the timeline to run before navigating
- * @param outTimeline the timeline to run after navigating
+ * @param inAnimation the animation to run before navigating
+ * @param outAnimation the animation to run after navigating
  */
 export const registerTransition = (
   name: string,
-  inTimeline: gsap.core.Timeline,
-  outTimeline: gsap.core.Timeline
+  inAnimation: Animation,
+  outAnimation: Animation
 ) => {
-  const previous = allTransitions[name] || { inTimeline: [], outTimeline: [] }
+  const previous = allTransitions[name] || { inAnimation: [], outAnimation: [] }
   allTransitions[name] = {
-    inTimeline: [...previous.inTimeline, inTimeline],
-    outTimeline: [...previous.outTimeline, outTimeline],
+    inAnimation: [...previous.inAnimation, inAnimation],
+    outAnimation: [...previous.outAnimation, outAnimation],
   }
 }
 
 /**
  * unregister a previously registered transition, such as when a transition component unmounts
  *
- * if inTimeline and outTimeline are not provided, all registered transitions with the given name will be unregistered
+ * if inAnimation and outAnimation are not provided, all registered transitions with the given name will be unregistered
  *
  * @param name the name of the transition to unmount
- * @param inTimeline if provided, only unregister this specific timeline
- * @param outTimeline if provided, only unregister this specific timeline
+ * @param inAnimation if provided, only unregister this specific animation
+ * @param outAnimation if provided, only unregister this specific animation
  */
 export const unregisterTransition = (
   name: string,
-  inTimeline?: gsap.core.Timeline,
-  outTimeline?: gsap.core.Timeline
+  inAnimation?: Animation,
+  outAnimation?: Animation
 ) => {
-  if (inTimeline && outTimeline) {
-    const previous = allTransitions[name] || { inTimeline: [], outTimeline: [] }
+  if (inAnimation && outAnimation) {
+    const previous = allTransitions[name] || {
+      inAnimation: [],
+      outAnimation: [],
+    }
     allTransitions[name] = {
-      inTimeline: previous.inTimeline.filter(t => t !== inTimeline),
-      outTimeline: previous.outTimeline.filter(t => t !== outTimeline),
+      inAnimation: previous.inAnimation.filter(t => t !== inAnimation),
+      outAnimation: previous.outAnimation.filter(t => t !== outAnimation),
     }
   } else {
     delete allTransitions[name]
   }
 }
 
+let animationInProgress = false
 /**
  * load a page, making use of the specified transition
  * @param to page to load
  * @param transition the transition to use
  */
-export const loadPage = (to: string, transition?: string) => {
+export const loadPage = async (to: string, transition?: string) => {
+  // eslint-disable-next-line no-await-in-loop
+  while (animationInProgress) await sleep(10)
+  animationInProgress = true
   if (!transition) {
     navigate(to)
     return
   }
 
   const enterAnimations = transition
-    ? allTransitions[transition]?.inTimeline ?? []
+    ? allTransitions[transition]?.inAnimation ?? []
     : []
-  const entranceDuration = enterAnimations.reduce((acc, t) => {
-    return Math.max(acc, t.duration())
-  }, 0)
 
-  enterAnimations.forEach(t => t.play(0))
+  // run each animation and get the duration of the longest one
+  const entranceDuration = enterAnimations.reduce((acc, t) => {
+    return Math.max(acc, t())
+  }, 0)
 
   setTimeout(async () => {
     await navigate(to)
-    // TODO wait for page to finish rendering? use hook?
+    // TODO wait for page to finish rendering? use hook somehow?
 
     const exitAnimations = transition
-      ? allTransitions[transition]?.outTimeline ?? []
+      ? allTransitions[transition]?.outAnimation ?? []
       : []
 
-    exitAnimations.forEach(t => t.play(0))
+    const exitDuration = exitAnimations.reduce((acc, t) => {
+      return Math.max(acc, t())
+    }, 0)
+    setTimeout(() => {
+      animationInProgress = false
+    }, exitDuration * 1000)
   }, entranceDuration * 1000)
 }
 
@@ -116,3 +137,8 @@ export function TransitionLink({
     </a>
   )
 }
+
+const sleep = (ms: number) =>
+  new Promise(resolve => {
+    setTimeout(resolve, ms)
+  })

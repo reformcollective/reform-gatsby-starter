@@ -20,7 +20,11 @@ export default function IndexPage({
         <h1>Welcome to Your Gatsby Site</h1>
         <br />
         <TransitionLink transition="fade" to="/page-2/">
-          Go to page 2
+          Fade to page 2
+        </TransitionLink>
+        <br />
+        <TransitionLink transition="slide" to="/page-2/">
+          Slide to page 2
         </TransitionLink>
       </Filler>
       <Filler>
@@ -62,6 +66,10 @@ export const Filler = styled.div`
   padding: 100px;
   text-align: center;
 
+  ${media.tablet} {
+    margin: 50px 40px;
+    padding: 50px 40px;
+  }
   ${media.mobile} {
     margin: 50px 20px;
     padding: 50px 20px;

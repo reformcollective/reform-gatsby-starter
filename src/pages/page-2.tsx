@@ -12,7 +12,11 @@ export default function SecondPage() {
         <h1>Hi from the second page</h1>
         <br />
         <TransitionLink transition="fade" to="/">
-          Go back to the homepage
+          Fade back to the homepage
+        </TransitionLink>
+        <br />
+        <TransitionLink transition="slide" to="/">
+          Slide back to the homepage
         </TransitionLink>
       </Filler>
       <Filler>
