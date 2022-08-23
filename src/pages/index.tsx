@@ -6,6 +6,7 @@ import styled from "styled-components"
 import InternalLink from "components/InternalLink"
 import Layout from "components/Layout"
 import SEO from "components/Seo"
+import media from "styles/media"
 import textStyles from "styles/text"
 
 export default function IndexPage({
@@ -60,4 +61,9 @@ export const Filler = styled.div`
   margin: 100px;
   padding: 100px;
   text-align: center;
+
+  ${media.mobile} {
+    margin: 50px 20px;
+    padding: 50px 20px;
+  }
 `
