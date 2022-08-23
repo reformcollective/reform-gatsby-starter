@@ -1,4 +1,5 @@
 import type { GatsbyConfig } from "gatsby"
+
 const path = require("path")
 
 const config: GatsbyConfig = {
@@ -7,11 +8,10 @@ const config: GatsbyConfig = {
     title: `Reform Starter`,
     description: `A starter for Gatsby`,
     siteUrl: `https://www.yourdomain.tld`,
-    image: `./src/images/logo.png`,
+    image: `https://example.com/logo.png`,
   },
   plugins: [
     "gatsby-plugin-styled-components",
-    "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
     "gatsby-plugin-netlify",
     "gatsby-plugin-image",
@@ -34,7 +34,7 @@ const config: GatsbyConfig = {
         background_color: `#ffffff`, // TODO add theme color
         theme_color: `#ffffff`,
         display: `minimal-ui`,
-        icon: `./src/images/global/icon.png`, //TODO add favicon
+        icon: `./src/images/global/icon.png`, // TODO add favicon
       },
     },
     {
@@ -46,7 +46,7 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-layout`,
       options: {
-        component: path.resolve("./src/components/Providers.tsx"),
+        component: path.resolve("./src/components/Providers/index.tsx"),
       },
     },
     {
@@ -98,6 +98,7 @@ const config: GatsbyConfig = {
       },
     },
   ],
+  graphqlTypegen: true,
 }
 
 export default config

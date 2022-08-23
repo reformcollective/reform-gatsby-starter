@@ -1,7 +1,25 @@
-/**
- * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/ssr-apis/
- */
+import "styles/typography.css"
+import "styles/reset.css"
+import React from "react"
 
-// You can delete this file if you're not using it
+import Providers from "components/Providers"
+// import type { GatsbyBrowser } from "gatsby"
+
+// eslint-disable-next-line no-console
+console.log(`
+⣿⣿⠿⠟⠛⣿⣿⣿⣿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⣿⠏⠀⠀⠀⣿⣿⣿⣿⣿⡇⠀⠀⠀⢰⡶⠶⢶⣄⠀⠀⠀⠀⠀⣰⠶⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⣿⠀⠀⠀⠀⣿⣿⣿⣿⣿⡇⠀⠀⠀⢸⣧⣤⣼⡟⣠⣚⣓⣦⡘⣿⠛⣢⡖⠛⢶⡄⣾⡖⠂⣿⠒⠻⣦⠚⢷⡄
+⣿⣆⠀⠀⠀⣿⣿⣿⣿⣿⡇⠀⠀⠀⢸⡇⠀⢸⣿⠹⣍⣉⣭⠀⣿⠀⠹⣧⣀⣼⠇⣿⠀⠀⣿⠀⠀⣿⠀⢸⡇
+⣿⣿⣶⣶⣤⣿⣿⣿⣿⣿⡇
+    Designed & Developed by Reform Collective
+         https://reformcollective.com
+`)
+
+export const wrapRootElement = ({ element }: { element: React.ReactNode }) => {
+  return <Providers>{element}</Providers>
+}
+
+export const wrapPageElement = ({ element }: { element: React.ReactNode }) => {
+  return <div>{element}</div>
+}
