@@ -6,6 +6,8 @@ import Footer from "components/Footer"
 import Header from "components/Header"
 import Scroll from "components/Scroll"
 
+import FadeTransition from "./FadeTransition"
+
 interface LayoutProps {
   children: React.ReactNode
 }
@@ -13,6 +15,7 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
   return (
     <Scroll>
+      <FadeTransition />
       <Header />
       <Main>{children}</Main>
       <Footer />

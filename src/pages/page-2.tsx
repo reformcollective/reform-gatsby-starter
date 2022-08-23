@@ -11,7 +11,9 @@ export default function SecondPage() {
       <Filler>
         <h1>Hi from the second page</h1>
         <br />
-        <TransitionLink to="/">Go back to the homepage</TransitionLink>
+        <TransitionLink transition="fade" to="/">
+          Go back to the homepage
+        </TransitionLink>
       </Filler>
       <Filler>
         <h1>Please enjoy your stay</h1>

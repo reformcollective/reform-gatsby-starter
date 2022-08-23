@@ -19,7 +19,9 @@ export default function TemplateSample({
       <Filler>
         <h1>Hello from the {data.sitePlugin?.name} page</h1>
         <br />
-        <TransitionLink to="/">Go back to the homepage</TransitionLink>
+        <TransitionLink transition="fade" to="/">
+          Go back to the homepage
+        </TransitionLink>
       </Filler>
       <Filler>
         <h1>This page is entirely dedicated to {data.sitePlugin?.name}</h1>

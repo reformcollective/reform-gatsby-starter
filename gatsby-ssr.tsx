@@ -2,6 +2,7 @@ import "styles/typography.css"
 import "styles/reset.css"
 import React from "react"
 
+import FadeTransition from "components/FadeTransition"
 import Providers from "components/Providers"
 // import type { GatsbyBrowser } from "gatsby"
 
@@ -21,5 +22,10 @@ export const wrapRootElement = ({ element }: { element: React.ReactNode }) => {
 }
 
 export const wrapPageElement = ({ element }: { element: React.ReactNode }) => {
-  return <div>{element}</div>
+  return (
+    <div>
+      <FadeTransition />
+      {element}
+    </div>
+  )
 }

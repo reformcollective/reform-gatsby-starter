@@ -41,21 +41,24 @@ interface TransitionLinkProps {
   children: React.ReactNode
 }
 
-export const TransitionLink = ({
+export function TransitionLink({
   to,
   transition = undefined,
   children,
-}: TransitionLinkProps) => {
-  const enterAnimations = transition
-    ? allTransitions[transition].inTimeline ?? []
-    : []
-
-  const entranceDuration = enterAnimations.reduce((acc, t) => {
-    return Math.max(acc, t.duration())
-  }, 0)
-
+}: TransitionLinkProps) {
   const handleClick: React.MouseEventHandler = e => {
     e.preventDefault()
+    if (!transition) {
+      navigate(to)
+      return
+    }
+
+    const enterAnimations = transition
+      ? allTransitions[transition]?.inTimeline ?? []
+      : []
+    const entranceDuration = enterAnimations.reduce((acc, t) => {
+      return Math.max(acc, t.duration())
+    }, 0)
 
     enterAnimations.forEach(t => t.play(0))
 
@@ -63,7 +66,7 @@ export const TransitionLink = ({
       await navigate(to)
 
       const exitAnimations = transition
-        ? allTransitions[transition].outTimeline ?? []
+        ? allTransitions[transition]?.outTimeline ?? []
         : []
 
       exitAnimations.forEach(t => t.play(0))

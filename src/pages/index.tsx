@@ -19,12 +19,14 @@ export default function IndexPage({
       <Filler>
         <h1>Welcome to Your Gatsby Site</h1>
         <br />
-        <TransitionLink to="/page-2/">Go to page 2</TransitionLink>
+        <TransitionLink transition="fade" to="/page-2/">
+          Go to page 2
+        </TransitionLink>
       </Filler>
       <Filler>
         <h1>Please enjoy the following template pages:</h1> <br />
         {pluginList.map(({ node }) => (
-          <TransitionLink to={`/${node.id}`} key={node.id}>
+          <TransitionLink transition="fade" to={`/${node.id}`} key={node.id}>
             {node.name}
             <br />
           </TransitionLink>
