@@ -2,7 +2,7 @@ import * as React from "react"
 import Layout from "components/Layout"
 import InternalLink from "components/InternalLink"
 
-const UsingDSG = () => (
+const TemplateSample = () => (
   <Layout
     pageAttributes={{
       title: "Using DSG",
@@ -14,4 +14,4 @@ const UsingDSG = () => (
   </Layout>
 )
 
-export default UsingDSG
+export default TemplateSample
