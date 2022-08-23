@@ -62,9 +62,9 @@
      *  Temporary Rules
      */
 
-    // i just know everyone would cry about these
-    "consistent-return": "off"
-    // "react/function-component-definition": "off"
+    // i just know everyone would cry about these lmao
+    "consistent-return": "off",
+    "react/function-component-definition": "off"
   },
   "parserOptions": {
     "project": ["./tsconfig.json"]
