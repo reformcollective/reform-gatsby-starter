@@ -12,15 +12,13 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <>
+    <Scroll>
       <Header />
-      <Scroll>
-        <Main>
-          {children}
-          <Footer />
-        </Main>
-      </Scroll>
-    </>
+      <Main>
+        {children}
+        <Footer />
+      </Main>
+    </Scroll>
   )
 }
 
