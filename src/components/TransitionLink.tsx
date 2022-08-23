@@ -70,6 +70,7 @@ export const unregisterTransition = (
 
 let animationInProgress = false
 let waitingForPageToLoad = false
+const promisesToAwait: Promise<any>[] = []
 /**
  * load a page, making use of the specified transition
  * @param to page to load
@@ -78,6 +79,7 @@ let waitingForPageToLoad = false
 export const loadPage = async (to: string, transition?: string) => {
   while (animationInProgress) await sleep(10)
   animationInProgress = true
+  promisesToAwait.length = 0
   if (!transition) {
     navigate(to)
     return
@@ -110,6 +112,7 @@ export const loadPage = async (to: string, transition?: string) => {
     // actually navigate to the page
     await navigate(to)
     while (waitingForPageToLoad) await sleep(10)
+    await Promise.allSettled(promisesToAwait)
 
     const exitAnimations = transition
       ? allTransitions[transition]?.outAnimation ?? []
@@ -138,6 +141,14 @@ export function usePageLoad() {
   useEffect(() => {
     waitingForPageToLoad = false
   }, [])
+}
+
+/**
+ * wait for a promise to settle before transitioning to the next page
+ * @param promise promise to await
+ */
+export function transitionAwaitPromise(promise: Promise<any>) {
+  promisesToAwait.push(promise)
 }
 
 interface TransitionLinkProps {

@@ -4,8 +4,12 @@ import { graphql, HeadProps, PageProps } from "gatsby"
 
 import Layout from "components/Layout"
 import SEO from "components/Seo"
-import { TransitionLink } from "components/TransitionLink"
+import {
+  transitionAwaitPromise,
+  TransitionLink,
+} from "components/TransitionLink"
 import { Filler } from "pages"
+import { sleep } from "utils/functions"
 
 /**
  * as an example, this template page generates a page for each plugin
@@ -14,6 +18,9 @@ import { Filler } from "pages"
 export default function TemplateSample({
   data,
 }: PageProps<Queries.SitePluginTemplateQuery>) {
+  // simulate waiting for something to load
+  if (Math.random() > 0.5) transitionAwaitPromise(sleep(1000))
+
   return (
     <Layout>
       <Filler>
