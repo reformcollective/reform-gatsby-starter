@@ -4,8 +4,8 @@ import SEO, { PageAttributes } from "components/Seo"
 import Header from "components/Header"
 import Footer from "components/Footer"
 import Scroll from "components/Scroll"
-import { LoaderContext } from "./Providers"
 import { documentReady } from "utils/functions"
+import { LoaderContext } from "./Providers"
 
 interface props {
   pageAttributes: PageAttributes
@@ -16,7 +16,7 @@ const Layout: React.FC<props> = ({ children, pageAttributes }) => {
   const { setNewPageHasLoaded } = useContext(LoaderContext)
 
   useEffect(() => {
-    //on dom ready
+    // on dom ready
     documentReady(() => {
       setNewPageHasLoaded(true)
     })
