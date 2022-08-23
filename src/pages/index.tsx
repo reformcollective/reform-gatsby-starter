@@ -59,7 +59,7 @@ export const query = graphql`
 
 export const Filler = styled.div`
   ${textStyles.h1};
-  min-height: 70vh;
+  min-height: 60vh;
   border-radius: 10px;
   background-color: #f0f0f0;
   margin: 100px;
