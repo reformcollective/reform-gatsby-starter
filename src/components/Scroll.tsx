@@ -7,6 +7,9 @@ type ScrollProps = {
   children: React.ReactNode
 }
 
+/**
+ * returns true if ScrollSmoother is enabled
+ */
 export const useIsSmooth = () => {
   const [smooth, setSmooth] = useState(false)
 
