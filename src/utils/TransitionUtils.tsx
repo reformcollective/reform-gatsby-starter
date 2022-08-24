@@ -68,6 +68,10 @@ export const unregisterTransition = (
   }
 }
 
+let pendingTransition: {
+  name: string
+  transition?: string
+} | null = null
 let animationInProgress = false
 let waitingForPageToLoad = false
 const promisesToAwait: Promise<any>[] = []
@@ -77,7 +81,10 @@ const promisesToAwait: Promise<any>[] = []
  * @param transition the transition to use
  */
 export const loadPage = async (to: string, transition?: string) => {
-  while (animationInProgress) await sleep(10)
+  if (animationInProgress) {
+    pendingTransition = { name: to, transition }
+    return
+  }
   animationInProgress = true
   promisesToAwait.length = 0
   if (!transition) {
@@ -130,6 +137,10 @@ export const loadPage = async (to: string, transition?: string) => {
     setTimeout(() => {
       animationContext.revert()
       animationInProgress = false
+      if (pendingTransition) {
+        loadPage(pendingTransition.name, pendingTransition.transition)
+        pendingTransition = null
+      }
     }, exitDuration * 1000 + 10)
   }, entranceDuration * 1000)
 }

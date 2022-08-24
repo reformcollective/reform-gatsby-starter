@@ -1,5 +1,5 @@
 import documentReady from "./documentReady"
-import { sleep } from "./functions"
+import { isBrowser, sleep } from "./functions"
 
 /**
  * we get a percentage by simply guessing how long the page will take to load based on
@@ -44,10 +44,10 @@ const updatePercent = () => {
     })
   } else {
     progressCallbacks.forEach(cb => cb(progress))
-    if (!isComplete) requestAnimationFrame(updatePercent)
+    if (!isComplete && isBrowser()) requestAnimationFrame(updatePercent)
   }
 }
-updatePercent()
+if (isBrowser()) updatePercent()
 
 /**
  * document based loader
@@ -55,14 +55,15 @@ updatePercent()
  * waits EXTRA_DELAY milliseconds after the document is ready before calling
  * all the animations and all the progress callbacks with 100%
  */
-documentReady().then(async () => {
-  await sleep(EXTRA_DELAY)
-  if (!isComplete) {
-    isComplete = true
-    progressCallbacks.forEach(cb => cb(100))
-    animations.forEach(cb => cb())
-  }
-})
+if (isBrowser())
+  documentReady().then(async () => {
+    await sleep(EXTRA_DELAY)
+    if (!isComplete) {
+      isComplete = true
+      progressCallbacks.forEach(cb => cb(100))
+      animations.forEach(cb => cb())
+    }
+  })
 
 /**
  * register a callback (such as an animation) to be called when the page is loaded
