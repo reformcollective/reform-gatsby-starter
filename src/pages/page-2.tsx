@@ -2,7 +2,7 @@ import React from "react"
 
 import Layout from "components/Layout"
 import SEO from "components/Seo"
-import { TransitionLink } from "components/TransitionLink"
+import { TransitionLink } from "components/TransitionUtils"
 import { Filler } from "pages"
 
 export default function SecondPage() {

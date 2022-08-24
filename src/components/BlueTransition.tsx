@@ -11,7 +11,7 @@ import {
   unregisterProgress,
 } from "utils/pageLoaderUtils"
 
-import { registerTransition } from "./TransitionLink"
+import { registerTransition } from "./TransitionUtils"
 
 export default function BlueTransition() {
   const wrapperRef = useRef<HTMLDivElement>(null)

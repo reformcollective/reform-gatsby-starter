@@ -5,7 +5,7 @@ import styled from "styled-components"
 
 import Layout from "components/Layout"
 import SEO from "components/Seo"
-import { TransitionLink } from "components/TransitionLink"
+import { TransitionLink } from "components/TransitionUtils"
 import media from "styles/media"
 import textStyles from "styles/text"
 
