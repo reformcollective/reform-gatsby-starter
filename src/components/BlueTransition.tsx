@@ -9,7 +9,7 @@ import {
   registerProgress,
   unregisterLoaderCallback,
   unregisterProgress,
-} from "utils/pageLoaderUtils"
+} from "utils/LoaderUtils"
 
 import {
   registerTransition,
