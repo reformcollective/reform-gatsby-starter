@@ -9,7 +9,7 @@ import { sleep } from "utils/functions"
 /**
  * A function that runs an animation and returns the duration of that animation in seconds
  */
-type Animation = () => number
+type Animation = null | (() => number)
 
 /**
  * Object tracking all the registered transitions
@@ -23,7 +23,9 @@ const allTransitions: Record<
 > = {}
 
 /**
- * register a transition that can be run with a transitionLink or by using loadPage
+ * register a transition that can be run with a transitionLink or by using loadPage.
+ * note that the animation functions must return the duration of the animation in seconds
+ *
  * @param name the name of the transition
  * @param inAnimation the animation to run before navigating
  * @param outAnimation the animation to run after navigating
@@ -101,7 +103,7 @@ export const loadPage = async (to: string, transition?: string) => {
   const entranceDuration = enterAnimations.reduce((acc, t) => {
     let duration = 0
     animationContext.add(() => {
-      duration = t()
+      duration = t?.() ?? 0
     })
     return Math.max(acc, duration)
   }, 0)
@@ -129,7 +131,7 @@ export const loadPage = async (to: string, transition?: string) => {
     const exitDuration = exitAnimations.reduce((acc, t) => {
       let duration = 0
       animationContext.add(() => {
-        duration = t()
+        duration = t?.() ?? 0
       })
       return Math.max(acc, duration)
     }, 0)

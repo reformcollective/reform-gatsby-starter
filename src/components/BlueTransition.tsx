@@ -11,7 +11,10 @@ import {
   unregisterProgress,
 } from "utils/pageLoaderUtils"
 
-import { registerTransition } from "../utils/TransitionUtils"
+import {
+  registerTransition,
+  unregisterTransition,
+} from "../utils/TransitionUtils"
 
 export default function BlueTransition() {
   const wrapperRef = useRef<HTMLDivElement>(null)
@@ -42,6 +45,7 @@ export default function BlueTransition() {
     registerProgress(setProgress)
 
     return () => {
+      unregisterTransition("blue", slideIn, slideOut)
       unregisterLoaderCallback(slideOut)
       unregisterProgress(setProgress)
     }

@@ -63,8 +63,8 @@
      */
 
     // i just know everyone would cry about these lmao
-    "consistent-return": "off"
-    // "react/function-component-definition": "off"
+    "consistent-return": "off",
+    "react/function-component-definition": "off"
   },
   "parserOptions": {
     "project": ["./tsconfig.json"]
