@@ -6,6 +6,8 @@ import gsap from "gsap"
 import { ScrollSmoother } from "gsap/ScrollSmoother"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
+import BlueTransition from "components/BlueTransition"
+import GreenTransition from "components/GreenTransition"
 import Providers from "components/Providers"
 // import type { GatsbyBrowser } from "gatsby"
 
@@ -27,5 +29,11 @@ export const wrapRootElement = ({ element }: { element: React.ReactNode }) => {
 }
 
 export const wrapPageElement = ({ element }: { element: React.ReactNode }) => {
-  return <div>{element}</div>
+  return (
+    <div>
+      <BlueTransition />
+      <GreenTransition />
+      {element}
+    </div>
+  )
 }

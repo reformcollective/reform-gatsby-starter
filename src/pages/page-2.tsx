@@ -1,9 +1,9 @@
 import React from "react"
 
-import InternalLink from "components/InternalLink"
 import Layout from "components/Layout"
 import SEO from "components/Seo"
 import { Filler } from "pages"
+import { TransitionLink } from "utils/TransitionUtils"
 
 export default function SecondPage() {
   return (
@@ -11,7 +11,17 @@ export default function SecondPage() {
       <Filler>
         <h1>Hi from the second page</h1>
         <br />
-        <InternalLink to="/">Go back to the homepage</InternalLink>
+        <TransitionLink transition="fade" to="/">
+          Fade back to the homepage
+        </TransitionLink>
+        <br />
+        <TransitionLink transition="slide" to="/">
+          Slide back to the homepage
+        </TransitionLink>
+        <br />
+        <TransitionLink transition="blue" to="/">
+          Blue Transition back to the homepage
+        </TransitionLink>
       </Filler>
       <Filler>
         <h1>Please enjoy your stay</h1>

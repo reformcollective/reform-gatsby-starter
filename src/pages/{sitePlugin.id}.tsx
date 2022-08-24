@@ -2,10 +2,11 @@ import React from "react"
 
 import { graphql, HeadProps, PageProps } from "gatsby"
 
-import InternalLink from "components/InternalLink"
 import Layout from "components/Layout"
 import SEO from "components/Seo"
 import { Filler } from "pages"
+import { sleep } from "utils/functions"
+import { transitionAwaitPromise, TransitionLink } from "utils/TransitionUtils"
 
 /**
  * as an example, this template page generates a page for each plugin
@@ -14,12 +15,17 @@ import { Filler } from "pages"
 export default function TemplateSample({
   data,
 }: PageProps<Queries.SitePluginTemplateQuery>) {
+  // simulate waiting for something to load
+  if (Math.random() > 0.5) transitionAwaitPromise(sleep(1000))
+
   return (
     <Layout>
       <Filler>
         <h1>Hello from the {data.sitePlugin?.name} page</h1>
         <br />
-        <InternalLink to="/">Go back to the homepage</InternalLink>
+        <TransitionLink transition="fade" to="/">
+          Go back to the homepage
+        </TransitionLink>
       </Filler>
       <Filler>
         <h1>This page is entirely dedicated to {data.sitePlugin?.name}</h1>
