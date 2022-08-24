@@ -5,9 +5,9 @@ import styled from "styled-components"
 
 import Layout from "components/Layout"
 import SEO from "components/Seo"
-import { TransitionLink } from "utils/TransitionUtils"
 import media from "styles/media"
 import textStyles from "styles/text"
+import { TransitionLink } from "utils/TransitionUtils"
 
 export default function IndexPage({
   data,

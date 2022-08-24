@@ -2,9 +2,9 @@ import "styles/typography.css"
 import "styles/reset.css"
 import React from "react"
 
+import BlueTransition from "components/BlueTransition"
 import GreenTransition from "components/GreenTransition"
 import Providers from "components/Providers"
-import BlueTransition from "components/BlueTransition"
 // import type { GatsbyBrowser } from "gatsby"
 
 // eslint-disable-next-line no-console
