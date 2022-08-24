@@ -40,12 +40,18 @@ export default function BlueTransition() {
   }
 
   useEffect(() => {
+    // register a page transition
     registerTransition("blue", slideIn, slideOut)
+
+    // register a loader
     registerLoaderCallback(slideOut)
     registerProgress(setProgress)
 
     return () => {
+      // clean up page transition
       unregisterTransition("blue", slideIn, slideOut)
+
+      // clean up loader
       unregisterLoaderCallback(slideOut)
       unregisterProgress(setProgress)
     }

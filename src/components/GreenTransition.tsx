@@ -68,6 +68,7 @@ export default function GreenTransition() {
   }
 
   useEffect(() => {
+    // register two page transitions
     registerTransition("fade", fadeIn, fadeOut)
     registerTransition("slide", slideIn, slideOut)
 
