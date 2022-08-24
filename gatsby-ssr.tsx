@@ -4,7 +4,7 @@ import React from "react"
 
 import GreenTransition from "components/GreenTransition"
 import Providers from "components/Providers"
-import RedTransition from "components/RedTransition"
+import BlueTransition from "components/BlueTransition"
 // import type { GatsbyBrowser } from "gatsby"
 
 // eslint-disable-next-line no-console
@@ -25,7 +25,7 @@ export const wrapRootElement = ({ element }: { element: React.ReactNode }) => {
 export const wrapPageElement = ({ element }: { element: React.ReactNode }) => {
   return (
     <div>
-      <RedTransition />
+      <BlueTransition />
       <GreenTransition />
       {element}
     </div>

@@ -13,7 +13,7 @@ import {
 
 import { registerTransition } from "./TransitionLink"
 
-export default function RedTransition() {
+export default function BlueTransition() {
   const wrapperRef = useRef<HTMLDivElement>(null)
   const [progress, setProgress] = React.useState(0)
 
@@ -37,7 +37,7 @@ export default function RedTransition() {
   }
 
   useEffect(() => {
-    registerTransition("red", slideIn, slideOut)
+    registerTransition("blue", slideIn, slideOut)
     registerLoaderCallback(slideOut)
     registerProgress(setProgress)
 
@@ -49,7 +49,7 @@ export default function RedTransition() {
 
   return (
     <Wrapper ref={wrapperRef}>
-      <h1>RED TRANSITION</h1>
+      <h1>BLUE TRANSITION</h1>
       <p>{progress}</p>
     </Wrapper>
   )
@@ -61,7 +61,7 @@ const Wrapper = styled.div`
   height: 100%;
   top: 0;
   left: 0;
-  background-color: red;
+  background-color: dodgerblue;
   z-index: 100;
   pointer-events: none;
   display: grid;

@@ -27,8 +27,8 @@ export default function IndexPage({
           Slide to page 2
         </TransitionLink>
         <br />
-        <TransitionLink transition="red" to="/page-2/">
-          Red transition to page 2
+        <TransitionLink transition="blue" to="/page-2/">
+          Blue Transition to page 2
         </TransitionLink>
       </Filler>
       <Filler>
