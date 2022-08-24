@@ -17,7 +17,7 @@ export default function FourOhFour() {
         <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
         <br />
         <TransitionLink transition="slide" to="/">
-          Take me to the hompage!
+          Take me to the homepage!
         </TransitionLink>
       </Filler>
     </Layout>
