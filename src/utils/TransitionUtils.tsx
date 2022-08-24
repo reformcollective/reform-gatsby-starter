@@ -4,7 +4,7 @@ import React, { useEffect } from "react"
 import { navigate } from "gatsby-link"
 import gsap from "gsap"
 
-import { sleep } from "utils/functions"
+import { pathnameMatches, sleep } from "utils/functions"
 
 import { getLoaderIsDone } from "./LoaderUtils"
 
@@ -76,7 +76,7 @@ let pendingTransition: {
   name: string
   transition?: string
 } | null = null
-let animationInProgress = false
+let currentAnimation: string | null = null
 let waitingForPageToLoad = false
 const promisesToAwait: Promise<any>[] = []
 /**
@@ -85,11 +85,12 @@ const promisesToAwait: Promise<any>[] = []
  * @param transition the transition to use
  */
 export const loadPage = async (to: string, transition?: string) => {
-  if (animationInProgress) {
-    pendingTransition = { name: to, transition }
+  if (currentAnimation !== null) {
+    if (!pathnameMatches(to, currentAnimation))
+      pendingTransition = { name: to, transition }
     return
   }
-  animationInProgress = true
+  currentAnimation = to
   promisesToAwait.length = 0
   if (!transition) {
     navigate(to)
@@ -142,7 +143,7 @@ export const loadPage = async (to: string, transition?: string) => {
 
     setTimeout(() => {
       animationContext.revert()
-      animationInProgress = false
+      currentAnimation = null
       if (pendingTransition) {
         loadPage(pendingTransition.name, pendingTransition.transition)
         pendingTransition = null
