@@ -6,6 +6,8 @@ import gsap from "gsap"
 
 import { sleep } from "utils/functions"
 
+import { getLoaderIsDone } from "./LoaderUtils"
+
 /**
  * A function that runs an animation and returns the duration of that animation in seconds
  */
@@ -93,6 +95,8 @@ export const loadPage = async (to: string, transition?: string) => {
     navigate(to)
     return
   }
+
+  while (!getLoaderIsDone()) await sleep(100)
 
   const animationContext = gsap.context(() => {})
   const enterAnimations = transition

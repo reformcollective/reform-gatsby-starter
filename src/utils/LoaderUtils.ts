@@ -18,11 +18,32 @@ const GET_TIME_NEEDED = (rawMs: number) => (rawMs / 3) * 2 + 1000
  */
 const EXTRA_DELAY = 500
 
-const progressCallbacks: Function[] = []
-const animations: Function[] = []
+type Animation = () => number
+type ProgressCallback = (percent: number) => void
+const progressCallbacks: ProgressCallback[] = []
+const animations: Animation[] = []
 let isComplete = false
 const startTime = performance.now()
 const timeNeeded = GET_TIME_NEEDED(startTime)
+let loaderIsDone = false
+export const getLoaderIsDone = () => loaderIsDone
+
+/**
+ * call all callbacks and set done to true
+ */
+function onComplete() {
+  progressCallbacks.forEach(cb => cb(100))
+  isComplete = true
+
+  let longestAnimation = 0
+  animations.forEach(cb => {
+    longestAnimation = Math.max(longestAnimation, cb())
+  })
+
+  setTimeout(() => {
+    loaderIsDone = true
+  }, longestAnimation * 1000 + 10)
+}
 
 /**
  * percentage based loader
@@ -36,11 +57,7 @@ const updatePercent = () => {
   const progress = ((currentTime - startTime) / timeNeeded) * 100
   if (progress >= 99) {
     documentReady().then(() => {
-      if (!isComplete) {
-        progressCallbacks.forEach(cb => cb(100))
-        isComplete = true
-        animations.forEach(cb => cb())
-      }
+      if (!isComplete) onComplete()
     })
   } else {
     progressCallbacks.forEach(cb => cb(progress))
@@ -58,18 +75,17 @@ if (isBrowser()) updatePercent()
 if (isBrowser())
   documentReady().then(async () => {
     await sleep(EXTRA_DELAY)
-    if (!isComplete) {
-      isComplete = true
-      progressCallbacks.forEach(cb => cb(100))
-      animations.forEach(cb => cb())
-    }
+    if (!isComplete) onComplete()
   })
 
 /**
  * register a callback (such as an animation) to be called when the page is loaded
+ *
+ * note that the callback should return its duration in seconds
+ *
  * @param completionFunction function to call when the page is loaded
  */
-export const registerLoaderCallback = (completionFunction: Function) => {
+export const registerLoaderCallback = (completionFunction: Animation) => {
   if (isComplete) completionFunction()
   else animations.push(completionFunction)
 }
@@ -78,7 +94,7 @@ export const registerLoaderCallback = (completionFunction: Function) => {
  * register a callback (such as a progress bar or percentage) to be called while the page is loading
  * @param callback function to call with the percentage of the page loaded
  */
-export const registerProgress = (callback: (progress: number) => void) => {
+export const registerProgress = (callback: ProgressCallback) => {
   if (isComplete) callback(100)
   else progressCallbacks.push(callback)
 }
@@ -87,7 +103,7 @@ export const registerProgress = (callback: (progress: number) => void) => {
  * remove a callback from the list of callbacks
  * @param callback function to remove from the list of callbacks
  */
-export const unregisterLoaderCallback = (completionFunction: Function) => {
+export const unregisterLoaderCallback = (completionFunction: Animation) => {
   const index = animations.indexOf(completionFunction)
   if (index > -1) animations.splice(index, 1)
 }
@@ -96,7 +112,7 @@ export const unregisterLoaderCallback = (completionFunction: Function) => {
  * remove a progress callback from the list
  * @param callback function to remove from the list of callbacks
  */
-export const unregisterProgress = (callback: (progress: number) => void) => {
+export const unregisterProgress = (callback: ProgressCallback) => {
   const index = progressCallbacks.indexOf(callback)
   if (index > -1) progressCallbacks.splice(index, 1)
 }
