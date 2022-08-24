@@ -60,7 +60,7 @@ export default function BlueTransition() {
   return (
     <Wrapper ref={wrapperRef}>
       <h1>BLUE TRANSITION</h1>
-      <p>{progress}</p>
+      <h1>{Math.round(progress)}</h1>
     </Wrapper>
   )
 }
