@@ -26,6 +26,10 @@ export default function IndexPage({
         <TransitionLink transition="slide" to="/page-2/">
           Slide to page 2
         </TransitionLink>
+        <br />
+        <TransitionLink transition="red" to="/page-2/">
+          Red transition to page 2
+        </TransitionLink>
       </Filler>
       <Filler>
         <h1>Please enjoy the following template pages:</h1> <br />

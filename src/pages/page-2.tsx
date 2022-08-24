@@ -18,6 +18,10 @@ export default function SecondPage() {
         <TransitionLink transition="slide" to="/">
           Slide back to the homepage
         </TransitionLink>
+        <br />
+        <TransitionLink transition="red" to="/">
+          Red Transition back to the homepage
+        </TransitionLink>
       </Filler>
       <Filler>
         <h1>Please enjoy your stay</h1>
