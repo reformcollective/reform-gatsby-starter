@@ -37,10 +37,5 @@ export const sleep = (ms: number) =>
   })
 
 export function pathnameMatches(pathA: string, pathB: string) {
-  return (
-    pathA === pathB ||
-    pathA === `${pathB}/` ||
-    pathA === `/${pathB}` ||
-    pathA === `/${pathB}/`
-  )
+  return pathA === pathB || pathA === `${pathB}/`
 }

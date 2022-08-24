@@ -114,13 +114,8 @@ export const loadPage = async (to: string, transition?: string) => {
   }, 0)
 
   setTimeout(async () => {
-    // if we're on the page we want to go to, we don't wait for new page load
-    if (
-      window.location.pathname !== to &&
-      window.location.pathname !== `${to}/` &&
-      window.location.pathname !== `/${to}` &&
-      window.location.pathname !== `/${to}/`
-    )
+    // if we're on the page we want to go to, we don't wait for a new page load
+    if (!pathnameMatches(window.location.pathname, to))
       waitingForPageToLoad = true
 
     // actually navigate to the page
@@ -133,6 +128,7 @@ export const loadPage = async (to: string, transition?: string) => {
       : []
 
     // run each animation, add it to the context, and get the duration of the longest one
+    animationContext.revert()
     const exitDuration = exitAnimations.reduce((acc, t) => {
       let duration = 0
       animationContext.add(() => {
