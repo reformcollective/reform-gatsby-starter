@@ -5,7 +5,7 @@ import styled from "styled-components"
 
 import textStyles from "styles/text"
 
-import { registerTransition, unregisterTransition } from "./TransitionUtils"
+import { registerTransition, unregisterTransition } from "../utils/TransitionUtils"
 
 export default function GreenTransition() {
   const wrapperRef = useRef<HTMLDivElement>(null)

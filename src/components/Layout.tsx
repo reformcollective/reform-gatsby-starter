@@ -6,7 +6,7 @@ import Footer from "components/Footer"
 import Header from "components/Header"
 import Scroll from "components/Scroll"
 
-import { usePageLoad } from "./TransitionUtils"
+import { usePageLoad } from "../utils/TransitionUtils"
 
 interface LayoutProps {
   children: React.ReactNode

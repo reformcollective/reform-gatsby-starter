@@ -7,7 +7,7 @@ import SEO from "components/Seo"
 import {
   transitionAwaitPromise,
   TransitionLink,
-} from "components/TransitionUtils"
+} from "utils/TransitionUtils"
 import { Filler } from "pages"
 import { sleep } from "utils/functions"
 
