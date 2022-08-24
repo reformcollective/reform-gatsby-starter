@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from "react"
 import gsap from "gsap"
 import styled from "styled-components"
 
-import { registerTransition } from "utils/TransitionUtils"
+import { registerTransition, unregisterTransition } from "utils/TransitionUtils"
 
 export default function Header() {
   const text = useRef<HTMLDivElement>(null)
@@ -18,6 +18,8 @@ export default function Header() {
 
   useEffect(() => {
     registerTransition("fade", spin, spin)
+
+    return () => unregisterTransition("fade", spin, spin)
   }, [])
 
   return (
