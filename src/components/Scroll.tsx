@@ -7,31 +7,37 @@ type ScrollProps = {
   children: React.ReactNode
 }
 
+export const useIsSmooth = () => {
+  const [smooth, setSmooth] = useState(false)
+
+  useEffect(() => {
+    const observer = Observer.create({
+      onWheel: () => setSmooth(true),
+      onDrag: () => setSmooth(false),
+    })
+
+    return () => {
+      observer.kill()
+    }
+  }, [])
+
+  return smooth
+}
+
 export default function Scroll({ children }: ScrollProps) {
-  const [usingTouch, setUsingTouch] = useState(false)
+  const isSmooth = useIsSmooth()
 
   useEffect(() => {
     const smoother = ScrollSmoother.create({
-      smooth: usingTouch ? 0 : 1,
-      smoothTouch: usingTouch ? 0 : 1,
+      smooth: isSmooth ? 1 : 0,
+      smoothTouch: isSmooth ? 1 : 0,
       effects: true,
     })
 
     return () => {
       smoother.kill()
     }
-  }, [usingTouch])
-
-  useEffect(() => {
-    const observer = Observer.create({
-      onWheel: () => setUsingTouch(false),
-      onDrag: () => setUsingTouch(true),
-    })
-
-    return () => {
-      observer.kill()
-    }
-  })
+  }, [isSmooth])
 
   return (
     <div id="smooth-wrapper">
