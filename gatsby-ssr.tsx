@@ -1,5 +1,5 @@
 import "styles/typography.css"
-import "styles/reset.css"
+import "normalize.css"
 import React from "react"
 
 import BlueTransition from "components/BlueTransition"
