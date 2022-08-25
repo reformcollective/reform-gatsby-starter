@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react"
+import React, { useEffect, useRef, useState } from "react"
 
 import gsap from "gsap"
 import styled from "styled-components"
@@ -10,15 +10,12 @@ import {
   unregisterLoaderCallback,
   unregisterProgress,
 } from "utils/LoaderUtils"
-
-import {
-  registerTransition,
-  unregisterTransition,
-} from "../utils/TransitionUtils"
+import { registerTransition, unregisterTransition } from "utils/TransitionUtils"
 
 export default function BlueTransition() {
   const wrapperRef = useRef<HTMLDivElement>(null)
-  const [progress, setProgress] = React.useState(0)
+  const [progress, setProgress] = useState(0)
+  const [showPercentage, setShowPercentage] = useState(true)
 
   const slideIn = () => {
     gsap.fromTo(wrapperRef.current, { xPercent: -100 },
@@ -35,6 +32,7 @@ export default function BlueTransition() {
         duration: 1,
         xPercent: 100,
         ease: "power1.out",
+        onComplete: () => setShowPercentage(false),
       })
     return 1
   }
@@ -60,7 +58,7 @@ export default function BlueTransition() {
   return (
     <Wrapper ref={wrapperRef}>
       <h1>BLUE TRANSITION</h1>
-      <h1>{Math.round(progress)}</h1>
+      {showPercentage && <h1>{Math.round(progress)}</h1>}
     </Wrapper>
   )
 }

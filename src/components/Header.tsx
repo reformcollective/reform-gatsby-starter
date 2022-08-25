@@ -8,18 +8,26 @@ import { registerTransition, unregisterTransition } from "utils/TransitionUtils"
 export default function Header() {
   const text = useRef<HTMLDivElement>(null)
 
-  const spin = () => {
+  const up = () => {
     gsap.to(text.current, {
-      rotation: "+=360",
+      yPercent: -100,
+      duration: 1,
+    })
+    return 1
+  }
+
+  const down = () => {
+    gsap.from(text.current, {
+      yPercent: -100,
       duration: 1,
     })
     return 1
   }
 
   useEffect(() => {
-    registerTransition("fade", spin, spin)
+    registerTransition("fade", up, down)
 
-    return () => unregisterTransition("fade", spin, spin)
+    return () => unregisterTransition("fade", up, down)
   }, [])
 
   return (

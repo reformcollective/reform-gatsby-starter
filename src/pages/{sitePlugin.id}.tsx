@@ -4,9 +4,10 @@ import { graphql, HeadProps, PageProps } from "gatsby"
 
 import Layout from "components/Layout"
 import SEO from "components/Seo"
-import { Filler } from "pages"
 import { sleep } from "utils/functions"
 import { transitionAwaitPromise, TransitionLink } from "utils/TransitionUtils"
+
+import { Filler } from "./404"
 
 /**
  * as an example, this template page generates a page for each plugin

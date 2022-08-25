@@ -4,7 +4,9 @@ import React, { useEffect } from "react"
 import { navigate } from "gatsby-link"
 import gsap from "gsap"
 
-import { sleep } from "utils/functions"
+import { pathnameMatches, sleep } from "utils/functions"
+
+import { getLoaderIsDone } from "./LoaderUtils"
 
 /**
  * A function that runs an animation and returns the duration of that animation in seconds
@@ -74,7 +76,7 @@ let pendingTransition: {
   name: string
   transition?: string
 } | null = null
-let animationInProgress = false
+let currentAnimation: string | null = null
 let waitingForPageToLoad = false
 const promisesToAwait: Promise<any>[] = []
 /**
@@ -83,16 +85,19 @@ const promisesToAwait: Promise<any>[] = []
  * @param transition the transition to use
  */
 export const loadPage = async (to: string, transition?: string) => {
-  if (animationInProgress) {
-    pendingTransition = { name: to, transition }
+  if (currentAnimation !== null) {
+    if (!pathnameMatches(to, currentAnimation))
+      pendingTransition = { name: to, transition }
     return
   }
-  animationInProgress = true
+  currentAnimation = to
   promisesToAwait.length = 0
   if (!transition) {
     navigate(to)
     return
   }
+
+  while (!getLoaderIsDone()) await sleep(100)
 
   const animationContext = gsap.context(() => {})
   const enterAnimations = transition
@@ -109,13 +114,8 @@ export const loadPage = async (to: string, transition?: string) => {
   }, 0)
 
   setTimeout(async () => {
-    // if we're on the page we want to go to, we don't wait for new page load
-    if (
-      window.location.pathname !== to &&
-      window.location.pathname !== `${to}/` &&
-      window.location.pathname !== `/${to}` &&
-      window.location.pathname !== `/${to}/`
-    )
+    // if we're on the page we want to go to, we don't wait for a new page load
+    if (!pathnameMatches(window.location.pathname, to))
       waitingForPageToLoad = true
 
     // actually navigate to the page
@@ -128,6 +128,7 @@ export const loadPage = async (to: string, transition?: string) => {
       : []
 
     // run each animation, add it to the context, and get the duration of the longest one
+    animationContext.revert()
     const exitDuration = exitAnimations.reduce((acc, t) => {
       let duration = 0
       animationContext.add(() => {
@@ -138,7 +139,7 @@ export const loadPage = async (to: string, transition?: string) => {
 
     setTimeout(() => {
       animationContext.revert()
-      animationInProgress = false
+      currentAnimation = null
       if (pendingTransition) {
         loadPage(pendingTransition.name, pendingTransition.transition)
         pendingTransition = null

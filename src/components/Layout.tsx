@@ -5,8 +5,7 @@ import styled from "styled-components"
 import Footer from "components/Footer"
 import Header from "components/Header"
 import Scroll from "components/Scroll"
-
-import { usePageLoad } from "../utils/TransitionUtils"
+import { usePageLoad } from "utils/TransitionUtils"
 
 interface LayoutProps {
   children: React.ReactNode
