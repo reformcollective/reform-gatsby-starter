@@ -11,7 +11,7 @@ type ScrollProps = {
  * returns true if ScrollSmoother is enabled
  */
 export const useIsSmooth = () => {
-  const [smooth, setSmooth] = useState(false)
+  const [smooth, setSmooth] = useState(true)
 
   useEffect(() => {
     const observer = Observer.create({
