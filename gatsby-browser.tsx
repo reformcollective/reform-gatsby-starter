@@ -26,14 +26,17 @@ console.log(`
     Designed & Developed by Reform Collective
          https://reformcollective.com
 `)
-console.log(
-  d(logo),
-  "background:#eee;color:black;font-size:3px;padding:20px;border-radius:20px;margin:10px"
-)
-console.log(
-  d(logo),
-  "background:black;color:white;font-size:3px;padding:20px;border-radius:20px;margin:10px"
-)
+// @ts-ignore
+if (typeof chrome === "object") {
+  console.log(
+    d(logo),
+    "background:#eee;color:black;font-size:3px;padding:20px;border-radius:20px;margin:10px"
+  )
+  console.log(
+    d(logo),
+    "background:black;color:white;font-size:3px;padding:20px;border-radius:20px;margin:10px"
+  )
+}
 console.log(
   `%c
           Designed & Developed by Reform Collective\n
