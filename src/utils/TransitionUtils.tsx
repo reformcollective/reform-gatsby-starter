@@ -92,7 +92,8 @@ export const loadInternalPage = async (to: string, transition?: string) => {
   }
   currentAnimation = to
   promisesToAwait.length = 0
-  if (!transition) {
+  if (!transition || !allTransitions[transition]) {
+    currentAnimation = null
     navigate(to)
     return
   }
