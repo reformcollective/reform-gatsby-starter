@@ -6,26 +6,30 @@ type SEOProps = {
   title?: string
   description?: string
   pathname?: string
+  creator?: string
+  image?: string
 }
 
 export default function SEO({
   title = undefined,
   description = undefined,
   pathname = undefined,
+  creator = "",
+  image = undefined,
 }: SEOProps) {
   const {
     title: defaultTitle,
     description: defaultDescription,
-    image,
+    image: defaultImage,
     siteUrl,
   } = useSiteMetadata()
 
   const seo = {
     title: title || defaultTitle,
     description: description || defaultDescription,
-    image: `${siteUrl}${image}`,
+    image: image || defaultImage,
     url: `${siteUrl}/${pathname || ``}`,
-    creator: "", // TODO add username?
+    creator,
   }
 
   return (

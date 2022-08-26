@@ -5,18 +5,19 @@ const path = require("path")
 const config: GatsbyConfig = {
   // TODO add proper metadata
   siteMetadata: {
-    title: `Reform Starter`,
-    description: `A starter for Gatsby`,
-    siteUrl: `https://www.yourdomain.tld`,
-    image: `https://example.com/logo.png`,
+    title: "Reform Starter",
+    description: "A starter for Gatsby",
+    siteUrl: "https://www.yourdomain.tld",
+    image: "https://example.com/logo.png",
   },
+  graphqlTypegen: true,
   plugins: [
     "gatsby-plugin-styled-components",
     "gatsby-plugin-sitemap",
     "gatsby-plugin-netlify",
     "gatsby-plugin-image",
-    `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
+    "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
     // TODO setup a contentful space
     // {
     //   resolve: "gatsby-source-contentful",
@@ -28,13 +29,13 @@ const config: GatsbyConfig = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        name: `Reform Starter`, // TODO add name
-        short_name: `Reform`, // TODO add short name
-        start_url: `/`,
-        background_color: `#ffffff`, // TODO add theme color
-        theme_color: `#ffffff`,
-        display: `minimal-ui`,
-        icon: `./src/images/global/icon.png`, // TODO add favicon
+        name: "Reform Starter", // TODO add name
+        short_name: "Reform", // TODO add short name
+        start_url: "/",
+        background_color: "#ffffff", // TODO add theme color
+        theme_color: "#ffffff",
+        display: "minimal-ui",
+        icon: "./src/images/global/icon.png", // TODO add favicon
       },
     },
     {
@@ -44,13 +45,20 @@ const config: GatsbyConfig = {
       },
     },
     {
-      resolve: `gatsby-plugin-layout`,
+      resolve: "gatsby-plugin-layout",
       options: {
         component: path.resolve("./src/components/Providers/index.tsx"),
       },
     },
     {
-      resolve: `gatsby-plugin-svgr`,
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "images",
+        path: path.join(__dirname, "src", "images"),
+      },
+    },
+    {
+      resolve: "gatsby-plugin-svgr",
       options: {
         prettier: true,
         svgo: true,
@@ -91,14 +99,13 @@ const config: GatsbyConfig = {
       },
     },
     {
-      resolve: `gatsby-plugin-tsconfig-paths`,
+      resolve: "gatsby-plugin-tsconfig-paths",
       options: {
         configFile: `${__dirname}/tsconfig.json`,
         silent: true,
       },
     },
   ],
-  graphqlTypegen: true,
 }
 
 export default config

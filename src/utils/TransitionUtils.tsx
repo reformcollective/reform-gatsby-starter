@@ -4,7 +4,7 @@ import React, { useEffect } from "react"
 import { navigate } from "gatsby-link"
 import gsap from "gsap"
 
-import { sleep } from "utils/functions"
+import { pathnameMatches, sleep } from "utils/functions"
 
 import { getLoaderIsDone } from "./LoaderUtils"
 
@@ -76,7 +76,7 @@ let pendingTransition: {
   name: string
   transition?: string
 } | null = null
-let animationInProgress = false
+let currentAnimation: string | null = null
 let waitingForPageToLoad = false
 const promisesToAwait: Promise<any>[] = []
 /**
@@ -84,14 +84,16 @@ const promisesToAwait: Promise<any>[] = []
  * @param to page to load
  * @param transition the transition to use
  */
-export const loadPage = async (to: string, transition?: string) => {
-  if (animationInProgress) {
-    pendingTransition = { name: to, transition }
+export const loadInternalPage = async (to: string, transition?: string) => {
+  if (currentAnimation !== null) {
+    if (!pathnameMatches(to, currentAnimation))
+      pendingTransition = { name: to, transition }
     return
   }
-  animationInProgress = true
+  currentAnimation = to
   promisesToAwait.length = 0
-  if (!transition) {
+  if (!transition || !allTransitions[transition]) {
+    currentAnimation = null
     navigate(to)
     return
   }
@@ -113,13 +115,8 @@ export const loadPage = async (to: string, transition?: string) => {
   }, 0)
 
   setTimeout(async () => {
-    // if we're on the page we want to go to, we don't wait for new page load
-    if (
-      window.location.pathname !== to &&
-      window.location.pathname !== `${to}/` &&
-      window.location.pathname !== `/${to}` &&
-      window.location.pathname !== `/${to}/`
-    )
+    // if we're on the page we want to go to, we don't wait for a new page load
+    if (!pathnameMatches(window.location.pathname, to))
       waitingForPageToLoad = true
 
     // actually navigate to the page
@@ -132,6 +129,7 @@ export const loadPage = async (to: string, transition?: string) => {
       : []
 
     // run each animation, add it to the context, and get the duration of the longest one
+    animationContext.revert()
     const exitDuration = exitAnimations.reduce((acc, t) => {
       let duration = 0
       animationContext.add(() => {
@@ -142,13 +140,27 @@ export const loadPage = async (to: string, transition?: string) => {
 
     setTimeout(() => {
       animationContext.revert()
-      animationInProgress = false
+      currentAnimation = null
       if (pendingTransition) {
-        loadPage(pendingTransition.name, pendingTransition.transition)
+        loadInternalPage(pendingTransition.name, pendingTransition.transition)
         pendingTransition = null
       }
     }, exitDuration * 1000 + 10)
   }, entranceDuration * 1000)
+}
+
+/**
+ * navigate to an external or internal link
+ * if the link is internal, the page will be loaded with the corresponding animation
+ * if the link is external, the page will be loaded without any animation
+ * @param to the link to navigate to
+ * @param transition the transition to use if internal
+ */
+export const openLink = (to: string, transition?: string) => {
+  const isExternal = to.substring(0, 8).includes("//")
+
+  if (isExternal) window.open(to, "_blank")
+  else loadInternalPage(to, transition)
 }
 
 /**
@@ -162,6 +174,7 @@ export function usePageLoad() {
 
 /**
  * wait for a promise to settle before transitioning to the next page
+ * useful for waiting on a file, such as a video, to load
  * @param promise promise to await
  */
 export function transitionAwaitPromise(promise: Promise<any>) {
@@ -184,14 +197,14 @@ interface TransitionLinkProps {
  * a link that navigates when clicked, using the specified transition
  * @returns
  */
-export function TransitionLink({
+export function UniversalLink({
   to,
   transition = undefined,
   children,
 }: TransitionLinkProps) {
   const handleClick: React.MouseEventHandler = e => {
     e.preventDefault()
-    loadPage(to, transition)
+    openLink(to, transition)
   }
 
   return (

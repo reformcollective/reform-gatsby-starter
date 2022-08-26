@@ -1,21 +1,9 @@
 import { css } from "styled-components"
 
-const fonts = {
-  primary: css`
-    font-family: sans-serif;
-  `,
-}
-
 const textStyles = {
-  h1: css`
-    ${fonts.primary}
-  `,
-  h2: css`
-    ${fonts.primary}
-  `,
-  h3: css`
-    ${fonts.primary}
-  `,
+  h1: css``,
+  h2: css``,
+  h3: css``,
 }
 
 export const strokeText = css`

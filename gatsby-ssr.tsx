@@ -1,5 +1,5 @@
-import "styles/typography.css"
-import "styles/reset.css"
+import "styles/fonts/typography.css"
+import "normalize.css"
 import React from "react"
 
 import BlueTransition from "components/BlueTransition"
@@ -14,7 +14,7 @@ console.log(`
 ⣿⠀⠀⠀⠀⣿⣿⣿⣿⣿⡇⠀⠀⠀⢸⣧⣤⣼⡟⣠⣚⣓⣦⡘⣿⠛⣢⡖⠛⢶⡄⣾⡖⠂⣿⠒⠻⣦⠚⢷⡄
 ⣿⣆⠀⠀⠀⣿⣿⣿⣿⣿⡇⠀⠀⠀⢸⡇⠀⢸⣿⠹⣍⣉⣭⠀⣿⠀⠹⣧⣀⣼⠇⣿⠀⠀⣿⠀⠀⣿⠀⢸⡇
 ⣿⣿⣶⣶⣤⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-    Designed & Developed by Reform Collective
+   Designed & Developed by Reform Collective
          https://reformcollective.com
 `)
 

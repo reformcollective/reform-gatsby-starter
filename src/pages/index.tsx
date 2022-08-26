@@ -4,7 +4,7 @@ import { graphql, PageProps } from "gatsby"
 
 import Layout from "components/Layout"
 import SEO from "components/Seo"
-import { TransitionLink } from "utils/TransitionUtils"
+import { UniversalLink } from "utils/TransitionUtils"
 
 import { Filler } from "./404"
 
@@ -18,25 +18,25 @@ export default function IndexPage({
       <Filler>
         <h1>Welcome to Your Gatsby Site</h1>
         <br />
-        <TransitionLink transition="fade" to="/page-2/">
+        <UniversalLink transition="fade" to="/page-2/">
           Fade to page 2
-        </TransitionLink>
+        </UniversalLink>
         <br />
-        <TransitionLink transition="slide" to="/page-2/">
+        <UniversalLink transition="slide" to="/page-2/">
           Slide to page 2
-        </TransitionLink>
+        </UniversalLink>
         <br />
-        <TransitionLink transition="blue" to="/page-2/">
+        <UniversalLink transition="blue" to="/page-2/">
           Blue Transition to page 2
-        </TransitionLink>
+        </UniversalLink>
       </Filler>
       <Filler>
         <h1>Please enjoy the following template pages:</h1> <br />
         {pluginList.map(({ node }) => (
-          <TransitionLink transition="fade" to={`/${node.id}`} key={node.id}>
+          <UniversalLink transition="fade" to={`/${node.id}`} key={node.id}>
             {node.name}
             <br />
-          </TransitionLink>
+          </UniversalLink>
         ))}
       </Filler>
     </Layout>

@@ -6,7 +6,7 @@ import Layout from "components/Layout"
 import SEO from "components/Seo"
 import media from "styles/media"
 import textStyles from "styles/text"
-import { TransitionLink } from "utils/TransitionUtils"
+import { UniversalLink } from "utils/TransitionUtils"
 
 export default function FourOhFour() {
   return (
@@ -16,9 +16,9 @@ export default function FourOhFour() {
         <br />
         <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
         <br />
-        <TransitionLink transition="slide" to="/">
-          Take me to the hompage!
-        </TransitionLink>
+        <UniversalLink transition="slide" to="/">
+          Take me to the homepage!
+        </UniversalLink>
       </Filler>
     </Layout>
   )

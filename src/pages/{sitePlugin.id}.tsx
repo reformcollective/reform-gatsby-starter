@@ -5,7 +5,7 @@ import { graphql, HeadProps, PageProps } from "gatsby"
 import Layout from "components/Layout"
 import SEO from "components/Seo"
 import { sleep } from "utils/functions"
-import { transitionAwaitPromise, TransitionLink } from "utils/TransitionUtils"
+import { transitionAwaitPromise, UniversalLink } from "utils/TransitionUtils"
 
 import { Filler } from "./404"
 
@@ -24,9 +24,9 @@ export default function TemplateSample({
       <Filler>
         <h1>Hello from the {data.sitePlugin?.name} page</h1>
         <br />
-        <TransitionLink transition="fade" to="/">
+        <UniversalLink transition="fade" to="/">
           Go back to the homepage
-        </TransitionLink>
+        </UniversalLink>
       </Filler>
       <Filler>
         <h1>This page is entirely dedicated to {data.sitePlugin?.name}</h1>
