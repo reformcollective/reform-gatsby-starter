@@ -1,3 +1,5 @@
+/* eslint-disable ssr-friendly/no-dom-globals-in-module-scope */
+/* eslint-disable no-console */
 import "styles/fonts/typography.css"
 import "normalize.css"
 import React from "react"

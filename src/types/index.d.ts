@@ -16,3 +16,5 @@ declare global {
     netscape: unknown
   }
 }
+
+export type Exclude = never
