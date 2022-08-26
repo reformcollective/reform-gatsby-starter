@@ -1,3 +1,5 @@
+/// <reference types="react-scripts" />
+
 declare global {
   interface Window {
     /**
@@ -13,11 +15,4 @@ declare global {
      */
     netscape: unknown
   }
-}
-
-export interface ScreenContextTypes {
-  fullWidth: boolean
-  desktop: boolean
-  tablet: boolean
-  mobile: boolean
 }

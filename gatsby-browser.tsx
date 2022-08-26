@@ -1,4 +1,4 @@
-import "styles/typography.css"
+import "styles/fonts/typography.css"
 import "normalize.css"
 import React from "react"
 

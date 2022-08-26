@@ -2,7 +2,7 @@ import React from "react"
 
 import Layout from "components/Layout"
 import SEO from "components/Seo"
-import { TransitionLink } from "utils/TransitionUtils"
+import { UniversalLink } from "utils/TransitionUtils"
 
 import { Filler } from "./404"
 
@@ -12,17 +12,17 @@ export default function SecondPage() {
       <Filler>
         <h1>Hi from the second page</h1>
         <br />
-        <TransitionLink transition="fade" to="/">
+        <UniversalLink transition="fade" to="/">
           Fade back to the homepage
-        </TransitionLink>
+        </UniversalLink>
         <br />
-        <TransitionLink transition="slide" to="/">
+        <UniversalLink transition="slide" to="/">
           Slide back to the homepage
-        </TransitionLink>
+        </UniversalLink>
         <br />
-        <TransitionLink transition="blue" to="/">
+        <UniversalLink transition="blue" to="/">
           Blue Transition back to the homepage
-        </TransitionLink>
+        </UniversalLink>
       </Filler>
       <Filler>
         <h1>Please enjoy your stay</h1>

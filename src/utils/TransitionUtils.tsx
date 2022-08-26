@@ -84,7 +84,7 @@ const promisesToAwait: Promise<any>[] = []
  * @param to page to load
  * @param transition the transition to use
  */
-export const loadPage = async (to: string, transition?: string) => {
+export const loadInternalPage = async (to: string, transition?: string) => {
   if (currentAnimation !== null) {
     if (!pathnameMatches(to, currentAnimation))
       pendingTransition = { name: to, transition }
@@ -141,11 +141,25 @@ export const loadPage = async (to: string, transition?: string) => {
       animationContext.revert()
       currentAnimation = null
       if (pendingTransition) {
-        loadPage(pendingTransition.name, pendingTransition.transition)
+        loadInternalPage(pendingTransition.name, pendingTransition.transition)
         pendingTransition = null
       }
     }, exitDuration * 1000 + 10)
   }, entranceDuration * 1000)
+}
+
+/**
+ * navigate to an external or internal link
+ * if the link is internal, the page will be loaded with the corresponding animation
+ * if the link is external, the page will be loaded without any animation
+ * @param to the link to navigate to
+ * @param transition the transition to use if internal
+ */
+export const openLink = (to: string, transition?: string) => {
+  const isExternal = to.substring(0, 8).includes("//")
+
+  if (isExternal) window.open(to, "_blank")
+  else loadInternalPage(to, transition)
 }
 
 /**
@@ -159,6 +173,7 @@ export function usePageLoad() {
 
 /**
  * wait for a promise to settle before transitioning to the next page
+ * useful for waiting on a file, such as a video, to load
  * @param promise promise to await
  */
 export function transitionAwaitPromise(promise: Promise<any>) {
@@ -181,14 +196,14 @@ interface TransitionLinkProps {
  * a link that navigates when clicked, using the specified transition
  * @returns
  */
-export function TransitionLink({
+export function UniversalLink({
   to,
   transition = undefined,
   children,
 }: TransitionLinkProps) {
   const handleClick: React.MouseEventHandler = e => {
     e.preventDefault()
-    loadPage(to, transition)
+    openLink(to, transition)
   }
 
   return (
