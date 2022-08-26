@@ -5,7 +5,7 @@ jobs:
   #   env:
   #     CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
   #     CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
-  #   runs-on: linux
+  #   runs-on: self-hosted
   #   steps:
   #     - name: Checkout
   #       uses: actions/checkout@v2
@@ -22,7 +22,7 @@ jobs:
     # Check if the PR is not from a fork
     # only run if not authored by dependabot
     if: github.event.pull_request.head.repo.full_name == github.repository && github.event.pull_request.author != 'dependabot[bot]'
-    runs-on: linux
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v1
         with:
@@ -48,7 +48,7 @@ jobs:
     # Check if the PR is not from a fork
     # only run if not authored by dependabot
     if: github.event.pull_request.head.repo.full_name == github.repository && github.event.pull_request.author != 'dependabot[bot]'
-    runs-on: linux
+    runs-on: self-hosted
     needs: Automatically_Format
     steps:
       - uses: actions/checkout@v3
@@ -66,7 +66,7 @@ jobs:
     # Check if the PR is not from a fork
     # only run if not authored by dependabot
     if: github.event.pull_request.head.repo.full_name == github.repository && github.event.pull_request.author != 'dependabot[bot]'
-    runs-on: linux
+    runs-on: self-hosted
     needs: Automatically_Format
     steps:
       - uses: actions/checkout@v2
@@ -81,7 +81,7 @@ jobs:
     # Check if the PR is not from a fork
     # only run if not authored by dependabot
     if: github.event.pull_request.head.repo.full_name == github.repository && github.event.pull_request.author != 'dependabot[bot]'
-    runs-on: linux
+    runs-on: self-hosted
     needs: Automatically_Format
     steps:
       - uses: actions/checkout@v2
