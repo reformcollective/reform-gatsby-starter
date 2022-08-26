@@ -11,7 +11,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 import BlueTransition from "components/BlueTransition"
 import GreenTransition from "components/GreenTransition"
 import Providers from "components/Providers"
-// import type { GatsbyBrowser } from "gatsby"
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
 
