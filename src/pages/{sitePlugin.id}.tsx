@@ -2,10 +2,10 @@ import React from "react"
 
 import { graphql, HeadProps, PageProps } from "gatsby"
 
-import Layout from "components/Layout"
 import SEO from "components/Seo"
 import { sleep } from "utils/functions"
-import { transitionAwaitPromise, UniversalLink } from "utils/TransitionUtils"
+import { transitionAwaitPromise } from "utils/Loader/TransitionUtils"
+import UniversalLink from "utils/Loader/UniversalLink"
 
 import { Filler } from "./404"
 
@@ -20,7 +20,7 @@ export default function TemplateSample({
   if (Math.random() > 0.5) transitionAwaitPromise(sleep(1000))
 
   return (
-    <Layout>
+    <>
       <Filler>
         <h1>Hello from the {data.sitePlugin?.name} page</h1>
         <br />
@@ -34,14 +34,14 @@ export default function TemplateSample({
       <Filler>
         <h1>If you don&apos;t like {data.sitePlugin?.name} I will fight you</h1>
       </Filler>
-    </Layout>
+    </>
   )
 }
 
 export function Head({ data }: HeadProps<Queries.SitePluginTemplateQuery>) {
   return (
     <SEO
-      title={`${data.sitePlugin?.name} example`}
+      title={data.sitePlugin?.name}
       description="This template page is an example"
       pathname={data.sitePlugin?.id}
     />

@@ -2,25 +2,22 @@ import React from "react"
 
 import styled from "styled-components"
 
-import Layout from "components/Layout"
 import SEO from "components/Seo"
 import media from "styles/media"
 import textStyles from "styles/text"
-import { UniversalLink } from "utils/TransitionUtils"
+import UniversalLink from "utils/Loader/UniversalLink"
 
 export default function FourOhFour() {
   return (
-    <Layout>
-      <Filler>
-        <h1>404: Not Found</h1>
-        <br />
-        <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-        <br />
-        <UniversalLink transition="slide" to="/">
-          Take me to the homepage!
-        </UniversalLink>
-      </Filler>
-    </Layout>
+    <Filler>
+      <h1>404: Not Found</h1>
+      <br />
+      <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+      <br />
+      <UniversalLink transition="slide" to="/">
+        Take me to the homepage!
+      </UniversalLink>
+    </Filler>
   )
 }
 

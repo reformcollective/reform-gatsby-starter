@@ -4,13 +4,8 @@ import gsap from "gsap"
 import styled from "styled-components"
 
 import textStyles from "styles/text"
-import {
-  registerLoaderCallback,
-  registerProgress,
-  unregisterLoaderCallback,
-  unregisterProgress,
-} from "utils/LoaderUtils"
-import { registerTransition, unregisterTransition } from "utils/TransitionUtils"
+import loader from "utils/Loader"
+import { registerTransition, unregisterTransition } from "utils/Loader/TransitionUtils"
 
 export default function BlueTransition() {
   const wrapperRef = useRef<HTMLDivElement>(null)
@@ -20,7 +15,6 @@ export default function BlueTransition() {
   const slideIn = () => {
     gsap.fromTo(wrapperRef.current, { xPercent: -100 },
       { xPercent: 0, duration: 1 })
-    return 1
   }
 
   const slideOut = () => {
@@ -34,24 +28,32 @@ export default function BlueTransition() {
         ease: "power1.out",
         onComplete: () => setShowPercentage(false),
       })
-    return 1
+  }
+
+  const updateProgress = (e: CustomEvent<number>) => {
+    setProgress(e.detail)
   }
 
   useEffect(() => {
     // register a page transition
-    registerTransition("blue", slideIn, slideOut)
+    registerTransition("blue", {
+      in: slideIn,
+      out: slideOut,
+      inDuration: 1,
+      outDuration: 1
+    })
 
     // register a loader
-    registerLoaderCallback(slideOut)
-    registerProgress(setProgress)
+    loader.addEventListener('initialEnd', slideOut)
+    loader.addEventListener('progressUpdated', updateProgress)
 
     return () => {
       // clean up page transition
-      unregisterTransition("blue", slideIn, slideOut)
+      unregisterTransition("blue", [slideIn, slideOut])
 
       // clean up loader
-      unregisterLoaderCallback(slideOut)
-      unregisterProgress(setProgress)
+      loader.removeEventListener('initialEnd', slideOut)
+      loader.removeEventListener('progressUpdated', updateProgress)
     }
   }, [])
 

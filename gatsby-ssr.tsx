@@ -1,13 +1,15 @@
 import "styles/fonts/typography.css"
-import "normalize.css"
+import "the-new-css-reset/css/reset.css"
 import React from "react"
 
-import BlueTransition from "components/BlueTransition"
-import GreenTransition from "components/GreenTransition"
+import { RenderBodyArgs } from "gatsby"
+
+import Layout from "components/Layout"
 import Providers from "components/Providers"
 
+// intentional console
 // eslint-disable-next-line no-console
-console.log(`
+console.info(`
 ⣿⣿⠿⠟⠛⣿⣿⣿⣿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⣿⠏⠀⠀⠀⣿⣿⣿⣿⣿⡇⠀⠀⠀⢰⡶⠶⢶⣄⠀⠀⠀⠀⠀⣰⠶⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⣿⠀⠀⠀⠀⣿⣿⣿⣿⣿⡇⠀⠀⠀⢸⣧⣤⣼⡟⣠⣚⣓⣦⡘⣿⠛⣢⡖⠛⢶⡄⣾⡖⠂⣿⠒⠻⣦⠚⢷⡄
@@ -22,11 +24,11 @@ export const wrapRootElement = ({ element }: { element: React.ReactNode }) => {
 }
 
 export const wrapPageElement = ({ element }: { element: React.ReactNode }) => {
-  return (
-    <div>
-      <BlueTransition />
-      <GreenTransition />
-      {element}
-    </div>
-  )
+  return <Layout>{element}</Layout>
+}
+
+export const onRenderBody = ({ setHtmlAttributes }: RenderBodyArgs) => {
+  setHtmlAttributes({
+    lang: "en",
+  })
 }

@@ -4,7 +4,7 @@ export const addDebouncedEventListener = (
   element: Window | HTMLElement,
   event: string,
   callback: () => void,
-  delay: number
+  delay = 100
 ) => {
   let timeout: NodeJS.Timeout
 
@@ -13,6 +13,7 @@ export const addDebouncedEventListener = (
     timeout = setTimeout(() => callback(), delay)
   }
   element.addEventListener(event, debouncedCallback)
+  return () => element.removeEventListener(event, debouncedCallback)
 }
 
 export const vwToPx = (vw: number) => {
@@ -38,4 +39,16 @@ export const sleep = (ms: number) =>
 
 export function pathnameMatches(pathA: string, pathB: string) {
   return pathA === pathB || pathA === `${pathB}/`
+}
+
+// input in the form of rgb(255, 255, 255)
+// determine if the color is light or dark
+export const isColorLight = (color: string) => {
+  const rgb = color.match(/\d+/g)
+  if (!rgb) return false
+  const r = parseInt(rgb[0], 10)
+  const g = parseInt(rgb[1], 10)
+  const b = parseInt(rgb[2], 10)
+  const brightness = (r * 299 + g * 587 + b * 114) / 1000
+  return brightness > 125
 }

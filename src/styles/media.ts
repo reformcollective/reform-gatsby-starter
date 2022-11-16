@@ -1,24 +1,33 @@
-export const mobile = 375
-export const tablet = 1024
-export const desktop = 1440
+export const mobileBreakpoint = 500
+export const mobileDesignSize = 375
+
+export const tabletBreakpoint = 1024
+export const tabletDesignSize = 1024
+
+export const desktopBreakpoint = 1440
+export const desktopDesignSize = 1440
 
 const media = {
   // standard media queries
-  mobile: `@media screen and (max-width: ${mobile}px)`,
+  mobile: `@media screen and (max-width: ${mobileBreakpoint}px)`,
   tablet: `@media screen and (min-width: ${
-    mobile + 1
-  }px) and (max-width: ${tablet}px)`,
+    mobileBreakpoint + 1
+  }px) and (max-width: ${tabletBreakpoint}px)`,
   desktop: `@media screen and (min-width: ${
-    tablet + 1
-  }px) and (max-width: ${desktop}px)`,
-  fullWidth: `@media screen and (min-width: ${desktop + 1}px)`,
+    tabletBreakpoint + 1
+  }px) and (max-width: ${desktopBreakpoint}px)`,
+  fullWidth: `@media screen and (min-width: ${desktopBreakpoint + 1}px)`,
 
   // raw versions for for use in gsap.matchMedia
   gsap: {
-    mobile: `(max-width: ${mobile}px)`,
-    tablet: `(min-width: ${mobile + 1}px) and (max-width: ${tablet}px)`,
-    desktop: `(min-width: ${tablet + 1}px) and (max-width: ${desktop}px)`,
-    fullWidth: `(min-width: ${desktop + 1}px)`,
+    mobile: `(max-width: ${mobileBreakpoint}px)`,
+    tablet: `(min-width: ${
+      mobileBreakpoint + 1
+    }px) and (max-width: ${tabletBreakpoint}px)`,
+    desktop: `(min-width: ${
+      tabletBreakpoint + 1
+    }px) and (max-width: ${desktopBreakpoint}px)`,
+    fullWidth: `(min-width: ${desktopBreakpoint + 1}px)`,
   },
 
   // hover queries

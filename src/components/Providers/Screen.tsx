@@ -1,6 +1,10 @@
 import React, { createContext, useState, useEffect, useMemo } from "react"
 
-import { desktop, tablet, mobile } from "styles/media"
+import {
+  desktopBreakpoint,
+  tabletBreakpoint,
+  mobileBreakpoint,
+} from "styles/media"
 import { addDebouncedEventListener, isBrowser } from "utils/functions"
 
 /**
@@ -26,10 +30,16 @@ export function ScreenProvider({ children }: Props) {
   useEffect(() => {
     if (isBrowser()) {
       const setScreenContext = () => {
-        setM(window.innerWidth <= mobile)
-        setT(window.innerWidth > mobile && window.innerWidth <= tablet)
-        setD(window.innerWidth > tablet && window.innerWidth <= desktop)
-        setFw(window.innerWidth > desktop)
+        setM(window.innerWidth <= mobileBreakpoint)
+        setT(
+          window.innerWidth > mobileBreakpoint &&
+            window.innerWidth <= tabletBreakpoint
+        )
+        setD(
+          window.innerWidth > tabletBreakpoint &&
+            window.innerWidth <= desktopBreakpoint
+        )
+        setFw(window.innerWidth > desktopBreakpoint)
       }
 
       setScreenContext()
@@ -43,6 +53,7 @@ export function ScreenProvider({ children }: Props) {
 
       return removeListener
     }
+    return () => {}
   }, [])
 
   const screenValue = useMemo(() => {
