@@ -26,4 +26,5 @@ updates:
     schedule:
       interval: "weekly"
 ```
+
 # portfolio
