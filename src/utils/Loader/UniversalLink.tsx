@@ -21,9 +21,7 @@ interface UniversalLinkProps {
   onMouseLeave?: MouseEventHandler
   onClick?: MouseEventHandler
   type?: "submit"
-  forwardRef?: React.Ref<
-    HTMLAnchorElement & HTMLButtonElement & Link<unknown>
-  >
+  forwardRef?: React.Ref<HTMLAnchorElement & HTMLButtonElement & Link<unknown>>
 }
 
 /**

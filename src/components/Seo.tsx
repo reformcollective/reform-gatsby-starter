@@ -28,7 +28,7 @@ export default function SEO({
     title: title || defaultTitle,
     description: description || defaultDescription,
     image: image || defaultImage,
-    url: `${siteUrl || ''}/${pathname || ``}`,
+    url: `${siteUrl || ""}/${pathname || ``}`,
     creator,
   }
 
