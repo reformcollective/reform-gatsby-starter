@@ -1,0 +1,62 @@
+name: Package Updater
+on: pull_request
+jobs:
+  Update_Packages:
+    # Check if the PR is not from a fork
+    # only run if not authored by dependabot
+    if: github.actor != 'dependabot[bot]' && !github.event.pull_request.head.repo.fork
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check for infinite loop
+        id: loop
+        run: |
+          # if the head branch is package-updates, then pass this check immediately
+          if [ "${{ github.head_ref }}" == "package-updates" ]; then
+            echo "Head branch is package-updates, short circuiting"
+            # save to output
+            echo "::set-output name=loop::false"
+          else
+            echo "Head branch is not package-updates, continuing"
+            # save to output
+            echo "::set-output name=loop::true"
+          fi
+      # Checkout the main branch
+      - name: Checkout main branch
+        uses: actions/checkout@v3
+        if: steps.loop.outputs.loop == 'true'
+        with:
+          ref: main
+          token: ${{ secrets.FORMATTER_TOKEN }}
+      # run npm-check-updates to update package.json and save the output
+      - name: Update package.json
+        if: steps.loop.outputs.loop == 'true'
+        run: |
+          echo "Updating package.json"
+          echo "UPDATES<<EOF" >> $GITHUB_ENV
+          npx npm-check-updates -u >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+      - name: Install packages
+        if: steps.loop.outputs.loop == 'true'
+        run: npm install
+      # Create a PR from the package-updates branch to the main branch if it doesn't exist
+      - name: Create PR
+        if: steps.loop.outputs.loop == 'true'
+        uses: peter-evans/create-pull-request@v4
+        id: cpr
+        with:
+          token: ${{ secrets.FORMATTER_TOKEN }}
+          title: Combined Package Updates
+          base: main
+          branch: package-updates
+          commit-message: Update Packages
+          body: |
+            The following packages have been updated:
+            ${{ env.UPDATES }}
+      - name: Enable PR auto-merge
+        if: steps.loop.outputs.loop == 'true'
+        continue-on-error: true
+        uses:
+          peter-evans/enable-pull-request-automerge@v2
+        with:
+          token: ${{ secrets.FORMATTER_TOKEN }}
+          pull-request-number: ${{ steps.cpr.outputs.pull-request-number }}
