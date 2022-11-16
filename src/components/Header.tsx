@@ -3,7 +3,10 @@ import React, { useEffect, useRef } from "react"
 import gsap from "gsap"
 import styled from "styled-components"
 
-import { registerTransition, unregisterTransition } from "utils/TransitionUtils"
+import {
+  registerTransition,
+  unregisterTransition,
+} from "utils/Loader/TransitionUtils"
 
 export default function Header() {
   const text = useRef<HTMLDivElement>(null)
@@ -13,7 +16,6 @@ export default function Header() {
       yPercent: -100,
       duration: 1,
     })
-    return 1
   }
 
   const down = () => {
@@ -21,13 +23,17 @@ export default function Header() {
       yPercent: -100,
       duration: 1,
     })
-    return 1
   }
 
   useEffect(() => {
-    registerTransition("fade", up, down)
+    registerTransition("fade", {
+      in: up,
+      out: down,
+      inDuration: 1,
+      outDuration: 1,
+    })
 
-    return () => unregisterTransition("fade", up, down)
+    return () => unregisterTransition("fade", [up, down])
   }, [])
 
   return (

@@ -2,9 +2,8 @@ import React from "react"
 
 import { graphql, PageProps } from "gatsby"
 
-import Layout from "components/Layout"
 import SEO from "components/Seo"
-import { UniversalLink } from "utils/TransitionUtils"
+import UniversalLink from "utils/Loader/UniversalLink"
 
 import { Filler } from "./404"
 
@@ -14,7 +13,7 @@ export default function IndexPage({
   const { edges: pluginList } = data.allSitePlugin
 
   return (
-    <Layout>
+    <>
       <Filler>
         <h1>Welcome to Your Gatsby Site</h1>
         <br />
@@ -39,7 +38,7 @@ export default function IndexPage({
           </UniversalLink>
         ))}
       </Filler>
-    </Layout>
+    </>
   )
 }
 

@@ -1,6 +1,6 @@
-import type { GatsbyConfig } from "gatsby"
+import path from "path"
 
-const path = require("path")
+import type { GatsbyConfig } from "gatsby"
 
 const config: GatsbyConfig = {
   // TODO add proper metadata
@@ -10,14 +10,23 @@ const config: GatsbyConfig = {
     siteUrl: "https://www.yourdomain.tld",
     image: "https://example.com/logo.png",
   },
-  graphqlTypegen: true,
+  graphqlTypegen: {
+    generateOnBuild: true,
+    typesOutputPath: path.join("src", "types", "gatsby-types.d.ts"),
+  },
   plugins: [
     "gatsby-plugin-styled-components",
     "gatsby-plugin-sitemap",
-    "gatsby-plugin-netlify",
     "gatsby-plugin-image",
-    "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
+    {
+      resolve: "gatsby-plugin-sharp",
+      options: {
+        defaults: {
+          quality: 95,
+        },
+      },
+    },
     // TODO setup a contentful space
     // {
     //   resolve: "gatsby-source-contentful",
@@ -36,18 +45,6 @@ const config: GatsbyConfig = {
         theme_color: "#ffffff",
         display: "minimal-ui",
         icon: "./src/images/global/icon.png", // TODO add favicon
-      },
-    },
-    {
-      resolve: "gatsby-plugin-root-import",
-      options: {
-        src: path.resolve("src"),
-      },
-    },
-    {
-      resolve: "gatsby-plugin-layout",
-      options: {
-        component: path.resolve("./src/components/Providers/index.tsx"),
       },
     },
     {

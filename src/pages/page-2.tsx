@@ -1,14 +1,13 @@
 import React from "react"
 
-import Layout from "components/Layout"
 import SEO from "components/Seo"
-import { UniversalLink } from "utils/TransitionUtils"
+import UniversalLink from "utils/Loader/UniversalLink"
 
 import { Filler } from "./404"
 
 export default function SecondPage() {
   return (
-    <Layout>
+    <>
       <Filler>
         <h1>Hi from the second page</h1>
         <br />
@@ -30,7 +29,7 @@ export default function SecondPage() {
       <Filler>
         <h1>We hope you like this page</h1>
       </Filler>
-    </Layout>
+    </>
   )
 }
 

@@ -1,5 +1,6 @@
-import documentReady from "./documentReady"
-import { isBrowser, sleep } from "./functions"
+import loader from "."
+import { isBrowser, sleep } from "../functions"
+import { pageReady } from "../pageReady"
 
 /**
  * we get a percentage by simply guessing how long the page will take to load based on
@@ -16,12 +17,16 @@ const GET_TIME_NEEDED = (rawMs: number) => (rawMs / 3) * 2 + 1000
  * the animations will play either when the percentage reaches 100% or when
  * the document is ready plus this delay, whichever comes first
  */
-const EXTRA_DELAY = 500
+const EXTRA_DELAY = 2000
 
-type Animation = () => number
+type Animation = {
+  callback: VoidFunction
+  duration: number
+}
+
 type ProgressCallback = (percent: number) => void
 const progressCallbacks: ProgressCallback[] = []
-const animations: Animation[] = []
+let animations: Animation[] = []
 let isComplete = false
 const startTime = performance.now()
 const timeNeeded = GET_TIME_NEEDED(startTime)
@@ -31,18 +36,28 @@ export const getLoaderIsDone = () => loaderIsDone
 /**
  * call all callbacks and set done to true
  */
-function onComplete() {
+async function onComplete() {
+  loader.dispatchEvent("anyStart", new CustomEvent("anyStart"))
+  loader.dispatchEvent("initialStart", new CustomEvent("initialStart"))
+
   progressCallbacks.forEach(cb => cb(100))
+  loader.dispatchEvent(
+    "progressUpdated",
+    new CustomEvent("progressUpdated", { detail: 100 })
+  )
   isComplete = true
+  await sleep(250)
 
-  let longestAnimation = 0
-  animations.forEach(cb => {
-    longestAnimation = Math.max(longestAnimation, cb())
-  })
+  const longestAnimation = animations.reduce((longest, animation) => {
+    animation.callback()
+    return Math.max(longest, animation.duration)
+  }, 0)
 
-  setTimeout(() => {
-    loaderIsDone = true
-  }, longestAnimation * 1000 + 10)
+  await sleep(longestAnimation * 1000 + 10)
+  loaderIsDone = true
+
+  loader.dispatchEvent("anyEnd", new CustomEvent("anyEnd"))
+  loader.dispatchEvent("initialEnd", new CustomEvent("initialEnd"))
 }
 
 /**
@@ -56,11 +71,19 @@ const updatePercent = () => {
   const currentTime = performance.now()
   const progress = ((currentTime - startTime) / timeNeeded) * 100
   if (progress >= 99) {
-    documentReady().then(() => {
-      if (!isComplete) onComplete()
-    })
+    pageReady()
+      .then(async () => {
+        if (!isComplete) await onComplete()
+      })
+      .catch(async () => {
+        if (!isComplete) await onComplete()
+      })
   } else {
     progressCallbacks.forEach(cb => cb(progress))
+    loader.dispatchEvent(
+      "progressUpdated",
+      new CustomEvent("progressUpdated", { detail: progress })
+    )
     if (!isComplete && isBrowser()) requestAnimationFrame(updatePercent)
   }
 }
@@ -73,10 +96,15 @@ if (isBrowser()) updatePercent()
  * all the animations and all the progress callbacks with 100%
  */
 if (isBrowser())
-  documentReady().then(async () => {
-    await sleep(EXTRA_DELAY)
-    if (!isComplete) onComplete()
-  })
+  pageReady()
+    .then(async () => {
+      await sleep(EXTRA_DELAY)
+      if (!isComplete) await onComplete()
+    })
+    .catch(async () => {
+      await sleep(EXTRA_DELAY)
+      if (!isComplete) await onComplete()
+    })
 
 /**
  * register a callback (such as an animation) to be called when the page is loaded
@@ -86,7 +114,7 @@ if (isBrowser())
  * @param completionFunction function to call when the page is loaded
  */
 export const registerLoaderCallback = (completionFunction: Animation) => {
-  if (isComplete) completionFunction()
+  if (isComplete) completionFunction.callback()
   else animations.push(completionFunction)
 }
 
@@ -103,9 +131,10 @@ export const registerProgress = (callback: ProgressCallback) => {
  * remove a callback from the list of callbacks
  * @param callback function to remove from the list of callbacks
  */
-export const unregisterLoaderCallback = (completionFunction: Animation) => {
-  const index = animations.indexOf(completionFunction)
-  if (index > -1) animations.splice(index, 1)
+export const unregisterLoaderCallback = (completionFunction: VoidFunction) => {
+  animations = animations.filter(
+    animation => animation.callback !== completionFunction
+  )
 }
 
 /**

@@ -4,7 +4,10 @@ import gsap from "gsap"
 import styled from "styled-components"
 
 import textStyles from "styles/text"
-import { registerTransition, unregisterTransition } from "utils/TransitionUtils"
+import {
+  registerTransition,
+  unregisterTransition,
+} from "utils/Loader/TransitionUtils"
 
 export default function GreenTransition() {
   const wrapperRef = useRef<HTMLDivElement>(null)
@@ -19,8 +22,6 @@ export default function GreenTransition() {
         xPercent: 0,
         ease: "power1.in",
       })
-
-    return 1
   }
 
   const slideOut = () => {
@@ -33,8 +34,6 @@ export default function GreenTransition() {
         xPercent: 100,
         ease: "power1.out",
       })
-
-    return 1
   }
 
   const fadeIn = () => {
@@ -65,12 +64,22 @@ export default function GreenTransition() {
 
   useEffect(() => {
     // register two page transitions
-    registerTransition("fade", fadeIn, fadeOut)
-    registerTransition("slide", slideIn, slideOut)
+    registerTransition("fade", {
+      in: fadeIn,
+      out: fadeOut,
+      inDuration: 1,
+      outDuration: 1,
+    })
+    registerTransition("slide", {
+      in: slideIn,
+      out: slideOut,
+      inDuration: 1,
+      outDuration: 1,
+    })
 
     return () => {
-      unregisterTransition("fade", fadeIn, fadeOut)
-      unregisterTransition("slide", slideIn, slideOut)
+      unregisterTransition("fade", [fadeIn, fadeOut])
+      unregisterTransition("slide", [slideIn, slideOut])
     }
   }, [])
 

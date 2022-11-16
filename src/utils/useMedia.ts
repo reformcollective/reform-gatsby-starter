@@ -1,17 +1,21 @@
 import { useCallback, useEffect, useState } from "react"
 
-import { desktop, tablet, mobile } from "styles/media"
+import {
+  desktopBreakpoint,
+  tabletBreakpoint,
+  mobileBreakpoint,
+} from "styles/media"
 
 import { isBrowser } from "./functions"
 
 export default function useMedia<Type>(fw: Type, d: Type, t: Type, m: Type) {
   const handleUpdate = useCallback(() => {
     if (isBrowser()) {
-      if (window.innerWidth > desktop) {
+      if (window.innerWidth > desktopBreakpoint) {
         setCurrent(fw)
-      } else if (window.innerWidth > tablet) {
+      } else if (window.innerWidth > tabletBreakpoint) {
         setCurrent(d)
-      } else if (window.innerWidth > mobile) {
+      } else if (window.innerWidth > mobileBreakpoint) {
         setCurrent(t)
       } else setCurrent(m)
     }
@@ -28,6 +32,7 @@ export default function useMedia<Type>(fw: Type, d: Type, t: Type, m: Type) {
       window.addEventListener("resize", handleUpdate)
       return () => window.removeEventListener("resize", handleUpdate)
     }
+    return () => {}
   }, [handleUpdate])
 
   return current
