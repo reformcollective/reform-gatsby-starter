@@ -15,6 +15,7 @@ Setup:
 
 ### Base dependabot config
 
+
 ```
 version: 2
 updates:
