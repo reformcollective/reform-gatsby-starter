@@ -5,7 +5,10 @@ import styled from "styled-components"
 
 import textStyles from "styles/text"
 import loader from "utils/Loader"
-import { registerTransition, unregisterTransition } from "utils/Loader/TransitionUtils"
+import {
+  registerTransition,
+  unregisterTransition,
+} from "utils/Loader/TransitionUtils"
 
 export default function BlueTransition() {
   const wrapperRef = useRef<HTMLDivElement>(null)
@@ -40,20 +43,20 @@ export default function BlueTransition() {
       in: slideIn,
       out: slideOut,
       inDuration: 1,
-      outDuration: 1
+      outDuration: 1,
     })
 
     // register a loader
-    loader.addEventListener('initialEnd', slideOut)
-    loader.addEventListener('progressUpdated', updateProgress)
+    loader.addEventListener("initialEnd", slideOut)
+    loader.addEventListener("progressUpdated", updateProgress)
 
     return () => {
       // clean up page transition
       unregisterTransition("blue", [slideIn, slideOut])
 
       // clean up loader
-      loader.removeEventListener('initialEnd', slideOut)
-      loader.removeEventListener('progressUpdated', updateProgress)
+      loader.removeEventListener("initialEnd", slideOut)
+      loader.removeEventListener("progressUpdated", updateProgress)
     }
   }, [])
 

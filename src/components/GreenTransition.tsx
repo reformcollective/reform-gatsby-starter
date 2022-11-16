@@ -4,7 +4,10 @@ import gsap from "gsap"
 import styled from "styled-components"
 
 import textStyles from "styles/text"
-import { registerTransition, unregisterTransition } from "utils/Loader/TransitionUtils"
+import {
+  registerTransition,
+  unregisterTransition,
+} from "utils/Loader/TransitionUtils"
 
 export default function GreenTransition() {
   const wrapperRef = useRef<HTMLDivElement>(null)
@@ -65,13 +68,13 @@ export default function GreenTransition() {
       in: fadeIn,
       out: fadeOut,
       inDuration: 1,
-      outDuration: 1
+      outDuration: 1,
     })
     registerTransition("slide", {
       in: slideIn,
       out: slideOut,
       inDuration: 1,
-      outDuration: 1
+      outDuration: 1,
     })
 
     return () => {

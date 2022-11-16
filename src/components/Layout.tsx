@@ -20,8 +20,8 @@ export default function Layout({ children }: LayoutProps) {
 
   return (
     <>
-      <GreenTransition/>
-      <BlueTransition/>
+      <GreenTransition />
+      <BlueTransition />
       <Scroll>
         <Header />
         <Main>{children}</Main>
