@@ -1,7 +1,6 @@
 import React, { MouseEventHandler } from "react"
 
 import { Link } from "gatsby"
-import GatsbyLink from "gatsby-link"
 
 import { Transitions } from "."
 import { loadPage } from "./TransitionUtils"
@@ -23,7 +22,7 @@ interface UniversalLinkProps {
   onClick?: MouseEventHandler
   type?: "submit"
   forwardRef?: React.Ref<
-    HTMLAnchorElement & HTMLButtonElement & GatsbyLink<unknown>
+    HTMLAnchorElement & HTMLButtonElement & Link<unknown>
   >
 }
 
