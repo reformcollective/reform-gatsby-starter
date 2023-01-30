@@ -1,46 +1,38 @@
 name: Package Updater
-on: pull_request
+# run daily at noon MST
+on:
+  schedule:
+    - cron: "0 19 * * *"
+  workflow_dispatch:
+
 jobs:
   Update_Packages:
-    # Check if the PR is not from a fork
-    # only run if not authored by dependabot
-    if: github.actor != 'dependabot[bot]' && !github.event.pull_request.head.repo.fork
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
-      - name: Check for infinite loop
-        id: loop
-        run: |
-          # if the head branch is package-updates, then pass this check immediately
-          if [ "${{ github.head_ref }}" == "package-updates" ]; then
-            echo "Head branch is package-updates, short circuiting"
-            # save to output
-            echo "::set-output name=loop::false"
-          else
-            echo "Head branch is not package-updates, continuing"
-            # save to output
-            echo "::set-output name=loop::true"
-          fi
       # Checkout the main branch
       - name: Checkout main branch
         uses: actions/checkout@v3
-        if: steps.loop.outputs.loop == 'true'
         with:
           ref: main
           token: ${{ secrets.FORMATTER_TOKEN }}
       # run npm-check-updates to update package.json and save the output
       - name: Update package.json
-        if: steps.loop.outputs.loop == 'true'
         run: |
           echo "Updating package.json"
           echo "UPDATES<<EOF" >> $GITHUB_ENV
           npx npm-check-updates -u >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
-      - name: Install packages
-        if: steps.loop.outputs.loop == 'true'
-        run: npm install
+      # diff the current package.json against the one in the package-updates branch
+      # if there aren't any differences, exit the workflow
+      - name: Diff package.json
+        run: |
+          if git diff --exit-code main package-updates -- package.json; then
+            echo "No changes to package.json"
+            echo "NO_CHANGES=true" >> $GITHUB_ENV
+          fi
       # Create a PR from the package-updates branch to the main branch if it doesn't exist
       - name: Create PR
-        if: steps.loop.outputs.loop == 'true'
+        if: ${{ !env.NO_CHANGES }}
         uses: peter-evans/create-pull-request@v4
         id: cpr
         with:
@@ -53,10 +45,9 @@ jobs:
             The following packages have been updated:
             ${{ env.UPDATES }}
       - name: Enable PR auto-merge
-        if: steps.loop.outputs.loop == 'true'
+        if: ${{ !env.NO_CHANGES }}
         continue-on-error: true
-        uses:
-          peter-evans/enable-pull-request-automerge@v2
+        uses: peter-evans/enable-pull-request-automerge@v2
         with:
           token: ${{ secrets.FORMATTER_TOKEN }}
           pull-request-number: ${{ steps.cpr.outputs.pull-request-number }}

@@ -2,10 +2,9 @@ name: Code Checks
 on: pull_request
 jobs:
   Automatically_Format:
-    # Check if the PR is not from a fork
     # only run if not authored by dependabot
-    if: github.actor != 'dependabot[bot]' && !github.event.pull_request.head.repo.fork
-    runs-on: ubuntu-latest
+    if: github.actor != 'dependabot[bot]'
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v3
         with:
@@ -17,7 +16,7 @@ jobs:
       - name: Install Modules
         run: npm install
       - name: format
-        run: npm run format
+        run: npm run format > /dev/null
         continue-on-error: true
       - name: Check for changes and commit
         run: |
@@ -32,7 +31,9 @@ jobs:
           exit 1
 
   Check_Lines:
-    runs-on: ubuntu-latest
+    # only run if not authored by dependabot
+    if: github.actor != 'dependabot[bot]'
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v3
         with:
@@ -114,7 +115,7 @@ jobs:
 
   Generate_Types:
     # install modules, run a build, then cache and upload so we can use in other builds
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: Automatically_Format
     env:
       CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
@@ -142,10 +143,7 @@ jobs:
           path: src/types/gatsby-types.d.ts
 
   Check_Linting:
-    # Check if the PR is not from a fork
-    # only run if not authored by dependabot
-    if: github.actor != 'dependabot[bot]' && !github.event.pull_request.head.repo.fork
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: Generate_Types
     steps:
       - uses: actions/checkout@v3
@@ -166,10 +164,7 @@ jobs:
           annotations: true
 
   Type_Checking:
-    # Check if the PR is not from a fork
-    # only run if not authored by dependabot
-    if: github.actor != 'dependabot[bot]' && !github.event.pull_request.head.repo.fork
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: Generate_Types
     env:
       CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
