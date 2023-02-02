@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect, useMemo } from "react"
 
 import { addDebouncedEventListener, isBrowser } from "library/functions"
+
 import {
   desktopBreakpoint,
   tabletBreakpoint,
