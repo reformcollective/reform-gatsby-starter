@@ -1,13 +1,13 @@
 import { useEffect, useRef, useState } from "react"
 
 import gsap from "gsap"
-import styled from "styled-components"
-
 import loader from "library/Loader"
 import {
   registerTransition,
   unregisterTransition,
 } from "library/Loader/TransitionUtils"
+import styled from "styled-components"
+
 import textStyles from "styles/text"
 
 export default function BlueTransition() {
