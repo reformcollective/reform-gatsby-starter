@@ -1,11 +1,12 @@
 import { useEffect, useRef } from "react"
 
 import gsap from "gsap"
+import styled from "styled-components"
+
 import {
   registerTransition,
   unregisterTransition,
 } from "library/Loader/TransitionUtils"
-import styled from "styled-components"
 
 export default function Header() {
   const text = useRef<HTMLDivElement>(null)

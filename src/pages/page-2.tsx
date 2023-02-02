@@ -1,6 +1,5 @@
-import UniversalLink from "library/Loader/UniversalLink"
-
 import SEO from "components/Seo"
+import UniversalLink from "library/Loader/UniversalLink"
 
 import { Filler } from "./404"
 
