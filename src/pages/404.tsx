@@ -1,7 +1,7 @@
+import UniversalLink from "library/Loader/UniversalLink"
 import styled from "styled-components"
 
 import SEO from "components/Seo"
-import UniversalLink from "library/Loader/UniversalLink"
 import media from "styles/media"
 import textStyles from "styles/text"
 
