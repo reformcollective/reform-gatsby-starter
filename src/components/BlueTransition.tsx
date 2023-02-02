@@ -1,14 +1,14 @@
-import React, { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 import gsap from "gsap"
 import styled from "styled-components"
 
-import textStyles from "styles/text"
-import loader from "utils/Loader"
+import loader from "library/Loader"
 import {
   registerTransition,
   unregisterTransition,
-} from "utils/Loader/TransitionUtils"
+} from "library/Loader/TransitionUtils"
+import textStyles from "styles/text"
 
 export default function BlueTransition() {
   const wrapperRef = useRef<HTMLDivElement>(null)

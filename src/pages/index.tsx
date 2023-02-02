@@ -1,9 +1,7 @@
-import React from "react"
-
 import { graphql, PageProps } from "gatsby"
 
 import SEO from "components/Seo"
-import UniversalLink from "utils/Loader/UniversalLink"
+import UniversalLink from "library/Loader/UniversalLink"
 
 import { Filler } from "./404"
 

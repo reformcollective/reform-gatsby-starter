@@ -14,6 +14,8 @@
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.16.2",
     "@contentful/rich-text-types": "^16.0.2",
+    "@react-three/drei": "^9.56.12",
+    "@react-three/fiber": "^8.10.1",
     "dotenv": "^16.0.3",
     "gatsby": "^5.5.0",
     "gatsby-link": "^5.5.0",
@@ -21,7 +23,6 @@
     "gatsby-plugin-image": "^3.5.0",
     "gatsby-plugin-manifest": "^5.5.0",
     "gatsby-plugin-netlify": "^5.1.0",
-    "gatsby-plugin-root-import": "^2.0.9",
     "gatsby-plugin-sharp": "^5.5.0",
     "gatsby-plugin-sitemap": "^6.5.0",
     "gatsby-plugin-styled-components": "^6.5.0",

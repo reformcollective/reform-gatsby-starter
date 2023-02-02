@@ -70,3 +70,6 @@ yarn-error.log
 
 #vscode settings
 .vscode/
+
+src/types/gatsby-types.d.ts
+gatsby-types.d.ts
