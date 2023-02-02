@@ -7,6 +7,7 @@ dotenv.config()
 
 const config: GatsbyConfig = {
   jsxRuntime: "automatic",
+  // TODO add proper metadata
   siteMetadata: {
     title: "Reform Starter",
     description: "A starter for Gatsby",
