@@ -1,9 +1,9 @@
 import { graphql, HeadProps, PageProps } from "gatsby"
-
-import SEO from "components/Seo"
 import { sleep } from "library/functions"
 import { transitionAwaitPromise } from "library/Loader"
 import UniversalLink from "library/Loader/UniversalLink"
+
+import SEO from "components/Seo"
 
 import { Filler } from "./404"
 
