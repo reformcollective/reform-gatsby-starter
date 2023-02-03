@@ -1,11 +1,11 @@
-import React, { createContext, useState, useEffect, useMemo } from "react"
+import { createContext, useState, useEffect, useMemo } from "react"
 
+import { addDebouncedEventListener, isBrowser } from "library/functions"
 import {
   desktopBreakpoint,
   tabletBreakpoint,
   mobileBreakpoint,
 } from "styles/media"
-import { addDebouncedEventListener, isBrowser } from "utils/functions"
 
 /**
  * Gives easy access to media queries
@@ -17,7 +17,7 @@ export const ScreenContext = createContext({
   mobile: false,
 })
 
-type Props = {
+interface Props {
   children: React.ReactNode
 }
 

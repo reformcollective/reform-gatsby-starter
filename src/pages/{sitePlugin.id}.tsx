@@ -1,11 +1,9 @@
-import React from "react"
-
 import { graphql, HeadProps, PageProps } from "gatsby"
 
 import SEO from "components/Seo"
-import { sleep } from "utils/functions"
-import { transitionAwaitPromise } from "utils/Loader/TransitionUtils"
-import UniversalLink from "utils/Loader/UniversalLink"
+import { sleep } from "library/functions"
+import { transitionAwaitPromise } from "library/Loader"
+import UniversalLink from "library/Loader/UniversalLink"
 
 import { Filler } from "./404"
 
@@ -43,7 +41,7 @@ export function Head({ data }: HeadProps<Queries.SitePluginTemplateQuery>) {
     <SEO
       title={data.sitePlugin?.name}
       description="This template page is an example"
-      pathname={data.sitePlugin?.id}
+      pathname={`/${data.sitePlugin?.id ?? ""}`}
     />
   )
 }

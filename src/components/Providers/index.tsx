@@ -1,8 +1,6 @@
-import React from "react"
-
 import { ScreenProvider } from "./Screen"
 
-type ProvidersProps = {
+interface ProvidersProps {
   children: React.ReactNode
 }
 

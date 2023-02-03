@@ -1,7 +1,5 @@
-import React from "react"
-
 import SEO from "components/Seo"
-import UniversalLink from "utils/Loader/UniversalLink"
+import UniversalLink from "library/Loader/UniversalLink"
 
 import { Filler } from "./404"
 

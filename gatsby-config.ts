@@ -1,8 +1,12 @@
 import path from "path"
 
+import * as dotenv from "dotenv"
 import type { GatsbyConfig } from "gatsby"
 
+dotenv.config()
+
 const config: GatsbyConfig = {
+  jsxRuntime: "automatic",
   // TODO add proper metadata
   siteMetadata: {
     title: "Reform Starter",
@@ -15,15 +19,17 @@ const config: GatsbyConfig = {
     typesOutputPath: path.join("src", "types", "gatsby-types.d.ts"),
   },
   plugins: [
-    "gatsby-plugin-styled-components",
     "gatsby-plugin-sitemap",
+    "gatsby-plugin-netlify",
     "gatsby-plugin-image",
     "gatsby-transformer-sharp",
     {
       resolve: "gatsby-plugin-sharp",
       options: {
         defaults: {
-          quality: 95,
+          formats: ["webp"],
+          placeholder: "blurred",
+          quality: 90,
         },
       },
     },
@@ -59,26 +65,13 @@ const config: GatsbyConfig = {
       options: {
         prettier: true,
         svgo: true,
-        memo: true,
-        ref: true,
         svgoConfig: {
           plugins: [
-            {
-              name: "removeViewBox",
-              active: false,
-            },
-            {
-              name: "removeDimensions",
-              active: true,
-            },
-            {
-              name: "removeRasterImages",
-              active: true,
-            },
-            {
-              name: "reusePaths",
-              active: true,
-            },
+            "removeViewBox",
+            "removeDimensions",
+            "removeRasterImages",
+            "reusePaths",
+            "removeUselessDefs",
             {
               name: "cleanupIDs",
               active: false,
@@ -88,8 +81,8 @@ const config: GatsbyConfig = {
               active: false,
             },
             {
-              name: "removeUselessDefs",
-              active: true,
+              name: "collapseGroups",
+              active: false,
             },
           ],
         },
@@ -102,6 +95,7 @@ const config: GatsbyConfig = {
         silent: true,
       },
     },
+    "gatsby-plugin-styled-components",
   ],
 }
 

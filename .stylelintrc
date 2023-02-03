@@ -1,0 +1,19 @@
+{
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-styled-components",
+    "stylelint-config-prettier"
+  ],
+  "customSyntax": "@rjwadley/postcss-css-in-js",
+  "overrides": [{ "files": ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"] }],
+  "rules": {
+    "selector-type-no-unknown": null,
+    "function-no-unknown": null,
+    "value-keyword-case": null,
+    "annotation-no-unknown": null,
+    "declaration-empty-line-before": null,
+    "rule-empty-line-before": null,
+    "custom-property-empty-line-before": null,
+    "no-duplicate-selectors": null
+  }
+}

@@ -1,13 +1,13 @@
-import React, { useEffect, useRef } from "react"
+import { useEffect, useRef } from "react"
 
 import gsap from "gsap"
 import styled from "styled-components"
 
-import textStyles from "styles/text"
 import {
   registerTransition,
   unregisterTransition,
-} from "utils/Loader/TransitionUtils"
+} from "library/Loader/TransitionUtils"
+import textStyles from "styles/text"
 
 export default function GreenTransition() {
   const wrapperRef = useRef<HTMLDivElement>(null)
