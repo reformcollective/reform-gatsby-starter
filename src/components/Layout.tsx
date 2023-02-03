@@ -7,6 +7,7 @@ import Header from "components/Header"
 import Scroll from "components/Scroll"
 import { useBackButton } from "library/Loader/TransitionUtils"
 import { useTrackPageReady } from "library/pageReady"
+import useCSSHeightVariables from "library/useCssHeightVariables"
 
 interface LayoutProps {
   children: React.ReactNode
@@ -15,6 +16,7 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
   useTrackPageReady()
   useBackButton()
+  useCSSHeightVariables()
 
   return (
     <>
