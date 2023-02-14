@@ -1,17 +1,20 @@
-import styled from 'styled-components'
+import styled from "styled-components"
+
 import SEO from "components/Seo"
-import Scene from 'library/threeJS/SceneStarter'
+import Scene from "library/threeJS/SceneStarter"
 
 export default function Three() {
   return (
     <Wrapper>
-      <Scene/>
+      <Scene />
     </Wrapper>
   )
 }
 
 export function Head() {
-  return <SEO title="THREE" description="ThreeJS scene starter" pathname="/three" />
+  return (
+    <SEO title="THREE" description="ThreeJS scene starter" pathname="/three" />
+  )
 }
 
 const Wrapper = styled.section`
