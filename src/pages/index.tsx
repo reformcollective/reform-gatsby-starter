@@ -19,8 +19,8 @@ export default function IndexPage({
           Fade to page 2
         </UniversalLink>
         <br />
-        <UniversalLink transition="slide" to="/page-2/">
-          Slide to page 2
+        <UniversalLink transition="slide" to="/three/">
+          Slide to threejs scene starter
         </UniversalLink>
         <br />
         <UniversalLink transition="blue" to="/page-2/">
