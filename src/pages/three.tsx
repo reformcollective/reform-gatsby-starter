@@ -1,7 +1,8 @@
-import styled from 'styled-components'
+import styled from "styled-components"
+
 import SEO from "components/Seo"
-import Scene from 'library/threeJS/SceneStarter'
-import UniversalLink from 'library/Loader/UniversalLink'
+import Scene from "library/threeJS/SceneStarter"
+import UniversalLink from "library/Loader/UniversalLink"
 
 export default function Three() {
   return (
@@ -13,7 +14,9 @@ export default function Three() {
 }
 
 export function Head() {
-  return <SEO title="THREE" description="ThreeJS scene starter" pathname="/three" />
+  return (
+    <SEO title="THREE" description="ThreeJS scene starter" pathname="/three" />
+  )
 }
 
 const Wrapper = styled.section`
