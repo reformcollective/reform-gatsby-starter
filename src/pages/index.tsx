@@ -2,7 +2,7 @@ import { graphql, PageProps } from "gatsby"
 
 import SEO from "components/Seo"
 import UniversalLink from "library/Loader/UniversalLink"
-import SideScroller from 'library/SideScroller'
+import SideScroller from "library/SideScroller"
 
 import { Filler } from "./404"
 
@@ -37,7 +37,7 @@ export default function IndexPage({
           </UniversalLink>
         ))}
       </Filler>
-      <SideScroller/>
+      <SideScroller />
     </>
   )
 }
