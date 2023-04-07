@@ -10,6 +10,7 @@ Setup:
 6. Add any typography to `src/styles/typography.css`
 7. Add any text styles to `src/styles/text.ts`
 8. Configure branch protections
+9. Init Library submodule: git submodule update --init --recursive
 
 ## Other resources
 
