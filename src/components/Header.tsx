@@ -17,8 +17,8 @@ export default function Header() {
   }
 
   const down = () => {
-    gsap.from(text.current, {
-      yPercent: -100,
+    gsap.to(text.current, {
+      yPercent: 0,
       duration: 1,
     })
   }
