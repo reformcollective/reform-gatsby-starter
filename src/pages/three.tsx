@@ -1,8 +1,7 @@
-import styled from "styled-components"
-
 import SEO from "components/Seo"
 import UniversalLink from "library/Loader/UniversalLink"
 import Scene from "library/threeJS/SceneStarter"
+import styled from "styled-components"
 
 export default function Three() {
   return (
