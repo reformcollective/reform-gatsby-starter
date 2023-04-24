@@ -25,6 +25,10 @@ export default function IndexPage({
         <UniversalLink transition="blue" to="/page-2/">
           Blue Transition to page 2
         </UniversalLink>
+        <br />
+        <UniversalLink transition="slide" to="/three/">
+          Slide to threejs scene starter
+        </UniversalLink>
       </Filler>
       <Filler>
         <h1>Please enjoy the following template pages:</h1> <br />
