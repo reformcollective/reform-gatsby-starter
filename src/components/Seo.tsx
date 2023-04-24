@@ -13,7 +13,7 @@ export default function SEO({
   description,
   pathname,
   creator = "",
-  image = undefined,
+  image,
 }: SEOProps) {
   const {
     title: defaultTitle,

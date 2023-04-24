@@ -51,7 +51,7 @@
   "license": "0BSD",
   "scripts": {
     "build": "gatsby build",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\" && eslint . --fix",
+    "format": "eslint . --fix",
     "lint": "eslint .",
     "lint:css": "npx stylelint './src/**/*.{js,jsx,ts,tsx}' --fix || exit 0",
     "start": "gatsby develop -H 0.0.0.0",

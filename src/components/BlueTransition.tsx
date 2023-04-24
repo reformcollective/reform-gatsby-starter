@@ -1,13 +1,11 @@
-import { useEffect, useRef, useState } from "react"
-
 import gsap from "gsap"
-import styled from "styled-components"
-
 import loader from "library/Loader"
 import {
   registerTransition,
   unregisterTransition,
 } from "library/Loader/TransitionUtils"
+import { useEffect, useRef, useState } from "react"
+import styled from "styled-components"
 import textStyles from "styles/text"
 
 export default function BlueTransition() {
@@ -16,12 +14,17 @@ export default function BlueTransition() {
   const [showPercentage, setShowPercentage] = useState(true)
 
   const slideIn = () => {
-    gsap.fromTo(wrapperRef.current, { xPercent: -100 },
-      { xPercent: 0, duration: 1 })
+    gsap.fromTo(
+      wrapperRef.current,
+      { xPercent: -100 },
+      { xPercent: 0, duration: 1 }
+    )
   }
 
   const slideOut = () => {
-    gsap.fromTo(wrapperRef.current, {
+    gsap.fromTo(
+      wrapperRef.current,
+      {
         xPercent: 0,
         opacity: 1,
       },
@@ -30,7 +33,8 @@ export default function BlueTransition() {
         xPercent: 100,
         ease: "power1.out",
         onComplete: () => setShowPercentage(false),
-      })
+      }
+    )
   }
 
   const updateProgress = (e: CustomEvent<number>) => {

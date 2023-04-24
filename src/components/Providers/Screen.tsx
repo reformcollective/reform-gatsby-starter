@@ -1,10 +1,9 @@
-import { createContext, useState, useEffect, useMemo } from "react"
-
 import { addDebouncedEventListener, isBrowser } from "library/functions"
+import { createContext, useEffect, useMemo, useState } from "react"
 import {
   desktopBreakpoint,
-  tabletBreakpoint,
   mobileBreakpoint,
+  tabletBreakpoint,
 } from "styles/media"
 
 /**
@@ -44,14 +43,7 @@ export function ScreenProvider({ children }: Props) {
 
       setScreenContext()
 
-      const removeListener = addDebouncedEventListener(
-        window,
-        "resize",
-        setScreenContext,
-        100
-      )
-
-      return removeListener
+      return addDebouncedEventListener(window, "resize", setScreenContext, 100)
     }
     return () => {}
   }, [])

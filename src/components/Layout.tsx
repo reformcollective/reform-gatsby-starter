@@ -1,5 +1,3 @@
-import styled from "styled-components"
-
 import BlueTransition from "components/BlueTransition"
 import Footer from "components/Footer"
 import GreenTransition from "components/GreenTransition"
@@ -8,6 +6,7 @@ import Scroll from "components/Scroll"
 import { useBackButton } from "library/Loader/TransitionUtils"
 import { useTrackPageReady } from "library/pageReady"
 import useCSSHeightVariables from "library/useCssHeightVariables"
+import styled from "styled-components"
 
 interface LayoutProps {
   children: React.ReactNode

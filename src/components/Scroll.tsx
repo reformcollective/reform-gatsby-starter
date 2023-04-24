@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react"
-
 import Observer from "gsap/Observer"
 import ScrollSmoother from "gsap/ScrollSmoother"
+import { useEffect, useState } from "react"
 
 interface ScrollProps {
   children: React.ReactNode

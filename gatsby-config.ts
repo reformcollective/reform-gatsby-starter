@@ -1,4 +1,4 @@
-import path from "path"
+import path from "node:path"
 
 import * as dotenv from "dotenv"
 import type { GatsbyConfig } from "gatsby"
