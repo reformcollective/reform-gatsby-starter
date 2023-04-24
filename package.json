@@ -35,20 +35,14 @@
     "react-dom": "^18.2.0",
     "react-scripts": "^5.0.1",
     "styled-components": "^5.3.6",
+    "stylelint-config-reform-collective": "^1.0.0",
     "the-new-css-reset": "^1.8.3"
   },
   "devDependencies": {
-    "@rjwadley/postcss-css-in-js": "^0.39.2",
     "@types/node": "^18.11.18",
     "@types/react": "^18.0.27",
     "@types/styled-components": "^5.1.26",
-    "eslint-config-reform-collective": "^1.5.5",
-    "postcss-syntax": "^0.36.2",
-    "prettier": "^2.8.3",
-    "stylelint": "^14.16.1",
-    "stylelint-config-prettier": "^9.0.4",
-    "stylelint-config-standard": "^29.0.0",
-    "stylelint-config-styled-components": "^0.1.1",
+    "eslint-config-reform-collective": "^2.0.0-rc1",
     "typescript": "^4.9.5"
   },
   "keywords": [
@@ -57,16 +51,27 @@
   "license": "0BSD",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\" && eslint . --fix",
+    "lint:css": "npx stylelint './src/**/*.{js,jsx,ts,tsx}' --fix || exit 0",
     "start": "gatsby develop -H 0.0.0.0",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "type-check": "tsc --noEmit",
     "checks": "(npm run type-check || (echo 'Type check failed.' && exit 1)) && (npx eslint . || (echo 'Lint check failed.' && exit 1)) && (npm run build || (echo 'Build failed.' && exit 1)) && echo 'All checks passed.'"
   },
   "eslintConfig": {
     "extends": "reform-collective"
-  }
+  },
+  "stylelint": {
+    "extends": "stylelint-config-reform-collective"
+  },
+  "browserslist": [
+    "last 99 chrome versions and last 1 year",
+    "last 99 ChromeAndroid versions and last 1 year",
+    "last 99 Safari versions and last 1 year",
+    "last 99 iOS versions and last 1 year",
+    "last 99 firefox versions and last 1 year",
+    "last 99 FirefoxAndroid versions and last 1 year",
+    ">0.15% and last 1 year"
+  ]
 }
