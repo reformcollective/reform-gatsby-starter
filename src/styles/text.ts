@@ -8,7 +8,6 @@ const textStyles = {
 
 export const strokeText = css`
   /* styled doesn't prefix this property yet */
-
   /* stylelint-disable property-no-vendor-prefix */
   -webkit-background-clip: text;
   -moz-background-clip: text;
