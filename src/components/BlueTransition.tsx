@@ -37,8 +37,8 @@ export default function BlueTransition() {
     )
   }
 
-  const updateProgress = (e: CustomEvent<number>) => {
-    setProgress(e.detail)
+  const updateProgress = (newProgress: number) => {
+    setProgress(newProgress)
   }
 
   useEffect(() => {
