@@ -28,6 +28,3 @@ export const onRenderBody = ({ setHtmlAttributes }: RenderBodyArgs) => {
     lang: "en",
   })
 }
-
-// this is a test:
-console.log("Am I caught?")
