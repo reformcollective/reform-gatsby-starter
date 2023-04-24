@@ -1,4 +1,4 @@
-import SEO from "components/Seo"
+import Seo from "components/Seo"
 import { graphql, PageProps } from "gatsby"
 import UniversalLink from "library/Loader/UniversalLink"
 
@@ -40,7 +40,7 @@ export default function IndexPage({
 }
 
 export function Head() {
-  return <SEO title="Home" description="This is the homepage!" pathname="" />
+  return <Seo title="Home" description="This is the homepage!" pathname="" />
 }
 
 export const query = graphql`

@@ -1,4 +1,4 @@
-import SEO from "components/Seo"
+import Seo from "components/Seo"
 import { graphql, HeadProps, PageProps } from "gatsby"
 import { sleep } from "library/functions"
 import { transitionAwaitPromise } from "library/Loader"
@@ -37,7 +37,7 @@ export default function TemplateSample({
 
 export function Head({ data }: HeadProps<Queries.SitePluginTemplateQuery>) {
   return (
-    <SEO
+    <Seo
       title={data.sitePlugin?.name}
       description="This template page is an example"
       pathname={`/${data.sitePlugin?.id ?? ""}`}
