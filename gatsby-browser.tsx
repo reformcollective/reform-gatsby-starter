@@ -1,5 +1,4 @@
 /* eslint-disable ssr-friendly/no-dom-globals-in-module-scope */
-/* eslint-disable no-console */
 import "styles/fonts/typography.css"
 import "the-new-css-reset/css/reset.css"
 

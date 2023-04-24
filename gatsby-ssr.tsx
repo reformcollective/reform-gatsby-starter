@@ -5,8 +5,6 @@ import Layout from "components/Layout"
 import Providers from "components/Providers"
 import { RenderBodyArgs } from "gatsby"
 
-// intentional console
-// eslint-disable-next-line no-console
 console.info(`
 ⣿⣿⠿⠟⠛⣿⣿⣿⣿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⣿⠏⠀⠀⠀⣿⣿⣿⣿⣿⡇⠀⠀⠀⢰⡶⠶⢶⣄⠀⠀⠀⠀⠀⣰⠶⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -30,3 +28,6 @@ export const onRenderBody = ({ setHtmlAttributes }: RenderBodyArgs) => {
     lang: "en",
   })
 }
+
+// this is a test:
+console.log("Am I caught?")
