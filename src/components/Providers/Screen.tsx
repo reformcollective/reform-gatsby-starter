@@ -45,7 +45,6 @@ export function ScreenProvider({ children }: Props) {
 
       return addDebouncedEventListener(window, "resize", setScreenContext, 100)
     }
-    return () => {}
   }, [])
 
   const screenValue = useMemo(() => {

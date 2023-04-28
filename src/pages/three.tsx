@@ -1,4 +1,4 @@
-import SEO from "components/Seo"
+import Seo from "components/Seo"
 import UniversalLink from "library/Loader/UniversalLink"
 import Scene from "library/threeJS/SceneStarter"
 import styled from "styled-components"
@@ -14,7 +14,7 @@ export default function Three() {
 
 export function Head() {
   return (
-    <SEO title="THREE" description="ThreeJS scene starter" pathname="/three" />
+    <Seo title="THREE" description="ThreeJS scene starter" pathname="/three" />
   )
 }
 

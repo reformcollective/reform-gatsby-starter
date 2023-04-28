@@ -41,7 +41,7 @@
     "@types/node": "^18.16.0",
     "@types/react": "^18.0.38",
     "@types/styled-components": "^5.1.26",
-    "eslint-config-reform-collective": "^2.0.0-rc3",
+    "eslint-config-reform-collective": "^2.0.0-rc4",
     "stylelint-config-reform-collective": "^1.0.0",
     "typescript": "^5.0.4"
   },
