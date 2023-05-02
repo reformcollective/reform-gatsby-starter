@@ -33,6 +33,16 @@ declare module "*.webp" {
   export default src
 }
 
+declare module "*.mp4" {
+  const src: string
+  export default src
+}
+
+declare module "*.webm" {
+  const src: string
+  export default src
+}
+
 declare module "*.svg" {
   import * as React from "react"
 
@@ -43,22 +53,3 @@ declare module "*.svg" {
   const src: string
   export default src
 }
-
-declare global {
-  interface Window {
-    /**
-     * special object that can be used to detect if running in safari
-     */
-    safari: unknown
-    /**
-     * special object that can be used to detect if running in chrome
-     */
-    chrome: unknown
-    /**
-     * special object that can be used to detect if running in firefox
-     */
-    netscape: unknown
-  }
-}
-
-export {}
