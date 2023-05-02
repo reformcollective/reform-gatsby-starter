@@ -71,10 +71,6 @@ const config: GatsbyConfig = {
             "reusePaths",
             "removeUselessDefs",
             {
-              name: "cleanupIDs",
-              active: false,
-            },
-            {
               name: "prefixIds",
               active: false,
             },
