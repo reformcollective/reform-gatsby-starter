@@ -11,3 +11,4 @@ Setup:
 7. Add any text styles to `src/styles/text.ts`
 8. Configure branch protections
 9. Init Library submodule: git submodule update --init --recursive
+10. In repository settings, enable "Always suggest updating pull request branches", "Allow auto-merge", and "Automatically delete head branches"
