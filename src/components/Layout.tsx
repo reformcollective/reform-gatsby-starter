@@ -2,9 +2,9 @@ import BlueTransition from "components/BlueTransition"
 import Footer from "components/Footer"
 import GreenTransition from "components/GreenTransition"
 import Header from "components/Header"
-import Scroll from "components/Scroll"
 import { useBackButton } from "library/Loader/TransitionUtils"
 import { useTrackPageReady } from "library/pageReady"
+import Scroll from "library/Scroll"
 import useCSSHeightVariables from "library/useCssHeightVariables"
 import styled, { createGlobalStyle, css } from "styled-components"
 
@@ -35,6 +35,7 @@ const Main = styled.main`
   overflow-x: hidden;
 `
 
+// TODO: configure a default text color
 const globalCss = css`
   * {
     /* need this so that fonts match figma */
