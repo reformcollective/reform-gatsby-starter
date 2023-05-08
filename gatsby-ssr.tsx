@@ -1,13 +1,10 @@
 import "styles/fonts/typography.css"
 import "the-new-css-reset/css/reset.css"
 
-import { RenderBodyArgs } from "gatsby"
-
 import Layout from "components/Layout"
 import Providers from "components/Providers"
+import { RenderBodyArgs } from "gatsby"
 
-// intentional console
-// eslint-disable-next-line no-console
 console.info(`
 ⣿⣿⠿⠟⠛⣿⣿⣿⣿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⣿⠏⠀⠀⠀⣿⣿⣿⣿⣿⡇⠀⠀⠀⢰⡶⠶⢶⣄⠀⠀⠀⠀⠀⣰⠶⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀

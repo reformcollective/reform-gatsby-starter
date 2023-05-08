@@ -1,19 +1,19 @@
-import { useEffect, useRef } from "react"
-
 import gsap from "gsap"
-import styled from "styled-components"
-
 import {
   registerTransition,
   unregisterTransition,
 } from "library/Loader/TransitionUtils"
+import { useEffect, useRef } from "react"
+import styled from "styled-components"
 import textStyles from "styles/text"
 
 export default function GreenTransition() {
   const wrapperRef = useRef<HTMLDivElement>(null)
 
   const slideIn = () => {
-    gsap.fromTo(wrapperRef.current, {
+    gsap.fromTo(
+      wrapperRef.current,
+      {
         opacity: 1,
         xPercent: -100,
       },
@@ -21,11 +21,14 @@ export default function GreenTransition() {
         duration: 1,
         xPercent: 0,
         ease: "power1.in",
-      })
+      }
+    )
   }
 
   const slideOut = () => {
-    gsap.fromTo(wrapperRef.current, {
+    gsap.fromTo(
+      wrapperRef.current,
+      {
         xPercent: 0,
         opacity: 1,
       },
@@ -33,31 +36,38 @@ export default function GreenTransition() {
         duration: 1,
         xPercent: 100,
         ease: "power1.out",
-      })
+      }
+    )
   }
 
   const fadeIn = () => {
-    gsap.fromTo(wrapperRef.current, {
+    gsap.fromTo(
+      wrapperRef.current,
+      {
         opacity: 0,
       },
       {
         duration: 1,
         opacity: 1,
         ease: "power1.in",
-      })
+      }
+    )
 
     return 1
   }
 
   const fadeOut = () => {
-    gsap.fromTo(wrapperRef.current, {
+    gsap.fromTo(
+      wrapperRef.current,
+      {
         opacity: 1,
       },
       {
         duration: 1,
         opacity: 0,
         ease: "power1.out",
-      })
+      }
+    )
 
     return 1
   }

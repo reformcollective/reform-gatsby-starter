@@ -1,6 +1,5 @@
+import Seo from "components/Seo"
 import { graphql, PageProps } from "gatsby"
-
-import SEO from "components/Seo"
 import UniversalLink from "library/Loader/UniversalLink"
 
 import { Filler } from "./404"
@@ -26,6 +25,10 @@ export default function IndexPage({
         <UniversalLink transition="blue" to="/page-2/">
           Blue Transition to page 2
         </UniversalLink>
+        <br />
+        <UniversalLink transition="slide" to="/three/">
+          Slide to threejs scene starter
+        </UniversalLink>
       </Filler>
       <Filler>
         <h1>Please enjoy the following template pages:</h1> <br />
@@ -41,7 +44,7 @@ export default function IndexPage({
 }
 
 export function Head() {
-  return <SEO title="Home" description="This is the homepage!" pathname="" />
+  return <Seo title="Home" description="This is the homepage!" pathname="" />
 }
 
 export const query = graphql`

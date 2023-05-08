@@ -12,44 +12,39 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "dependencies": {
-    "@contentful/rich-text-react-renderer": "^15.16.2",
-    "@contentful/rich-text-types": "^16.0.2",
-    "@react-three/drei": "^9.56.12",
-    "@react-three/fiber": "^8.10.1",
+    "@contentful/rich-text-react-renderer": "^15.16.3",
+    "@contentful/rich-text-types": "^16.0.3",
+    "@react-three/drei": "^9.65.5",
+    "@react-three/fiber": "^8.12.2",
+    "@types/three": "^0.150.2",
     "dotenv": "^16.0.3",
-    "gatsby": "^5.5.0",
-    "gatsby-link": "^5.5.0",
+    "gatsby": "^5.9.0",
+    "gatsby-link": "^5.9.0",
     "gatsby-plugin-contentful-optional-fields": "^2.2.2",
-    "gatsby-plugin-image": "^3.5.0",
-    "gatsby-plugin-manifest": "^5.5.0",
+    "gatsby-plugin-image": "^3.9.0",
+    "gatsby-plugin-manifest": "^5.9.0",
     "gatsby-plugin-netlify": "^5.1.0",
-    "gatsby-plugin-sharp": "^5.5.0",
-    "gatsby-plugin-sitemap": "^6.5.0",
-    "gatsby-plugin-styled-components": "^6.5.0",
+    "gatsby-plugin-sharp": "^5.9.0",
+    "gatsby-plugin-sitemap": "^6.9.0",
+    "gatsby-plugin-styled-components": "^6.9.0",
     "gatsby-plugin-svgr": "^3.0.0-beta.0",
     "gatsby-plugin-tsconfig-paths": "^1.0.6",
-    "gatsby-source-contentful": "^8.5.0",
-    "gatsby-transformer-sharp": "^5.5.0",
-    "gsap": "npm:@gsap/shockingly@^3.11.4",
+    "gatsby-source-contentful": "^8.9.1",
+    "gatsby-transformer-sharp": "^5.9.0",
+    "gsap": "npm:@gsap/shockingly@^3.11.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "^5.0.1",
-    "styled-components": "^5.3.6",
-    "the-new-css-reset": "^1.8.3"
+    "styled-components": "^5.3.10",
+    "the-new-css-reset": "^1.8.4",
+    "three": "^0.152.2"
   },
   "devDependencies": {
-    "@rjwadley/postcss-css-in-js": "^0.39.2",
-    "@types/node": "^18.11.18",
-    "@types/react": "^18.0.27",
+    "@types/node": "^18.16.0",
+    "@types/react": "^18.0.38",
     "@types/styled-components": "^5.1.26",
-    "eslint-config-reform-collective": "^1.5.5",
-    "postcss-syntax": "^0.36.2",
-    "prettier": "^2.8.3",
-    "stylelint": "^14.16.1",
-    "stylelint-config-prettier": "^9.0.4",
-    "stylelint-config-standard": "^29.0.0",
-    "stylelint-config-styled-components": "^0.1.1",
-    "typescript": "^4.9.5"
+    "eslint-config-reform-collective": "^2.0.0-rc4",
+    "stylelint-config-reform-collective": "^1.0.0",
+    "typescript": "^5.0.4"
   },
   "keywords": [
     "gatsby"
@@ -57,16 +52,28 @@
   "license": "0BSD",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\" && eslint . --fix",
+    "format": "eslint . --fix",
+    "lint": "eslint .",
+    "lint:css": "npx stylelint './src/**/*.{js,jsx,ts,tsx}' --fix || exit 0",
     "start": "gatsby develop -H 0.0.0.0",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "type-check": "tsc --noEmit",
     "checks": "(npm run type-check || (echo 'Type check failed.' && exit 1)) && (npx eslint . || (echo 'Lint check failed.' && exit 1)) && (npm run build || (echo 'Build failed.' && exit 1)) && echo 'All checks passed.'"
   },
   "eslintConfig": {
     "extends": "reform-collective"
-  }
+  },
+  "stylelint": {
+    "extends": "stylelint-config-reform-collective"
+  },
+  "browserslist": [
+    "last 99 chrome versions and last 1 year",
+    "last 99 ChromeAndroid versions and last 1 year",
+    "last 99 Safari versions and last 1 year",
+    "last 99 iOS versions and last 1 year",
+    "last 99 firefox versions and last 1 year",
+    "last 99 FirefoxAndroid versions and last 1 year",
+    ">0.15% and last 1 year"
+  ]
 }

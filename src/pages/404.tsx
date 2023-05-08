@@ -1,7 +1,6 @@
-import styled from "styled-components"
-
-import SEO from "components/Seo"
+import Seo from "components/Seo"
 import UniversalLink from "library/Loader/UniversalLink"
+import styled from "styled-components"
 import media from "styles/media"
 import textStyles from "styles/text"
 
@@ -40,7 +39,7 @@ export const Filler = styled.div`
 
 export function Head() {
   return (
-    <SEO
+    <Seo
       title="404: Not Found"
       description="This page could not be found."
       pathname="404"

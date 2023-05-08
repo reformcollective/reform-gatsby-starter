@@ -1,9 +1,7 @@
-import path from "path"
-
-import * as dotenv from "dotenv"
+import { config as dotEnvConfig } from "dotenv"
 import type { GatsbyConfig } from "gatsby"
 
-dotenv.config()
+dotEnvConfig()
 
 const config: GatsbyConfig = {
   jsxRuntime: "automatic",
@@ -16,7 +14,7 @@ const config: GatsbyConfig = {
   },
   graphqlTypegen: {
     generateOnBuild: true,
-    typesOutputPath: path.join("src", "types", "gatsby-types.d.ts"),
+    typesOutputPath: "./src/types/gatsby-types.d.ts",
   },
   plugins: [
     "gatsby-plugin-sitemap",
@@ -57,7 +55,7 @@ const config: GatsbyConfig = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "images",
-        path: path.join(__dirname, "src", "images"),
+        path: "./src/images",
       },
     },
     {
@@ -73,10 +71,6 @@ const config: GatsbyConfig = {
             "reusePaths",
             "removeUselessDefs",
             {
-              name: "cleanupIDs",
-              active: false,
-            },
-            {
               name: "prefixIds",
               active: false,
             },
@@ -91,7 +85,7 @@ const config: GatsbyConfig = {
     {
       resolve: "gatsby-plugin-tsconfig-paths",
       options: {
-        configFile: `${__dirname}/tsconfig.json`,
+        configFile: "./tsconfig.json",
         silent: true,
       },
     },

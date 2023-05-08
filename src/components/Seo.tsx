@@ -8,12 +8,12 @@ interface SEOProps {
   image?: string
 }
 
-export default function SEO({
+export default function Seo({
   title,
   description,
   pathname,
   creator = "",
-  image = undefined,
+  image,
 }: SEOProps) {
   const {
     title: defaultTitle,

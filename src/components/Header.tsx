@@ -1,12 +1,10 @@
-import { useEffect, useRef } from "react"
-
 import gsap from "gsap"
-import styled from "styled-components"
-
 import {
   registerTransition,
   unregisterTransition,
 } from "library/Loader/TransitionUtils"
+import { useEffect, useRef } from "react"
+import styled from "styled-components"
 
 export default function Header() {
   const text = useRef<HTMLDivElement>(null)
@@ -19,8 +17,8 @@ export default function Header() {
   }
 
   const down = () => {
-    gsap.from(text.current, {
-      yPercent: -100,
+    gsap.to(text.current, {
+      yPercent: 0,
       duration: 1,
     })
   }

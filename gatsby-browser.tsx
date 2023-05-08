@@ -1,14 +1,12 @@
 /* eslint-disable ssr-friendly/no-dom-globals-in-module-scope */
-/* eslint-disable no-console */
 import "styles/fonts/typography.css"
 import "the-new-css-reset/css/reset.css"
 
+import Layout from "components/Layout"
+import Providers from "components/Providers"
 import gsap from "gsap"
 import { ScrollSmoother } from "gsap/ScrollSmoother"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-
-import Layout from "components/Layout"
-import Providers from "components/Providers"
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
 
