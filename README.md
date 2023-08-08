@@ -1,6 +1,6 @@
 # Reform Gatsby Starter
 
-Setup:
+Setup!
 
 1. Clone and setup git for new repo (make sure to remove the old remote if needed)
 2. Update all existing packages with `npx npm-check-updates` (feel free to update the starter repository as well)
