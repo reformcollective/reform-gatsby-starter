@@ -17,7 +17,7 @@ export default function BlueTransition() {
     gsap.fromTo(
       wrapperRef.current,
       { xPercent: -100 },
-      { xPercent: 0, duration: 1 }
+      { xPercent: 0, duration: 1 },
     )
   }
 
@@ -33,7 +33,7 @@ export default function BlueTransition() {
         xPercent: 100,
         ease: "power1.out",
         onComplete: () => setShowPercentage(false),
-      }
+      },
     )
   }
 

@@ -21,7 +21,7 @@ export default function GreenTransition() {
         duration: 1,
         xPercent: 0,
         ease: "power1.in",
-      }
+      },
     )
   }
 
@@ -36,7 +36,7 @@ export default function GreenTransition() {
         duration: 1,
         xPercent: 100,
         ease: "power1.out",
-      }
+      },
     )
   }
 
@@ -50,7 +50,7 @@ export default function GreenTransition() {
         duration: 1,
         opacity: 1,
         ease: "power1.in",
-      }
+      },
     )
 
     return 1
@@ -66,7 +66,7 @@ export default function GreenTransition() {
         duration: 1,
         opacity: 0,
         ease: "power1.out",
-      }
+      },
     )
 
     return 1
