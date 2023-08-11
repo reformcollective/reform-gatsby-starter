@@ -14,7 +14,7 @@
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.17.1",
     "@contentful/rich-text-types": "^16.2.1",
-    "@react-three/drei": "^9.80.1",
+    "@react-three/drei": "^9.80.2",
     "@react-three/fiber": "^8.13.6",
     "@types/three": "^0.155.0",
     "dotenv": "^16.3.1",
@@ -39,11 +39,11 @@
     "three": "^0.155.0"
   },
   "devDependencies": {
-    "@types/node": "^20.4.9",
-    "@types/react": "^18.2.19",
+    "@types/node": "^20.4.10",
+    "@types/react": "^18.2.20",
     "@types/styled-components": "^5.1.26",
-    "eslint-config-reform-collective": "^2.0.0-rc4",
-    "stylelint-config-reform-collective": "^1.0.0",
+    "eslint-config-reform-collective": "github:reformcollective/eslint-config-reform",
+    "stylelint-config-reform-collective": "github:reformcollective/stylelint-config-reform",
     "typescript": "^5.1.6"
   },
   "keywords": [
@@ -52,14 +52,15 @@
   "license": "0BSD",
   "scripts": {
     "build": "gatsby build",
-    "format": "eslint . --fix",
+    "format": "npm run lint:css && eslint . --fix",
     "lint": "eslint .",
     "lint:css": "npx stylelint './src/**/*.{js,jsx,ts,tsx}' --fix || exit 0",
     "start": "gatsby develop -H 0.0.0.0",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "type-check": "tsc --noEmit",
-    "checks": "(npm run type-check || (echo 'Type check failed.' && exit 1)) && (npx eslint . || (echo 'Lint check failed.' && exit 1)) && (npm run build || (echo 'Build failed.' && exit 1)) && echo 'All checks passed.'"
+    "checks": "(npm run type-check || (echo 'Type check failed.' && exit 1)) && (npx eslint . || (echo 'Lint check failed.' && exit 1)) && (npm run build || (echo 'Build failed.' && exit 1)) && echo 'All checks passed.'",
+    "preinstall": "npx only-allow npm"
   },
   "eslintConfig": {
     "extends": "reform-collective"
