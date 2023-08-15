@@ -32,11 +32,11 @@ export function ScreenProvider({ children }: Props) {
         setM(window.innerWidth <= mobileBreakpoint)
         setT(
           window.innerWidth > mobileBreakpoint &&
-            window.innerWidth <= tabletBreakpoint
+            window.innerWidth <= tabletBreakpoint,
         )
         setD(
           window.innerWidth > tabletBreakpoint &&
-            window.innerWidth <= desktopBreakpoint
+            window.innerWidth <= desktopBreakpoint,
         )
         setFw(window.innerWidth > desktopBreakpoint)
       }

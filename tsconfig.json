@@ -1,8 +1,8 @@
 {
   "include": ["./src/**/*", "./*.tsx", "./*.ts"],
   "compilerOptions": {
-    "target": "es2021",
-    "module": "commonjs",
+    "target": "es2017",
+    "module": "esnext",
     "moduleResolution": "node",
     "sourceMap": true,
     "strict": true,
@@ -11,8 +11,11 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
-    "lib": ["dom", "DOM.Iterable", "esnext"],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "jsx": "react-jsx",
     "baseUrl": "src",
-  },
+    "isolatedModules": true,
+    "incremental": true,
+    "noErrorTruncation": true
+  }
 }
