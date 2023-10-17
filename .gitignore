@@ -74,3 +74,10 @@ yarn-error.log
 # Generated Types
 src/types/gatsby-types.d.ts
 gatsby-types.d.ts
+
+# Other package manager locks
+package-lock.json
+yarn.lock
+
+# Lighthouse reports
+*.report.html

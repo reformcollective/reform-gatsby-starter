@@ -1,5 +1,6 @@
 import Seo from "components/Seo"
-import { graphql, HeadProps, PageProps } from "gatsby"
+import type { HeadProps, PageProps } from "gatsby"
+import { graphql } from "gatsby"
 import { sleep } from "library/functions"
 import { transitionAwaitPromise } from "library/Loader"
 import UniversalLink from "library/Loader/UniversalLink"

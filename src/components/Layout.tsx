@@ -37,6 +37,11 @@ const Main = styled.main`
 
 // TODO: configure a default text color
 const globalCss = css`
+  /* default text styles */
+  html {
+    font-family: sans-serif;
+  }
+
   * {
     /* need this so that fonts match figma */
     text-rendering: geometricprecision;
@@ -57,7 +62,7 @@ const globalCss = css`
 
   /** restore default focus states for elements that need them */
   *:focus-visible {
-    outline: 2px solid #f008;
+    outline: 2px solid #00f8;
   }
 `
 

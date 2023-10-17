@@ -15,7 +15,7 @@ Setup!
 11. Update the README.md to remove these instructions and add project-specific information
 
 <!-- Repository Cover -->
-<img src="https://picsum.photos/1600/900" alt="MetaGarage Website Repository" wsidth="100%" style="border-radius: 50px">
+<img src="https://picsum.photos/1600/900" alt="Project Name Website Repository" wsidth="100%" style="border-radius: 50px">
 <br><br>
 
 # Project Name
