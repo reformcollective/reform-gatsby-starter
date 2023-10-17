@@ -29,12 +29,12 @@ console.info(
   "",
 )
 
-export const wrapRootElement = ({ element }: { element: React.ReactNode }) => {
-  return <Providers>{element}</Providers>
-}
-
 export const wrapPageElement = ({ element }: { element: React.ReactNode }) => {
-  return <Layout>{element}</Layout>
+  return (
+    <Providers>
+      <Layout>{element}</Layout>
+    </Providers>
+  )
 }
 
 // if not localhost, disable gsap null checks

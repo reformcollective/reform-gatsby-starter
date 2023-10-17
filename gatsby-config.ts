@@ -17,6 +17,7 @@ const config: GatsbyConfig = {
     typesOutputPath: "./src/types/gatsby-types.d.ts",
   },
   plugins: [
+    "gatsby-plugin-pnpm-gatsby-5",
     "gatsby-plugin-sitemap",
     "gatsby-plugin-netlify",
     "gatsby-plugin-image",
@@ -63,23 +64,6 @@ const config: GatsbyConfig = {
       options: {
         prettier: true,
         svgo: true,
-        svgoConfig: {
-          plugins: [
-            "removeViewBox",
-            "removeDimensions",
-            "removeRasterImages",
-            "reusePaths",
-            "removeUselessDefs",
-            {
-              name: "prefixIds",
-              active: false,
-            },
-            {
-              name: "collapseGroups",
-              active: false,
-            },
-          ],
-        },
       },
     },
     {

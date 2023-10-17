@@ -3,7 +3,7 @@ import "the-new-css-reset/css/reset.css"
 
 import Layout from "components/Layout"
 import Providers from "components/Providers"
-import { RenderBodyArgs } from "gatsby"
+import type { RenderBodyArgs } from "gatsby"
 
 console.info(`
 ⣿⣿⠿⠟⠛⣿⣿⣿⣿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀

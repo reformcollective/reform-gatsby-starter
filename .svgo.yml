@@ -1,0 +1,9 @@
+multipass: true
+plugins:
+  - name: preset-default
+    params:
+      overrides:
+        removeViewBox: false
+        # cleanupIds: false # may need this off to do animations
+        # convertShapeToPath: false # may need this off to do animations
+  - removeDimensions

@@ -1,5 +1,6 @@
 import Seo from "components/Seo"
-import { graphql, PageProps } from "gatsby"
+import type { PageProps } from "gatsby"
+import { graphql } from "gatsby"
 import UniversalLink from "library/Loader/UniversalLink"
 
 import { Filler } from "./404"
