@@ -1,21 +1,28 @@
 {
-  "include": ["./src/**/*", "./*.tsx", "./*.ts"],
-  "compilerOptions": {
-    "target": "es2017",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "sourceMap": true,
-    "strict": true,
-    "noUncheckedIndexedAccess": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "jsx": "react-jsx",
-    "baseUrl": "src",
-    "isolatedModules": true,
-    "incremental": true,
-    "noErrorTruncation": true
-  }
+	"include": ["./src/**/*", "./*.tsx", "./*.ts"],
+	"compilerOptions": {
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"target": "es2022",
+		"allowJs": true,
+		"resolveJsonModule": true,
+		"moduleDetection": "force",
+		"isolatedModules": true,
+
+		"strict": true,
+		"noUncheckedIndexedAccess": true,
+
+		"moduleResolution": "NodeNext",
+		"module": "NodeNext",
+		"outDir": "dist",
+		"sourceMap": true,
+
+		"lib": ["es2022", "dom", "dom.iterable"],
+
+		"baseUrl": "src",
+		"jsx": "react-jsx",
+		"incremental": true,
+		"noErrorTruncation": true,
+		"forceConsistentCasingInFileNames": true
+	}
 }

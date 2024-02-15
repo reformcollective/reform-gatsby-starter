@@ -3,10 +3,10 @@ import "styles/fonts/typography.css"
 import "the-new-css-reset/css/reset.css"
 
 import Layout from "components/Layout"
+import { RootProviders, RouteProviders } from "components/Providers"
 import gsap from "gsap"
 import { ScrollSmoother } from "gsap/ScrollSmoother"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { RootProviders, RouteProviders } from "components/Providers"
 
 /**
  * global plugin registration. be sure to also register plugins in gatsby-ssr.ts so that they are available during SSR

@@ -2,8 +2,8 @@ import "styles/fonts/typography.css"
 import "the-new-css-reset/css/reset.css"
 
 import Layout from "components/Layout"
-import type { RenderBodyArgs } from "gatsby"
 import { RootProviders, RouteProviders } from "components/Providers"
+import type { RenderBodyArgs } from "gatsby"
 
 console.info(`
 ⣿⣿⠿⠟⠛⣿⣿⣿⣿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
