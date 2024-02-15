@@ -2,17 +2,19 @@
 
 Setup!
 
-1. Clone and setup git for new repo (make sure to remove the old remote if needed)
+1. Clone and setup git for new repo
+   - remove the old remote with `git remote remove origin`
+   - add the new remote with `git remote add origin <new-repo-url>`
 2. Update all existing packages with `npx npm-check-updates` (feel free to update the starter repository as well)
 3. Enable package update checks in `.github/workflows/call-check-updates.yml`
 4. Update `package.json` to include proper metadata for the new project
 5. Complete TODO items in `gatsby-config.ts`
-6. Add any typography to `src/styles/typography.css`
+6. Add any typography to `src/styles/typography.css`, and configure a default text color/style in `src/components/Layout.css`
 7. Add any text styles to `src/styles/text.ts`
-8. Configure branch rulesets
-9. Init Library submodule: git submodule update --init --recursive
+8. Configure branch rulesets on github (you can export and import the starter's ruleset)
+9. Init Library submodule: `git submodule update --init --recursive`
 10. In repository settings, enable "Always suggest updating pull request branches", "Allow auto-merge", and "Automatically delete head branches"
-11. Update the README.md to remove these instructions and add project-specific information
+11. Update the README.md to remove these instructions and add project-specific image and name below
 
 <!-- Repository Cover -->
 <img src="https://picsum.photos/1600/900" alt="Project Name Website Repository" wsidth="100%" style="border-radius: 50px">
@@ -20,4 +22,4 @@ Setup!
 
 # Project Name
 
-Built with Gatsby. Install with `npm install` and run with `npm start`
+Built with Gatsby. Install with `pnpm install` and run with `pnpm start`

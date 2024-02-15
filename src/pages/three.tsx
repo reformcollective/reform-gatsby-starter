@@ -4,18 +4,18 @@ import Scene from "library/threeJS/SceneStarter"
 import styled from "styled-components"
 
 export default function Three() {
-  return (
-    <Wrapper>
-      <Link to="/">Return Home</Link>
-      <Scene />
-    </Wrapper>
-  )
+	return (
+		<Wrapper>
+			<Link to="/">Return Home</Link>
+			<Scene />
+		</Wrapper>
+	)
 }
 
 export function Head() {
-  return (
-    <Seo title="THREE" description="ThreeJS scene starter" pathname="/three" />
-  )
+	return (
+		<Seo title="THREE" description="ThreeJS scene starter" pathname="/three" />
+	)
 }
 
 const Wrapper = styled.section`
