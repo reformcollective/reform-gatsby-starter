@@ -1,3 +1,5 @@
+import "react"
+
 declare module "*.avif" {
 	const src: string
 	export default src
@@ -52,4 +54,10 @@ declare module "*.svg" {
 
 	const src: string
 	export default src
+}
+
+declare module "react" {
+	interface CSSProperties {
+		[key: `--${string}`]: string | number | undefined
+	}
 }
