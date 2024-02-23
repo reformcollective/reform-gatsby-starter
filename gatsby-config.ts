@@ -86,6 +86,15 @@ const config: GatsbyConfig = {
 				silent: true,
 			},
 		},
+		{
+			resolve: "gatsby-plugin-robots-txt",
+			options: {
+				host: "https://{url}/", // TODO add url and remove brackets
+				sitemap: "https://{url}/sitemap-0.xml", // TODO add url and remove brackets
+				policy: [{ userAgent: "*", allow: "/" }],
+			},
+		},
+
 		"gatsby-plugin-styled-components",
 	],
 }
