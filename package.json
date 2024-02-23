@@ -29,6 +29,7 @@
 		"gatsby-plugin-svgr": "3.0.0-beta.0",
 		"gatsby-plugin-tsconfig-paths": "1.0.6",
 		"gatsby-source-contentful": "8.13.1",
+		"gatsby-transformer-json": "5.13.1",
 		"gatsby-transformer-sharp": "5.13.1",
 		"gsap": "file:gsap-bonus.tgz",
 		"react": "18.2.0",

@@ -65,6 +65,9 @@ dependencies:
   gatsby-source-contentful:
     specifier: 8.13.1
     version: 8.13.1(gatsby-plugin-image@3.13.1)(gatsby-plugin-sharp@5.13.1)(gatsby@5.13.3)(graphql@16.8.1)(react-dom@18.2.0)(react@18.2.0)(sharp@0.32.6)
+  gatsby-transformer-json:
+    specifier: 5.13.1
+    version: 5.13.1(gatsby@5.13.3)
   gatsby-transformer-sharp:
     specifier: 5.13.1
     version: 5.13.1(gatsby-plugin-sharp@5.13.1)(gatsby@5.13.3)(graphql@16.8.1)
@@ -7392,6 +7395,17 @@ packages:
       node-fetch: 2.7.0
     transitivePeerDependencies:
       - encoding
+    dev: false
+
+  /gatsby-transformer-json@5.13.1(gatsby@5.13.3):
+    resolution: {integrity: sha512-e+k6tlHamAYwwBph/Hs7Yx+/6t6m6GndmMQEDSZQOfp6h3oQttR7Uvl+Gj8P6HZ5zg370NRXNDT7CrsNZ5fqvg==}
+    engines: {node: '>=18.0.0'}
+    peerDependencies:
+      gatsby: ^5.0.0-next
+    dependencies:
+      '@babel/runtime': 7.23.6
+      bluebird: 3.7.2
+      gatsby: 5.13.3(babel-eslint@10.1.0)(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.3)
     dev: false
 
   /gatsby-transformer-sharp@5.13.1(gatsby-plugin-sharp@5.13.1)(gatsby@5.13.3)(graphql@16.8.1):
