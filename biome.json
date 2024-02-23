@@ -29,6 +29,6 @@
 		}
 	},
 	"files": {
-		"ignore": ["node_modules", ".cache", "public"]
+		"ignore": ["node_modules", ".cache", "public", "gatsby-types.d.ts"]
 	}
 }
