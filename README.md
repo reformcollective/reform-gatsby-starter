@@ -15,6 +15,8 @@ Setup!
 9. Init Library submodule: `git submodule update --init --recursive`
 10. In repository settings, enable "Always suggest updating pull request branches", "Allow auto-merge", and "Automatically delete head branches"
 11. Update the README.md to remove these instructions and add project-specific image and name below
+12. Set up a Netlfiy build and link to contentful if available/part of project
+13. Add env variables to Netlify, Notion, and Github.
 
 <!-- Repository Cover -->
 <img src="https://picsum.photos/1600/900" alt="Project Name Website Repository" wsidth="100%" style="border-radius: 50px">
