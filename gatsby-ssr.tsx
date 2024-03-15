@@ -2,7 +2,7 @@ import "styles/fonts/typography.css"
 import "the-new-css-reset/css/reset.css"
 
 import Layout from "components/Layout"
-import Providers from "components/Providers"
+import { RootProviders, RouteProviders } from "components/Providers"
 import type { RenderBodyArgs } from "gatsby"
 
 console.info(`
@@ -15,16 +15,23 @@ console.info(`
          https://reformcollective.com
 `)
 
+export const onRenderBody = ({ setHtmlAttributes }: RenderBodyArgs) => {
+	setHtmlAttributes({
+		lang: "en",
+	})
+}
+
+/**
+ * these should match gatsby-browser.tsx exactly
+ */
 export const wrapRootElement = ({ element }: { element: React.ReactNode }) => {
-  return <Providers>{element}</Providers>
+	return <RootProviders>{element}</RootProviders>
 }
 
 export const wrapPageElement = ({ element }: { element: React.ReactNode }) => {
-  return <Layout>{element}</Layout>
-}
-
-export const onRenderBody = ({ setHtmlAttributes }: RenderBodyArgs) => {
-  setHtmlAttributes({
-    lang: "en",
-  })
+	return (
+		<RouteProviders>
+			<Layout>{element}</Layout>
+		</RouteProviders>
+	)
 }

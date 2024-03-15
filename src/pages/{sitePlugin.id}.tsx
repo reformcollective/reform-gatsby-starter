@@ -1,9 +1,9 @@
 import Seo from "components/Seo"
 import type { HeadProps, PageProps } from "gatsby"
 import { graphql } from "gatsby"
-import { sleep } from "library/functions"
 import { transitionAwaitPromise } from "library/Loader"
 import UniversalLink from "library/Loader/UniversalLink"
+import { sleep } from "library/functions"
 
 import { Filler } from "./404"
 
@@ -12,38 +12,35 @@ import { Filler } from "./404"
  * for reference see https://www.gatsbyjs.com/docs/reference/routing/file-system-route-api/
  */
 export default function TemplateSample({
-  data,
+	data,
 }: PageProps<Queries.SitePluginTemplateQuery>) {
-  // simulate waiting for something to load
-  if (Math.random() > 0.5) transitionAwaitPromise(sleep(1000))
-
-  return (
-    <>
-      <Filler>
-        <h1>Hello from the {data.sitePlugin?.name} page</h1>
-        <br />
-        <UniversalLink transition="fade" to="/">
-          Go back to the homepage
-        </UniversalLink>
-      </Filler>
-      <Filler>
-        <h1>This page is entirely dedicated to {data.sitePlugin?.name}</h1>
-      </Filler>
-      <Filler>
-        <h1>If you don&apos;t like {data.sitePlugin?.name} I will fight you</h1>
-      </Filler>
-    </>
-  )
+	return (
+		<>
+			<Filler>
+				<h1>Hello from the {data.sitePlugin?.name} page</h1>
+				<br />
+				<UniversalLink transition="fade" to="/">
+					Go back to the homepage
+				</UniversalLink>
+			</Filler>
+			<Filler>
+				<h1>This page is entirely dedicated to {data.sitePlugin?.name}</h1>
+			</Filler>
+			<Filler>
+				<h1>If you don&apos;t like {data.sitePlugin?.name} I will fight you</h1>
+			</Filler>
+		</>
+	)
 }
 
 export function Head({ data }: HeadProps<Queries.SitePluginTemplateQuery>) {
-  return (
-    <Seo
-      title={data.sitePlugin?.name}
-      description="This template page is an example"
-      pathname={`/${data.sitePlugin?.id ?? ""}`}
-    />
-  )
+	return (
+		<Seo
+			title={data.sitePlugin?.name}
+			description="This template page is an example"
+			pathname={`/${data.sitePlugin?.id ?? ""}`}
+		/>
+	)
 }
 
 export const query = graphql`
