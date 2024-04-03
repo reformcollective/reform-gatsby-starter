@@ -2,9 +2,7 @@
 
 Setup!
 
-1. Clone and setup git for new repo
-   - remove the old remote with `git remote remove origin`
-   - add the new remote with `git remote add origin <new-repo-url>`
+1. Clone using the template in GitHub
 2. Update all existing packages with `npx npm-check-updates` (feel free to update the starter repository as well)
 3. Enable package update checks in `.github/workflows/call-check-updates.yml`
 4. Update `package.json` to include proper metadata for the new project
