@@ -50,9 +50,7 @@
 		"stylelint-config-reform-collective": "github:reformcollective/stylelint-config-reform",
 		"typescript": "5.4.3"
 	},
-	"keywords": [
-		"gatsby"
-	],
+	"keywords": ["gatsby"],
 	"license": "0BSD",
 	"scripts": {
 		"build": "gatsby build",
