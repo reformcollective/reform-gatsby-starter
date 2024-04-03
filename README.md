@@ -9,7 +9,7 @@ Setup!
 5. Complete TODO items in `gatsby-config.ts`
 6. Add any typography to `src/styles/typography.css`, and configure a default text color/style in `src/components/Layout.css`
 7. Add any text styles to `src/styles/text.ts`
-8. Configure branch rulesets on github (you should export and import the starter's ruleset)
+8. Configure branch rules on github (you should export and import the starter's rule set)
 9. Init Library submodule: `git submodule update --init --recursive`
 10. In repository settings, enable "Always suggest updating pull request branches", "Allow auto-merge", and "Automatically delete head branches"
 11. Update the README.md to remove these instructions and add project-specific image and name below
