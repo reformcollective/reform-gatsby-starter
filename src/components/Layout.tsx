@@ -51,6 +51,7 @@ const globalCss = css`
   * {
     /* need this so that fonts match figma */
     text-rendering: geometricprecision;
+  	-webkit-font-smoothing: antialiased;
   }
 
   /** restore default focus states for elements that need them */
