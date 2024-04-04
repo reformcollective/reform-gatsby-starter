@@ -1,6 +1,8 @@
+// see https://www.totaltypescript.com/tsconfig-cheat-sheet
 {
 	"include": ["./src/**/*", "./*.tsx", "./*.ts"],
 	"compilerOptions": {
+		// Base Options
 		"esModuleInterop": true,
 		"skipLibCheck": true,
 		"target": "es2022",
@@ -9,16 +11,17 @@
 		"moduleDetection": "force",
 		"isolatedModules": true,
 
+		// Strictness
 		"strict": true,
 		"noUncheckedIndexedAccess": true,
 
-		"moduleResolution": "NodeNext",
-		"module": "NodeNext",
-		"outDir": "dist",
+		// Transpilation
+		"module": "Preserve",
+		"noEmit": true,
 		"sourceMap": true,
-
 		"lib": ["es2022", "dom", "dom.iterable"],
 
+		// Miscellaneous
 		"baseUrl": "src",
 		"jsx": "react-jsx",
 		"incremental": true,

@@ -4,13 +4,15 @@
 		{
 			"label": "Dev Server",
 			"type": "shell",
-			"command": "pnpm i --frozen-lockfile && pnpm run clean && npm start",
+			"command": "pnpm i --frozen-lockfile && pnpm run clean && (npm start || (git submodule update --init --recursive && npm start))",
 			"presentation": {
 				"panel": "new",
 				"echo": false,
 				"reveal": "never"
 			},
-			"runOptions": { "runOn": "folderOpen" },
+			"runOptions": {
+				"runOn": "folderOpen"
+			},
 			"icon": {
 				"id": "vm-running",
 				"color": "terminal.ansiGreen"

@@ -1,0 +1,12 @@
+{
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"editor.defaultFormatter": "biomejs.biome",
+	"[jsonc]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[json]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"template-string-converter.addBracketsToProps": true,
+	"template-string-converter.autoRemoveTemplateString": true
+}

@@ -1,3 +1,4 @@
+import { ScreenProvider } from "library/ScreenContext"
 import StyledManager from "library/StyledManager"
 
 interface ProvidersProps {
@@ -8,7 +9,7 @@ interface ProvidersProps {
  * providers here will be mounted once, and will never unmount
  */
 export function RootProviders({ children }: ProvidersProps) {
-	return <>{children}</>
+	return <ScreenProvider>{children}</ScreenProvider>
 }
 
 /**
