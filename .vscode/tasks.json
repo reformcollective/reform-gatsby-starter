@@ -22,9 +22,7 @@
 			"type": "shell",
 			"label": "Lint Project",
 			"command": "npx eslint . || exit 0",
-			"problemMatcher": [
-				"$eslint-stylish"
-			],
+			"problemMatcher": ["$eslint-stylish"],
 			"icon": {
 				"id": "notebook",
 				"color": "terminal.ansiGreen"
@@ -41,10 +39,7 @@
 			"problemMatcher": [
 				{
 					"owner": "stylelint",
-					"fileLocation": [
-						"relative",
-						"${workspaceFolder}"
-					],
+					"fileLocation": ["relative", "${workspaceFolder}"],
 					"pattern": [
 						{
 							"regexp": "^([^\\s].*)$",
@@ -67,10 +62,7 @@
 				},
 				{
 					"owner": "stylelint",
-					"fileLocation": [
-						"relative",
-						"${workspaceFolder}"
-					],
+					"fileLocation": ["relative", "${workspaceFolder}"],
 					"pattern": [
 						{
 							"regexp": "^([^\\s].*)$",
