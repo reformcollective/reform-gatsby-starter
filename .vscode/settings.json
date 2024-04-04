@@ -1,0 +1,9 @@
+{
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"editor.defaultFormatter": "biomejs.biome",
+	"[jsonc]": {
+		"editor.defaultFormatter": "vscode.json-language-features"
+	},
+	"template-string-converter.addBracketsToProps": true,
+	"template-string-converter.autoRemoveTemplateString": true
+}

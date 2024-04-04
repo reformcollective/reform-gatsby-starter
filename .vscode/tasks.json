@@ -4,13 +4,15 @@
 		{
 			"label": "Dev Server",
 			"type": "shell",
-			"command": "pnpm i --frozen-lockfile && pnpm run clean && npm start",
+			"command": "pnpm i --frozen-lockfile && pnpm run clean && (npm start || (git submodule update --init --recursive && npm start))",
 			"presentation": {
 				"panel": "new",
 				"echo": false,
 				"reveal": "never"
 			},
-			"runOptions": { "runOn": "folderOpen" },
+			"runOptions": {
+				"runOn": "folderOpen"
+			},
 			"icon": {
 				"id": "vm-running",
 				"color": "terminal.ansiGreen"
@@ -20,7 +22,9 @@
 			"type": "shell",
 			"label": "Lint Project",
 			"command": "npx eslint . || exit 0",
-			"problemMatcher": ["$eslint-stylish"],
+			"problemMatcher": [
+				"$eslint-stylish"
+			],
 			"icon": {
 				"id": "notebook",
 				"color": "terminal.ansiGreen"
@@ -37,7 +41,10 @@
 			"problemMatcher": [
 				{
 					"owner": "stylelint",
-					"fileLocation": ["relative", "${workspaceFolder}"],
+					"fileLocation": [
+						"relative",
+						"${workspaceFolder}"
+					],
 					"pattern": [
 						{
 							"regexp": "^([^\\s].*)$",
@@ -60,7 +67,10 @@
 				},
 				{
 					"owner": "stylelint",
-					"fileLocation": ["relative", "${workspaceFolder}"],
+					"fileLocation": [
+						"relative",
+						"${workspaceFolder}"
+					],
 					"pattern": [
 						{
 							"regexp": "^([^\\s].*)$",
