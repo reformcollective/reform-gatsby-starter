@@ -1,5 +1,5 @@
 {
-	"typescript.tsdk": "node_modules/typescript/lib",
+	/* formatting */
 	"editor.defaultFormatter": "biomejs.biome",
 	"[jsonc]": {
 		"editor.defaultFormatter": "biomejs.biome"
@@ -7,6 +7,54 @@
 	"[json]": {
 		"editor.defaultFormatter": "biomejs.biome"
 	},
+	"[xml]": {
+		"editor.defaultFormatter": "redhat.vscode-xml"
+	},
+	"[snippets]": {
+		"editor.defaultFormatter": "vscode.json-language-features"
+	},
+
+	/* recommended extension config */
 	"template-string-converter.addBracketsToProps": true,
-	"template-string-converter.autoRemoveTemplateString": true
+	"template-string-converter.autoRemoveTemplateString": true,
+	"stylelint.validate": ["css", "scss", "javascriptreact", "typescriptreact"],
+	"cSpell.words": [
+		"ahooks",
+		"biomejs",
+		"bunx",
+		"contentful",
+		"csvg",
+		"drei",
+		"fdesktop",
+		"fmobile",
+		"fresponsive",
+		"ftablet",
+		"gsap",
+		"multipass",
+		"preinstall",
+		"reformcollective",
+		"stylelint",
+		"stylis",
+		"svgr",
+		"yoyo"
+	],
+	"cSpell.ignorePaths": [
+		"package.json",
+		"package-lock.json",
+		"node_modules",
+		"vscode-extension",
+		".git/objects",
+		".vscode",
+		".vscode-insiders",
+		"pnpm-lock.yaml"
+	],
+
+	/* workbench settings */
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"workbench.editor.customLabels.patterns": {
+		"**/index.tsx": "${dirname} / index.tsx"
+	},
+
+	/* unsorted settings */
+	"": ""
 }

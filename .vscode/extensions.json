@@ -11,6 +11,9 @@
 		"eamodio.gitlens",
 		"wix.vscode-import-cost",
 		"quicktype.quicktype",
-		"meganrogge.template-string-converter"
+		"meganrogge.template-string-converter",
+		"redhat.vscode-xml",
+		"graphql.vscode-graphql-syntax",
+		"graphql.vscode-graphql"
 	]
 }
