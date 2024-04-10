@@ -72,6 +72,14 @@ const config: GatsbyConfig = {
 				path: "./src/images",
 			},
 		},
+		// TODO data folder, if needed
+		// {
+		// 	resolve: "gatsby-source-filesystem",
+		// 	options: {
+		// 		name: "data",
+		// 		path: "./src/data",
+		// 	},
+		// },
 		{
 			resolve: "gatsby-plugin-svgr",
 			options: {
