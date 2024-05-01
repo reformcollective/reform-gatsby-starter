@@ -14,6 +14,12 @@
 		"meganrogge.template-string-converter",
 		"redhat.vscode-xml",
 		"graphql.vscode-graphql-syntax",
-		"graphql.vscode-graphql"
+		"graphql.vscode-graphql",
+	],
+	"unwantedRecommendations": [
+		// built into VS Code
+		"formulahendry.auto-rename-tag",
+		// built into VS Code
+		"formulahendry.auto-complete-tag"
 	]
 }
