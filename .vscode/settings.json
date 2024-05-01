@@ -23,19 +23,36 @@
 		"biomejs",
 		"bunx",
 		"contentful",
+		"corepack",
 		"csvg",
+		"dotless",
 		"drei",
 		"fdesktop",
 		"fmobile",
 		"fresponsive",
 		"ftablet",
 		"gsap",
+		"headshot",
+		"hookify",
+		"hubspot",
+		"hubspotutk",
+		"hutk",
 		"multipass",
+		"onepassword",
 		"preinstall",
 		"reformcollective",
+		"Reparent",
+		"scroller",
+		"scrolltrigger",
 		"stylelint",
 		"stylis",
+		"sublicensable",
 		"svgr",
+		"tagmanager",
+		"Tweens",
+		"Typegen",
+		"userback",
+		"webp",
 		"yoyo"
 	],
 	"cSpell.ignorePaths": [
@@ -50,10 +67,12 @@
 	],
 
 	/* workbench settings */
-	"typescript.tsdk": "node_modules/typescript/lib",
+	"typescript.tsdk": "./node_modules/typescript/lib",
+	"typescript.enablePromptUseWorkspaceTsdk": true,
 	"workbench.editor.customLabels.patterns": {
 		"**/index.tsx": "${dirname} / index.tsx"
 	},
+    "editor.linkedEditing": true,
 
 	/* unsorted settings */
 	"": ""
