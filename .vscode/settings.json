@@ -63,7 +63,8 @@
 		".git/objects",
 		".vscode",
 		".vscode-insiders",
-		"pnpm-lock.yaml"
+		"pnpm-lock.yaml",
+		"src/library"
 	],
 
 	/* workbench settings */
