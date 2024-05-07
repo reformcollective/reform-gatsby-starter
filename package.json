@@ -59,7 +59,6 @@
 		"type-check": "tsc --noEmit",
 		"checks": "(npm run type-check || (echo 'Type check failed.' && exit 1)) && (npm run lint || (echo 'Lint check failed.' && exit 1)) && (npm run build || (echo 'Build failed.' && exit 1)) && echo 'All checks passed.'",
 		"preinstall": "npx only-allow pnpm",
-		"postinstall": "cd src/library && pnpm i",
 		"lighthouse": "bunx lighthouse http://localhost:9000 --view --chrome-flags='--headless'",
 		"prepare": "husky"
 	},
