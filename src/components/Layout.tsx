@@ -7,6 +7,7 @@ import Scroll from "library/Scroll"
 import { useTrackPageReady } from "library/pageReady"
 import useTrackFrameTime from "library/useTrackFrameTime"
 import styled, { createGlobalStyle, css } from "styled-components"
+import { ColorStyle } from "styles/colors"
 import textStyles from "styles/text"
 
 interface LayoutProps {
@@ -23,6 +24,7 @@ export default function Layout({ children }: LayoutProps) {
 			<Transition />
 			<Preloader />
 			<GlobalStyle />
+			<ColorStyle />
 			<Scroll>
 				<Header />
 				<Main>{children}</Main>
