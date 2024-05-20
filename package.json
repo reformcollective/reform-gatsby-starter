@@ -49,7 +49,7 @@
 	"scripts": {
 		"build": "gatsby build",
 		"format": "biome check --apply . && npm run lint:css",
-		"format-temp": "pnpm dlx prettier 'src/**/*.tsx' --write && npm run format && pnpm i",
+		"format-temp": "pnpm dlx prettier 'src/**/*.tsx' --write && biome check --apply .",
 		"format-unsafe": "biome check --apply-unsafe . && npm run lint:css",
 		"lint": "biome lint .",
 		"lint:css": "npx stylelint './src/**/*.{js,jsx,ts,tsx}' --fix || exit 0",

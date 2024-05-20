@@ -19,22 +19,22 @@ export default function FourOhFour() {
 }
 
 export const Filler = styled.div`
-  ${textStyles.h1};
-  min-height: 60vh;
-  border-radius: 10px;
-  background-color: #f0f0f0;
-  margin: 100px;
-  padding: 100px;
-  text-align: center;
+	${textStyles.h1};
+	min-height: 60vh;
+	border-radius: 10px;
+	background-color: #f0f0f0;
+	margin: 100px;
+	padding: 100px;
+	text-align: center;
 
-  ${media.tablet} {
-    margin: 50px 40px;
-    padding: 50px 40px;
-  }
-  ${media.mobile} {
-    margin: 50px 20px;
-    padding: 50px 20px;
-  }
+	${media.tablet} {
+		margin: 50px 40px;
+		padding: 50px 40px;
+	}
+	${media.mobile} {
+		margin: 50px 20px;
+		padding: 50px 20px;
+	}
 `
 
 export function Head() {

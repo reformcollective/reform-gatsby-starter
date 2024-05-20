@@ -19,14 +19,14 @@ export function Head() {
 }
 
 const Wrapper = styled.section`
-  width: 100vw;
-  height: 100vh;
-  background-color: black;
+	width: 100vw;
+	height: 100vh;
+	background-color: black;
 `
 
 const Link = styled(UniversalLink)`
-  position: absolute;
-  z-index: 2;
-  color: white;
-  cursor: pointer;
+	position: absolute;
+	z-index: 2;
+	color: white;
+	cursor: pointer;
 `

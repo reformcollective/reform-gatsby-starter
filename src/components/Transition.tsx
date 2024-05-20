@@ -87,16 +87,16 @@ export default function Transition() {
 }
 
 const Wrapper = styled.div`
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background-color: green;
-  z-index: 100;
-  opacity: 0;
-  pointer-events: none;
-  display: grid;
-  place-items: center;
-  ${textStyles.h1}
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: green;
+	z-index: 100;
+	opacity: 0;
+	pointer-events: none;
+	display: grid;
+	place-items: center;
+	${textStyles.h1}
 `

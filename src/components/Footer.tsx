@@ -9,9 +9,9 @@ export default function Footer() {
 }
 
 const Wrapper = styled.footer`
-  background-color: rebeccapurple;
-  color: white;
-  display: grid;
-  place-items: center;
-  height: 300px;
+	background-color: rebeccapurple;
+	color: white;
+	display: grid;
+	place-items: center;
+	height: 300px;
 `
