@@ -30,13 +30,11 @@
 		}
 	},
 	"files": {
-		"ignore": [
-			"node_modules",
-			"pnpm-lock.yaml",
-			".cache",
-			"public",
-			"gatsby-types.d.ts",
-			".vscode"
-		]
+		"ignore": ["pnpm-lock.yaml", ".vscode"]
+	},
+	"vcs": {
+		"enabled": true,
+		"clientKind": "git",
+		"useIgnoreFile": true
 	}
 }

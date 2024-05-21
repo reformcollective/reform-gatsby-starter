@@ -17,9 +17,17 @@ Setup!
 13. Add .env variables to Netlify, Notion, and Github
 
 <!-- Repository Cover -->
-<img src="https://picsum.photos/1600/900" alt="Project Name Website Repository" wsidth="100%" style="border-radius: 50px">
+<img src="https://picsum.photos/1600/900" alt="Project Name Website Repository" width="100%" style="border-radius: 50px">
 <br><br>
 
 # Project Name
-
 Built with Gatsby. Install with `pnpm install` and run with `pnpm start`
+
+## Setup
+
+1. Install nvm and Node.js
+The preferred way to install node is with nvm. After installing nvm, run `nvm install` in this project to download and use the correct version of node for this project.
+
+2. Install PNPM
+The preferred way to install pnpm is with corepack. After you've installed node, you install pnpm with `corepack enable`. You should now be able to run `pnpm install` and `pnpm start`
+Note that if you installed node from homebrew, you may need to install corepack separately.

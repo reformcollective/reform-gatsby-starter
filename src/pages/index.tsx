@@ -45,14 +45,14 @@ export function Head() {
 }
 
 export const query = graphql`
-  query SitePluginsHome {
-    allSitePlugin {
-      edges {
-        node {
-          id
-          name
-        }
-      }
-    }
-  }
+	query SitePluginsHome {
+		allSitePlugin {
+			edges {
+				node {
+					id
+					name
+				}
+			}
+		}
+	}
 `

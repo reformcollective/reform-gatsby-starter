@@ -42,10 +42,10 @@ export function Head({ data }: HeadProps<Queries.SitePluginTemplateQuery>) {
 }
 
 export const query = graphql`
-  query SitePluginTemplate($id: String) {
-    sitePlugin(id: { eq: $id }) {
-      id
-      name
-    }
-  }
+	query SitePluginTemplate($id: String) {
+		sitePlugin(id: { eq: $id }) {
+			id
+			name
+		}
+	}
 `
