@@ -1,6 +1,6 @@
 import gsap from "gsap"
-import loader from "library/Loader"
-import { useRegisterLoaderCallback } from "library/Loader/LoaderUtils"
+import { loader } from "library/Loader"
+import { usePreloader } from "library/Loader/PreloaderUtils"
 import { useRef, useState } from "react"
 import styled from "styled-components"
 import textStyles from "styles/text"
@@ -20,9 +20,31 @@ export default function Preloader() {
 		})
 	}
 
-	useRegisterLoaderCallback({
+	const fadeOut = () => {
+		gsap.to(wrapperRef.current, {
+			opacity: 0,
+			duration: 1,
+		})
+	}
+
+	usePreloader({
+		only: "whenAtTop",
 		duration: 1,
 		callback: slideOut,
+	})
+
+	/**
+	 * you'll probably want to use a shorter animation when the page is scrolled,
+	 * since that means the user is probably reloading the page (which we want to be fast)
+	 */
+	usePreloader({
+		only: "whenScrolled",
+		duration: 1,
+		callback: fadeOut,
+	})
+
+	loader.useEventListener("end", () => {
+		gsap.set(wrapperRef.current, { display: "none" })
 	})
 
 	return (
