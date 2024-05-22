@@ -38,6 +38,6 @@ const Wrapper = styled.div`
 	background: #eff;
 
 	p {
-		opacity: 0.5
+		opacity: 0.5;
 	}
 `
