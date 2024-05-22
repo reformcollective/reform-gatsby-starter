@@ -94,8 +94,8 @@ importers:
         specifier: 9.0.11
         version: 9.0.11
       lint-staged:
-        specifier: 15.2.2
-        version: 15.2.2
+        specifier: 15.2.4
+        version: 15.2.4
       stylelint:
         specifier: 16.5.0
         version: 16.5.0(typescript@5.4.5)
@@ -109,20 +109,20 @@ importers:
   src/library:
     dependencies:
       '@contentful/rich-text-react-renderer':
-        specifier: ^15.19.6
-        version: 15.19.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^15.20.0
+        version: 15.20.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@contentful/rich-text-types':
-        specifier: ^16.3.5
-        version: 16.3.5
+        specifier: ^16.4.0
+        version: 16.4.0
       '@react-three/drei':
         specifier: ^9.105.6
-        version: 9.105.6(@react-three/fiber@8.16.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.164.1))(@types/react@18.3.2)(@types/three@0.164.0)(immer@9.0.21)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.164.1)
+        version: 9.105.6(@react-three/fiber@8.16.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.164.1))(@types/react@18.3.2)(@types/three@0.164.1)(immer@9.0.21)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.164.1)
       '@react-three/fiber':
-        specifier: ^8.16.3
-        version: 8.16.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.164.1)
+        specifier: ^8.16.6
+        version: 8.16.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.164.1)
       '@types/three':
-        specifier: ^0.164.0
-        version: 0.164.0
+        specifier: ^0.164.1
+        version: 0.164.1
       ahooks:
         specifier: ^3.7.11
         version: 3.7.11(react@18.3.1)
@@ -890,8 +890,8 @@ packages:
     resolution: {integrity: sha512-snXIGNiZpqjno3XYQN2lbBB+05hsQR/LSttbtIW1c0gmZ7Kh/DIo0YrxlDxCDulAMFPFM8J+4voLwvYepSj3sw==}
     hasBin: true
 
-  '@contentful/rich-text-react-renderer@15.19.6':
-    resolution: {integrity: sha512-SPpkr2uSyirsN/uUaek8djqLMGP8nPqSqxoQ8M0VJcfD9+INKK56vjmteNr5dBbqAZO/PJMxT1S8to9BndpinQ==}
+  '@contentful/rich-text-react-renderer@15.20.0':
+    resolution: {integrity: sha512-CKxiAPWi960i//XXKd3e+Dg7cMSJ6W9yUDFL6d5wcoUrzzuAiOVEp2pfCRtY7hl8NyUarkdDXXsgTpDsJ9mcAg==}
     engines: {node: '>=6.0.0'}
     peerDependencies:
       react: ^16.8.6 || ^17.0.0 || ^18.0.0
@@ -901,8 +901,8 @@ packages:
     resolution: {integrity: sha512-oheW0vkxWDuKBIIXDeJfZaRYo+NzKbC4gETMhH+MGJd4nfL9cqrOvtRxZBgnhICN4vDpH4my/zUIZGKcFqGSjQ==}
     engines: {node: '>=6.0.0'}
 
-  '@contentful/rich-text-types@16.3.5':
-    resolution: {integrity: sha512-ZLq6p5uyQXg+i1XGDFu4tAc2VYS12S1KA/jIOyyZjNgC1DvDajsi1JzuiBuOuMEhi1sKEUy6Ry3Yr9jsQtOKuQ==}
+  '@contentful/rich-text-types@16.4.0':
+    resolution: {integrity: sha512-m6lKBhw+J/IOa3z0yGabZ/oxFlKqwbHISAYsmoAtYxOgI7Kije1/PMK8eb2WnXRvTmJNu8+0hYpeAI8G7wdexA==}
     engines: {node: '>=6.0.0'}
 
   '@csstools/css-parser-algorithms@2.6.1':
@@ -1543,8 +1543,8 @@ packages:
       react-dom:
         optional: true
 
-  '@react-three/fiber@8.16.3':
-    resolution: {integrity: sha512-jg37AH0xmJEGbCk7qgO3EwB99UTNVekYYU/1+D5xNPFAn+fPqkUUaHalriaY+S3HLtBy33HYVOenbD9ZKLyC/Q==}
+  '@react-three/fiber@8.16.6':
+    resolution: {integrity: sha512-sKEqocYKRI3deW7z9CAVjedDID1an2i8FwxQVv2reMJxzIxIlyxCYXMIAqXBCgHTFtVX2hWGTZYhLL5nyne8kA==}
     peerDependencies:
       expo: '>=43.0'
       expo-asset: '>=8.4'
@@ -1838,8 +1838,8 @@ packages:
   '@types/three@0.163.0':
     resolution: {integrity: sha512-uIdDhsXRpQiBUkflBS/i1l3JX14fW6Ot9csed60nfbZNXHDTRsnV2xnTVwXcgbvTiboAR4IW+t+lTL5f1rqIqA==}
 
-  '@types/three@0.164.0':
-    resolution: {integrity: sha512-SFDofn9dJVrE+1DKta7xj7lc4ru7B3S3yf10NsxOserW57aQlB6GxtAS1UK5To3LfEMN5HUHMu3n5v+M5rApgA==}
+  '@types/three@0.164.1':
+    resolution: {integrity: sha512-dR/trWDhyaNqJV38rl1TonlCA9DpnX7OPYDWD81bmBGn/+uEc3+zNalFxQcV4FlPTeDBhCY3SFWKvK6EJwL88g==}
 
   '@types/tmp@0.0.33':
     resolution: {integrity: sha512-gVC1InwyVrO326wbBZw+AO3u2vRXz/iRWq9jYhpG4W8LXyIgDv3ZmcLQ5Q4Gs+gFMyqx+viFoFT+l3p61QFCmQ==}
@@ -2354,6 +2354,10 @@ packages:
     resolution: {integrity: sha512-b8um+L1RzM3WDSzvhm6gIz1yfTbBt6YTlcEKAvsmqCZZFw46z626lVj9j1yEPW33H5H+lBQpZMP1k8l+78Ha0A==}
     engines: {node: '>=8'}
 
+  braces@3.0.3:
+    resolution: {integrity: sha512-yQbXgO/OSZVD2IsiLlro+7Hf6Q18EJrKSEsdoMzKePKXct3gvD8oLcOQdIzGupr5Fj+EDe8gO/lxc1BzfMpxvA==}
+    engines: {node: '>=8'}
+
   browserslist@4.22.2:
     resolution: {integrity: sha512-0UgcrvQmBDvZHFGdYUehrCNIazki7/lUP3kkoi/r3YB2amZbFM9J43ZRkJTXBUZK4gmx56+Sqk9+Vs9mwZx9+A==}
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
@@ -2564,9 +2568,9 @@ packages:
   command-exists@1.2.9:
     resolution: {integrity: sha512-LTQ/SGc+s0Xc0Fu5WaKnR0YiygZkm9eKFvyS+fRsU7/ZWFF8ykFM6Pc9aCVf1+xasOOZpO3BAVgVrKvsqKHV7w==}
 
-  commander@11.1.0:
-    resolution: {integrity: sha512-yPVavfyCcRhmorC7rWlkHn15b4wDVgVmBA7kV4QVBsF7kv/9TKJAbAXVTxvTnwP8HHKjRCJDClKbciiYS7p0DQ==}
-    engines: {node: '>=16'}
+  commander@12.1.0:
+    resolution: {integrity: sha512-Vw8qHK3bZM9y/P10u3Vib8o/DdkvA2OtPtZvD871QKjy74Wj1WSKFILMPRPSdUSx5RFK1arlJzEtA4PkFgnbuA==}
+    engines: {node: '>=18'}
 
   commander@2.20.3:
     resolution: {integrity: sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==}
@@ -3465,6 +3469,10 @@ packages:
 
   fill-range@7.0.1:
     resolution: {integrity: sha512-qOo9F+dMUmC2Lcb4BbVvnKJxTPjCm+RRpe4gDuGrzkL7mEVl/djYSu2OdQ2Pa302N4oqkSg9ir6jaLWJ2USVpQ==}
+    engines: {node: '>=8'}
+
+  fill-range@7.1.1:
+    resolution: {integrity: sha512-YsGpe3WHLK8ZYi4tWDg2Jy3ebRz2rXowDxnld4bkQB00cc/1Zw9AWnC0i9ztDJitivtQvaI9KaLyKrc+hBW0yg==}
     engines: {node: '>=8'}
 
   filter-obj@1.1.0:
@@ -4528,8 +4536,8 @@ packages:
     resolution: {integrity: sha512-utWOt/GHzuUxnLKxB6dk81RoOeoNeHgbrXiuGk4yyF5qlRz+iIVWu56E2fqGHFrXz0QNUhLB/8nKqvRH66JKGQ==}
     engines: {node: '>=10'}
 
-  lilconfig@3.0.0:
-    resolution: {integrity: sha512-K2U4W2Ff5ibV7j7ydLr+zLAkIg5JJ4lPn1Ltsdt+Tz/IjQ8buJ55pZAxoP34lqIiwtF9iAvtLv3JGv7CAyAg+g==}
+  lilconfig@3.1.1:
+    resolution: {integrity: sha512-O18pf7nyvHTckunPWCV1XUNXU1piu01y2b7ATJ0ppkUkk8ocqVWBrYjJBCwHDjD/ZWcfyrA0P4gKhzWGi5EINQ==}
     engines: {node: '>=14'}
 
   lines-and-columns@1.2.4:
@@ -4538,13 +4546,13 @@ packages:
   linkfs@2.1.0:
     resolution: {integrity: sha512-kmsGcmpvjStZ0ATjuHycBujtNnXiZR28BTivEu0gAMDTT7GEyodcK6zSRtu6xsrdorrPZEIN380x7BD7xEYkew==}
 
-  lint-staged@15.2.2:
-    resolution: {integrity: sha512-TiTt93OPh1OZOsb5B7k96A/ATl2AjIZo+vnzFZ6oHK5FuTk63ByDtxGQpHm+kFETjEWqgkF95M8FRXKR/LEBcw==}
+  lint-staged@15.2.4:
+    resolution: {integrity: sha512-3F9KRQIS2fVDGtCkBp4Bx0jswjX7zUcKx6OF0ZeY1prksUyKPRIIUqZhIUYAstJfvj6i48VFs4dwVIbCYwvTYQ==}
     engines: {node: '>=18.12.0'}
     hasBin: true
 
-  listr2@8.0.1:
-    resolution: {integrity: sha512-ovJXBXkKGfq+CwmKTjluEqFi3p4h8xvkxGQQAQan22YCgef4KZ1mKGjzfGh6PL6AW5Csw0QiQPNuQyH+6Xk3hA==}
+  listr2@8.2.1:
+    resolution: {integrity: sha512-irTfvpib/rNiD637xeevjO2l3Z5loZmuaRi0L0YE5LfijwVY96oyVn0DFD3o/teAok7nfobMG1THvvcHh/BP6g==}
     engines: {node: '>=18.0.0'}
 
   lmdb@2.5.2:
@@ -4776,6 +4784,10 @@ packages:
 
   micromatch@4.0.5:
     resolution: {integrity: sha512-DMy+ERcEW2q8Z2Po+WNXuw3c5YaUSFjAO5GsJqfEl7UjvtIuFKO6ZrKvcItdy98dwFI2N1tg3zNIdKaQT+aNdA==}
+    engines: {node: '>=8.6'}
+
+  micromatch@4.0.6:
+    resolution: {integrity: sha512-Y4Ypn3oujJYxJcMacVgcs92wofTHxp9FzfDpQON4msDefoC0lb3ETvQLOdLcbhSwU1bz8HrL/1sygfBIHudrkQ==}
     engines: {node: '>=8.6'}
 
   mime-db@1.52.0:
@@ -5303,6 +5315,10 @@ packages:
   picomatch@2.3.1:
     resolution: {integrity: sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==}
     engines: {node: '>=8.6'}
+
+  picomatch@4.0.2:
+    resolution: {integrity: sha512-M7BAV6Rlcy5u+m6oPhAPFgJTzAioX/6B0DxyvDlo9l8+T3nLKbrczg2WLUyzd45L8RqfUMyGPzekbMvX2Ldkwg==}
+    engines: {node: '>=12'}
 
   pidtree@0.6.0:
     resolution: {integrity: sha512-eG2dWTVw5bzqGRztnHExczNxt5VGsE6OwTeCG3fdUf9KBsZzO3R5OIIIzWR+iZA0NtZ+RDVdaoE2dK1cn6jH4g==}
@@ -6922,12 +6938,13 @@ packages:
     resolution: {integrity: sha512-r3vXyErRCYJ7wg28yvBY5VSoAF8ZvlcW9/BwUzEtUsjvX/DKs24dIkuwjtuprwJJHsbyUbLApepYTR1BN4uHrg==}
     engines: {node: '>= 6'}
 
-  yaml@2.3.4:
-    resolution: {integrity: sha512-8aAvwVUSHpfEqTQ4w/KMlf3HcRdt50E5ODIQJBw1fQ5RL34xabzxtUlzTXVqc4rkZsPbvrXKWnABCD7kWSmocA==}
-    engines: {node: '>= 14'}
-
   yaml@2.4.1:
     resolution: {integrity: sha512-pIXzoImaqmfOrL7teGUBt/T7ZDnyeGBWyXQBvOVhLkWLN37GXv8NMLK406UY6dS51JfcQHsmcW5cJ441bHg6Lg==}
+    engines: {node: '>= 14'}
+    hasBin: true
+
+  yaml@2.4.2:
+    resolution: {integrity: sha512-B3VqDZ+JAg1nZpaEmWtTXUlBneoGx6CPM9b0TENK6aoSu5t73dItudwdgmi6tHlIZZId4dZ9skcAQ2UbcyAeVA==}
     engines: {node: '>= 14'}
     hasBin: true
 
@@ -7889,15 +7906,15 @@ snapshots:
 
   '@builder.io/partytown@0.7.6': {}
 
-  '@contentful/rich-text-react-renderer@15.19.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@contentful/rich-text-react-renderer@15.20.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@contentful/rich-text-types': 16.3.5
+      '@contentful/rich-text-types': 16.4.0
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
   '@contentful/rich-text-types@15.15.1': {}
 
-  '@contentful/rich-text-types@16.3.5': {}
+  '@contentful/rich-text-types@16.4.0': {}
 
   '@csstools/css-parser-algorithms@2.6.1(@csstools/css-tokenizer@2.2.4)':
     dependencies:
@@ -8671,32 +8688,32 @@ snapshots:
       '@react-spring/types': 9.6.1
       react: 18.3.1
 
-  '@react-spring/three@9.6.1(@react-three/fiber@8.16.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.164.1))(react@18.3.1)(three@0.164.1)':
+  '@react-spring/three@9.6.1(@react-three/fiber@8.16.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.164.1))(react@18.3.1)(three@0.164.1)':
     dependencies:
       '@react-spring/animated': 9.6.1(react@18.3.1)
       '@react-spring/core': 9.6.1(react@18.3.1)
       '@react-spring/shared': 9.6.1(react@18.3.1)
       '@react-spring/types': 9.6.1
-      '@react-three/fiber': 8.16.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.164.1)
+      '@react-three/fiber': 8.16.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.164.1)
       react: 18.3.1
       three: 0.164.1
 
   '@react-spring/types@9.6.1': {}
 
-  '@react-three/drei@9.105.6(@react-three/fiber@8.16.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.164.1))(@types/react@18.3.2)(@types/three@0.164.0)(immer@9.0.21)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.164.1)':
+  '@react-three/drei@9.105.6(@react-three/fiber@8.16.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.164.1))(@types/react@18.3.2)(@types/three@0.164.1)(immer@9.0.21)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.164.1)':
     dependencies:
       '@babel/runtime': 7.23.2
       '@mediapipe/tasks-vision': 0.10.8
       '@monogrid/gainmap-js': 3.0.5(three@0.164.1)
-      '@react-spring/three': 9.6.1(@react-three/fiber@8.16.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.164.1))(react@18.3.1)(three@0.164.1)
-      '@react-three/fiber': 8.16.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.164.1)
+      '@react-spring/three': 9.6.1(@react-three/fiber@8.16.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.164.1))(react@18.3.1)(three@0.164.1)
+      '@react-three/fiber': 8.16.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.164.1)
       '@use-gesture/react': 10.3.1(react@18.3.1)
       camera-controls: 2.8.3(three@0.164.1)
       cross-env: 7.0.3
       detect-gpu: 5.0.38
       glsl-noise: 0.0.0
       hls.js: 1.3.5
-      maath: 0.10.7(@types/three@0.164.0)(three@0.164.1)
+      maath: 0.10.7(@types/three@0.164.1)(three@0.164.1)
       meshline: 3.3.0(three@0.164.1)
       react: 18.3.1
       react-composer: 5.0.3(react@18.3.1)
@@ -8718,7 +8735,7 @@ snapshots:
       - '@types/three'
       - immer
 
-  '@react-three/fiber@8.16.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.164.1)':
+  '@react-three/fiber@8.16.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.164.1)':
     dependencies:
       '@babel/runtime': 7.23.2
       '@types/react-reconciler': 0.26.7
@@ -9029,7 +9046,7 @@ snapshots:
       fflate: 0.8.2
       meshoptimizer: 0.18.1
 
-  '@types/three@0.164.0':
+  '@types/three@0.164.1':
     dependencies:
       '@tweenjs/tween.js': 23.1.2
       '@types/stats.js': 0.17.3
@@ -9696,6 +9713,10 @@ snapshots:
     dependencies:
       fill-range: 7.0.1
 
+  braces@3.0.3:
+    dependencies:
+      fill-range: 7.1.1
+
   browserslist@4.22.2:
     dependencies:
       caniuse-lite: 1.0.30001568
@@ -9963,7 +9984,7 @@ snapshots:
 
   command-exists@1.2.9: {}
 
-  commander@11.1.0: {}
+  commander@12.1.0: {}
 
   commander@2.20.3: {}
 
@@ -10042,7 +10063,7 @@ snapshots:
 
   contentful@9.3.5:
     dependencies:
-      '@contentful/rich-text-types': 16.3.5
+      '@contentful/rich-text-types': 16.4.0
       axios: 0.27.2
       contentful-resolve-response: 1.8.1
       contentful-sdk-core: 7.1.0
@@ -11135,6 +11156,10 @@ snapshots:
     dependencies:
       to-regex-range: 5.0.1
 
+  fill-range@7.1.1:
+    dependencies:
+      to-regex-range: 5.0.1
+
   filter-obj@1.1.0: {}
 
   filter-obj@5.1.0: {}
@@ -11566,7 +11591,7 @@ snapshots:
   ? gatsby-source-contentful@8.13.2(encoding@0.1.13)(gatsby-plugin-image@3.13.1(@babel/core@7.23.2)(gatsby-plugin-sharp@5.13.1(gatsby@5.13.5(babel-eslint@10.1.0(eslint@7.32.0))(encoding@0.1.13)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@4.15.0)(typescript@5.4.5))(graphql@16.8.1))(gatsby-source-filesystem@5.13.1(gatsby@5.13.5(babel-eslint@10.1.0(eslint@7.32.0))(encoding@0.1.13)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@4.15.0)(typescript@5.4.5)))(gatsby@5.13.5(babel-eslint@10.1.0(eslint@7.32.0))(encoding@0.1.13)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@4.15.0)(typescript@5.4.5))(graphql@16.8.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(gatsby-plugin-sharp@5.13.1(gatsby@5.13.5(babel-eslint@10.1.0(eslint@7.32.0))(encoding@0.1.13)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@4.15.0)(typescript@5.4.5))(graphql@16.8.1))(gatsby@5.13.5(babel-eslint@10.1.0(eslint@7.32.0))(encoding@0.1.13)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@4.15.0)(typescript@5.4.5))(graphql@16.8.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sharp@0.32.6)
   : dependencies:
       '@babel/runtime': 7.23.2
-      '@contentful/rich-text-react-renderer': 15.19.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@contentful/rich-text-react-renderer': 15.20.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@contentful/rich-text-types': 15.15.1
       '@hapi/joi': 15.1.1
       '@vercel/fetch-retry': 5.1.3(node-fetch@2.7.0(encoding@0.1.13))
@@ -12552,28 +12577,28 @@ snapshots:
 
   lilconfig@2.1.0: {}
 
-  lilconfig@3.0.0: {}
+  lilconfig@3.1.1: {}
 
   lines-and-columns@1.2.4: {}
 
   linkfs@2.1.0: {}
 
-  lint-staged@15.2.2:
+  lint-staged@15.2.4:
     dependencies:
       chalk: 5.3.0
-      commander: 11.1.0
+      commander: 12.1.0
       debug: 4.3.4
       execa: 8.0.1
-      lilconfig: 3.0.0
-      listr2: 8.0.1
-      micromatch: 4.0.5
+      lilconfig: 3.1.1
+      listr2: 8.2.1
+      micromatch: 4.0.6
       pidtree: 0.6.0
       string-argv: 0.3.2
-      yaml: 2.3.4
+      yaml: 2.4.2
     transitivePeerDependencies:
       - supports-color
 
-  listr2@8.0.1:
+  listr2@8.2.1:
     dependencies:
       cli-truncate: 4.0.0
       colorette: 2.0.20
@@ -12722,9 +12747,9 @@ snapshots:
 
   luxon@3.4.4: {}
 
-  maath@0.10.7(@types/three@0.164.0)(three@0.164.1):
+  maath@0.10.7(@types/three@0.164.1)(three@0.164.1):
     dependencies:
-      '@types/three': 0.164.0
+      '@types/three': 0.164.1
       three: 0.164.1
 
   make-dir@3.1.0:
@@ -12811,6 +12836,11 @@ snapshots:
     dependencies:
       braces: 3.0.2
       picomatch: 2.3.1
+
+  micromatch@4.0.6:
+    dependencies:
+      braces: 3.0.3
+      picomatch: 4.0.2
 
   mime-db@1.52.0: {}
 
@@ -13309,6 +13339,8 @@ snapshots:
   picocolors@1.0.0: {}
 
   picomatch@2.3.1: {}
+
+  picomatch@4.0.2: {}
 
   pidtree@0.6.0: {}
 
@@ -15154,9 +15186,9 @@ snapshots:
 
   yaml@1.10.2: {}
 
-  yaml@2.3.4: {}
-
   yaml@2.4.1: {}
+
+  yaml@2.4.2: {}
 
   yargs-parser@18.1.3:
     dependencies:

@@ -1,17 +1,22 @@
 import AutoAnimate from "library/AutoAnimate"
+import UniversalLink from "library/Loader/UniversalLink"
 import { Fragment, useEffect, useState } from "react"
 import styled from "styled-components"
 
 const Animate = styled(AutoAnimate).attrs({
 	duration: 3,
 	skipFirstAnimation: false,
-})`outline: 1px solid red;`
+})`
+	outline: 1px solid red;
+`
 
 const OpacityAnimate = styled(AutoAnimate).attrs({
 	duration: 3,
 	skipFirstAnimation: false,
 	parameters: { yPercent: undefined, opacity: 0 },
-})`outline: 1px solid green;`
+})`
+	outline: 1px solid green;
+`
 
 export default function AutoTests() {
 	const [flipper, setFlipper] = useState(false)
@@ -37,6 +42,7 @@ export default function AutoTests() {
 	return (
 		<Wrapper>
 			<h1>AutoAnimate Tests</h1>
+			<UniversalLink to="/">go home</UniversalLink>
 			<h2>standard</h2>
 			<Animate alignment="start">
 				{flipper ? "start" : "antidisestablishmentarianism"}
@@ -136,28 +142,28 @@ export default function AutoTests() {
 }
 
 const RestrictWidth = styled.div`
-    max-width: 500px;
+	max-width: 500px;
 	border: 1px solid orange;
 `
 
 const Wrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-    padding: 100px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 40px;
+	padding: 100px;
 `
 
 const Row = styled.div`
-    display: flex;
-    min-height: 200px;
-    gap: 40px;
-    align-items: start;
+	display: flex;
+	min-height: 200px;
+	gap: 40px;
+	align-items: start;
 `
 
 const Tall = styled.div`
-    height: 200px;
-    border: 1px solid blue;
+	height: 200px;
+	border: 1px solid blue;
 `
 
 const PurpleBox = styled.div`

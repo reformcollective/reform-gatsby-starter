@@ -10,11 +10,12 @@ Setup!
 6. Add any typography to `src/styles/typography.css`, and configure a default text color/style in `src/components/Layout.css`
 7. Add any text styles to `src/styles/text.ts`
 8. Configure branch rules on github (you should export and import the starter's rule set)
-9. Init Library submodule: `git submodule update --init --recursive`
-10. In repository settings, enable "Always suggest updating pull request branches", "Allow auto-merge", and "Automatically delete head branches"
-11. Update the README.md to remove these instructions and add project-specific image and name below
-12. Set up a Netlify build and link to contentful if available/part of project
-13. Add .env variables to Netlify, Notion, and Github
+9. Init Library submodule: `git submodule update --init --recursive` (if you enable automatic tasks, this will be done for you)
+10. Configure the library config according to this project's needs
+11. In repository settings, enable "Always suggest updating pull request branches", "Allow auto-merge", and "Automatically delete head branches"
+12. Update the README.md to remove these instructions and add project-specific image and name below
+13. Set up a Netlify build and link to contentful if available/part of project
+14. Add .env variables to Netlify, Notion, and Github
 
 <!-- Repository Cover -->
 <img src="https://picsum.photos/1600/900" alt="Project Name Website Repository" width="100%" style="border-radius: 50px">

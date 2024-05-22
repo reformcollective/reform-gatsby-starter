@@ -24,7 +24,11 @@ export default function IndexPage({
 				</UniversalLink>
 				<br />
 				<UniversalLink transition="slide" to="/three/">
-					Slide to threejs scene starter
+					Slide to three scene starter
+				</UniversalLink>
+				<br />
+				<UniversalLink transition="instant" to="/visual-tests/">
+					visual tests
 				</UniversalLink>
 			</Filler>
 			<Filler>
