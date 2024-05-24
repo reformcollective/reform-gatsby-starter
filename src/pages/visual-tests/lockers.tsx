@@ -1,6 +1,7 @@
 import { ScrollSmoother } from "gsap/ScrollSmoother"
 import UniversalLink from "library/Loader/UniversalLink"
 import { useScrollLock } from "library/Scroll"
+import { useState } from "react"
 import styled from "styled-components"
 
 const useScrollLockToggler = (type: "lock" | "unlock") => {
@@ -19,7 +20,10 @@ export default function ScrollLock() {
 	const [b, toggle_b] = useScrollLockToggler("lock")
 	const [c, toggle_c] = useScrollLockToggler("lock")
 	const [d, toggle_d] = useScrollLockToggler("lock")
-	const [e, toggle_e] = useScrollLockToggler("lock")
+
+	// and an externally controlled example
+	const [e, setE] = useState(false)
+	useScrollLock("lock", e)
 
 	const [f, toggle_f] = useScrollLockToggler("unlock")
 	const [g, toggle_g] = useScrollLockToggler("unlock")
@@ -42,7 +46,7 @@ export default function ScrollLock() {
 			<button type="button" onClick={toggle_d}>
 				{d ? "unlock" : "lock"} d
 			</button>
-			<button type="button" onClick={toggle_e}>
+			<button type="button" onClick={() => setE(!e)}>
 				{e ? "unlock" : "lock"} e
 			</button>
 			<br />
