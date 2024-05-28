@@ -1,9 +1,11 @@
+import UniversalLink from "library/Loader/UniversalLink"
 import styled from "styled-components"
 
 export default function Footer() {
 	return (
 		<Wrapper>
 			<h1>Footer</h1>
+			<UniversalLink to="/">Home</UniversalLink>
 		</Wrapper>
 	)
 }
