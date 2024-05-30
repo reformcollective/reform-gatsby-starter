@@ -2,8 +2,8 @@ import { graphql, useStaticQuery } from "gatsby"
 import UniversalLink from "library/Loader/UniversalLink"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import { useParamState } from "library/useParamState"
-import data from "pages/blog/data"
 import styled, { css } from "styled-components"
+import data from "styles/blog/data"
 
 const textStyles = data.projectTextStyles
 const colors = data.projectColors

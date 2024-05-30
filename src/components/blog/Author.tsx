@@ -1,7 +1,7 @@
 import UniversalImage from "library/UniversalImage"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
-import data from "pages/blog/data"
 import styled, { css } from "styled-components"
+import data from "styles/blog/data"
 import type { Author as AuthorType } from "types/alias"
 
 const textStyles = data.projectTextStyles

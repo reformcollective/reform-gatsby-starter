@@ -2,9 +2,9 @@ import * as Form from "@radix-ui/react-form"
 import { ReactComponent as XSVG } from "images/blog/icons/x.svg"
 import UniversalLink from "library/Loader/UniversalLink"
 import { fmobile, fresponsive } from "library/fullyResponsive"
-import data from "pages/blog/data"
 import { useState } from "react"
 import styled, { css } from "styled-components"
+import data from "styles/blog/data"
 import { trim } from "styles/text"
 
 const textStyles = data.projectTextStyles

@@ -1,8 +1,8 @@
 import UniversalLink from "library/Loader/UniversalLink"
 import { isBrowser } from "library/deviceDetection"
 import { fresponsive } from "library/fullyResponsive"
-import data from "pages/blog/data"
 import styled, { css } from "styled-components"
+import data from "styles/blog/data"
 
 const colors = data.projectColors
 

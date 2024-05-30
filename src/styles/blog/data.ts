@@ -1,5 +1,5 @@
 import { ReactComponent as PlaceholderSVG } from "images/blog/icons/placeholder.svg"
-import { blogTextStyles as tempTextStyles } from "styles/blog/text"
+import { blogTextStyles as tempTextStyles } from "./text"
 
 const hubHeaderPlaceholder = "https://picsum.photos/530/270"
 
