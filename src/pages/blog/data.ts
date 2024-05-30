@@ -1,168 +1,24 @@
 import { ReactComponent as PlaceholderSVG } from "images/blog/icons/placeholder.svg"
-import placeholder from "images/blog/placeholder.webp"
 import { blogTextStyles as tempTextStyles } from "styles/blog/text"
 
-const largeCardPlaceholder = "https://picsum.photos/768/440"
 const hubHeaderPlaceholder = "https://picsum.photos/530/270"
 
-// This file contains a mock of the data that would be returned from Contentful.
-// Once the queries have been setup, the data can be removed.
-// In addition to dummy data, this file also serves as the "source of truth" for the blog's colors, textStyles, and gradient.
-// Any changes to the colors, textStyles, and gradient should be made here.
-
-// TODO: Remove after queries are setup
-const placeholderGatsbyImageData = {
-	height: 100,
-	width: 100,
-	layout: "constrained",
-	placeholder: {
-		fallback: largeCardPlaceholder,
-	},
-	images: {
-		fallback: {
-			sizes: "(max-width: 100px) 100vw, 100px",
-			src: largeCardPlaceholder,
-			srcSet: largeCardPlaceholder,
-		},
-		sources: [
-			{
-				sizes: "(max-width: 100px) 100vw, 100px",
-				srcSet: largeCardPlaceholder,
-				type: "image/webp",
-			},
-		],
-	},
-}
+/**
+ * This file is the "source of truth" for the blog's colors, textStyles, gradient, icons, images, and text.
+ * It is used to keep the blog's design consistent with the rest of the project.
+ * Make any necessary changes to this file to match the new project's design.
+ *
+ * There are TODOs in several other files relating to the Blog including:
+ * 		pages/blog/index.tsx
+ * 		pages/blog/{contentfulPageBlogPost.slug}.tsx
+ * 		components/blog/RichComponents.tsx
+ * 		components/blog/EmailInput.tsx
+ * 		components/blog/HubHeader.tsx
+ *
+ * Make sure to update those files as well.
+ */
 
 const blogConfig = {
-	// TODO: Remove after queries are setup
-	allContentfulPageBlogPost: {
-		nodes: [
-			{
-				slug: "test-2",
-				id: "id-1",
-				author: {
-					id: "author-id-1",
-					headshot: {
-						gatsbyImageData: placeholderGatsbyImageData,
-						createdAt: "2022-01-01T00:00:00Z",
-					},
-					fullName: "John Doe",
-					roleAndCompany: "Financial Analyst at FTX",
-				},
-				title: "Tax Fraud: A How-To Guide",
-				mainImage: {
-					gatsbyImageData: placeholderGatsbyImageData,
-					description: "A picture of some money",
-				},
-				categories: ["Category 1", "Category 2"],
-				articleTextPreview: "First things first, income tax is illegal.",
-			},
-		],
-	},
-	// TODO: Remove after queries are setup
-	contentfulPageBlogHub: {
-		id: "blog-hub-1",
-		featuredBlogPost: {
-			slug: "article-2",
-			id: "id-2",
-			author: {
-				id: "author-id-2",
-				headshot: {
-					gatsbyImageData: placeholderGatsbyImageData,
-					createdAt: "2022-01-01T00:00:00Z",
-				},
-				fullName: "Jane Doe",
-				roleAndCompany: "Director of Sustainability at Exxon Mobil",
-			},
-			title: "The Wonders of Napalm",
-			mainImage: {
-				gatsbyImageData: placeholderGatsbyImageData,
-				description: "A bright, glowing fireball",
-			},
-			categories: ["Category 3", "Category 4"],
-			articleTextPreview: "Napalm is a great way to clear out a forest.",
-		},
-	},
-	// TODO: Remove after queries are setup
-	categories: {
-		allContentfulPageBlogPost: {
-			items: ["Category 1", "Category 2", "Category 3", "Category 4"],
-		},
-	},
-	// TODO: Remove after queries are setup
-	contentfulPageBlogPost: {
-		title: "Tax Fraud: A How-To Guide",
-		slug: "test-2",
-		articleTextPreview: "First things first, income tax is illegal.",
-		author: {
-			id: "author-id-1",
-			headshot: {
-				gatsbyImageData: placeholderGatsbyImageData,
-				createdAt: "2022-01-01T00:00:00Z",
-			},
-			fullName: "John Doe",
-			roleAndCompany: "Financial Analyst at FTX",
-		},
-		mainImage: {
-			file: {
-				url: placeholder,
-			},
-			gatsbyImageData: placeholderGatsbyImageData,
-			description: "A picture of some money",
-		},
-		categories: ["Category 1", "Category 2"],
-		articleText: {
-			raw: `{"data":{}}`,
-		},
-	},
-	// TODO: Remove after queries are setup
-	threeContentfulPageBlogPost: {
-		nodes: [
-			{
-				slug: "blog-post-slug",
-				id: "blog-post-id",
-				createdAt: "January 1, 2022",
-				author: {
-					id: "author-id",
-					headshot: {
-						gatsbyImageData: placeholderGatsbyImageData,
-						createdAt: "2022-01-01T00:00:00Z",
-					},
-					fullName: "Author Full Name",
-					roleAndCompany: "Author Role and Company",
-				},
-				title: "Blog Post Title",
-				mainImage: {
-					gatsbyImageData: placeholderGatsbyImageData,
-					description: "Main image description",
-				},
-				categories: ["Category 1", "Category 2"],
-				articleTextPreview: "This is a preview of the article text...",
-			},
-			{
-				slug: "blog-post-slug-2",
-				id: "blog-post-id-2",
-				createdAt: "January 1, 2022",
-				author: {
-					id: "author-id",
-					headshot: {
-						gatsbyImageData: placeholderGatsbyImageData,
-						createdAt: "2022-01-01T00:00:00Z",
-					},
-					fullName: "Author Full Name",
-					roleAndCompany: "Author Role and Company",
-				},
-				title: "Blog Post Title",
-				mainImage: {
-					gatsbyImageData: placeholderGatsbyImageData,
-					description: "Main image description",
-				},
-				categories: ["Category 1", "Category 2"],
-				articleTextPreview: "This is a preview of the article text...",
-			},
-		],
-	},
 	// TODO: Make any changes to the colors and gradient according to the new project's design.
 	projectColors: {
 		neutralBlack: "#1B1F1C",
@@ -218,6 +74,7 @@ const blogConfig = {
 	hubHeaderDescription:
 		"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
 	hubHeaderImage: hubHeaderPlaceholder,
+	hubHeaderImageAlt: "example text",
 }
 
 export default blogConfig

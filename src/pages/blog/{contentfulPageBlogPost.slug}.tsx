@@ -1,5 +1,5 @@
 import Seo from "components/Seo"
-import type { PageProps } from "gatsby"
+import { type PageProps, graphql } from "gatsby"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { ReactComponent as PlaceholderSVG } from "images/blog/icons/placeholder.svg"
 import UniversalLink from "library/Loader/UniversalLink"
@@ -21,17 +21,28 @@ import SmallCard from "components/blog/SmallCard"
 const textStyles = data.projectTextStyles
 const colors = data.projectColors
 
-// TODO: When the data is ready, uncomment the section below and remove the line after it.
-// export default function BlogPostPage({
-// 	data: {
-// 		contentfulPageBlogPost: post,
-// 		allContentfulPageBlogPost: { nodes: recentArticles },
-// 	},
-// }: PageProps<Queries.BlogPostQuery>) {
-export default function BlogPostPage() {
-	const post = data.contentfulPageBlogPost
-	const recentArticles = data.threeContentfulPageBlogPost.nodes
+/**
+ * This file needs to be updated to match the new project's design.
+ *
+ * There are 7 TODOs in this file:
+ * 1. Use PostContent's CustomButton prop to add a project-specific button.
+ * 2. Use Share's CustomButton prop to add a project-specific button.
+ * 3. Remove any social media that is not needed from the socials prop in Share.
+ * 4. Replace the "See All Articles" placeholder button with a project-specific button.
+ * 5. Replace PlaceholderSVG in the StyledIcon component with a project-specific icon.
+ * 6. Make any necessary changes to the colors and text styles in the styled components,
+ *    particularly the "Back to Home" link in the Heading styled component.
+ * 7. Remove the PlaceholderButton styled component once all other changes have been made.
+ *
+ * Note: Each of these TODOs has a corresponding comment in the code.
+ */
 
+export default function BlogPostPage({
+	data: {
+		contentfulPageBlogPost: post,
+		allContentfulPageBlogPost: { nodes: recentArticles },
+	},
+}: PageProps<Queries.BlogPostQuery>) {
 	const pin = useRef<HTMLDivElement>(null)
 	const pinType = usePinType()
 
@@ -62,7 +73,7 @@ export default function BlogPostPage() {
 				<Content>
 					<div />
 					{post ? (
-						// TODO: Add a project button to the PostContent Button prop.
+						// TODO add a project button to the PostContent Button prop
 						<PostContent
 							post={post}
 							// CustomButton={}
@@ -72,12 +83,12 @@ export default function BlogPostPage() {
 					)}
 					<DesktopTabletOnly>
 						<Socials ref={pin}>
-							{/* TODO: Add a project component to the Share CustomButton prop. */}
+							{/* TODO add a project component to the Share CustomButton prop */}
 							<Share
 								title={post?.title}
 								// CustomButton={}
 
-								// TODO: Remove any social media that is not needed.
+								// TODO remove any social media that is not needed
 								socials={["linkedin", "twitter", "facebook"]}
 							/>
 						</Socials>
@@ -89,7 +100,7 @@ export default function BlogPostPage() {
 						<SmallCard key={article.slug} data={article} />
 					))}
 				</Related>
-				{/* TODO: Replace the PlaceholderButton below with a project-specific button. */}
+				{/* TODO replace the PlaceholderButton below with a project-specific button */}
 				<PlaceholderButton>See All Articles</PlaceholderButton>
 			</Inner>
 		</Wrapper>
@@ -107,7 +118,7 @@ export function Head({ data }: PageProps<Queries.BlogPostQuery>) {
 	)
 }
 
-// TODO: Replace PlaceholderSVG with whichever icon you want to use!
+// TODO replace PlaceholderSVG with whichever icon you want to use
 const StyledIcon = styled(PlaceholderSVG)`
   ${fresponsive(css`
     width: 12px;
@@ -149,6 +160,8 @@ const Link = styled(UniversalLink)`
   color: ${colors.neutral800};
 
   &:last-of-type {
+    /* TODO uncomment and/or change the color as needed */
+
     /* color: ${colors.primary400}; */
   }
 
@@ -253,7 +266,7 @@ const RelatedHeading = styled.div`
   `)}
 `
 
-// TODO: This component can be removed once the project buttons have been inserted above!
+// TODO this component can be removed once the project buttons have been inserted above
 const PlaceholderButton = styled.button`
 ${fresponsive(css`
   ${textStyles.sh3};
@@ -265,76 +278,60 @@ ${fresponsive(css`
 `)}
 `
 
-// TODO: Uncomment these queries when the data is ready.
-// export const query = graphql`
-//   query BlogPost($id: String) {
-//     contentfulPageBlogPost(id: { eq: $id }) {
-//       title
-//       slug
-//       articleTextPreview
-//       author {
-//         id
-//         headshot {
-//           gatsbyImageData
-//           createdAt
-//         }
-//         fullName
-//         roleAndCompany
-//       }
-//       mainImage {
-//         file {
-//           url
-//         }
-//         gatsbyImageData
-//         description
-//       }
-//       categories
-//       articleText {
-//         raw
-//         references {
-//           ... on ContentfulAsset {
-//             contentful_id
-//             title
-//             description
-//             gatsbyImageData(width: 1000)
-//             __typename
-//           }
-//           ... on ContentfulComponentQuote {
-//             contentful_id
-//             quote
-//             quotee
-//             __typename
-//           }
-//         }
-//       }
-//     }
-//     # get the three most recent blog posts that are not the current post
-//     allContentfulPageBlogPost(
-//       filter: { id: { nin: [$id, "e1d582e5-f8d2-52c5-a1eb-a758ee4a4f72"] } }
-//       sort: { createdAt: DESC }
-//       limit: 3
-//     ) {
-//       nodes {
-//         slug
-//         id
-//         createdAt(formatString: "MMMM Do, YYYY")
-//         author {
-//           id
-//           headshot {
-//             gatsbyImageData
-//             createdAt
-//           }
-//           fullName
-//           roleAndCompany
-//         }
-//         title
-//         mainImage {
-//           gatsbyImageData
-//           description
-//         }
-//         categories
-//         articleTextPreview
-//       }
-//     }
-//   }
-// `
+export const query = graphql`
+  query BlogPost($id: String) {
+    contentfulPageBlogPost(id: { eq: $id }) {
+      title
+      slug
+      articleTextPreview
+      author {
+        id
+        headshot {
+          gatsbyImageData
+          createdAt
+        }
+        fullName
+        roleAndCompany
+      }
+      mainImage {
+        file {
+          url
+        }
+        gatsbyImageData
+        description
+      }
+      categories
+      articleText {
+        raw
+      }
+    }
+    # get the three most recent blog posts that are not the current post
+    allContentfulPageBlogPost(
+      filter: { id: { nin: [$id, "e1d582e5-f8d2-52c5-a1eb-a758ee4a4f72"] } }
+      sort: { createdAt: DESC }
+      limit: 3
+    ) {
+      nodes {
+        slug
+        id
+        createdAt(formatString: "MMMM Do, YYYY")
+        author {
+          id
+          headshot {
+            gatsbyImageData
+            createdAt
+          }
+          fullName
+          roleAndCompany
+        }
+        title
+        mainImage {
+          gatsbyImageData
+          description
+        }
+        categories
+        articleTextPreview
+      }
+    }
+  }
+`

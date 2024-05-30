@@ -1,4 +1,5 @@
 import Seo from "components/Seo"
+import { type PageProps, graphql } from "gatsby"
 import { ScrollSmoother } from "gsap/ScrollSmoother"
 import { MobileOnly } from "library/breakpointUtils"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
@@ -19,9 +20,24 @@ import SmallCard from "components/blog/SmallCard"
 const textStyles = data.projectTextStyles
 const colors = data.projectColors
 
-// TODO: When the data is ready, uncomment the line below and remove the line after it.
-// export default function BlogPage({ data }: PageProps<Queries.BlogPageQuery>) {
-export default function BlogPage() {
+/**
+ * This file needs to be updated to match the new project's design.
+ *
+ * There are 8 TODOs in this file:
+ * 1. Update the title and description in the SEO Head component.
+ * 2. Optionally update the headerKicker prop in the 3 BlogLayout components.
+ * 		The header does not have to have a kicker.
+ * 3. The LargeCard component defaults to a placeholder button. Pass it a
+ * 		custom button whenever the project buttons are ready.
+ * 4. The CardGroup also has a placeholder button. A custom button can be
+ * 		inserted into the CustomWidthButton styled component when ready.
+ * 5. Once the custom button has been inserted into the CustomWidthButton
+ * 		styled component, the PlaceholderButton styled component can be removed.
+ *
+ * Note: Each of these TODOs has a corresponding comment in the code.
+ */
+
+export default function BlogPage({ data }: PageProps<Queries.BlogPageQuery>) {
 	const unfilteredCards = data.allContentfulPageBlogPost.nodes
 	const featuredCard = data.contentfulPageBlogHub?.featuredBlogPost
 
@@ -34,15 +50,6 @@ export default function BlogPage() {
 	const [query] = useParamState("query")
 	const [category] = useParamState("category")
 	const [showAll, setShowAll] = useParamState("showAll")
-
-	// TODO: Uncomment this query when the data is ready.
-	// const categories: Queries.CategoriesQuery = useStaticQuery(graphql`
-	//   query Categories {
-	//     allContentfulPageBlogPost {
-	//       items: distinct(field: {categories: SELECT})
-	//     }
-	//   }
-	// `)
 
 	/**
 	 * instant scroll to top on any query change
@@ -64,9 +71,7 @@ export default function BlogPage() {
 	if (Boolean(query) || Boolean(category))
 		return (
 			<BlogLayout
-				// TODO: Replace the placeholder data with the actual data when ready.
-				categoriesData={data.categories.allContentfulPageBlogPost.items}
-				// Remove the kicker or update with a project kicker when ready.
+				// TODO remove the kicker or update with a project kicker when ready
 				headerKicker={<PlaceholderButton>Example Kicker</PlaceholderButton>}
 			>
 				{(query || category) && (
@@ -98,9 +103,7 @@ export default function BlogPage() {
 	if (showAll) {
 		return (
 			<BlogLayout
-				// TODO: Replace the placeholder data with the actual data when ready.
-				categoriesData={data.categories.allContentfulPageBlogPost.items}
-				// Remove the kicker or update with a project kicker when ready.
+				// TODO remove the kicker or update with a project kicker when ready
 				headerKicker={<PlaceholderButton>Example Kicker</PlaceholderButton>}
 			>
 				<Header>All Articles</Header>
@@ -115,23 +118,18 @@ export default function BlogPage() {
 
 	return (
 		<BlogLayout
-			// TODO: Replace the placeholder data with the actual data when ready.
-			categoriesData={data.categories.allContentfulPageBlogPost.items}
-			// Remove the kicker or update with a project kicker when ready.
+			// TODO remove the kicker or update with a project kicker when ready
 			headerKicker={<PlaceholderButton>Example Kicker</PlaceholderButton>}
 		>
 			{featuredCard && (
 				<LargeCard
 					data={featuredCard}
-					// TODO: Insert a custom project button here.
+					// TODO insert a custom project button here
 					// button={}
 				/>
 			)}
 			<MobileOnly>
-				<Categories
-					// TODO: Replace the placeholder data with the actual data when ready.
-					categoriesData={data.categories.allContentfulPageBlogPost.items}
-				/>
+				<Categories />
 			</MobileOnly>
 			<Header>Previous Articles</Header>
 			<CardGroup>
@@ -140,7 +138,7 @@ export default function BlogPage() {
 				))}
 			</CardGroup>
 			{hasMoreCards && (
-				// TODO: Remove the PlaceholderButton and uncomment the CustomWidthButton when the project buttons are ready.
+				// TODO remove the PlaceholderButton and uncomment the CustomWidthButton when the project buttons are ready
 				<PlaceholderButton>See All Articles</PlaceholderButton>
 				// <CustomWidthButton
 				// 	type="button"
@@ -157,9 +155,9 @@ export default function BlogPage() {
 		</BlogLayout>
 	)
 }
-
+// TODO change the title and description according to the project
 export function Head() {
-	return <Seo title="Thoughtly | Blog" description="" pathname="/blog" />
+	return <Seo title="Starter | Blog" description="" pathname="/blog" />
 }
 
 const Header = styled.div`
@@ -219,7 +217,7 @@ const CardGroup = styled.div`
   `)}
 `
 
-// TODO: Uncomment this component and insert the desired button when the project buttons are ready.
+// TODO uncomment this component and insert the desired button when the project buttons are ready
 // const CustomWidthButton = styled()`
 //   ${fresponsive(css`
 //     width: 280px;
@@ -232,7 +230,7 @@ const CardGroup = styled.div`
 //   `)}
 // `
 
-// TODO: This component can be removed once project buttons have been inserted above!
+// TODO this component can be removed once project buttons have been inserted above
 const PlaceholderButton = styled.button`
 ${fresponsive(css`
   ${textStyles.sh3};
@@ -252,53 +250,52 @@ const MobileEmail = styled(MobileOnly)`
   `)}
 `
 
-// TODO: Uncomment these queries when the data is ready.
-// export const query = graphql`
-//   query BlogPage {
-//     allContentfulPageBlogPost(sort: { createdAt: DESC }) {
-//       nodes {
-//         slug
-//         id
-//         author {
-//           id
-//           headshot {
-//             gatsbyImageData
-//             createdAt
-//           }
-//           fullName
-//           roleAndCompany
-//         }
-//         title
-//         mainImage {
-//           gatsbyImageData
-//           description
-//         }
-//         categories
-//         articleTextPreview
-//       }
-//     }
-//     contentfulPageBlogHub {
-//       id
-//       featuredBlogPost {
-//         slug
-//         id
-//         author {
-//           id
-//           headshot {
-//             gatsbyImageData
-//             createdAt
-//           }
-//           fullName
-//           roleAndCompany
-//         }
-//         title
-//         mainImage {
-//           gatsbyImageData
-//           description
-//         }
-//         categories
-//         articleTextPreview
-//       }
-//     }
-//   }
-// `
+export const query = graphql`
+  query BlogPage {
+    allContentfulPageBlogPost(sort: { createdAt: DESC }) {
+      nodes {
+        slug
+        id
+        author {
+          id
+          headshot {
+            gatsbyImageData
+            createdAt
+          }
+          fullName
+          roleAndCompany
+        }
+        title
+        mainImage {
+          gatsbyImageData
+          description
+        }
+        categories
+        articleTextPreview
+      }
+    }
+    contentfulPageBlogHub {
+      id
+      featuredBlogPost {
+        slug
+        id
+        author {
+          id
+          headshot {
+            gatsbyImageData
+            createdAt
+          }
+          fullName
+          roleAndCompany
+        }
+        title
+        mainImage {
+          gatsbyImageData
+          description
+        }
+        categories
+        articleTextPreview
+      }
+    }
+  }
+`

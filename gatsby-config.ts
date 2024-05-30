@@ -48,13 +48,16 @@ const config: GatsbyConfig = {
 			},
 		},
 		// TODO setup a contentful space
-		// {
-		//   resolve: "gatsby-source-contentful",
-		//   options: {
-		//     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-		//     spaceId: process.env.CONTENTFUL_SPACE_ID,
-		//   },
-		// },
+		/**
+		 * The current space is only for the blog template and should be replaced
+		 */
+		{
+			resolve: "gatsby-source-contentful",
+			options: {
+				accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+				spaceId: process.env.CONTENTFUL_SPACE_ID,
+			},
+		},
 		{
 			resolve: "gatsby-plugin-manifest",
 			options: {

@@ -1,12 +1,15 @@
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
-import styled, { css } from "styled-components"
-
 import data from "pages/blog/data"
+import styled, { css } from "styled-components"
 import { transparentText } from "styles/text"
 
 const textStyles = data.projectTextStyles
 const gradients = data.projectGradients
 const colors = data.projectColors
+
+/**
+ * It is possible that this component will need to be updated to match the new project's design.
+ */
 
 export default function HubHeader({ kicker }: { kicker?: React.ReactNode }) {
 	return (
@@ -18,7 +21,7 @@ export default function HubHeader({ kicker }: { kicker?: React.ReactNode }) {
 				<Description>{data.hubHeaderDescription}</Description>
 			)}
 			{data.hubHeaderImage && (
-				<Image src={data.hubHeaderImage} alt="two women using computers" />
+				<Image src={data.hubHeaderImage} alt={data.hubHeaderImageAlt} />
 			)}
 		</Wrapper>
 	)

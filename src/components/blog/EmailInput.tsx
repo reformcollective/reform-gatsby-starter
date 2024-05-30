@@ -10,6 +10,12 @@ import { trim } from "styles/text"
 const textStyles = data.projectTextStyles
 const colors = data.projectColors
 
+/**
+ * This file needs to be updated to match the new project details.
+ *
+ * There is only 1 TODO in this file:
+ * 1. Fill in the portalId and formId below.
+ */
 const portalId = ""
 const formId = ""
 const endpoint = `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`
@@ -48,20 +54,20 @@ export default function EmailInput() {
 				e.preventDefault()
 				setState("success")
 
-				// const formData = new FormData(e.currentTarget)
-				// const email = formData.get("email")
+				const formData = new FormData(e.currentTarget)
+				const email = formData.get("email")
 
-				// if (typeof email === "string") {
-				// 	setState("loading")
-				// 	sendEmail(email)
-				// 		.then(() => {
-				// 			return setState("success")
-				// 		})
-				// 		.catch((error) => {
-				// 			setState("error")
-				// 			console.error(error)
-				// 		})
-				// }
+				if (typeof email === "string") {
+					setState("loading")
+					sendEmail(email)
+						.then(() => {
+							return setState("success")
+						})
+						.catch((error) => {
+							setState("error")
+							console.error(error)
+						})
+				}
 			}}
 		>
 			{/* <Logo /> */}

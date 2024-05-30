@@ -12,6 +12,13 @@ import styled, { css } from "styled-components"
 const textStyles = data.projectTextStyles
 const colors = data.projectColors
 
+/**
+ * This file needs to be updated to match the new project details.
+ *
+ * There is only 1 TODO in this file:
+ * 1. Update the HOSTS set on line 111 with the domain of the project.
+ */
+
 const Strong = styled.strong`
   font-weight: 500;
 `
@@ -101,7 +108,8 @@ const isGatsbyImageData = (obj: unknown): obj is IGatsbyImageData => {
 	return isObject(obj) && "images" in obj
 }
 
-const HOSTS = new Set(["thoughtly-internal.netlify.app", "thought.ly"])
+// TODO add your domain here
+const HOSTS = new Set([""])
 
 /**
  * checks if the URL is internal, and if so returns the pathname (and hash/queries)

@@ -1,3 +1,4 @@
+import { graphql, useStaticQuery } from "gatsby"
 import UniversalLink from "library/Loader/UniversalLink"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import { useParamState } from "library/useParamState"
@@ -7,18 +8,26 @@ import styled, { css } from "styled-components"
 const textStyles = data.projectTextStyles
 const colors = data.projectColors
 
-export default function Categories({
-	categoriesData,
-}: { categoriesData: string[] }) {
+export default function Categories() {
 	const [, setCategory] = useParamState("category")
 
-	const categoriesEls = categoriesData.map((item) => {
-		return (
-			<Category type="button" key={item} onClick={() => setCategory(item)}>
-				{item}
-			</Category>
-		)
-	})
+	const categories: Queries.CategoriesQuery = useStaticQuery(graphql`
+	  query Categories {
+	    allContentfulPageBlogPost {
+	      items: distinct(field: {categories: SELECT})
+	    }
+	  }
+	`)
+
+	const categoriesEls = categories.allContentfulPageBlogPost.items.map(
+		(item) => {
+			return (
+				<Category type="button" key={item} onClick={() => setCategory(item)}>
+					{item}
+				</Category>
+			)
+		},
+	)
 
 	return (
 		<Wrapper>

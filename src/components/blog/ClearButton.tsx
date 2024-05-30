@@ -2,7 +2,7 @@ import { ReactComponent as Icon } from "images/blog/icons/x.svg"
 import UniversalLink from "library/Loader/UniversalLink"
 import { fmobile, fresponsive } from "library/fullyResponsive"
 import { useParamState } from "library/useParamState"
-import { blogConfig as data } from "pages/blog/data"
+import data from "pages/blog/data"
 import styled, { css } from "styled-components"
 
 const textStyles = data.projectTextStyles

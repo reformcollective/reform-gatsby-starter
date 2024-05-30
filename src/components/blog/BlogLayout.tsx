@@ -19,11 +19,9 @@ const colors = data.projectColors
 
 export default function BlogLayout({
 	children,
-	categoriesData,
 	headerKicker,
 }: {
 	children: ReactNode
-	categoriesData: string[]
 	headerKicker?: ReactNode
 }) {
 	const pin = useRef<HTMLDivElement>(null)
@@ -62,7 +60,7 @@ export default function BlogLayout({
 					<Left>
 						<div ref={pin}>
 							<SearchBar />
-							<Categories categoriesData={categoriesData} />
+							<Categories />
 							<EmailInput />
 						</div>
 					</Left>
