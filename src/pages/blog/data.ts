@@ -34,7 +34,7 @@ const placeholderGatsbyImageData = {
 	},
 }
 
-export const blogConfig = {
+const blogConfig = {
 	// TODO: Remove after queries are setup
 	allContentfulPageBlogPost: {
 		nodes: [
@@ -219,3 +219,5 @@ export const blogConfig = {
 		"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
 	hubHeaderImage: hubHeaderPlaceholder,
 }
+
+export default blogConfig
