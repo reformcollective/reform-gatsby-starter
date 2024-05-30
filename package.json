@@ -10,6 +10,9 @@
 	},
 	"packageManager": "pnpm@9.1.1+sha256.9551e803dcb7a1839fdf5416153a844060c7bce013218ce823410532504ac10b",
 	"dependencies": {
+		"@contentful/rich-text-react-renderer": "^15.20.0",
+		"@contentful/rich-text-types": "^16.4.0",
+		"@radix-ui/react-form": "0.0.3",
 		"@total-typescript/ts-reset": "0.5.1",
 		"@userback/widget": "0.3.2",
 		"dotenv": "16.4.5",
@@ -28,11 +31,14 @@
 		"gatsby-transformer-json": "5.13.1",
 		"gatsby-transformer-sharp": "5.13.1",
 		"gsap": "file:gsap-bonus.tgz",
+		"leading-trim": "1.0.2",
+		"minisearch": "6.3.0",
 		"react": "18.3.1",
 		"react-dom": "18.3.1",
 		"styled-components": "6.1.11",
 		"stylis": "4.3.2",
-		"the-new-css-reset": "1.11.2"
+		"the-new-css-reset": "1.11.2",
+		"use-deep-compare": "1.2.1"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.7.3",

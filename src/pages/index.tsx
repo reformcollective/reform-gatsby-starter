@@ -30,6 +30,10 @@ export default function IndexPage({
 				<UniversalLink transition="instant" to="/visual-tests/">
 					visual tests
 				</UniversalLink>
+				<br />
+				<UniversalLink transition="fade" to="/blog/">
+					Blog
+				</UniversalLink>
 			</Filler>
 			<Filler>
 				<h1>Please enjoy the following template pages:</h1> <br />
