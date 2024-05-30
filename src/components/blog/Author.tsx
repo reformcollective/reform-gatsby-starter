@@ -1,6 +1,6 @@
 import UniversalImage from "library/UniversalImage"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
-import { blogConfig as data } from "pages/blog/data"
+import data from "pages/blog/data"
 import styled, { css } from "styled-components"
 import type { Author as AuthorType } from "types/alias"
 

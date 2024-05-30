@@ -1,7 +1,7 @@
 import { ReactComponent as SearchSVG } from "images/blog/icons/search.svg"
 import { fmobile, fresponsive } from "library/fullyResponsive"
 import { useParamState } from "library/useParamState"
-import { blogConfig as data } from "pages/blog/data"
+import data from "pages/blog/data"
 import styled, { css } from "styled-components"
 
 const textStyles = data.projectTextStyles

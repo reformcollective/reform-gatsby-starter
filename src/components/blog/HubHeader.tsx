@@ -1,7 +1,7 @@
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
 
-import { blogConfig as data } from "pages/blog/data"
+import data from "pages/blog/data"
 import { transparentText } from "styles/text"
 
 const textStyles = data.projectTextStyles

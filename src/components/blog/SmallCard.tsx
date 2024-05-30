@@ -1,7 +1,7 @@
 import UniversalLink from "library/Loader/UniversalLink"
 import UniversalImage from "library/UniversalImage"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
-import { blogConfig as data } from "pages/blog/data"
+import data from "pages/blog/data"
 import styled, { css } from "styled-components"
 import { clampText, trim } from "styles/text"
 import type { BlogCard } from "types/alias"

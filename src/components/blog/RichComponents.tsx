@@ -6,7 +6,7 @@ import UniversalLink from "library/Loader/UniversalLink"
 import renderContent from "library/RichText/renderContent"
 import UniversalImage from "library/UniversalImage"
 import { fresponsive } from "library/fullyResponsive"
-import { blogConfig as data } from "pages/blog/data"
+import data from "pages/blog/data"
 import styled, { css } from "styled-components"
 
 const textStyles = data.projectTextStyles

@@ -3,7 +3,7 @@ import UniversalLink, {
 } from "library/Loader/UniversalLink"
 import UniversalImage from "library/UniversalImage"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
-import { blogConfig as data } from "pages/blog/data"
+import data from "pages/blog/data"
 import type { ReactNode } from "react"
 import React from "react"
 import styled, { css } from "styled-components"

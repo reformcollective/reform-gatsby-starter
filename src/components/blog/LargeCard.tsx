@@ -1,7 +1,7 @@
 import { loadPage } from "library/Loader/TransitionUtils"
 import UniversalImage from "library/UniversalImage"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
-import { blogConfig as data } from "pages/blog/data"
+import data from "pages/blog/data"
 import type { ReactNode } from "react"
 import styled, { css } from "styled-components"
 import { clampText, trim } from "styles/text"
