@@ -139,7 +139,9 @@ export default function BlogPage({ data }: PageProps<Queries.BlogPageQuery>) {
 			</CardGroup>
 			{hasMoreCards && (
 				// TODO remove the PlaceholderButton and uncomment the CustomWidthButton when the project buttons are ready
-				<PlaceholderButton>See All Articles</PlaceholderButton>
+				<PlaceholderButton onClick={() => setShowAll("true")}>
+					See All Articles
+				</PlaceholderButton>
 				// <CustomWidthButton
 				// 	type="button"
 				// 	onClick={() => {
