@@ -101,7 +101,7 @@ export default function BlogPostPage({
 					))}
 				</Related>
 				{/* TODO replace the PlaceholderButton below with a project-specific button */}
-				<PlaceholderButton>See All Articles</PlaceholderButton>
+				<PlaceholderButton to={links.blog}>See All Articles</PlaceholderButton>
 			</Inner>
 		</Wrapper>
 	)
@@ -267,7 +267,7 @@ const RelatedHeading = styled.div`
 `
 
 // TODO this component can be removed once the project buttons have been inserted above
-const PlaceholderButton = styled.button`
+const PlaceholderButton = styled(UniversalLink)`
 ${fresponsive(css`
   ${textStyles.sh3};
   border: 1px solid ${colors.neutralBlack};

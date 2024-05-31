@@ -37,6 +37,10 @@ const colors = data.projectColors
  * Note: Each of these TODOs has a corresponding comment in the code.
  * Note: You can optionally flip the orientation of the LargeCard and menu
  * 			 using the flipOrientation prop in the BlogLayout component.
+ *
+ * Additional TODO: Optionally replace hubHeader.jpeg in /images/blog with
+ * 									an image that matches the new project's design. Make sure
+ * 									to name the new image hubHeader.jpeg exactly.
  */
 
 export default function BlogPage({ data }: PageProps<Queries.BlogPageQuery>) {
@@ -74,7 +78,7 @@ export default function BlogPage({ data }: PageProps<Queries.BlogPageQuery>) {
 		return (
 			<BlogLayout
 				// TODO remove the kicker or update with a project kicker when ready
-				headerKicker={<PlaceholderButton>Example Kicker</PlaceholderButton>}
+				headerKicker={<PlaceholderKicker>Example Kicker</PlaceholderKicker>}
 			>
 				{(query || category) && (
 					<HeaderWrapper>
@@ -106,7 +110,7 @@ export default function BlogPage({ data }: PageProps<Queries.BlogPageQuery>) {
 		return (
 			<BlogLayout
 				// TODO remove the kicker or update with a project kicker when ready
-				headerKicker={<PlaceholderButton>Example Kicker</PlaceholderButton>}
+				headerKicker={<PlaceholderKicker>Example Kicker</PlaceholderKicker>}
 			>
 				<Header>All Articles</Header>
 				<CardGroup>
@@ -121,7 +125,7 @@ export default function BlogPage({ data }: PageProps<Queries.BlogPageQuery>) {
 	return (
 		<BlogLayout
 			// TODO remove the kicker or update with a project kicker when ready
-			headerKicker={<PlaceholderButton>Example Kicker</PlaceholderButton>}
+			headerKicker={<PlaceholderKicker>Example Kicker</PlaceholderKicker>}
 		>
 			{featuredCard && (
 				<LargeCard
@@ -234,7 +238,7 @@ const CardGroup = styled.div`
 //   `)}
 // `
 
-// TODO this component can be removed once project buttons have been inserted above
+// TODO the components below can be removed once project buttons have been inserted above
 const PlaceholderButton = styled.button`
 ${fresponsive(css`
   ${textStyles.sh3};
@@ -244,6 +248,11 @@ ${fresponsive(css`
   cursor: pointer;
   padding: 4px 6px;
 `)}
+`
+
+// TODO the component below can be removed once project kickers have been inserted above
+const PlaceholderKicker = styled(PlaceholderButton)`
+	cursor: default;
 `
 
 const MobileEmail = styled(MobileOnly)`

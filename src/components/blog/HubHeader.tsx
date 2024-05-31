@@ -1,3 +1,5 @@
+import { graphql, useStaticQuery } from "gatsby"
+import UniversalImage from "library/UniversalImage"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
 import data from "styles/blog/data"
@@ -12,52 +14,76 @@ const colors = data.projectColors
  */
 
 export default function HubHeader({ kicker }: { kicker?: React.ReactNode }) {
+	const images: Queries.BlogLayoutQuery = useStaticQuery(graphql`
+    query BlogLayout {
+      hubHeader: file(relativePath: {eq: "blog/hubHeader.jpeg"}) {
+        childImageSharp {
+          gatsbyImageData
+        }
+      }
+    }
+  `)
+
 	return (
 		<Wrapper>
-			{kicker}
-			{data.hubHeaderTitle && <Title>{data.hubHeaderTitle}</Title>}
-			{data.hubHeaderSubtitle && <Subtitle>{data.hubHeaderSubtitle}</Subtitle>}
-			{data.hubHeaderDescription && (
-				<Description>{data.hubHeaderDescription}</Description>
-			)}
-			{data.hubHeaderImage && (
-				<Image src={data.hubHeaderImage} alt={data.hubHeaderImageAlt} />
+			<Content>
+				{kicker}
+				{data.hubHeaderTitle && <Title>{data.hubHeaderTitle}</Title>}
+				{data.hubHeaderSubtitle && (
+					<Subtitle>{data.hubHeaderSubtitle}</Subtitle>
+				)}
+				{data.hubHeaderDescription && (
+					<Description>{data.hubHeaderDescription}</Description>
+				)}
+			</Content>
+			{images.hubHeader && (
+				<Image image={images.hubHeader} alt="blog hub header" />
 			)}
 		</Wrapper>
 	)
 }
 
 const Wrapper = styled.div`
-  ${textStyles.h5};
   background-color: ${colors.neutral100};
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 100%;
   position: relative;
   overflow: clip;
+  width: 100%;
 
   ${fresponsive(css`
     border-radius: 24px;
+  `)}
+`
+
+const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  ${fresponsive(css`
     gap: 10px;
     padding: 32px 48px 46px;
   `)}
-
+  
   ${ftablet(css`
+    max-width: 375px;
     gap: 15px;
   `)}
 
   ${fmobile(css`
-    ${textStyles.h6}
     gap: 18px;
-    align-items: start;
-  `)} 
+    padding: 26px 41px 30px;
+  `)}
 `
 
 const Title = styled.div`
   ${textStyles.hubT};
   ${transparentText}
   background-image: ${gradients.primarySecondary};
+
+  ${fresponsive(css`
+    padding-right: 3px;
+    margin-right: -3px;
+  `)}
 `
 
 const Subtitle = styled.div`
@@ -69,9 +95,16 @@ const Description = styled.div`
   color: ${colors.neutral700};
 `
 
-const Image = styled.img`
+const Image = styled(UniversalImage)`
   position: absolute;
   height: 100%;
-  right: 40px;
-  top: 0;
+
+  ${fresponsive(css`
+    right: 40px;
+    top: 0;
+  `)}
+
+  ${fmobile(css`
+    display: none;
+  `)}
 `

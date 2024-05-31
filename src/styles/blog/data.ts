@@ -1,8 +1,6 @@
 import { ReactComponent as PlaceholderSVG } from "images/blog/icons/placeholder.svg"
 import { blogTextStyles as tempTextStyles } from "./text"
 
-const hubHeaderPlaceholder = "https://picsum.photos/530/270"
-
 /**
  * This file is the "source of truth" for the blog's colors, textStyles, gradient, icons, images, and text.
  * It is used to keep the blog's design consistent with the rest of the project.
@@ -69,12 +67,9 @@ const blogConfig = {
 	emailSuccessMessage: "Thanks for subscribing!",
 	emailInputPlaceholder: "Your Email",
 	searchInputPlaceholder: "Search the blog...",
-	hubHeaderTitle: "Lorem ipsum dolor",
-	hubHeaderSubtitle: "Consectetur adipiscing elit",
-	hubHeaderDescription:
-		"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-	hubHeaderImage: hubHeaderPlaceholder,
-	hubHeaderImageAlt: "example text",
+	hubHeaderTitle: "Title",
+	hubHeaderSubtitle: "Subtitle",
+	hubHeaderDescription: "Description",
 }
 
 export default blogConfig
