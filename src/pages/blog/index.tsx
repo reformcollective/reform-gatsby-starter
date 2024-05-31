@@ -35,6 +35,8 @@ const colors = data.projectColors
  * 		styled component, the PlaceholderButton styled component can be removed.
  *
  * Note: Each of these TODOs has a corresponding comment in the code.
+ * Note: You can optionally flip the orientation of the LargeCard and menu
+ * 			 using the flipOrientation prop in the BlogLayout component.
  */
 
 export default function BlogPage({ data }: PageProps<Queries.BlogPageQuery>) {

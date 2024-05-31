@@ -20,9 +20,11 @@ const colors = data.projectColors
 export default function BlogLayout({
 	children,
 	headerKicker,
+	flipOrientation = false,
 }: {
 	children: ReactNode
 	headerKicker?: ReactNode
+	flipOrientation?: boolean
 }) {
 	const pin = useRef<HTMLDivElement>(null)
 	const pinType = usePinType()
@@ -57,20 +59,41 @@ export default function BlogLayout({
 			<BlogInner>
 				<HubHeader kicker={headerKicker} />
 				<Columns>
-					<Left>
-						<div ref={pin}>
-							<SearchBar />
-							<Categories />
-							<EmailInput />
-						</div>
-					</Left>
-					<Right>
-						<MobileOnly>
-							<Line />
-							<SearchBar />
-						</MobileOnly>
-						{children}
-					</Right>
+					{flipOrientation ? (
+						<>
+							<Right>
+								<MobileOnly>
+									<Line />
+									<SearchBar />
+								</MobileOnly>
+								{children}
+							</Right>
+							<Left>
+								<div ref={pin}>
+									<SearchBar />
+									<Categories />
+									<EmailInput />
+								</div>
+							</Left>
+						</>
+					) : (
+						<>
+							<Left>
+								<div ref={pin}>
+									<SearchBar />
+									<Categories />
+									<EmailInput />
+								</div>
+							</Left>
+							<Right>
+								<MobileOnly>
+									<Line />
+									<SearchBar />
+								</MobileOnly>
+								{children}
+							</Right>
+						</>
+					)}
 				</Columns>
 			</BlogInner>
 		</BlogWrapper>
