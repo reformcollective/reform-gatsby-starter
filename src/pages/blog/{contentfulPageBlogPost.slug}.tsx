@@ -21,6 +21,8 @@ import SmallCard from "components/blog/SmallCard"
 const textStyles = data.projectTextStyles
 const colors = data.projectColors
 
+import SocialShare from "components/blog/SocialShare"
+
 /**
  * This file needs to be updated to match the new project's design.
  *
@@ -91,6 +93,7 @@ export default function BlogPostPage({
 								// TODO remove any social media that is not needed
 								socials={["linkedin", "twitter", "facebook"]}
 							/>
+							<SocialShare platform="linkedin" />
 						</Socials>
 					</DesktopTabletOnly>
 				</Content>
