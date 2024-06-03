@@ -2,6 +2,7 @@
 import "styles/fonts/typography.css"
 import "the-new-css-reset/css/reset.css"
 
+import Userback from "@userback/widget"
 import Layout from "components/Layout"
 import { RootProviders, RouteProviders } from "components/Providers"
 import gsap from "gsap"
@@ -62,5 +63,5 @@ gsap.config({
 /**
  * userback, only if the URL includes 'netlify'
  */
-// if (typeof window !== "undefined" && window.location.href.includes("netlify"))
-// 	Userback("blah")
+if (typeof window !== "undefined" && window.location.href.includes("netlify"))
+	Userback("A-v0IzZWe1Wp6WdUZsgSwl1T41O")

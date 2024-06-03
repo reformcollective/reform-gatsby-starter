@@ -1,4 +1,6 @@
-const routes = {} as const
+const routes = {
+	blog: "/blog",
+} as const
 
 const socials = {} as const
 
