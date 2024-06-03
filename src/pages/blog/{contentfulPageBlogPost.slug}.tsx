@@ -95,6 +95,7 @@ export default function BlogPostPage({
 							/>
 							<SocialShare platform="linkedin" />
 							<SocialShare platform="x" />
+							<SocialShare platform="facebook" />
 						</Socials>
 					</DesktopTabletOnly>
 				</Content>

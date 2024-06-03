@@ -5,6 +5,10 @@ import styled from "styled-components"
 
 type PlatformType = "linkedin" | "x" | "facebook"
 
+// interface FBResponse {
+// 	error_message?: string
+// }
+
 const getCurrentURL = () => {
 	if (isBrowser) {
 		return window.location.href
@@ -55,6 +59,27 @@ export default function SocialShare({
 				)}`}
 			>
 				X
+			</UniversalLink>
+		)
+	}
+	if (platform === "facebook") {
+		return (
+			// FB.ui({
+			//   method: "share",
+			//   href: getCurrentURL(),
+			// }, (response: FBResponse)=> {
+			//   if (response && !response.error_message) {
+			//     alert("Posting completed.")
+			//   } else {
+			//     alert(response.error_message)
+			//   }
+			// }))
+			<UniversalLink
+				to={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+					getCurrentURL(),
+				)}`}
+			>
+				Facebook
 			</UniversalLink>
 		)
 	}
