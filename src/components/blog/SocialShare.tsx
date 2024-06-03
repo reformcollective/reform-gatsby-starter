@@ -47,6 +47,17 @@ export default function SocialShare({
 			</UniversalLink>
 		)
 	}
+	if (platform === "x") {
+		return (
+			<UniversalLink
+				to={`https://x.com/intent/post?url=${encodeURIComponent(
+					getCurrentURL(),
+				)}`}
+			>
+				X
+			</UniversalLink>
+		)
+	}
 }
 
 const Wrapper = styled.div`

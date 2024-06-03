@@ -94,6 +94,7 @@ export default function BlogPostPage({
 								socials={["linkedin", "twitter", "facebook"]}
 							/>
 							<SocialShare platform="linkedin" />
+							<SocialShare platform="x" />
 						</Socials>
 					</DesktopTabletOnly>
 				</Content>
