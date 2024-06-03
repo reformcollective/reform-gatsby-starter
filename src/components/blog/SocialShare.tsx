@@ -1,3 +1,4 @@
+import UniversalLink from "library/Loader/UniversalLink"
 import { isBrowser } from "library/deviceDetection"
 import { useEffect } from "react"
 import styled from "styled-components"
@@ -36,7 +37,15 @@ export default function SocialShare({
 	button,
 }: { platform: PlatformType; button?: React.ReactNode }) {
 	if (platform === "linkedin") {
-		return <LinkedInButton />
+		return (
+			<UniversalLink
+				to={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
+					getCurrentURL(),
+				)}`}
+			>
+				LinkedIn
+			</UniversalLink>
+		)
 	}
 }
 
