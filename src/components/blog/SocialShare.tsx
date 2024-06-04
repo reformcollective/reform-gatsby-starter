@@ -1,7 +1,7 @@
 import UniversalLink from "library/Loader/UniversalLink"
 import { isBrowser } from "library/deviceDetection"
 
-type PlatformType = "linkedin" | "x" | "facebook"
+type PlatformType = "linkedin" | "x" | "facebook" | "youtube" | "pinterest"
 
 const getCurrentURL = () => {
 	if (isBrowser) {
@@ -13,7 +13,14 @@ const getCurrentURL = () => {
 export default function SocialShare({
 	platform,
 	button,
-}: { platform: PlatformType; button?: React.ReactNode }) {
+	channel_id,
+	video_id,
+}: {
+	platform: PlatformType
+	button?: React.ReactNode
+	channel_id?: string
+	video_id?: string
+}) {
 	if (platform === "linkedin") {
 		return (
 			<UniversalLink
@@ -47,4 +54,37 @@ export default function SocialShare({
 			</UniversalLink>
 		)
 	}
+	if (platform === "youtube") {
+		if (video_id) {
+			return (
+				<UniversalLink
+					to={`https://www.youtube.com/watch?v=${video_id}&autoplay=1&loop=1`}
+				>
+					Youtube
+				</UniversalLink>
+			)
+		}
+		if (channel_id) {
+			return (
+				<UniversalLink
+					to={`https://www.youtube.com/channel/${channel_id}?sub_confirmation=1`}
+				>
+					Youtube
+				</UniversalLink>
+			)
+		}
+	}
+	if (platform === "pinterest") {
+		return (
+			<UniversalLink
+				to={`https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent(
+					getCurrentURL(),
+				)}`}
+			>
+				Pinterest
+			</UniversalLink>
+		)
+	}
 }
+
+// Pinterest save or follow
