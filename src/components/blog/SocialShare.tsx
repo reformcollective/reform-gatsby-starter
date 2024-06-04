@@ -46,18 +46,10 @@ export default function SocialShare({
 				</UniversalLink>
 			)}
 
-			<TwitterShareButton url={`${getCurrentURL()}`}>
-				<XIcon round />
-			</TwitterShareButton>
-
 			{platforms.includes("x") && (
-				<UniversalLink
-					to={`https://x.com/intent/post?url=${encodeURIComponent(
-						getCurrentURL(),
-					)}`}
-				>
-					X
-				</UniversalLink>
+				<TwitterShareButton url={`${getCurrentURL()}`}>
+					<XIcon round />
+				</TwitterShareButton>
 			)}
 
 			{platforms.includes("facebook") && (

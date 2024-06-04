@@ -76,7 +76,8 @@ export default function Seo({
 			<meta name="twitter:creator" content={seo.creator} />
 			<meta name="twitter:title" content={seo.title ?? ""} />
 			<meta name="twitter:description" content={seo.description ?? ""} />
-			<meta name="twitter:image" content={seo.image ?? ""} />
+			{/* <meta name="twitter:image" content={seo.image ?? ""} /> */}
+			<meta name="twitter:image" content={seo.url} />
 
 			{/* og seo */}
 			<meta property="og:title" content={seo.title ?? ""} />
