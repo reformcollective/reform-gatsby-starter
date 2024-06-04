@@ -15,11 +15,13 @@ export default function SocialShare({
 	button,
 	channel_id,
 	video_id,
+	profile,
 }: {
 	platform: PlatformType
 	button?: React.ReactNode
 	channel_id?: string
 	video_id?: string
+	profile?: string
 }) {
 	if (platform === "linkedin") {
 		return (
@@ -75,6 +77,13 @@ export default function SocialShare({
 		}
 	}
 	if (platform === "pinterest") {
+		if (profile) {
+			return (
+				<UniversalLink to={`https://www.pinterest.com/${profile}`}>
+					Pinterest Follow
+				</UniversalLink>
+			)
+		}
 		return (
 			<UniversalLink
 				to={`https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent(
@@ -86,5 +95,3 @@ export default function SocialShare({
 		)
 	}
 }
-
-// Pinterest save or follow

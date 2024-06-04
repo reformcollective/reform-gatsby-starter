@@ -102,6 +102,7 @@ export default function BlogPostPage({
 							/>
 							<SocialShare platform="youtube" video_id="KzHVSHHe8ss" />
 							<SocialShare platform="pinterest" />
+							<SocialShare platform="pinterest" profile="marleeherrera" />
 						</Socials>
 					</DesktopTabletOnly>
 				</Content>
