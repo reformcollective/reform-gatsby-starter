@@ -44,7 +44,13 @@ export default function SocialShare({
 				{/* {button} */}
 			</FacebookShareButton>
 
-			<LinkedinShareButton url={`${encodeURIComponent(getCurrentURL())}`}>
+			{/* Uses 2015 shareArticle - outDated, must have title, summary, and source */}
+			<LinkedinShareButton
+				url={`${encodeURIComponent(getCurrentURL())}`}
+				title="hello"
+				summary="hello"
+				source="Thoughtly"
+			>
 				<LinkedinIcon round />
 			</LinkedinShareButton>
 

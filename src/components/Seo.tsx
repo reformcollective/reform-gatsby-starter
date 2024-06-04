@@ -84,6 +84,11 @@ export default function Seo({
 			<meta property="og:image" content={seo.image ?? ""} />
 			<meta property="og:url" content={seo.url} />
 			<meta property="og:type" content="website" />
+
+			{/* linkedin seo */}
+			<meta property="og:title" content={seo.title ?? ""} />
+			<meta property="og:description" content={seo.description ?? ""} />
+			<meta property="og:image" content={seo.image ?? ""} />
 		</>
 	)
 }
