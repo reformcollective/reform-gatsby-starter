@@ -1,8 +1,8 @@
 import UniversalLink from "library/Loader/UniversalLink"
 import { isBrowser } from "library/deviceDetection"
 
-import { FacebookShareButton } from "react-share"
-import { FacebookIcon } from "react-share"
+import { FacebookShareButton, LinkedinShareButton } from "react-share"
+import { FacebookIcon, LinkedinIcon } from "react-share"
 
 type PlatformType = "linkedin" | "x" | "facebook" | "youtube" | "pinterest"
 
@@ -19,18 +19,39 @@ export default function SocialShare({
 	channel_id,
 	video_id,
 	profile,
+	title,
+	authorFullName,
+	authorCompanyAndRole,
 }: {
 	platforms: PlatformType[]
 	button?: React.ReactNode
 	channel_id?: string
 	video_id?: string
 	profile?: string
+	title?: string
+	authorFullName?: string
+	authorCompanyAndRole?: string
 }) {
+	const linkedinSource =
+		authorFullName && authorCompanyAndRole
+			? `${authorFullName} at ${authorCompanyAndRole}`
+			: ""
+
 	return (
 		<>
 			<FacebookShareButton url={`${encodeURIComponent(getCurrentURL())}`}>
 				<FacebookIcon round />
+				{/* {button} */}
 			</FacebookShareButton>
+
+			<LinkedinShareButton
+				url={`${encodeURIComponent(getCurrentURL())}`}
+				title={title}
+				source={linkedinSource}
+			>
+				<LinkedinIcon round />
+			</LinkedinShareButton>
+
 			{platforms.includes("linkedin") && (
 				<UniversalLink
 					to={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
