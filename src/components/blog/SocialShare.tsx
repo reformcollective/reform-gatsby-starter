@@ -44,11 +44,7 @@ export default function SocialShare({
 				{/* {button} */}
 			</FacebookShareButton>
 
-			<LinkedinShareButton
-				url={`${encodeURIComponent(getCurrentURL())}`}
-				title={title?.toString()}
-				source={linkedinSource}
-			>
+			<LinkedinShareButton url={`${encodeURIComponent(getCurrentURL())}`}>
 				<LinkedinIcon round />
 			</LinkedinShareButton>
 
