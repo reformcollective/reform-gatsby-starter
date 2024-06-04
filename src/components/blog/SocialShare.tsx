@@ -46,7 +46,7 @@ export default function SocialShare({
 				</UniversalLink>
 			)}
 
-			<TwitterShareButton url={`${encodeURIComponent(getCurrentURL())}`}>
+			<TwitterShareButton url={`${getCurrentURL()}`}>
 				<XIcon round />
 			</TwitterShareButton>
 
