@@ -1,8 +1,8 @@
 import UniversalLink from "library/Loader/UniversalLink"
 import { isBrowser } from "library/deviceDetection"
 
-import { FacebookShareButton, LinkedinShareButton } from "react-share"
-import { FacebookIcon, LinkedinIcon } from "react-share"
+import { FacebookShareButton, TwitterShareButton } from "react-share"
+import { FacebookIcon, LinkedinIcon, TwitterIcon } from "react-share"
 
 type PlatformType = "linkedin" | "x" | "facebook" | "youtube" | "pinterest"
 
@@ -20,8 +20,6 @@ export default function SocialShare({
 	video_id,
 	profile,
 	title,
-	authorFullName,
-	authorCompanyAndRole,
 }: {
 	platforms: PlatformType[]
 	button?: React.ReactNode
@@ -29,30 +27,14 @@ export default function SocialShare({
 	video_id?: string
 	profile?: string
 	title?: string | null | undefined
-	authorFullName?: string | null | undefined
-	authorCompanyAndRole?: string | null | undefined
 }) {
-	const linkedinSource =
-		authorFullName && authorCompanyAndRole
-			? `${authorFullName} at ${authorCompanyAndRole}`
-			: ""
-
 	return (
 		<>
-			<FacebookShareButton url={`${encodeURIComponent(getCurrentURL())}`}>
-				<FacebookIcon round />
-				{/* {button} */}
-			</FacebookShareButton>
-
-			{/* Uses 2015 shareArticle - outDated, must have title, summary, and source */}
-			<LinkedinShareButton
-				url={`${encodeURIComponent(getCurrentURL())}`}
-				title="hello"
-				summary="hello"
-				source="Thoughtly"
-			>
-				<LinkedinIcon round />
-			</LinkedinShareButton>
+			{platforms.includes("facebook") && (
+				<FacebookShareButton url={`${encodeURIComponent(getCurrentURL())}`}>
+					<FacebookIcon round />
+				</FacebookShareButton>
+			)}
 
 			{platforms.includes("linkedin") && (
 				<UniversalLink
@@ -60,9 +42,17 @@ export default function SocialShare({
 						getCurrentURL(),
 					)}`}
 				>
-					LinkedIn
+					<LinkedinIcon round />
 				</UniversalLink>
 			)}
+
+			<TwitterShareButton
+				url={`${encodeURIComponent(getCurrentURL())}`}
+				title={title || ""}
+			>
+				<TwitterIcon round />
+			</TwitterShareButton>
+
 			{platforms.includes("x") && (
 				<UniversalLink
 					to={`https://x.com/intent/post?url=${encodeURIComponent(
@@ -72,6 +62,7 @@ export default function SocialShare({
 					X
 				</UniversalLink>
 			)}
+
 			{platforms.includes("facebook") && (
 				<UniversalLink
 					to={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
@@ -81,6 +72,7 @@ export default function SocialShare({
 					Facebook
 				</UniversalLink>
 			)}
+
 			{platforms.includes("youtube") && (
 				<>
 					{video_id ? (
@@ -98,6 +90,7 @@ export default function SocialShare({
 					) : null}
 				</>
 			)}
+
 			{platforms.includes("pinterest") && (
 				<>
 					{profile ? (

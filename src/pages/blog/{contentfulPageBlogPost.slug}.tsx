@@ -115,8 +115,6 @@ export default function BlogPostPage({
 								video_id="KzHVSHHe8ss"
 								profile="marleeherrera"
 								title={post?.title}
-								authorFullName={post?.author?.fullName}
-								authorCompanyAndRole={post?.author?.roleAndCompany}
 							/>
 						</Socials>
 					</DesktopTabletOnly>
