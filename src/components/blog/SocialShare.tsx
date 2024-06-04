@@ -28,9 +28,9 @@ export default function SocialShare({
 	channel_id?: string
 	video_id?: string
 	profile?: string
-	title?: string
-	authorFullName?: string
-	authorCompanyAndRole?: string
+	title?: string | null | undefined
+	authorFullName?: string | null | undefined
+	authorCompanyAndRole?: string | null | undefined
 }) {
 	const linkedinSource =
 		authorFullName && authorCompanyAndRole
@@ -46,7 +46,7 @@ export default function SocialShare({
 
 			<LinkedinShareButton
 				url={`${encodeURIComponent(getCurrentURL())}`}
-				title={title}
+				title={title?.toString()}
 				source={linkedinSource}
 			>
 				<LinkedinIcon round />
