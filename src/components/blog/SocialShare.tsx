@@ -2,7 +2,7 @@ import UniversalLink from "library/Loader/UniversalLink"
 import { isBrowser } from "library/deviceDetection"
 
 import { FacebookShareButton, TwitterShareButton } from "react-share"
-import { FacebookIcon, LinkedinIcon, TwitterIcon } from "react-share"
+import { FacebookIcon, LinkedinIcon, XIcon } from "react-share"
 
 type PlatformType = "linkedin" | "x" | "facebook" | "youtube" | "pinterest"
 
@@ -46,11 +46,8 @@ export default function SocialShare({
 				</UniversalLink>
 			)}
 
-			<TwitterShareButton
-				url={`${encodeURIComponent(getCurrentURL())}`}
-				title={title || ""}
-			>
-				<TwitterIcon round />
+			<TwitterShareButton url={`${encodeURIComponent(getCurrentURL())}`}>
+				<XIcon round />
 			</TwitterShareButton>
 
 			{platforms.includes("x") && (
