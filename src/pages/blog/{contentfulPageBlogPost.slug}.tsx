@@ -15,11 +15,12 @@ import { desktopBreakpoint } from "styles/media"
 import links from "utils/links"
 
 import PostContent from "components/blog/PostContent"
-import Share from "components/blog/Share"
 import SmallCard from "components/blog/SmallCard"
 
 const textStyles = data.projectTextStyles
 const colors = data.projectColors
+
+import SocialShare from "components/blog/SocialShare"
 
 /**
  * This file needs to be updated to match the new project's design.
@@ -84,12 +85,27 @@ export default function BlogPostPage({
 					<DesktopTabletOnly>
 						<Socials ref={pin}>
 							{/* TODO add a project component to the Share CustomButton prop */}
-							<Share
+							{/* <Share
 								title={post?.title}
 								// CustomButton={}
 
 								// TODO remove any social media that is not needed
 								socials={["linkedin", "twitter", "facebook"]}
+							/> */}
+
+							<SocialShare
+								platforms={[
+									"linkedin",
+									"x",
+									"facebook",
+									"youtube",
+									"pinterest",
+								]}
+								channel_id="UCF1graXFkAeX7FHiI0fi5Lw"
+								// video_id="KzHVSHHe8ss"
+								// profile=""
+								title={post?.title}
+								image={post?.mainImage?.file?.url ?? ""}
 							/>
 						</Socials>
 					</DesktopTabletOnly>
@@ -112,7 +128,8 @@ export function Head({ data }: PageProps<Queries.BlogPostQuery>) {
 		<Seo
 			title={data.contentfulPageBlogPost?.title}
 			description={data.contentfulPageBlogPost?.articleTextPreview}
-			image={data.contentfulPageBlogPost?.mainImage?.file?.url ?? ""}
+			image={`https:${data.contentfulPageBlogPost?.mainImage?.file?.url ?? ""}`}
+			// image={`https:${data.contentfulPageBlogPost?.ogImage?.resize?.src ?? ""}`}
 			pathname={`/blog/${data.contentfulPageBlogPost?.slug ?? ""}`}
 		/>
 	)
@@ -297,9 +314,15 @@ export const query = graphql`
         file {
           url
         }
+        # gatsbyImageData(layout: FIXED, width: 600, height: 300)
         gatsbyImageData
         description
       }
+      # ogImage: mainImage {
+      #   resize(width: 1200, height: 630) {
+      #     src
+      #   }
+      # }
       categories
       articleText {
         raw
