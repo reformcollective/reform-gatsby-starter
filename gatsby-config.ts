@@ -107,6 +107,15 @@ const config: GatsbyConfig = {
 		// 		policy: [{ userAgent: "*", allow: "/" }],
 		// 	},
 		// },
+		{
+			resolve: "gatsby-plugin-robots-txt",
+			options: {
+				host: "https://deploy-preview-30--reform-starter.netlify.app/", // TODO add url and remove brackets
+				sitemap:
+					"https://deploy-preview-30--reform-starter.netlify.app/sitemap-0.xml", // TODO add url and remove brackets
+				policy: [{ userAgent: "*", allow: "/" }],
+			},
+		},
 		"gatsby-plugin-styled-components",
 		"gatsby-transformer-json",
 	],
