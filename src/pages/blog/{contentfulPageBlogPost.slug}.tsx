@@ -137,12 +137,7 @@ export function Head({ data }: PageProps<Queries.BlogPostQuery>) {
 		<Seo
 			title={data.contentfulPageBlogPost?.title}
 			description={data.contentfulPageBlogPost?.articleTextPreview}
-			// image={`https:${data.contentfulPageBlogPost?.mainImage?.file?.url ?? ""}`}
-			image={data.contentfulPageBlogPost?.mainImage?.file?.url ?? ""}
-			// image={
-			// 	data.contentfulPageBlogPost?.mainImage?.gatsbyImageData?.images
-			// 		?.fallback?.src ?? ""
-			// }
+			image={`https:${data.contentfulPageBlogPost?.mainImage?.file?.url ?? ""}`}
 			pathname={`/blog/${data.contentfulPageBlogPost?.slug ?? ""}`}
 		/>
 	)
@@ -327,7 +322,8 @@ export const query = graphql`
         file {
           url
         }
-        gatsbyImageData(layout: FIXED, width: 600, height: 300)
+        # gatsbyImageData(layout: FIXED, width: 600, height: 300)
+        gatsbyImageData
         description
       }
       # ogImage: mainImage {
