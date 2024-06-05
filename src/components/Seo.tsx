@@ -76,9 +76,13 @@ export default function Seo({
 			<meta name="twitter:creator" content={seo.creator} />
 			<meta name="twitter:title" content={seo.title ?? ""} />
 			<meta name="twitter:description" content={seo.description ?? ""} />
-			<meta name="twitter:image" content={seo.image ?? ""} />
-			<meta name="twitter:image:width" content="1200" />
-			<meta name="twitter:image:height" content="630" />
+			{/* <meta name="twitter:image" content={seo.image ?? ""} /> */}
+			<meta
+				name="twitter:image"
+				content="https://images.ctfassets.net/8snrabcmat5j/4DfsHfNHyyzzjhVVPgDCQj/14c9d01590a6cf6db649f6750a4a49d6/tax-fraud-2.jpeg?w=600&h=300&fl=progressive&q=90&fm=jpg"
+			/>
+			{/* <meta name="twitter:image:width" content="1200" />
+			<meta name="twitter:image:height" content="630" /> */}
 
 			{/* og seo */}
 			<meta property="og:title" content={seo.title ?? ""} />
