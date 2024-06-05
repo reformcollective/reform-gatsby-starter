@@ -137,8 +137,8 @@ export function Head({ data }: PageProps<Queries.BlogPostQuery>) {
 		<Seo
 			title={data.contentfulPageBlogPost?.title}
 			description={data.contentfulPageBlogPost?.articleTextPreview}
-			// image={`https:${data.contentfulPageBlogPost?.mainImage?.file?.url ?? ""}`}
-			image={`https:${data.contentfulPageBlogPost?.ogImage?.resize?.src ?? ""}`}
+			image={`https:${data.contentfulPageBlogPost?.mainImage?.file?.url ?? ""}`}
+			// image={`https:${data.contentfulPageBlogPost?.ogImage?.resize?.src ?? ""}`}
 			pathname={`/blog/${data.contentfulPageBlogPost?.slug ?? ""}`}
 		/>
 	)
@@ -327,11 +327,11 @@ export const query = graphql`
         gatsbyImageData
         description
       }
-      ogImage: mainImage {
-        resize(width: 1200, height: 630) {
-          src
-        }
-      }
+      # ogImage: mainImage {
+      #   resize(width: 1200, height: 630) {
+      #     src
+      #   }
+      # }
       categories
       articleText {
         raw
