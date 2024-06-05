@@ -138,10 +138,10 @@ export function Head({ data }: PageProps<Queries.BlogPostQuery>) {
 			title={data.contentfulPageBlogPost?.title}
 			description={data.contentfulPageBlogPost?.articleTextPreview}
 			// image={`https:${data.contentfulPageBlogPost?.mainImage?.file?.url ?? ""}`}
-			image={`https:${
+			image={
 				data.contentfulPageBlogPost?.mainImage?.gatsbyImageData?.images
 					?.fallback?.src ?? ""
-			}`}
+			}
 			pathname={`/blog/${data.contentfulPageBlogPost?.slug ?? ""}`}
 		/>
 	)
