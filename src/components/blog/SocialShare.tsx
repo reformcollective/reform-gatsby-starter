@@ -1,7 +1,11 @@
 import UniversalLink from "library/Loader/UniversalLink"
 import { isBrowser } from "library/deviceDetection"
 
-import { FacebookShareButton, TwitterShareButton } from "react-share"
+import {
+	FacebookShareButton,
+	PinterestShareButton,
+	TwitterShareButton,
+} from "react-share"
 import { FacebookIcon, LinkedinIcon, PinterestIcon, XIcon } from "react-share"
 import YouTubeIcon from "utils/YoutubeIcon"
 
@@ -21,6 +25,7 @@ export default function SocialShare({
 	video_id,
 	profile,
 	title,
+	image,
 }: {
 	platforms: PlatformType[]
 	button?: React.ReactNode
@@ -90,13 +95,19 @@ export default function SocialShare({
 							<PinterestIcon round />
 						</UniversalLink>
 					) : (
-						<UniversalLink
-							to={`https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent(
-								getCurrentURL(),
-							)}`}
+						// <UniversalLink
+						// 	to={`https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent(
+						// 		getCurrentURL(),
+						// 	)}`}
+						// >
+						// 	<PinterestIcon round />
+						// </UniversalLink>
+						<PinterestShareButton
+							url={`${getCurrentURL()}`}
+							media={image || ""}
 						>
 							<PinterestIcon round />
-						</UniversalLink>
+						</PinterestShareButton>
 					)}
 				</>
 			)}
