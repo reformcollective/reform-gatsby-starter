@@ -93,16 +93,7 @@ export default function BlogPostPage({
 								// TODO remove any social media that is not needed
 								socials={["linkedin", "twitter", "facebook"]}
 							/>
-							{/* <SocialShare platform="linkedin" />
-							<SocialShare platform="x" />
-							<SocialShare platform="facebook" />
-							<SocialShare
-								platform="youtube"
-								channel_id="UCF1graXFkAeX7FHiI0fi5Lw"
-							/>
-							<SocialShare platform="youtube" video_id="KzHVSHHe8ss" />
-							<SocialShare platform="pinterest" />
-							<SocialShare platform="pinterest" profile="marleeherrera" /> */}
+
 							<SocialShare
 								platforms={[
 									"linkedin",
