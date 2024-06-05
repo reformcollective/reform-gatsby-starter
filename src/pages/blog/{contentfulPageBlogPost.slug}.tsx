@@ -15,7 +15,6 @@ import { desktopBreakpoint } from "styles/media"
 import links from "utils/links"
 
 import PostContent from "components/blog/PostContent"
-import Share from "components/blog/Share"
 import SmallCard from "components/blog/SmallCard"
 
 const textStyles = data.projectTextStyles
@@ -86,13 +85,13 @@ export default function BlogPostPage({
 					<DesktopTabletOnly>
 						<Socials ref={pin}>
 							{/* TODO add a project component to the Share CustomButton prop */}
-							<Share
+							{/* <Share
 								title={post?.title}
 								// CustomButton={}
 
 								// TODO remove any social media that is not needed
 								socials={["linkedin", "twitter", "facebook"]}
-							/>
+							/> */}
 
 							<SocialShare
 								platforms={[
@@ -103,8 +102,8 @@ export default function BlogPostPage({
 									"pinterest",
 								]}
 								channel_id="UCF1graXFkAeX7FHiI0fi5Lw"
-								video_id="KzHVSHHe8ss"
-								// profile="marleeherrera"
+								// video_id="KzHVSHHe8ss"
+								// profile=""
 								title={post?.title}
 								image={post?.mainImage?.file?.url ?? ""}
 							/>

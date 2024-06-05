@@ -54,7 +54,7 @@ export default function SocialShare({
 				</TwitterShareButton>
 			)}
 
-			{platforms.includes("facebook") && (
+			{/* {platforms.includes("facebook") && (
 				<UniversalLink
 					to={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
 						getCurrentURL(),
@@ -62,7 +62,7 @@ export default function SocialShare({
 				>
 					Facebook
 				</UniversalLink>
-			)}
+			)} */}
 
 			{platforms.includes("youtube") && (
 				<>
