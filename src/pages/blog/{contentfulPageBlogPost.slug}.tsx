@@ -138,7 +138,10 @@ export function Head({ data }: PageProps<Queries.BlogPostQuery>) {
 			title={data.contentfulPageBlogPost?.title}
 			description={data.contentfulPageBlogPost?.articleTextPreview}
 			// image={`https:${data.contentfulPageBlogPost?.mainImage?.file?.url ?? ""}`}
-			image={`https:${data.contentfulPageBlogPost?.ogImage?.resize?.src ?? ""}`}
+			image={`https:${
+				data.contentfulPageBlogPost?.mainImage?.gatsbyImageData?.images
+					?.fallback?.src ?? ""
+			}`}
 			pathname={`/blog/${data.contentfulPageBlogPost?.slug ?? ""}`}
 		/>
 	)
@@ -323,14 +326,14 @@ export const query = graphql`
         file {
           url
         }
-        gatsbyImageData
+        gatsbyImageData(layout: FIXED, width: 600, height: 300)
         description
       }
-      ogImage: mainImage {
-        resize(width: 1200, height: 630) {
-          src
-        }
-      }
+      # ogImage: mainImage {
+      #   resize(width: 1200, height: 630) {
+      #     src
+      #   }
+      # }
       categories
       articleText {
         raw
