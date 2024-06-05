@@ -91,7 +91,9 @@ export default function SocialShare({
 						</UniversalLink>
 					) : (
 						<UniversalLink
-							to={`https://www.pinterest.com/pin/create/button/?url=${getCurrentURL()}`}
+							to={`https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent(
+								getCurrentURL(),
+							)}`}
 						>
 							<PinterestIcon round />
 						</UniversalLink>
