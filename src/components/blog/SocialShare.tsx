@@ -2,7 +2,8 @@ import UniversalLink from "library/Loader/UniversalLink"
 import { isBrowser } from "library/deviceDetection"
 
 import { FacebookShareButton, TwitterShareButton } from "react-share"
-import { FacebookIcon, LinkedinIcon, XIcon } from "react-share"
+import { FacebookIcon, LinkedinIcon, PinterestIcon, XIcon } from "react-share"
+import YouTubeIcon from "utils/YoutubeIcon"
 
 type PlatformType = "linkedin" | "x" | "facebook" | "youtube" | "pinterest"
 
@@ -27,6 +28,7 @@ export default function SocialShare({
 	video_id?: string
 	profile?: string
 	title?: string | null | undefined
+	image?: string | null | undefined
 }) {
 	return (
 		<>
@@ -68,13 +70,14 @@ export default function SocialShare({
 						<UniversalLink
 							to={`https://www.youtube.com/watch?v=${video_id}&autoplay=1&loop=1`}
 						>
-							Youtube
+							<YouTubeIcon round />
 						</UniversalLink>
-					) : channel_id ? (
+					) : null}
+					{channel_id ? (
 						<UniversalLink
 							to={`https://www.youtube.com/channel/${channel_id}?sub_confirmation=1`}
 						>
-							Youtube
+							<YouTubeIcon round />
 						</UniversalLink>
 					) : null}
 				</>
@@ -84,7 +87,7 @@ export default function SocialShare({
 				<>
 					{profile ? (
 						<UniversalLink to={`https://www.pinterest.com/${profile}`}>
-							Pinterest Follow
+							<PinterestIcon round />
 						</UniversalLink>
 					) : (
 						<UniversalLink
@@ -92,7 +95,7 @@ export default function SocialShare({
 								getCurrentURL(),
 							)}`}
 						>
-							Pinterest
+							<PinterestIcon round />
 						</UniversalLink>
 					)}
 				</>

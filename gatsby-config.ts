@@ -113,7 +113,10 @@ const config: GatsbyConfig = {
 				host: "https://deploy-preview-29--reform-starter.netlify.app/", // TODO add url and remove brackets
 				sitemap:
 					"https://deploy-preview-29--reform-starter.netlify.app/sitemap-0.xml", // TODO add url and remove brackets
-				policy: [{ userAgent: "*", allow: "/" }],
+				policy: [
+					{ userAgent: "*", allow: "/" },
+					{ userAgent: "Twitterbot", disallow: "" },
+				],
 			},
 		},
 		"gatsby-plugin-styled-components",
