@@ -137,7 +137,7 @@ export function Head({ data }: PageProps<Queries.BlogPostQuery>) {
 		<Seo
 			title={data.contentfulPageBlogPost?.title}
 			description={data.contentfulPageBlogPost?.articleTextPreview}
-			image={data.contentfulPageBlogPost?.mainImage?.file?.url ?? ""}
+			image={`https:${data.contentfulPageBlogPost?.mainImage?.file?.url ?? ""}`}
 			pathname={`/blog/${data.contentfulPageBlogPost?.slug ?? ""}`}
 		/>
 	)
