@@ -32,29 +32,29 @@ export default function ClearButton() {
 }
 
 const Wrapper = styled(UniversalLink)`
-  ${textStyles.sh4}
-  color: ${colors.neutral800};
+	${textStyles.sh4}
+	color: ${colors.neutral800};
 
-  ${fresponsive(css`
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    white-space: nowrap;
-    flex-shrink: 0;
-  `)}
+	${fresponsive(css`
+		display: flex;
+		gap: 10px;
+		align-items: center;
+		white-space: nowrap;
+		flex-shrink: 0;
+	`)}
 
-  ${fmobile(css`
-    padding-top: 20px;
-  `)}
+	${fmobile(css`
+		padding-top: 20px;
+	`)}
 `
 
 const ClearIcon = styled(Icon)`
-  path {
-    stroke: ${colors.neutralBlack};
-  }
+	path {
+		stroke: ${colors.neutralBlack};
+	}
 
-  ${fresponsive(css`
-    width: 16px;
-    height: 16px;
-  `)}
+	${fresponsive(css`
+		width: 16px;
+		height: 16px;
+	`)}
 `

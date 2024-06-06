@@ -25,42 +25,42 @@ export default function SmallCard({ data }: { data: BlogCard }) {
 }
 
 const Wrapper = styled(UniversalLink)`
-  width: 100%;
-  
-  ${fresponsive(css`
-    display: grid;
-    gap: 12px;
-  `)}
+	width: 100%;
+
+	${fresponsive(css`
+		display: grid;
+		gap: 12px;
+	`)}
 `
 
 const Image = styled(UniversalImage)`
-  width: 100%;
+	width: 100%;
 
-  ${fresponsive(css`
-    aspect-ratio: 372 / 215;
-    border-radius: 18px;
-  `)}
+	${fresponsive(css`
+		aspect-ratio: 372 / 215;
+		border-radius: 18px;
+	`)}
 
-  ${ftablet(css`
-    aspect-ratio: 268 / 215;
-  `)}
+	${ftablet(css`
+		aspect-ratio: 268 / 215;
+	`)}
   
   ${fmobile(css`
-    aspect-ratio: 273 / 215;
-  `)}
+		aspect-ratio: 273 / 215;
+	`)}
 `
 
 const Title = styled.div`
-  ${trim(1.2)}
-  ${clampText(2)}
+	${trim(1.2)}
+	${clampText(2)}
   ${textStyles.sh1};
 
-  ${fresponsive(css`
-    padding: 4px 0;
-    margin: -4px 0;
-  `)}
+	${fresponsive(css`
+		padding: 4px 0;
+		margin: -4px 0;
+	`)}
 
-  ${fmobile(css`
-    ${textStyles.sh2}
-  `)}
+	${fmobile(css`
+		${textStyles.sh2}
+	`)}
 `

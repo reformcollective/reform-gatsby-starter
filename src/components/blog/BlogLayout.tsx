@@ -132,82 +132,82 @@ export default function BlogLayout({
 }
 
 const BlogWrapper = styled.div`
-  width: 100%;
-  display: grid;
-  place-items: center;
-  background-color: ${colors.neutralWhite};
+	width: 100%;
+	display: grid;
+	place-items: center;
+	background-color: ${colors.neutralWhite};
 `
 
 const BlogInner = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  max-width: ${desktopBreakpoint}px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	max-width: ${desktopBreakpoint}px;
 
-  ${fresponsive(css`
-    padding: 134px 110px 150px;
-    gap: 50px;
-  `)}
+	${fresponsive(css`
+		padding: 134px 110px 150px;
+		gap: 50px;
+	`)}
 
-  ${ftablet(css`
-    padding: 158px 20px 150px;
-  `)}
+	${ftablet(css`
+		padding: 158px 20px 150px;
+	`)}
 
   ${fmobile(css`
-    padding: 112px 8px 100px;
-    gap: 32px;
-  `)}
+		padding: 112px 8px 100px;
+		gap: 32px;
+	`)}
 `
 
 const Line = styled.div`
-  display: none;
-  background-color: ${colors.neutral300};
+	display: none;
+	background-color: ${colors.neutral300};
 
-  ${fmobile(css`
-    display: flex;
-    width: 100%;
-    height: 1px;
-    margin-bottom: 32px;
-  `)}
+	${fmobile(css`
+		display: flex;
+		width: 100%;
+		height: 1px;
+		margin-bottom: 32px;
+	`)}
 `
 
 const Columns = styled.div`
-  ${fresponsive(css`
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-    padding: 0 50px;
-    width: 100%;
-  `)}
+	${fresponsive(css`
+		display: flex;
+		justify-content: space-between;
+		margin-top: 10px;
+		padding: 0 50px;
+		width: 100%;
+	`)}
 
-  ${ftablet(css`
-    gap: 58px;
-  `)}
+	${ftablet(css`
+		gap: 58px;
+	`)}
 
   ${fmobile(css`
-    padding: 0 23px;
-  `)}
+		padding: 0 23px;
+	`)}
 `
 
-const Left = styled.div` 
-  ${fresponsive(css`
-    width: 269px;
-  `)}
+const Left = styled.div`
+	${fresponsive(css`
+		width: 269px;
+	`)}
 
-  ${fmobile(css`
-    display: none;
-  `)}
+	${fmobile(css`
+		display: none;
+	`)}
 `
 
 const Right = styled.div`
-  ${fresponsive(css`
-    width: 768px;
-  `)}
-  ${ftablet(css`
-    width: 560px;
-  `)}
+	${fresponsive(css`
+		width: 768px;
+	`)}
+	${ftablet(css`
+		width: 560px;
+	`)}
   ${fmobile(css`
-    width: 100%;
-  `)}
+		width: 100%;
+	`)}
 `

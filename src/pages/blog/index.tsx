@@ -169,18 +169,18 @@ export function Head() {
 }
 
 const Header = styled.div`
-  ${textStyles.sh1}
-  ${trim(1.2)}
+	${textStyles.sh1}
+	${trim(1.2)}
 	color: ${colors.neutral700};
 
-  ${fresponsive(css`
-    margin-bottom: 18px;
-  `)}
+	${fresponsive(css`
+		margin-bottom: 18px;
+	`)}
 
-  ${fmobile(css`
+	${fmobile(css`
 		${textStyles.sh2}
-    margin-bottom: 30px;
-  `)}
+		margin-bottom: 30px;
+	`)}
 `
 
 const HeaderWrapper = styled.div`
@@ -209,20 +209,20 @@ const LightHeader = styled(Header)`
 `
 
 const CardGroup = styled.div`
-  ${fresponsive(css`
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px 24px;
-    margin-bottom: 55px;
-  `)}
-  ${ftablet(css`
-    grid-template-columns: 1fr 1fr;
-    gap: 35px 25px;
-  `)}
+	${fresponsive(css`
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 48px 24px;
+		margin-bottom: 55px;
+	`)}
+	${ftablet(css`
+		grid-template-columns: 1fr 1fr;
+		gap: 35px 25px;
+	`)}
   ${fmobile(css`
-    grid-template-columns: 1fr;
-    gap: 36px;
-  `)}
+		grid-template-columns: 1fr;
+		gap: 36px;
+	`)}
 `
 
 // TODO uncomment this component and insert the desired button when the project buttons are ready
@@ -240,14 +240,14 @@ const CardGroup = styled.div`
 
 // TODO the components below can be removed once project buttons have been inserted above
 const PlaceholderButton = styled.button`
-${fresponsive(css`
-  ${textStyles.sh3};
-  border: 1px solid ${colors.neutralBlack};
-  border-radius: 8px;
-  width: fit-content;
-  cursor: pointer;
-  padding: 4px 6px;
-`)}
+	${fresponsive(css`
+		${textStyles.sh3};
+		border: 1px solid ${colors.neutralBlack};
+		border-radius: 8px;
+		width: fit-content;
+		cursor: pointer;
+		padding: 4px 6px;
+	`)}
 `
 
 // TODO the component below can be removed once project kickers have been inserted above
@@ -256,59 +256,59 @@ const PlaceholderKicker = styled(PlaceholderButton)`
 `
 
 const MobileEmail = styled(MobileOnly)`
-  ${fmobile(css`
+	${fmobile(css`
 		border-top: 1px solid ${colors.neutral300};
-    padding-top: 50px;
-    margin-top: 50px;
-  `)}
+		padding-top: 50px;
+		margin-top: 50px;
+	`)}
 `
 
 export const query = graphql`
-  query BlogPage {
-    allContentfulPageBlogPost(sort: { createdAt: DESC }) {
-      nodes {
-        slug
-        id
-        author {
-          id
-          headshot {
-            gatsbyImageData
-            createdAt
-          }
-          fullName
-          roleAndCompany
-        }
-        title
-        mainImage {
-          gatsbyImageData
-          description
-        }
-        categories
-        articleTextPreview
-      }
-    }
-    contentfulPageBlogHub {
-      id
-      featuredBlogPost {
-        slug
-        id
-        author {
-          id
-          headshot {
-            gatsbyImageData
-            createdAt
-          }
-          fullName
-          roleAndCompany
-        }
-        title
-        mainImage {
-          gatsbyImageData
-          description
-        }
-        categories
-        articleTextPreview
-      }
-    }
-  }
+	query BlogPage {
+		allContentfulPageBlogPost(sort: { createdAt: DESC }) {
+			nodes {
+				slug
+				id
+				author {
+					id
+					headshot {
+						gatsbyImageData
+						createdAt
+					}
+					fullName
+					roleAndCompany
+				}
+				title
+				mainImage {
+					gatsbyImageData
+					description
+				}
+				categories
+				articleTextPreview
+			}
+		}
+		contentfulPageBlogHub {
+			id
+			featuredBlogPost {
+				slug
+				id
+				author {
+					id
+					headshot {
+						gatsbyImageData
+						createdAt
+					}
+					fullName
+					roleAndCompany
+				}
+				title
+				mainImage {
+					gatsbyImageData
+					description
+				}
+				categories
+				articleTextPreview
+			}
+		}
+	}
 `

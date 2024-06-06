@@ -66,11 +66,11 @@ const Placeholder: React.FC<CustomButtonProps> = ({ icon }) => (
 )
 
 const StyledPlaceholder = styled.button`
-  ${fresponsive(css`
-    border: 1px solid ${colors.neutralBlack};
-    border-radius: 15px;
-    width: fit-content;
-    cursor: pointer;
-    padding: 15px;
-  `)}
+	${fresponsive(css`
+		border: 1px solid ${colors.neutralBlack};
+		border-radius: 15px;
+		width: fit-content;
+		cursor: pointer;
+		padding: 15px;
+	`)}
 `

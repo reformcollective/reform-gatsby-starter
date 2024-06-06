@@ -15,14 +15,14 @@ const colors = data.projectColors
 
 export default function HubHeader({ kicker }: { kicker?: React.ReactNode }) {
 	const images: Queries.BlogLayoutQuery = useStaticQuery(graphql`
-    query BlogLayout {
-      hubHeader: file(relativePath: {eq: "blog/hubHeader.jpeg"}) {
-        childImageSharp {
-          gatsbyImageData
-        }
-      }
-    }
-  `)
+		query BlogLayout {
+			hubHeader: file(relativePath: { eq: "blog/hubHeader.jpeg" }) {
+				childImageSharp {
+					gatsbyImageData
+				}
+			}
+		}
+	`)
 
 	return (
 		<Wrapper>
@@ -44,67 +44,67 @@ export default function HubHeader({ kicker }: { kicker?: React.ReactNode }) {
 }
 
 const Wrapper = styled.div`
-  background-color: ${colors.neutral100};
-  position: relative;
-  overflow: clip;
-  width: 100%;
+	background-color: ${colors.neutral100};
+	position: relative;
+	overflow: clip;
+	width: 100%;
 
-  ${fresponsive(css`
-    border-radius: 24px;
-  `)}
+	${fresponsive(css`
+		border-radius: 24px;
+	`)}
 `
 
 const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
 
-  ${fresponsive(css`
-    gap: 10px;
-    padding: 32px 48px 46px;
-  `)}
-  
-  ${ftablet(css`
-    max-width: 375px;
-    gap: 15px;
-  `)}
+	${fresponsive(css`
+		gap: 10px;
+		padding: 32px 48px 46px;
+	`)}
+
+	${ftablet(css`
+		max-width: 375px;
+		gap: 15px;
+	`)}
 
   ${fmobile(css`
-    gap: 18px;
-    padding: 26px 41px 30px;
-  `)}
+		gap: 18px;
+		padding: 26px 41px 30px;
+	`)}
 `
 
 const Title = styled.div`
-  ${textStyles.hubT};
-  ${transparentText}
-  background-image: ${gradients.primarySecondary};
+	${textStyles.hubT};
+	${transparentText}
+	background-image: ${gradients.primarySecondary};
 
-  ${fresponsive(css`
-    padding-right: 3px;
-    margin-right: -3px;
-  `)}
+	${fresponsive(css`
+		padding-right: 3px;
+		margin-right: -3px;
+	`)}
 `
 
 const Subtitle = styled.div`
-  ${textStyles.t2};
+	${textStyles.t2};
 `
 
 const Description = styled.div`
-  ${textStyles.bodyS};
-  color: ${colors.neutral700};
+	${textStyles.bodyS};
+	color: ${colors.neutral700};
 `
 
 const Image = styled(UniversalImage)`
-  position: absolute;
-  height: 100%;
+	position: absolute;
+	height: 100%;
 
-  ${fresponsive(css`
-    right: 40px;
-    top: 0;
-  `)}
+	${fresponsive(css`
+		right: 40px;
+		top: 0;
+	`)}
 
-  ${fmobile(css`
-    display: none;
-  `)}
+	${fmobile(css`
+		display: none;
+	`)}
 `
