@@ -83,6 +83,6 @@
 	],
 	"lint-staged": {
 		"*.{ts,tsx,js,css}": "stylelint --fix",
-		"*.{ts,tsx,json,js,css}": "biome check --apply"
+		"*.{ts,tsx,json,js,css}": "biome check --write"
 	}
 }
