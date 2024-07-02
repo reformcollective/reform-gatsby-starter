@@ -11,16 +11,24 @@ const rawColors = {
 	red: ["red", "color(display-p3 1 0 0)"],
 } as const satisfies Record<string, [string, string] | [string]>
 
+/** widen the type a bit for processing */
+const colorEntries: [string, [string, string] | [string]][] =
+	Object.entries(rawColors)
+
+/**
+ * sets the values of CSS variables globally
+ * include this in layout
+ */
 export const ColorStyle = createGlobalStyle`
 	:root {
 		@supports (not (color: color(display-p3 0 0 0))) {
-			${Object.entries(rawColors).map(([key, [hex]]) => {
+			${colorEntries.map(([key, [hex]]) => {
 				return `--${key}: ${hex};`
 			})}
 		}
 
 		@supports (color: color(display-p3 0 0 0)) {
-			${Object.entries(rawColors).map(([key, [hex, p3]]) => {
+			${colorEntries.map(([key, [hex, p3]]) => {
 				return `--${key}: ${p3 ?? hex};`
 			})}
 		}
@@ -31,11 +39,9 @@ export const ColorStyle = createGlobalStyle`
  * convert the raw colors to an object with the correct color for the current browser
  */
 const CSSColors = Object.fromEntries(
-	Object.entries(rawColors as Record<string, [string, string] | [string]>).map(
-		([key]) => {
-			return [key, `var(--${key})`]
-		},
-	),
+	Object.entries(colorEntries).map(([key]) => {
+		return [key, `var(--${key})`]
+	}),
 ) as {
 	[key in keyof typeof rawColors]: `var(--${key})`
 }
@@ -44,11 +50,9 @@ const CSSColors = Object.fromEntries(
  * gsap can't animate variables, so we need to use the hex always
  */
 const jsColors = Object.fromEntries(
-	Object.entries(rawColors as Record<string, [string, string] | [string]>).map(
-		([key, [color]]) => {
-			return [key, color]
-		},
-	),
+	Object.entries(colorEntries).map(([key, [color]]) => {
+		return [key, color]
+	}),
 ) as {
 	[key in keyof typeof rawColors]: (typeof rawColors)[key][0]
 }
