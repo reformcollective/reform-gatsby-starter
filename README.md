@@ -16,6 +16,7 @@ Setup!
 12. Update the README.md to remove these instructions and add project-specific image and name below
 13. Set up a Netlify build and link to contentful if available/part of project
 14. Add .env variables to Netlify, Notion, and Github
+15. Delete summary commit checks from netlify notifications
 
 <!-- Repository Cover -->
 <img src="https://picsum.photos/1600/900" alt="Project Name Website Repository" width="100%" style="border-radius: 50px">
