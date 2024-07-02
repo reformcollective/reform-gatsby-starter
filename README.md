@@ -3,7 +3,7 @@
 Setup!
 
 1. Clone using the template in GitHub
-2. Update all existing packages with `npx npm-check-updates` (feel free to update the starter repository as well)
+2. Update all existing packages with `pnpm dlx npm-check-updates --deep -u` and update pnpm with `corepack use pnpm@latest` (feel free to update the starter repository as well)
 3. Enable package update checks in `.github/workflows/call-check-updates.yml`
 4. Update `package.json` to include proper metadata for the new project
 5. Complete TODO items in `gatsby-config.ts`
