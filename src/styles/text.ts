@@ -12,6 +12,7 @@ export const transparentText = css`
   background-clip: text;
 `
 
+// TODO: update these values to match the font you're using
 export const trim = (lineHeight: number) =>
 	leadingTrim({
 		lineHeight, // unitless `line-height` that you want for the text
