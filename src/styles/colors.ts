@@ -39,7 +39,7 @@ export const ColorStyle = createGlobalStyle`
  * convert the raw colors to an object with the correct color for the current browser
  */
 const CSSColors = Object.fromEntries(
-	Object.entries(colorEntries).map(([key]) => {
+	colorEntries.map(([key]) => {
 		return [key, `var(--${key})`]
 	}),
 ) as {
@@ -50,7 +50,7 @@ const CSSColors = Object.fromEntries(
  * gsap can't animate variables, so we need to use the hex always
  */
 const jsColors = Object.fromEntries(
-	Object.entries(colorEntries).map(([key, [color]]) => {
+	colorEntries.map(([key, [color]]) => {
 		return [key, color]
 	}),
 ) as {
