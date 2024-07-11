@@ -3,7 +3,7 @@
 Setup!
 
 1. Clone using the template in GitHub
-2. Update all existing packages with `npx npm-check-updates` (feel free to update the starter repository as well)
+2. Update all existing packages with `pnpm dlx npm-check-updates --deep -u` and update pnpm with `corepack use pnpm@latest` (feel free to update the starter repository as well)
 3. Enable package update checks in `.github/workflows/call-check-updates.yml`
 4. Update `package.json` to include proper metadata for the new project
 5. Complete TODO items in `gatsby-config.ts`
@@ -16,6 +16,7 @@ Setup!
 12. Update the README.md to remove these instructions and add project-specific image and name below
 13. Set up a Netlify build and link to contentful if available/part of project
 14. Add .env variables to Netlify, Notion, and Github
+15. Delete summary commit checks from netlify notifications
 
 <!-- Repository Cover -->
 <img src="https://picsum.photos/1600/900" alt="Project Name Website Repository" width="100%" style="border-radius: 50px">
