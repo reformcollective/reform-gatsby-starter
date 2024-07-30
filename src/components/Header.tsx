@@ -8,11 +8,6 @@ import styled, { css } from "styled-components"
 export default function Header() {
 	const text = useRef<HTMLDivElement>(null)
 	const wrapperRef = useRef<HTMLDivElement>(null)
-
-	/**
-	 * if needed, the autoHideHeader hook also takes two separate arrays of element ID strings as parameters
-	 * to hide and stick the header when specified elements are in view
-	 */
 	const translateY = useAutoHideHeader(wrapperRef)
 
 	/**
