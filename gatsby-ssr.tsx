@@ -4,6 +4,14 @@ import "the-new-css-reset/css/reset.css"
 import Layout from "components/Layout"
 import { RootProviders, RouteProviders } from "components/Providers"
 import type { RenderBodyArgs } from "gatsby"
+import gsap from "gsap"
+import { ScrollSmoother } from "gsap/ScrollSmoother"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+
+/**
+ * global plugin registration.
+ */
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
 
 console.info(`
 ⣿⣿⠿⠟⠛⣿⣿⣿⣿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀

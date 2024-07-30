@@ -53,6 +53,9 @@ importers:
       gatsby-plugin-sitemap:
         specifier: 6.13.1
         version: 6.13.1(gatsby@5.13.7(babel-eslint@10.1.0(eslint@7.32.0))(encoding@0.1.13)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@4.15.0)(typescript@5.5.4))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      gatsby-plugin-social-cards:
+        specifier: 0.5.18-rc5
+        version: 0.5.18-rc5(gatsby-plugin-sharp@5.13.1(gatsby@5.13.7(babel-eslint@10.1.0(eslint@7.32.0))(encoding@0.1.13)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@4.15.0)(typescript@5.5.4))(graphql@16.8.1))(gatsby@5.13.7(babel-eslint@10.1.0(eslint@7.32.0))(encoding@0.1.13)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@4.15.0)(typescript@5.5.4))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       gatsby-plugin-styled-components:
         specifier: 6.13.1
         version: 6.13.1(babel-plugin-styled-components@2.1.4(@babel/core@7.24.8)(styled-components@6.1.12(react-dom@18.3.1(react@18.3.1))(react@18.3.1)))(gatsby@5.13.7(babel-eslint@10.1.0(eslint@7.32.0))(encoding@0.1.13)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@4.15.0)(typescript@5.5.4))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.1.12(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
@@ -64,7 +67,7 @@ importers:
         version: 1.0.6(gatsby@5.13.7(babel-eslint@10.1.0(eslint@7.32.0))(encoding@0.1.13)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@4.15.0)(typescript@5.5.4))
       gatsby-source-contentful:
         specifier: 8.13.2
-        version: 8.13.2(jdogd3qv5yupnzzjzhaxfqdliu)
+        version: 8.13.2(o5jhedm4oe4hrkoehy57cpccku)
       gatsby-transformer-json:
         specifier: 5.13.1
         version: 5.13.1(gatsby@5.13.7(babel-eslint@10.1.0(eslint@7.32.0))(encoding@0.1.13)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@4.15.0)(typescript@5.5.4))
@@ -83,6 +86,9 @@ importers:
       react-dom:
         specifier: 18.3.1
         version: 18.3.1(react@18.3.1)
+      react-share:
+        specifier: 5.1.0
+        version: 5.1.0(react@18.3.1)
       styled-components:
         specifier: 6.1.12
         version: 6.1.12(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -3571,6 +3577,9 @@ packages:
   citty@0.1.6:
     resolution: {integrity: sha512-tskPPKEs8D2KPafUypv2gxwJP8h/OaJmC82QQGGDQcHvXX43xF2VDACcJVmZ0EuSxkpO9Kc4MlrA3q0+FG58AQ==}
 
+  classnames@2.5.1:
+    resolution: {integrity: sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow==}
+
   clean-stack@4.2.0:
     resolution: {integrity: sha512-LYv6XPxoyODi36Dp976riBtSY27VmFo+MKqEU9QCCWyTrdEPDog+RWA7xQWHi6Vbp61j5c4cdzzX1NidnwtUWg==}
     engines: {node: '>=12'}
@@ -4897,6 +4906,15 @@ packages:
       react: ^18.0.0 || ^0.0.0
       react-dom: ^18.0.0 || ^0.0.0
 
+  gatsby-plugin-social-cards@0.5.18-rc5:
+    resolution: {integrity: sha512-gVIsKD4Y6BxsP3C0asgg58nnyTDWVeRdqQ3+XLPzA9bNbjdiaIeKbqiScoYYxyTULXshXJhZ7qlMSTB8A7YkUQ==}
+    peerDependencies:
+      gatsby: 2.x || 3.x
+      gatsby-plugin-sharp: 2.x || 3.x
+      react: ^16.8.6
+      react-dom: ^16.8.6
+      sharp: ^0.28.0
+
   gatsby-plugin-styled-components@6.13.1:
     resolution: {integrity: sha512-5Y3rvqgOIXuYaMgrvMinPW1/1hht2M39gM6eZZOm08U1ybykHwIFYAj68eC2PauuwFj6Xg8T+X1zW5YHyaP21Q==}
     engines: {node: '>=18.0.0'}
@@ -5733,6 +5751,9 @@ packages:
 
   jsonfile@6.1.0:
     resolution: {integrity: sha512-5dgndWOriYSm5cnYaJNhalLNDKOqFwyDB/rr1E9ZsGciGvKPs8R2xYGCacuf3z6K1YKDz182fd+fY3cn3pMqXQ==}
+
+  jsonp@0.2.1:
+    resolution: {integrity: sha512-pfog5gdDxPdV4eP7Kg87M8/bHgshlZ5pybl+yKxAnCZ5O7lCIn7Ixydj03wOlnDQesky2BPyA91SQ+5Y/mNwzw==}
 
   jsx-ast-utils@3.3.5:
     resolution: {integrity: sha512-ZZow9HBI5O6EPgSJLUb8n2NKgmVWTwCvHGwFuJlMjvLFqlGG6pjirPhtdsseaLZjSibD8eegzmYpUZwoIlj2cQ==}
@@ -7163,6 +7184,11 @@ packages:
     peerDependencies:
       react: 0.0.0-experimental-c8b778b7f-20220825
       webpack: ^5.59.0
+
+  react-share@5.1.0:
+    resolution: {integrity: sha512-OvyfMtj/0UzH1wi90OdHhZVJ6WUC/+IeWvBwppeZozwIGyAjQgyR0QXlHOrxVHVECqnGvcpBaFTXVrqouTieaw==}
+    peerDependencies:
+      react: ^17 || ^18
 
   react-use-measure@2.1.1:
     resolution: {integrity: sha512-nocZhN26cproIiIduswYpV5y5lQpSQS1y/4KuvUCjSKmw7ZWIS/+g3aFnX3WdBkyuGUtTLif3UTqnLLhbDoQig==}
@@ -12692,6 +12718,8 @@ snapshots:
     dependencies:
       consola: 3.2.3
 
+  classnames@2.5.1: {}
+
   clean-stack@4.2.0:
     dependencies:
       escape-string-regexp: 5.0.0
@@ -14430,6 +14458,13 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
       sitemap: 7.1.1
 
+  gatsby-plugin-social-cards@0.5.18-rc5(gatsby-plugin-sharp@5.13.1(gatsby@5.13.7(babel-eslint@10.1.0(eslint@7.32.0))(encoding@0.1.13)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@4.15.0)(typescript@5.5.4))(graphql@16.8.1))(gatsby@5.13.7(babel-eslint@10.1.0(eslint@7.32.0))(encoding@0.1.13)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@4.15.0)(typescript@5.5.4))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+    dependencies:
+      gatsby: 5.13.7(babel-eslint@10.1.0(eslint@7.32.0))(encoding@0.1.13)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@4.15.0)(typescript@5.5.4)
+      gatsby-plugin-sharp: 5.13.1(gatsby@5.13.7(babel-eslint@10.1.0(eslint@7.32.0))(encoding@0.1.13)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@4.15.0)(typescript@5.5.4))(graphql@16.8.1)
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+
   gatsby-plugin-styled-components@6.13.1(babel-plugin-styled-components@2.1.4(@babel/core@7.24.8)(styled-components@6.1.12(react-dom@18.3.1(react@18.3.1))(react@18.3.1)))(gatsby@5.13.7(babel-eslint@10.1.0(eslint@7.32.0))(encoding@0.1.13)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@4.15.0)(typescript@5.5.4))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.1.12(react-dom@18.3.1(react@18.3.1))(react@18.3.1)):
     dependencies:
       '@babel/runtime': 7.23.2
@@ -14495,7 +14530,7 @@ snapshots:
     dependencies:
       sharp: 0.32.6
 
-  gatsby-source-contentful@8.13.2(jdogd3qv5yupnzzjzhaxfqdliu):
+  gatsby-source-contentful@8.13.2(o5jhedm4oe4hrkoehy57cpccku):
     dependencies:
       '@babel/runtime': 7.23.2
       '@contentful/rich-text-react-renderer': 15.22.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -14517,7 +14552,6 @@ snapshots:
       lodash: 4.17.21
       node-fetch: 2.7.0(encoding@0.1.13)
       semver: 7.5.4
-      sharp: 0.32.6
       url: 0.11.3
     transitivePeerDependencies:
       - debug
@@ -15513,6 +15547,12 @@ snapshots:
       universalify: 2.0.0
     optionalDependencies:
       graceful-fs: 4.2.11
+
+  jsonp@0.2.1:
+    dependencies:
+      debug: 2.6.9
+    transitivePeerDependencies:
+      - supports-color
 
   jsx-ast-utils@3.3.5:
     dependencies:
@@ -16965,6 +17005,14 @@ snapshots:
       neo-async: 2.6.2
       react: 18.3.1
       webpack: 5.89.0
+
+  react-share@5.1.0(react@18.3.1):
+    dependencies:
+      classnames: 2.5.1
+      jsonp: 0.2.1
+      react: 18.3.1
+    transitivePeerDependencies:
+      - supports-color
 
   react-use-measure@2.1.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
