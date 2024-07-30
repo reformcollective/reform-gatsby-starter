@@ -1,4 +1,3 @@
-import { leadingTrim } from "leading-trim"
 import { css } from "styled-components"
 
 export const transparentText = css`
@@ -9,19 +8,6 @@ export const transparentText = css`
 	background-size: 100%;
 	background-clip: text;
 `
-
-// TODO: update these values to match the font you're using
-export const trim = (lineHeight: number) =>
-	leadingTrim({
-		lineHeight, // unitless `line-height` that you want for the text
-		reference: {
-			// reference numbers for the `@font-face` you'll use
-			fontSize: 160, // `font-size` in px
-			lineHeight: 1, // unitless `line-height`
-			topCrop: 26, // height to remove from the top in px
-			bottomCrop: 21, // height to remove from the bottom in px
-		},
-	})
 
 export const clampText = (lines: number) => css`
 	overflow: hidden;

@@ -3,4 +3,6 @@ on: pull_request
 jobs:
   library:
     uses: reformcollective/library/.github/workflows/code-checks.yml@main
-    secrets: inherit
+    secrets:
+      CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
+      CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}

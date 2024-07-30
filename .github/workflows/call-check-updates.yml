@@ -8,4 +8,3 @@ on:
 jobs:
   library:
     uses: reformcollective/library/.github/workflows/check-updates.yml@main
-    secrets: inherit
