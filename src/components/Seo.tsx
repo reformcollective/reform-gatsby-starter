@@ -24,6 +24,18 @@ interface SEOProps {
 	 * if applicable, provide the twitter creator's handle
 	 */
 	creator?: string
+	/**
+	 * if applicable, provide the twitter site's handle
+	 */
+	site?: string
+	/**
+	 * provide the content type of the page
+	 */
+	type?: string
+	/**
+	 * if applicable, provide the alt text for the image
+	 */
+	imageAlt?: string
 }
 
 export default function Seo({
@@ -32,6 +44,9 @@ export default function Seo({
 	pathname,
 	image,
 	creator,
+	site,
+	type,
+	imageAlt,
 }: SEOProps) {
 	const data: Queries.SeoQuery = useStaticQuery(graphql`
 		query Seo {
@@ -59,6 +74,9 @@ export default function Seo({
 		image: image ?? defaultImage,
 		url: `${siteUrl}${pathname}`,
 		creator,
+		site,
+		type,
+		imageAlt,
 	}
 
 	return (
@@ -74,18 +92,21 @@ export default function Seo({
 			{/* twitter seo */}
 			<meta name="twitter:card" content="summary_large_image" />
 			<meta name="twitter:creator" content={seo.creator} />
-			<meta name="twitter:title" content={seo.title ?? ""} />
-			<meta name="twitter:description" content={seo.description ?? ""} />
+			{/* <meta name="twitter:title" content={seo.title ?? ""} /> */}
+			{/* <meta name="twitter:description" content={seo.description ?? ""} /> */}
 			{/* <meta name="twitter:image" content={seo.image ?? ""} /> */}
+			<meta name="twitter:site" content={seo.site} />
 
 			{/* og seo */}
 			<meta property="og:title" content={seo.title ?? ""} />
 			<meta property="og:description" content={seo.description ?? ""} />
 			<meta property="og:image" content={seo.image ?? ""} />
 			<meta property="og:url" content={seo.url} />
-			<meta property="og:type" content="website" />
+			<meta property="og:type" content={seo.type} />
 			<meta property="og:image:width" content="800" />
 			<meta property="og:image:height" content="600" />
+			<meta property="og:site_name" content="Thoughtly" />
+			<meta property="og:image:alt" content={seo.imageAlt} />
 		</>
 	)
 }

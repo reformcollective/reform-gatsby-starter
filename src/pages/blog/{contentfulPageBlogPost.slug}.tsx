@@ -125,6 +125,9 @@ export function Head({ data }: PageProps<Queries.BlogPostQuery>) {
 			image={`https:${data.contentfulPageBlogPost?.mainImage?.file?.url ?? ""}`}
 			// image={`https:${data.contentfulPageBlogPost?.ogImage?.resize?.src ?? ""}`}
 			pathname={`/blog/${data.contentfulPageBlogPost?.slug ?? ""}`}
+			creator="@thoughtlyai"
+			type="article"
+			imageAlt={data.contentfulPageBlogPost?.title ?? ""}
 		/>
 	)
 }
