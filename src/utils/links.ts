@@ -1,13 +1,15 @@
-const routes = {
+const internal = {
 	blog: "/blog",
 } as const
 
-const socials = {} as const
+const ourLinks = {} as const
+
+const thirdPartyLinks = {} as const
 
 const links = {
-	todo: "https://www.google.com",
-	...routes,
-	...socials,
+	...internal,
+	...ourLinks,
+	...thirdPartyLinks,
 } as const
 
 export default links

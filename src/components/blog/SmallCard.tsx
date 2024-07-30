@@ -3,7 +3,7 @@ import UniversalImage from "library/UniversalImage"
 import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import styled, { css } from "styled-components"
 import data from "styles/blog/data"
-import { clampText, trim } from "styles/text"
+import { clampText } from "styles/text"
 import type { BlogCard } from "types/alias"
 import Author from "./Author"
 
@@ -51,7 +51,6 @@ const Image = styled(UniversalImage)`
 `
 
 const Title = styled.div`
-	${trim(1.2)}
 	${clampText(2)}
   ${textStyles.sh1};
 

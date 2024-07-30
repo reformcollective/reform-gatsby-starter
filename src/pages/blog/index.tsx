@@ -7,7 +7,6 @@ import { useParamState } from "library/useParamState"
 import { useEffect } from "react"
 import styled, { css } from "styled-components"
 import data from "styles/blog/data"
-import { trim } from "styles/text"
 import { useSearchResults } from "utils/useSearchResults"
 
 import BlogLayout from "components/blog/BlogLayout"
@@ -170,7 +169,6 @@ export function Head() {
 
 const Header = styled.div`
 	${textStyles.sh1}
-	${trim(1.2)}
 	color: ${colors.neutral700};
 
 	${fresponsive(css`

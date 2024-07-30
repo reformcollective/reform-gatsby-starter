@@ -5,7 +5,6 @@ import { fmobile, fresponsive } from "library/fullyResponsive"
 import { useState } from "react"
 import styled, { css } from "styled-components"
 import data from "styles/blog/data"
-import { trim } from "styles/text"
 
 const textStyles = data.projectTextStyles
 const colors = data.projectColors
@@ -121,7 +120,7 @@ const Wrapper = styled(Form.Root)`
 `
 
 const Title = styled.div`
-	${trim(1.2)};
+	
 	${textStyles.sh3}
 
 	${fresponsive(css`
@@ -213,7 +212,7 @@ const Field = styled(Form.Field)`
 `
 
 const Input = styled(Form.Control)`
-	${trim(1.2)};
+	
 	${textStyles.sh4}
 	width: 100%;
 	background-color: ${colors.neutralWhite};
