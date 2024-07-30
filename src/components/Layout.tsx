@@ -25,8 +25,8 @@ export default function Layout({ children }: LayoutProps) {
 			<Preloader />
 			<GlobalStyle />
 			<ColorStyle />
+			<Header />
 			<Scroll>
-				<Header />
 				<Main>{children}</Main>
 				<Footer />
 			</Scroll>
