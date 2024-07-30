@@ -21,47 +21,47 @@ export default function Author({ data }: { data: AuthorType }) {
 }
 
 const Wrapper = styled.div`
-  ${textStyles.bodyXS};
-  color: ${colors.neutral800};
-  display: flex;
-  align-items: center;
+	${textStyles.bodyXS};
+	color: ${colors.neutral800};
+	display: flex;
+	align-items: center;
 
-  ${fresponsive(css`
-    gap: 8px;
-  `)}
+	${fresponsive(css`
+		gap: 8px;
+	`)}
 
-  ${ftablet(css`
-    ${textStyles.bodyS};
-    gap: 3px;
-  `)}
+	${ftablet(css`
+		${textStyles.bodyS};
+		gap: 3px;
+	`)}
   
   ${fmobile(css`
-    ${textStyles.bodyS};
-    gap: 3px;
-  `)}
+		${textStyles.bodyS};
+		gap: 3px;
+	`)}
 `
 const ProfilePhoto = styled(UniversalImage)`
-  ${fresponsive(css`
-    width: 36px;
-    height: 36px;
-    border-radius: 99vw;
-    isolation: isolate;
-    overflow: clip;
-  `)}
+	${fresponsive(css`
+		width: 36px;
+		height: 36px;
+		border-radius: 99vw;
+		isolation: isolate;
+		overflow: clip;
+	`)}
 
-  ${ftablet(css`
-    width: 48px;
-    height: 48px;
-  `)}
+	${ftablet(css`
+		width: 48px;
+		height: 48px;
+	`)}
 
   ${fmobile(css`
-    width: 48px;
-    height: 48px;
-  `)}
+		width: 48px;
+		height: 48px;
+	`)}
 `
 
 const Info = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 `

@@ -15,6 +15,12 @@ export default function LoaderB() {
 			<UniversalLink transition="fade" to="/visual-tests/loader/a#content-21">
 				fade to content 21
 			</UniversalLink>
+			<UniversalLink
+				transition="fade"
+				to="/visual-tests/loader/a?query=true#content-21"
+			>
+				with query parameter
+			</UniversalLink>
 			<p>content 1</p>
 			<p>content 2</p>
 			<p>content 3</p>

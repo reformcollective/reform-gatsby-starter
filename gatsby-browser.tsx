@@ -8,6 +8,7 @@ import { RootProviders, RouteProviders } from "components/Providers"
 import gsap from "gsap"
 import { ScrollSmoother } from "gsap/ScrollSmoother"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { isSafari } from "library/deviceDetection"
 
 /**
  * global plugin registration. be sure to also register plugins in gatsby-ssr.ts so that they are available during SSR
@@ -24,7 +25,7 @@ const logo =
 console.info(
 	d(logo),
 	`font-family:monospace;display:inline-block;background:black;color:#eee;${
-		window.safari
+		isSafari()
 			? "font-size:5px"
 			: "font-size:3px;padding:20px;border-radius:20px;margin:10px"
 	}`,

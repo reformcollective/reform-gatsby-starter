@@ -12,11 +12,11 @@ export default function Categories() {
 	const [, setCategory] = useParamState("category")
 
 	const categories: Queries.CategoriesQuery = useStaticQuery(graphql`
-	  query Categories {
-	    allContentfulPageBlogPost {
-	      items: distinct(field: {categories: SELECT})
-	    }
-	  }
+		query Categories {
+			allContentfulPageBlogPost {
+				items: distinct(field: { categories: SELECT })
+			}
+		}
 	`)
 
 	const categoriesEls = categories.allContentfulPageBlogPost.items.map(
@@ -41,79 +41,79 @@ export default function Categories() {
 }
 
 const Wrapper = styled.div`
-  ${fresponsive(css`
-    display: grid;
-    gap: 5px;
-    grid-row: 1 / -2;
-    margin-bottom: 64px;
-  `)}
+	${fresponsive(css`
+		display: grid;
+		gap: 5px;
+		grid-row: 1 / -2;
+		margin-bottom: 64px;
+	`)}
 
-  ${ftablet(css`
-    gap: 10px;
-  `)}
+	${ftablet(css`
+		gap: 10px;
+	`)}
 
   ${fmobile(css`
-    grid-template-columns: auto 1fr;
-    place-items: start;
-    gap: 10px 45px;
-    padding-top: 25px;
-    padding-bottom: 30px;
-    margin-bottom: 48px;
-    border-bottom: 1px solid ${colors.neutral300};
-  `)}
+		grid-template-columns: auto 1fr;
+		place-items: start;
+		gap: 10px 45px;
+		padding-top: 25px;
+		padding-bottom: 30px;
+		margin-bottom: 48px;
+		border-bottom: 1px solid ${colors.neutral300};
+	`)}
 `
 
 const CategoryHeader = styled.div`
-  ${textStyles.sh2};
-  color: ${colors.neutralBlack};
+	${textStyles.sh2};
+	color: ${colors.neutralBlack};
 
-  ${fresponsive(css`
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    margin-bottom: 10px;
-  `)}
+	${fresponsive(css`
+		display: flex;
+		align-items: center;
+		gap: 6px;
+		margin-bottom: 10px;
+	`)}
 
-  ${ftablet(css`
-    margin-bottom: 10px;
-  `)}
+	${ftablet(css`
+		margin-bottom: 10px;
+	`)}
 
   ${fmobile(css`
-    padding-top: 8px;
-    margin-bottom: 0;
-    grid-row: 1 / 7;
-  `)}
+		padding-top: 8px;
+		margin-bottom: 0;
+		grid-row: 1 / 7;
+	`)}
 `
 
 const StyledIcon = styled(data.categoriesIcon)`
-  ${fresponsive(css`
-    width: 18px;
-    height: 18px;
-  `)}
+	${fresponsive(css`
+		width: 18px;
+		height: 18px;
+	`)}
 
-  ${fmobile(css`
-    width: 16px;
-    height: 16px;
-  `)}
+	${fmobile(css`
+		width: 16px;
+		height: 16px;
+	`)}
 `
 
 const Category = styled(UniversalLink)`
-  ${textStyles.sh4}
-  color: ${colors.neutral800};
+	${textStyles.sh4}
+	color: ${colors.neutral800};
 
-  ${fresponsive(css`
-    padding: 8px 10px;
-  `)}
+	${fresponsive(css`
+		padding: 8px 10px;
+	`)}
 
-  ${ftablet(css`
-    ${textStyles.bodyL}
-  `)}
+	${ftablet(css`
+		${textStyles.bodyL}
+	`)}
 
   ${fmobile(css`
-    height: 30px;
-    display: grid;
-    place-items: center;
-    grid-column: -2;
-    ${textStyles.sh3}
-  `)}
+		height: 30px;
+		display: grid;
+		place-items: center;
+		grid-column: -2;
+		${textStyles.sh3}
+	`)}
 `

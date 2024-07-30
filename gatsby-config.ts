@@ -4,28 +4,35 @@ import adapter from "gatsby-adapter-netlify"
 
 dotEnvConfig()
 
+if (!process.env.NETLIFY) {
+	console.warn(
+		"gatsby-config depends on NETLIFY environment variables, which are not present.",
+	)
+}
+
+const siteURL = process.env.DEPLOY_PRIME_URL ?? "http://localhost:8000"
+
 const config: GatsbyConfig = {
 	jsxRuntime: "automatic",
-	// TODO add proper metadata
 	siteMetadata: {
 		/**
 		 * this is the default page title when none is provided
 		 */
-		title: "Reform Starter",
+		title: "Reform Starter", // TODO add title
 		/**
 		 * this is the search engine description when none is provided
 		 */
-		description: "A starter for Gatsby",
+		description: "A starter for Gatsby", // TODO add description
 		/**
 		 * this is the base URL of the site. do not include a trailing slash
 		 */
-		siteUrl: "https://www.yourdomain.tld",
+		siteUrl: siteURL,
 		/**
 		 * this is the default og image when none other is provided
 		 * uses netlify's env variable to get the base URL
 		 * it must be a complete URL (e.g. https://example.com/image.jpg)
 		 */
-		image: `${process.env.URL}/og-image.png`,
+		image: `${siteURL}/graph.jpg`,
 	},
 	graphqlTypegen: {
 		generateOnBuild: true,
@@ -47,8 +54,8 @@ const config: GatsbyConfig = {
 				},
 			},
 		},
-		// TODO setup a contentful space
 		/**
+		 * TODO setup a contentful space
 		 * The current space is only for the blog template and should be replaced
 		 */
 		{
@@ -66,7 +73,7 @@ const config: GatsbyConfig = {
 				start_url: "/",
 				background_color: "#ffffff", // TODO add theme color
 				theme_color: "#ffffff",
-				display: "minimal-ui",
+				display: "browser",
 				icon: "./src/images/global/icon.png", // TODO add favicon
 			},
 		},
@@ -99,24 +106,12 @@ const config: GatsbyConfig = {
 				silent: true,
 			},
 		},
-		// {
-		// 	resolve: "gatsby-plugin-robots-txt",
-		// 	options: {
-		// 		host: "https://{url}/", // TODO add url and remove brackets
-		// 		sitemap: "https://{url}/sitemap-0.xml", // TODO add url and remove brackets
-		// 		policy: [{ userAgent: "*", allow: "/" }],
-		// 	},
-		// },
 		{
 			resolve: "gatsby-plugin-robots-txt",
 			options: {
-				host: "https://deploy-preview-29--reform-starter.netlify.app/", // TODO add url and remove brackets
-				sitemap:
-					"https://deploy-preview-29--reform-starter.netlify.app/sitemap-0.xml", // TODO add url and remove brackets
-				policy: [
-					{ userAgent: "*", allow: "/" },
-					{ userAgent: "Twitterbot", disallow: "" },
-				],
+				host: siteURL,
+				sitemap: `${siteURL}/sitemap-0.xml`,
+				policy: [{ userAgent: "*", allow: "/" }],
 			},
 		},
 		"gatsby-plugin-styled-components",

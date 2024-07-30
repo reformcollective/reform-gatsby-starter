@@ -12,8 +12,9 @@ export default function IndexPage({
 
 	return (
 		<>
-			<Filler>
+			<Filler id="stick-header">
 				<h1>Welcome to Your Gatsby Site</h1>
+				<p>This section has a sticky header</p>
 				<br />
 				<UniversalLink transition="fade" to="/page-2/">
 					Fade to page 2

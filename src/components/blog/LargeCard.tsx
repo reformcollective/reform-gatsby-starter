@@ -14,7 +14,10 @@ const colors = data.projectColors
 export default function LargeCard({
 	data,
 	button,
-}: { data: BlogCard; button?: ReactNode }) {
+}: {
+	data: BlogCard
+	button?: ReactNode
+}) {
 	const { author, mainImage, title, articleTextPreview, slug } = data
 
 	return (
@@ -43,102 +46,102 @@ export default function LargeCard({
 }
 
 const Wrapper = styled.div`
-  display: grid;
-  cursor: pointer;
-  width: 100%;
-  
-  ${fresponsive(css`
-    gap: 26px;
-    margin-bottom: 60px;
-  `)}
+	display: grid;
+	cursor: pointer;
+	width: 100%;
 
-  ${ftablet(css`
-    margin-bottom: 48px;
-    gap: 20px;
-  `)}
+	${fresponsive(css`
+		gap: 26px;
+		margin-bottom: 60px;
+	`)}
+
+	${ftablet(css`
+		margin-bottom: 48px;
+		gap: 20px;
+	`)}
 
   ${fmobile(css`
-    margin-top: 20px;
-    padding-bottom: 50px;
-    margin-bottom: 10px;
-    border-bottom: 1px solid ${colors.neutral300};
-    gap: 16px;
-  `)}
+		margin-top: 20px;
+		padding-bottom: 50px;
+		margin-bottom: 10px;
+		border-bottom: 1px solid ${colors.neutral300};
+		gap: 16px;
+	`)}
 `
 
 const Image = styled(UniversalImage)`
-  ${fresponsive(css`
-    width: 100%;
-    aspect-ratio: 768 / 440;
-    border-radius: 16px;
-  `)}
-  ${ftablet(css`
-    aspect-ratio: 585 / 440;
-  `)}
+	${fresponsive(css`
+		width: 100%;
+		aspect-ratio: 768 / 440;
+		border-radius: 16px;
+	`)}
+	${ftablet(css`
+		aspect-ratio: 585 / 440;
+	`)}
   ${fmobile(css`
-    aspect-ratio: 313 / 222;
-  `)}
+		aspect-ratio: 313 / 222;
+	`)}
 `
 
 const Title = styled.div`
-  ${clampText(2)}
-  ${textStyles.h6};
+	${clampText(2)}
+	${textStyles.h6};
 
-  ${fresponsive(css`
-    padding-bottom: 4px;
-  `)}
+	${fresponsive(css`
+		padding-bottom: 4px;
+	`)}
 
-  ${fresponsive(css`
-    ${textStyles.sh1}
-  `)}
+	${fresponsive(css`
+		${textStyles.sh1}
+	`)}
 `
 
 const Details = styled.div`
-  ${fresponsive(css`
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 16px 8px;
-  `)}
+	${fresponsive(css`
+		display: grid;
+		grid-template-columns: auto 1fr;
+		gap: 16px 8px;
+	`)}
 
-  ${ftablet(css`
-    gap: 28px 10px;
-    margin-bottom: 10px;
-  `)}
+	${ftablet(css`
+		gap: 28px 10px;
+		margin-bottom: 10px;
+	`)}
 
   ${fmobile(css`
-    gap: 16px;
-  `)}
+		gap: 16px;
+	`)}
 `
 
 const Description = styled.div`
-  ${trim(1.25)}
-  ${clampText(2)}
+	${trim(1.25)}
+	${clampText(2)}
   ${textStyles.bodyS};
-  color: ${colors.neutral700};
-  grid-column: span 2;
+	color: ${colors.neutral700};
+	grid-column: span 2;
 
-  ${fresponsive(css`
-    padding-bottom: 2px;
-  `)}
+	${fresponsive(css`
+		padding-bottom: 2px;
+	`)}
 
-  ${ftablet(css`
-    ${textStyles.bodyR};
-    ${trim(1.2)};
-    margin-top: 10px;
-  `)}
+	${ftablet(css`
+		${textStyles.bodyR};
+		${trim(1.2)};
+		margin-top: 10px;
+	`)}
   ${fmobile(css`
-    ${textStyles.bodyS};
-    ${trim(1.2)};
-  `)}
+		${textStyles.bodyS};
+		${trim(1.2)};
+	`)}
 `
 
 export const PlaceholderButton = styled.button`
-  ${fresponsive(css`
-    ${textStyles.sh3};
-    border: 1px solid ${colors.neutralBlack};
-    border-radius: 8px;
-    width: fit-content;
-    cursor: pointer;
-    padding: 4px 6px;
-  `)}
+	${fresponsive(css`
+		${textStyles.sh3};
+		border: 1px solid ${colors.neutralBlack};
+		border-radius: 8px;
+		width: fit-content;
+		cursor: pointer;
+		padding: 4px 6px;
+	`)}
 `
