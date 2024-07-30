@@ -94,13 +94,7 @@ export default function BlogPostPage({
 							/> */}
 
 							<SocialShare
-								platforms={[
-									"linkedin",
-									"x",
-									"facebook",
-									"youtube",
-									"pinterest",
-								]}
+								platforms={["linkedin", "x", "facebook", "youtube"]}
 								channel_id="UCF1graXFkAeX7FHiI0fi5Lw"
 								// video_id="KzHVSHHe8ss"
 								// profile=""
