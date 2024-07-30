@@ -61,7 +61,7 @@ const Wrapper = styled.header<{ $yPos: number }>`
 	z-index: 5;
 	background-color: rebeccapurple;
 	color: white;
-	
+
 	${fresponsive(css`
 		height: 100px;
 		top: 0;
