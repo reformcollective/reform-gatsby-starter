@@ -115,7 +115,7 @@ const Details = styled.div`
 
 const Description = styled.div`
 	${clampText(2)}
-  ${textStyles.bodyS};
+	${textStyles.bodyS};
 	color: ${colors.neutral700};
 	grid-column: span 2;
 
@@ -125,12 +125,11 @@ const Description = styled.div`
 
 	${ftablet(css`
 		${textStyles.bodyR};
-		
+
 		margin-top: 10px;
 	`)}
   ${fmobile(css`
 		${textStyles.bodyS};
-		
 	`)}
 `
 
