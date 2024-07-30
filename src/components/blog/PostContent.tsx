@@ -7,7 +7,6 @@ import type { ReactNode } from "react"
 import React from "react"
 import styled, { css } from "styled-components"
 import data from "styles/blog/data"
-import { trim } from "styles/text"
 import type { BlogPost } from "types/alias"
 import Author from "./Author"
 import RichText from "./RichComponents"
@@ -105,7 +104,6 @@ const Categories = styled.div`
 `
 
 export const Category = styled(UniversalLink)`
-	${trim(1.3)}
 	display: flex;
 	${textStyles.sh4}
 

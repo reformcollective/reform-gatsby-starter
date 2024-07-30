@@ -4,7 +4,7 @@ import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
 import type { ReactNode } from "react"
 import styled, { css } from "styled-components"
 import data from "styles/blog/data"
-import { clampText, trim } from "styles/text"
+import { clampText } from "styles/text"
 import type { BlogCard } from "types/alias"
 import Author from "./Author"
 
@@ -114,7 +114,6 @@ const Details = styled.div`
 `
 
 const Description = styled.div`
-	${trim(1.25)}
 	${clampText(2)}
   ${textStyles.bodyS};
 	color: ${colors.neutral700};
@@ -126,12 +125,12 @@ const Description = styled.div`
 
 	${ftablet(css`
 		${textStyles.bodyR};
-		${trim(1.2)};
+		
 		margin-top: 10px;
 	`)}
   ${fmobile(css`
 		${textStyles.bodyS};
-		${trim(1.2)};
+		
 	`)}
 `
 
