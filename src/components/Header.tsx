@@ -1,10 +1,19 @@
 import gsap from "gsap"
 import { usePageTransition } from "library/Loader/TransitionUtils"
+import { fresponsive } from "library/fullyResponsive"
+import useAutoHideHeader from "library/useAutoHideHeader"
 import { useRef } from "react"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 
 export default function Header() {
 	const text = useRef<HTMLDivElement>(null)
+	const wrapperRef = useRef<HTMLDivElement>(null)
+
+	/**
+	 * if needed, the autoHideHeader hook also takes two separate arrays of element ID strings as parameters
+	 * to hide and stick the header when specified elements are in view
+	 */
+	const translateY = useAutoHideHeader(wrapperRef)
 
 	/**
 	 * this is an example of how to include arbitrary elements in a page transition
@@ -35,16 +44,26 @@ export default function Header() {
 	})
 
 	return (
-		<Wrapper>
+		<Wrapper ref={wrapperRef} $yPos={translateY}>
 			<h1 ref={text}>Header</h1>
 		</Wrapper>
 	)
 }
 
-const Wrapper = styled.header`
+const Wrapper = styled.header<{ $yPos: number }>`
+	translate: 0 ${({ $yPos }) => $yPos}px;
+	transition: translate 0.2s ease-out;
+	transform: translate3d(0);
+	place-items: center;
+	position: fixed;
+	display: grid;
+	width: 100%;
+	z-index: 5;
 	background-color: rebeccapurple;
 	color: white;
-	display: grid;
-	place-items: center;
-	height: 100px;
+	
+	${fresponsive(css`
+		height: 100px;
+		top: 0;
+	`)}
 `
