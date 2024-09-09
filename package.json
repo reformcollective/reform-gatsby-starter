@@ -26,7 +26,6 @@
 		"gatsby-plugin-robots-txt": "1.8.0",
 		"gatsby-plugin-sharp": "5.13.1",
 		"gatsby-plugin-sitemap": "6.13.1",
-		"gatsby-plugin-social-cards": "0.5.18-rc5",
 		"gatsby-plugin-styled-components": "6.13.1",
 		"gatsby-plugin-svgr": "3.0.0-beta.0",
 		"gatsby-plugin-tsconfig-paths": "1.0.6",
@@ -51,7 +50,7 @@
 		"husky": "9.1.5",
 		"lint-staged": "15.2.10",
 		"stylelint": "16.9.0",
-		"stylelint-config-reform-collective": "github:reformcollective/stylelint-config-reform",
+		"stylelint-config-reform-collective": "github:reformcollective/stylelint-config-reform#updated",
 		"typescript": "5.6.2"
 	},
 	"license": "0BSD",

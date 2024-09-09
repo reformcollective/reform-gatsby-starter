@@ -116,7 +116,6 @@ const config: GatsbyConfig = {
 		},
 		"gatsby-plugin-styled-components",
 		"gatsby-transformer-json",
-		"gatsby-plugin-social-cards",
 	],
 }
 
