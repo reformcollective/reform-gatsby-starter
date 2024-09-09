@@ -147,7 +147,7 @@ export const blogTextStyles = {
 	blogH2Alt: fresponsive(css`
 		font-family: Slussen, sans-serif;
 		font-size: 40px;
-		font-style:  normal;
+		font-style: normal;
 		font-weight: 400;
 		line-height: 105%; /* 48.3px */
 		letter-spacing: -2.3px;

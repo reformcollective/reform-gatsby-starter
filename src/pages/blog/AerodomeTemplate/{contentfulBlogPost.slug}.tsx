@@ -312,8 +312,8 @@ export const query = graphql`
 	query SingleBlogPost($id: String) {
 		contentfulBlogPost(
 			id: { eq: $id }
-			# id: { eq: $id, ne: "0e9776cc-031e-5ded-a4ff-00db04c1d46a" }
-		) {
+		) # id: { eq: $id, ne: "0e9776cc-031e-5ded-a4ff-00db04c1d46a" }
+		{
 			blogAuthor {
 				name
 				slug

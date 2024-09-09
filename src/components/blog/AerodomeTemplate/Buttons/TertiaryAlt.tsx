@@ -57,27 +57,23 @@ const Inner = styled.div<{ $dark: boolean }>`
 		gap: 8px;
 	`)}
 
-	${ftablet(
-		css`
-			transform: translateX(0);
+	${ftablet(css`
+		transform: translateX(0);
 
-			${Arrow} {
-				transform: rotate(180deg);
-			}
-		`,
-	)}
+		${Arrow} {
+			transform: rotate(180deg);
+		}
+	`)}
 
 
 
-		${fmobile(
-			css`
-			transform: translateX(0);
+		${fmobile(css`
+		transform: translateX(0);
 
-			${Arrow} {
-				transform: rotate(180deg);
-			}
-		`,
-		)}
+		${Arrow} {
+			transform: rotate(180deg);
+		}
+	`)}
 `
 
 const Wrapper = styled(UniversalLink)`
