@@ -1,5 +1,5 @@
 import Seo from "components/Seo"
-import { type PageProps, graphql } from "gatsby"
+import type { PageProps } from "gatsby"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { ReactComponent as PlaceholderSVG } from "images/blog/icons/placeholder.svg"
 import UniversalLink from "library/Loader/UniversalLink"
@@ -14,13 +14,13 @@ import data from "styles/blog/data"
 import { desktopBreakpoint } from "styles/media"
 import links from "utils/links"
 
-import PostContent from "components/blog/PostContent"
-import SmallCard from "components/blog/SmallCard"
+import PostContent from "components/blog/CampfireTemplate/PostContent"
+import SmallCard from "components/blog/CampfireTemplate/SmallCard"
 
 const textStyles = data.projectTextStyles
 const colors = data.projectColors
 
-import SocialShare from "components/blog/SocialShare"
+import SocialShare from "components/blog/CampfireTemplate/SocialShare"
 
 /**
  * This file needs to be updated to match the new project's design.
@@ -293,60 +293,60 @@ const PlaceholderButton = styled(UniversalLink)`
 	`)}
 `
 
-export const query = graphql`
-	query BlogPost($id: String) {
-		contentfulPageBlogPost(id: { eq: $id }) {
-			title
-			slug
-			articleTextPreview
-			author {
-				id
-				headshot {
-					gatsbyImageData
-					createdAt
-				}
-				fullName
-				roleAndCompany
-			}
-			mainImage {
-				file {
-					url
-				}
-				gatsbyImageData
-				description
-			}
-			categories
-			articleText {
-				raw
-			}
-		}
-		# get the three most recent blog posts that are not the current post
-		allContentfulPageBlogPost(
-			filter: { id: { nin: [$id, "e1d582e5-f8d2-52c5-a1eb-a758ee4a4f72"] } }
-			sort: { createdAt: DESC }
-			limit: 3
-		) {
-			nodes {
-				slug
-				id
-				createdAt(formatString: "MMMM Do, YYYY")
-				author {
-					id
-					headshot {
-						gatsbyImageData
-						createdAt
-					}
-					fullName
-					roleAndCompany
-				}
-				title
-				mainImage {
-					gatsbyImageData
-					description
-				}
-				categories
-				articleTextPreview
-			}
-		}
-	}
-`
+// export const query = graphql`
+// 	query BlogPost($id: String) {
+// 		contentfulPageBlogPost(id: { eq: $id }) {
+// 			title
+// 			slug
+// 			articleTextPreview
+// 			author {
+// 				id
+// 				headshot {
+// 					gatsbyImageData
+// 					createdAt
+// 				}
+// 				fullName
+// 				roleAndCompany
+// 			}
+// 			mainImage {
+// 				file {
+// 					url
+// 				}
+// 				gatsbyImageData
+// 				description
+// 			}
+// 			categories
+// 			articleText {
+// 				raw
+// 			}
+// 		}
+// 		# get the three most recent blog posts that are not the current post
+// 		allContentfulPageBlogPost(
+// 			filter: { id: { nin: [$id, "e1d582e5-f8d2-52c5-a1eb-a758ee4a4f72"] } }
+// 			sort: { createdAt: DESC }
+// 			limit: 3
+// 		) {
+// 			nodes {
+// 				slug
+// 				id
+// 				createdAt(formatString: "MMMM Do, YYYY")
+// 				author {
+// 					id
+// 					headshot {
+// 						gatsbyImageData
+// 						createdAt
+// 					}
+// 					fullName
+// 					roleAndCompany
+// 				}
+// 				title
+// 				mainImage {
+// 					gatsbyImageData
+// 					description
+// 				}
+// 				categories
+// 				articleTextPreview
+// 			}
+// 		}
+// 	}
+// `

@@ -10,3 +10,13 @@ export type BlogPost = NonNullable<
 export type Author = NonNullable<
 	NonNullable<Queries.BlogPostQuery["contentfulPageBlogPost"]>["author"]
 >
+
+export type BlogPostCard = NonNullable<
+	Queries.BlogHubQuery["allContentfulBlogPost"]["nodes"][number]
+>
+
+export type BlogPostContent = NonNullable<
+	Queries.SingleBlogPostQuery["contentfulBlogPost"]
+>
+
+export type BlogHubQuery = Queries.BlogHubQuery
