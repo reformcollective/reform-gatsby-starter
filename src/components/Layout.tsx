@@ -4,6 +4,7 @@ import Preloader from "components/Preloader"
 import Transition from "components/Transition"
 import { useBackButton } from "library/Loader/TransitionUtils"
 import Scroll from "library/Scroll"
+import { fresponsive } from "library/fullyResponsive"
 import { useTrackPageReady } from "library/pageReady"
 import useTrackFrameTime from "library/useTrackFrameTime"
 import styled, { createGlobalStyle, css } from "styled-components"
@@ -27,6 +28,7 @@ export default function Layout({ children }: LayoutProps) {
 			<ColorStyle />
 			<Header />
 			<Scroll>
+				<Spacer />
 				<Main>{children}</Main>
 				<Footer />
 			</Scroll>
@@ -61,3 +63,9 @@ const globalCss = css`
 `
 
 const GlobalStyle = createGlobalStyle`${globalCss}`
+
+const Spacer = styled.div`
+	${fresponsive(css`
+	height: 100px;
+	`)}
+`

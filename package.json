@@ -10,6 +10,7 @@
 	},
 	"packageManager": "pnpm@9.10.0+sha512.73a29afa36a0d092ece5271de5177ecbf8318d454ecd701343131b8ebc0c1a91c487da46ab77c8e596d6acf1461e3594ced4becedf8921b074fbd8653ed7051c",
 	"dependencies": {
+		"@contentful/rich-text-plain-text-renderer": "16.2.10",
 		"@contentful/rich-text-react-renderer": "^15.22.11",
 		"@contentful/rich-text-types": "^16.8.5",
 		"@radix-ui/react-checkbox": "1.1.1",

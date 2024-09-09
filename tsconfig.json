@@ -1,6 +1,13 @@
 // see https://www.totaltypescript.com/tsconfig-cheat-sheet
 {
-	"include": ["./src/**/*", "./*.tsx", "./*.ts"],
+	"include": [
+		"./src/**/*",
+		"./*.tsx",
+		"./*.ts",
+		"src/components/blog",
+		"src/pages/blog",
+		"gatsby-node.mjs"
+	],
 	"compilerOptions": {
 		// Base Options
 		"esModuleInterop": true,
