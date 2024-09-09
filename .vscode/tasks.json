@@ -4,7 +4,11 @@
 		{
 			"label": "Dev Server",
 			"type": "shell",
-			"command": "pnpm i --frozen-lockfile && pnpm run clean && (npm start || (git submodule update --init --recursive && npm start))",
+			"command": "sh",
+			"args": [
+				"-c",
+				"if [ ! -d 'src/library/.git' ]; then git submodule update --init src/library; fi && pnpm i --frozen-lockfile && pnpm run clean && pnpm run start"
+			],
 			"presentation": {
 				"panel": "new",
 				"echo": false,
