@@ -9,12 +9,12 @@ import styled, { css } from "styled-components"
 import data from "styles/blog/data"
 import { useSearchResults } from "utils/useSearchResults"
 
-import BlogLayout from "components/blog/BlogLayout"
-import Categories from "components/blog/Categories"
-import ClearButton from "components/blog/ClearButton"
-import EmailInput from "components/blog/EmailInput"
-import LargeCard from "components/blog/LargeCard"
-import SmallCard from "components/blog/SmallCard"
+import BlogLayout from "components/blog/CampfireTemplate/BlogLayout"
+import Categories from "components/blog/CampfireTemplate/Categories"
+import ClearButton from "components/blog/CampfireTemplate/ClearButton"
+import EmailInput from "components/blog/CampfireTemplate/EmailInput"
+import LargeCard from "components/blog/CampfireTemplate/LargeCard"
+import SmallCard from "components/blog/CampfireTemplate/SmallCard"
 
 const textStyles = data.projectTextStyles
 const colors = data.projectColors

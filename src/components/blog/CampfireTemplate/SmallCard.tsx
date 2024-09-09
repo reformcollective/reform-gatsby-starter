@@ -52,7 +52,7 @@ const Image = styled(UniversalImage)`
 
 const Title = styled.div`
 	${clampText(2)}
-  ${textStyles.sh1};
+	${textStyles.sh1};
 
 	${fresponsive(css`
 		padding: 4px 0;

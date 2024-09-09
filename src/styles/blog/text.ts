@@ -3,6 +3,7 @@ import { css } from "styled-components"
 
 // TODO: Delete this file once the data.ts file is updated!
 export const blogTextStyles = {
+	// Campfire Template text styles
 	hubT: fresponsive(css`
 		font-family: sans-serif;
 		font-size: 68.5px;
@@ -116,5 +117,161 @@ export const blogTextStyles = {
 		font-weight: 350;
 		line-height: 144%; /* 14.4px */
 		letter-spacing: -0.2px;
+	`),
+
+	// Aerodome Template text styles
+	kicker3: fresponsive(css`
+		font-family: Fraktion, sans-serif;
+		font-size: 14px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 100%; /* 14px */
+		text-transform: uppercase;
+	`),
+	button4: fresponsive(css`
+		font-family: Fraktion, sans-serif;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: 100%; /* 16px */
+		text-transform: uppercase;
+	`),
+	button5: fresponsive(css`
+		font-family: Fraktion, sans-serif;
+		font-size: 14px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: 100%; /* 14px */
+		text-transform: uppercase;
+	`),
+	blogH2Alt: fresponsive(css`
+		font-family: Slussen, sans-serif;
+		font-size: 40px;
+		font-style:  normal;
+		font-weight: 400;
+		line-height: 105%; /* 48.3px */
+		letter-spacing: -2.3px;
+	`),
+	blogH4: fresponsive(css`
+		font-family: Slussen, sans-serif;
+		font-size: 24px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 105%; /* 25.2px */
+		letter-spacing: -0.96px;
+	`),
+	body2: fresponsive(css`
+		font-family: Slussen, sans-serif;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 140%; /* 22.4px */
+		letter-spacing: -0.16px;
+	`),
+	body3: fresponsive(css`
+		font-family: Slussen, sans-serif;
+		font-size: 13px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 140%; /* 18.2px */
+		letter-spacing: -0.13px;
+	`),
+	h3: fresponsive(css`
+		font-family: Slussen, sans-serif;
+		font-size: 80px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 90%; /* 72px */
+		letter-spacing: -4.8px;
+	`),
+	h7: fresponsive(css`
+		font-family: Slussen, sans-serif;
+		font-size: 34px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 90%; /* 30.6px */
+		letter-spacing: -1.7px;
+	`),
+	h8: fresponsive(css`
+		font-family: Slussen, sans-serif;
+		font-size: 24px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 90%; /* 21.6px */
+		letter-spacing: -0.96px;
+	`),
+	kick: fresponsive(css`
+		font-family: Fraktion, sans-serif;
+		font-size: 10px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 100%; /* 10px */
+		letter-spacing: 0.2px;
+		text-transform: uppercase;
+	`),
+	kicker1: fresponsive(css`
+		font-family: Fraktion, sans-serif;
+		font-size: 24px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 100%; /* 24px */
+		text-transform: uppercase;
+	`),
+	kicker2: fresponsive(css`
+		font-family: Fraktion, sans-serif;
+		font-size: 20px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 100%; /* 20px */
+		text-transform: uppercase;
+	`),
+	kicker4: fresponsive(css`
+		font-family: Fraktion, sans-serif;
+		font-size: 12px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 100%; /* 10px */
+		letter-spacing: 0%;
+		text-transform: uppercase;
+	`),
+	body1: fresponsive(css`
+		font-family: Slussen, sans-serif;
+		font-size: 20px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 140%; /* 28px */
+		letter-spacing: -0.2px;
+	`),
+	blogH1: fresponsive(css`
+		font-family: Slussen, sans-serif;
+		font-size: 56px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 105%; /* 58.8px */
+		letter-spacing: -3.36px;
+	`),
+	blogH2: fresponsive(css`
+		font-family: Slussen, sans-serif;
+		font-size: 46px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 105%; /* 48.3px */
+		letter-spacing: -2.3px;
+	`),
+	blogH3: fresponsive(css`
+		font-family: Slussen, sans-serif;
+		font-size: 34px;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 105%; /* 35.7px */
+		letter-spacing: -1.7px;
+	`),
+	blogQuote: fresponsive(css`
+		font-family: Fraktion, sans-serif;
+		font-size: 18px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 140%; /* 25.2px */
+		letter-spacing: -0.18px;
 	`),
 }

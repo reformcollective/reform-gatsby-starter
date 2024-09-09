@@ -120,7 +120,6 @@ const Wrapper = styled(Form.Root)`
 `
 
 const Title = styled.div`
-	
 	${textStyles.sh3}
 
 	${fresponsive(css`
@@ -212,7 +211,6 @@ const Field = styled(Form.Field)`
 `
 
 const Input = styled(Form.Control)`
-	
 	${textStyles.sh4}
 	width: 100%;
 	background-color: ${colors.neutralWhite};
