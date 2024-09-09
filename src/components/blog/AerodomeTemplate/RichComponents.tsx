@@ -181,6 +181,7 @@ const options: Options = {
 		[BLOCKS.LIST_ITEM]: (node, children) => <Li>{children}</Li>,
 		[BLOCKS.QUOTE]: (node, children) => {
 			const child = Array.isArray(children) ? children[0] : undefined
+			// @ts-expect-error max did it
 			const text = child.props.children[0]
 			return (
 				<Quote>

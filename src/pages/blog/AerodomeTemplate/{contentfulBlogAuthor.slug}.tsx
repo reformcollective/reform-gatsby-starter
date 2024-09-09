@@ -281,7 +281,7 @@ export const query = graphql`
 			linkedinUrl
 			xUrl
 		}
-		allContentfulBlogPost(
+		allContentfulAerodomeTemplateBlogPost(
 			sort: { createdAt: DESC }
 			filter: {
 				id: { ne: "0e9776cc-031e-5ded-a4ff-00db04c1d46a" }

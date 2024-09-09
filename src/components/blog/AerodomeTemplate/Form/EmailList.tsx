@@ -15,6 +15,12 @@ const colors = data.projectColors
 const PORTAL_ID = "39655947"
 const FORM_ID = "23ebaacd-584d-4135-bab1-966e751dc4cd"
 
+declare global {
+	interface Window {
+		hutk: unknown
+	}
+}
+
 export default function EmailList({
 	onComplete,
 	className = "",

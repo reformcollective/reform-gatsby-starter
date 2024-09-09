@@ -310,7 +310,7 @@ const StyledContact = styled(Contact)`
 
 export const query = graphql`
 	query SingleBlogPost($id: String) {
-		contentfulBlogPost(
+		contentfulAerodomeTemplateBlogPost(
 			id: { eq: $id } # id: { eq: $id, ne: "0e9776cc-031e-5ded-a4ff-00db04c1d46a" }
 		) {
 			blogAuthor {
@@ -379,7 +379,7 @@ export const query = graphql`
 		}
 		# get the three most recent blog posts that are not the current post
 
-		allContentfulBlogPost(
+		allContentfulAerodomeTemplateBlogPost(
 			sort: { createdAt: DESC }
 			filter: { id: { nin: [$id, "0e9776cc-031e-5ded-a4ff-00db04c1d46a"] } }
 		) {

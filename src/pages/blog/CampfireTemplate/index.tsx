@@ -263,7 +263,7 @@ const MobileEmail = styled(MobileOnly)`
 
 export const query = graphql`
 	query BlogPage {
-		allContentfulPageBlogPost(sort: { createdAt: DESC }) {
+		allContentfulCampfireTemplatePageBlogPost(sort: { createdAt: DESC }) {
 			nodes {
 				slug
 				id
@@ -285,7 +285,7 @@ export const query = graphql`
 				articleTextPreview
 			}
 		}
-		contentfulPageBlogHub {
+		contentfulCampfireTemplatePageBlogHub {
 			id
 			featuredBlogPost {
 				slug

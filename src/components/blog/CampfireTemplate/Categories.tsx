@@ -13,7 +13,7 @@ export default function Categories() {
 
 	const categories: Queries.CategoriesQuery = useStaticQuery(graphql`
 		query Categories {
-			allContentfulPageBlogPost {
+			allContentfulCampfireTemplatePageBlogPost {
 				items: distinct(field: { categories: SELECT })
 			}
 		}
