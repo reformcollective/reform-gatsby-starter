@@ -1,7 +1,7 @@
-import Categories from "components/blog/Categories"
-import LargeCard from "components/blog/LargeCard"
+import { Categories } from "components/blog/Categories"
+import { LargeCard } from "components/blog/LargeCard"
 import { SearchBar } from "components/blog/SearchBar"
-import SmallCard from "components/blog/SmallCard"
+import { SmallCard } from "components/blog/SmallCard"
 import { type PageProps, graphql } from "gatsby"
 import { ScrollSmoother } from "gsap/ScrollSmoother"
 import UniversalLink from "library/Loader/UniversalLink"
@@ -118,31 +118,33 @@ const Wrapper = styled.div`
 `
 
 export const query = graphql`
-query BlogTemplate {
-  allContentfulUnifiedTemplateBlogArticle(sort: {fields: {calculatedDate: DESC}}) {
-    nodes {
-      id
-      categories
-      mainImage {
-        gatsbyImageData
-        description
-      }
-      title
-      featuredArticle
-      slug
-      createdAt
-      author {
-        fullName
-        roleAndCompany
-        photo {
-          gatsbyImageData
-        }
-      }
-      fields {
-        calculatedDate
-        textPreview
-      }
-    }
-  }
-}
+	query BlogTemplate {
+		allContentfulUnifiedTemplateBlogArticle(
+			sort: { fields: { calculatedDate: DESC } }
+		) {
+			nodes {
+				id
+				categories
+				mainImage {
+					gatsbyImageData
+					description
+				}
+				title
+				featuredArticle
+				slug
+				createdAt
+				author {
+					fullName
+					roleAndCompany
+					photo {
+						gatsbyImageData
+					}
+				}
+				fields {
+					calculatedDate
+					textPreview
+				}
+			}
+		}
+	}
 `

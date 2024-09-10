@@ -2,7 +2,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import UniversalLink from "library/Loader/UniversalLink"
 import { useParamState } from "library/useParamState"
 
-export default function Categories() {
+export function Categories() {
 	const [, setCategory] = useParamState("category")
 
 	const categories: Queries.CategoriesQuery = useStaticQuery(graphql`

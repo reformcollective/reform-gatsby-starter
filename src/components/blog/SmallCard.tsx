@@ -1,3 +1,3 @@
-export default function SmallCard() {
+export function SmallCard() {
 	return <div>small card</div>
 }

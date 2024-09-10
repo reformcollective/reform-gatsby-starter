@@ -1,3 +1,3 @@
-export default function LargeCard() {
+export function LargeCard() {
 	return <div>large card</div>
 }

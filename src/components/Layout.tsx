@@ -66,6 +66,6 @@ const GlobalStyle = createGlobalStyle`${globalCss}`
 
 const Spacer = styled.div`
 	${fresponsive(css`
-	height: 100px;
+		height: 100px;
 	`)}
 `

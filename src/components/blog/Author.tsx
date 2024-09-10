@@ -1,3 +1,3 @@
-export default function AuthorDetails() {
+export function Author() {
 	return "Author Details"
 }
