@@ -6,9 +6,9 @@ import { type PageProps, graphql } from "gatsby"
 import { ScrollSmoother } from "gsap/ScrollSmoother"
 import UniversalLink from "library/Loader/UniversalLink"
 import { useParamState } from "library/useParamState"
+import { useSearchResults } from "library/useSearchResults"
 import { useEffect } from "react"
 import styled from "styled-components"
-import { useSearchResults } from "utils/useSearchResults"
 
 export default function TemplateBlogPage({
 	data,
