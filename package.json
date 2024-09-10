@@ -25,6 +25,7 @@
 		"gatsby-plugin-manifest": "5.13.1",
 		"gatsby-plugin-pnpm-gatsby-5": "1.2.11",
 		"gatsby-plugin-robots-txt": "1.8.0",
+		"gatsby-plugin-satorare": "1.0.14",
 		"gatsby-plugin-sharp": "5.13.1",
 		"gatsby-plugin-sitemap": "6.13.1",
 		"gatsby-plugin-styled-components": "6.13.1",

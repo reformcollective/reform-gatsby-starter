@@ -1,8 +1,9 @@
+import Seo from "components/Seo"
 import { Categories } from "components/blog/Categories"
 import { LargeCard } from "components/blog/LargeCard"
 import { SearchBar } from "components/blog/SearchBar"
 import { SmallCard } from "components/blog/SmallCard"
-import { type PageProps, graphql } from "gatsby"
+import { type HeadProps, type PageProps, graphql } from "gatsby"
 import { ScrollSmoother } from "gsap/ScrollSmoother"
 import UniversalLink from "library/Loader/UniversalLink"
 import { useParamState } from "library/useParamState"
@@ -146,6 +147,16 @@ export default function TemplateBlogPage({
 				)}
 			</div>
 		</Wrapper>
+	)
+}
+
+export const Head = ({ location }: HeadProps) => {
+	return (
+		<Seo
+			title="Blog"
+			description={"blog template starter"}
+			gatsbyPathname={location.pathname}
+		/>
 	)
 }
 

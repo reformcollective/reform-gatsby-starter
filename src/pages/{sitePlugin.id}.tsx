@@ -2,7 +2,6 @@ import Seo from "components/Seo"
 import type { HeadProps, PageProps } from "gatsby"
 import { graphql } from "gatsby"
 import UniversalLink from "library/Loader/UniversalLink"
-
 import { Filler } from "./404"
 
 /**
@@ -31,12 +30,15 @@ export default function TemplateSample({
 	)
 }
 
-export function Head({ data }: HeadProps<Queries.SitePluginTemplateQuery>) {
+export function Head({
+	data,
+	location,
+}: HeadProps<Queries.SitePluginTemplateQuery>) {
 	return (
 		<Seo
 			title={data.sitePlugin?.name}
 			description="This template page is an example"
-			pathname={`/${data.sitePlugin?.id ?? ""}`}
+			gatsbyPathname={location.pathname}
 		/>
 	)
 }

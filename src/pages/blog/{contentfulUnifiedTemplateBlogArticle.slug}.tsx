@@ -1,6 +1,7 @@
+import Seo from "components/Seo"
 import { Author } from "components/blog/Author"
 import { SmallCard } from "components/blog/SmallCard"
-import { type PageProps, graphql } from "gatsby"
+import { type HeadProps, type PageProps, graphql } from "gatsby"
 import UniversalLink from "library/Loader/UniversalLink"
 import RichText from "library/RichText"
 import UniversalImage from "library/UniversalImage"
@@ -51,6 +52,25 @@ export default function TemplateArticle({
 	)
 }
 
+export const Head = ({
+	data,
+	location,
+}: HeadProps<Queries.TemplateArticleQuery>) => {
+	return (
+		<Seo
+			title={data.contentfulUnifiedTemplateBlogArticle?.title}
+			description={
+				data.contentfulUnifiedTemplateBlogArticle?.metadataDescription
+					?.metadataDescription
+			}
+			gatsbyPathname={location.pathname}
+			image={
+				data.contentfulUnifiedTemplateBlogArticleOgImage?.attributes?.publicURL
+			}
+		/>
+	)
+}
+
 const Wrapper = styled.div`
 	max-width: 1024px;
 	margin: 0 auto;
@@ -69,11 +89,19 @@ const Related = styled.div`
 
 export const query = graphql`
 	query TemplateArticle($id: String) {
+		contentfulUnifiedTemplateBlogArticleOgImage(parent: { id: { eq: $id } }) {
+			attributes {
+				publicURL
+			}
+		}
 		contentfulUnifiedTemplateBlogArticle(id: { eq: $id }) {
 			id
 			title
 			slug
 			categories
+			metadataDescription {
+				metadataDescription
+			}
 			mainImage {
 				gatsbyImageData
 				description

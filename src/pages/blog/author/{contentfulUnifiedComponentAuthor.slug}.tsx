@@ -1,5 +1,6 @@
+import Seo from "components/Seo"
 import { SmallCard } from "components/blog/SmallCard"
-import { type PageProps, graphql } from "gatsby"
+import { type HeadProps, type PageProps, graphql } from "gatsby"
 import UniversalImage from "library/UniversalImage"
 import styled from "styled-components"
 
@@ -35,6 +36,19 @@ export default function TemplateAuthor({
 					))}
 			</Grid>
 		</Wrapper>
+	)
+}
+
+export const Head = ({
+	data,
+	location,
+}: HeadProps<Queries.TemplateAuthorQuery>) => {
+	return (
+		<Seo
+			title={data.contentfulUnifiedComponentAuthor?.fullName}
+			description={data.contentfulUnifiedComponentAuthor?.biography?.biography}
+			gatsbyPathname={location.pathname}
+		/>
 	)
 }
 

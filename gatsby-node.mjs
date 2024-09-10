@@ -1,6 +1,10 @@
 import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer"
 
-const onCreateNode = ({ node, actions }) => {
+export const onPreBootstrap = (helpers) => {
+	globalThis.helpers = helpers
+}
+
+export const onCreateNode = ({ node, actions }) => {
 	if (node.internal.type === "ContentfulUnifiedTemplateBlogArticle") {
 		const { createNodeField } = actions
 
@@ -27,5 +31,3 @@ const onCreateNode = ({ node, actions }) => {
 		})
 	}
 }
-
-export { onCreateNode }
