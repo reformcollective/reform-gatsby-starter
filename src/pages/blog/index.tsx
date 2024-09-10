@@ -32,6 +32,7 @@ export default function TemplateBlogPage({
 	 */
 	// biome-ignore lint/correctness/useExhaustiveDependencies: allowable side effect
 	useEffect(() => {
+		if (query || category) setShowAll(null)
 		ScrollSmoother.get()?.scrollTo(0)
 	}, [query, category, showAll])
 
@@ -55,21 +56,51 @@ export default function TemplateBlogPage({
 				{view === "all" && (
 					<>
 						<h1>all cards</h1>
-						{allCards.map((card) => (
-							<SmallCard key={card.id} />
-						))}
+						<Grid>
+							{allCards.map((card) => (
+								<SmallCard
+									image={card.mainImage}
+									preview={card.fields?.textPreview}
+									published={card.fields?.calculatedDate}
+									slug={card.slug}
+									title={card.title}
+									key={card.id}
+									author={card.author}
+								/>
+							))}
+						</Grid>
 					</>
 				)}
 				{view === "firstPage" && (
 					<>
 						<h1>normal blog display</h1>
-						{featuredCard && <LargeCard />}
-						{firstPageCards.map((card) => (
-							<SmallCard key={card.id} />
-						))}
+						{featuredCard && (
+							<LargeCard
+								image={featuredCard.mainImage}
+								preview={featuredCard.fields?.textPreview}
+								published={featuredCard.fields?.calculatedDate}
+								slug={featuredCard.slug}
+								title={featuredCard.title}
+								key={featuredCard.id}
+								author={featuredCard.author}
+							/>
+						)}
+						<Grid>
+							{firstPageCards.map((card) => (
+								<SmallCard
+									image={card.mainImage}
+									preview={card.fields?.textPreview}
+									published={card.fields?.calculatedDate}
+									slug={card.slug}
+									title={card.title}
+									key={card.id}
+									author={card.author}
+								/>
+							))}
+						</Grid>
 						{hasMoreThanOnePage && (
 							<UniversalLink type="button" onClick={() => setShowAll("true")}>
-								show more
+								show all
 							</UniversalLink>
 						)}
 					</>
@@ -98,9 +129,19 @@ export default function TemplateBlogPage({
 							clear all
 						</UniversalLink>
 
-						{searchedAndCategorizedCards.map((card) => (
-							<SmallCard key={card.id} />
-						))}
+						<Grid>
+							{searchedAndCategorizedCards.map((card) => (
+								<SmallCard
+									image={card.mainImage}
+									preview={card.fields?.textPreview}
+									published={card.fields?.calculatedDate}
+									slug={card.slug}
+									title={card.title}
+									key={card.id}
+									author={card.author}
+								/>
+							))}
+						</Grid>
 					</>
 				)}
 			</div>
@@ -111,10 +152,11 @@ export default function TemplateBlogPage({
 const Wrapper = styled.div`
 	max-width: 1440px;
 	margin: 0 auto;
+`
 
-	* {
-		border: 1px solid red;
-	}
+const Grid = styled.div`
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 `
 
 export const query = graphql`
@@ -135,6 +177,7 @@ export const query = graphql`
 				createdAt
 				author {
 					fullName
+					slug
 					roleAndCompany
 					photo {
 						gatsbyImageData

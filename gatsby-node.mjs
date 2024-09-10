@@ -17,8 +17,8 @@ const onCreateNode = ({ node, actions }) => {
 			value:
 				plainText
 					?.toString()
-					// only keep first 120 characters
-					.slice(0, 120) ?? "",
+					// only keep first 200 characters
+					.slice(0, 200) ?? "",
 		})
 		createNodeField({
 			node,
