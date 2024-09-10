@@ -1,4 +1,5 @@
 import Seo from "components/Seo"
+import type { HeadProps } from "gatsby"
 import UniversalLink from "library/Loader/UniversalLink"
 import styled from "styled-components"
 import media from "styles/media"
@@ -37,12 +38,12 @@ export const Filler = styled.div`
 	}
 `
 
-export function Head() {
+export function Head({ location }: HeadProps) {
 	return (
 		<Seo
 			title="404: Not Found"
 			description="This page could not be found."
-			pathname="/404"
+			gatsbyPathname={location.pathname}
 		/>
 	)
 }

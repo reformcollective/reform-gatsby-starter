@@ -1,67 +1,36 @@
-import UniversalImage from "library/UniversalImage"
-import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
-import styled, { css } from "styled-components"
-import data from "styles/blog/data"
-import type { Author as AuthorType } from "types/alias"
+import UniversalLink from "library/Loader/UniversalLink"
+import UniversalImage, { type UniversalImageData } from "library/UniversalImage"
+import styled from "styled-components"
 
-const textStyles = data.projectTextStyles
-const colors = data.projectColors
+type Nullish = null | undefined
 
-export default function Author({ data }: { data: AuthorType }) {
+export type AuthorInfo =
+	| {
+			fullName: string | Nullish
+			roleAndCompany: string | Nullish
+			photo: { gatsbyImageData: UniversalImageData } | Nullish
+			slug: string | Nullish
+	  }
+	| Nullish
+
+export function Author({ author }: { author: AuthorInfo }) {
+	if (!author) return null
 	return (
-		<Wrapper>
-			<ProfilePhoto
-				image={data?.headshot?.gatsbyImageData}
-				alt={data?.fullName ?? ""}
+		<UniversalLink to={`/blog/author/${author.slug}`}>
+			<Image
+				image={author?.photo?.gatsbyImageData}
+				alt={author?.fullName ?? ""}
 			/>
-			<div>{data.fullName}</div>
-			<div>{data.roleAndCompany}</div>
-		</Wrapper>
+			{author?.fullName}
+			<br />
+			{author?.roleAndCompany}
+		</UniversalLink>
 	)
 }
 
-const Wrapper = styled.div`
-	${textStyles.bodyXS};
-	color: ${colors.neutral800};
-	display: flex;
-	align-items: center;
-
-	${fresponsive(css`
-		gap: 8px;
-	`)}
-
-	${ftablet(css`
-		${textStyles.bodyS};
-		gap: 3px;
-	`)}
-  
-  ${fmobile(css`
-		${textStyles.bodyS};
-		gap: 3px;
-	`)}
-`
-const ProfilePhoto = styled(UniversalImage)`
-	${fresponsive(css`
-		width: 36px;
-		height: 36px;
-		border-radius: 99vw;
-		isolation: isolate;
-		overflow: clip;
-	`)}
-
-	${ftablet(css`
-		width: 48px;
-		height: 48px;
-	`)}
-
-  ${fmobile(css`
-		width: 48px;
-		height: 48px;
-	`)}
-`
-
-const Info = styled.div`
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+const Image = styled(UniversalImage)`
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	float: left;
 `

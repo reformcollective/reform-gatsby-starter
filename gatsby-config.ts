@@ -116,6 +116,15 @@ const config: GatsbyConfig = {
 		},
 		"gatsby-plugin-styled-components",
 		"gatsby-transformer-json",
+		{
+			resolve: "gatsby-plugin-satorare",
+			options: {
+				path: "./src/components/blog/Graph.jsx",
+				width: 1200,
+				height: 630,
+				target_nodes: ["ContentfulUnifiedTemplateBlogArticle"],
+			},
+		},
 	],
 }
 

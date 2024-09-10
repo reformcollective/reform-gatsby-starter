@@ -1,4 +1,5 @@
 import Seo from "components/Seo"
+import type { HeadProps } from "gatsby"
 import UniversalLink from "library/Loader/UniversalLink"
 import Scene from "library/threeJS/SceneStarter"
 import styled from "styled-components"
@@ -12,9 +13,13 @@ export default function Three() {
 	)
 }
 
-export function Head() {
+export function Head({ location }: HeadProps) {
 	return (
-		<Seo title="THREE" description="ThreeJS scene starter" pathname="/three" />
+		<Seo
+			title="THREE"
+			description="ThreeJS scene starter"
+			gatsbyPathname={location.pathname}
+		/>
 	)
 }
 

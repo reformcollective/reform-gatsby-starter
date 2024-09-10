@@ -8,7 +8,7 @@ import styled, { css } from "styled-components"
 export default function Header() {
 	const text = useRef<HTMLDivElement>(null)
 	const wrapperRef = useRef<HTMLDivElement>(null)
-	const translateY = useAutoHideHeader(wrapperRef)
+	useAutoHideHeader(wrapperRef)
 
 	/**
 	 * this is an example of how to include arbitrary elements in a page transition
@@ -39,16 +39,13 @@ export default function Header() {
 	})
 
 	return (
-		<Wrapper ref={wrapperRef} $yPos={translateY}>
+		<Wrapper ref={wrapperRef}>
 			<h1 ref={text}>Header</h1>
 		</Wrapper>
 	)
 }
 
-const Wrapper = styled.header<{ $yPos: number }>`
-	translate: 0 ${({ $yPos }) => $yPos}px;
-	transition: translate 0.2s ease-out;
-	transform: translate3d(0);
+const Wrapper = styled.header`
 	place-items: center;
 	position: fixed;
 	display: grid;

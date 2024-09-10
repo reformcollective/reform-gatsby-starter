@@ -1,59 +1,31 @@
 import Seo from "components/Seo"
-import { type PageProps, graphql } from "gatsby"
+import { Categories } from "components/blog/Categories"
+import { LargeCard } from "components/blog/LargeCard"
+import { SearchBar } from "components/blog/SearchBar"
+import { SmallCard } from "components/blog/SmallCard"
+import { type HeadProps, type PageProps, graphql } from "gatsby"
 import { ScrollSmoother } from "gsap/ScrollSmoother"
-import { MobileOnly } from "library/breakpointUtils"
-import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
+import UniversalLink from "library/Loader/UniversalLink"
 import { useParamState } from "library/useParamState"
+import { useSearchResults } from "library/useSearchResults"
 import { useEffect } from "react"
-import styled, { css } from "styled-components"
-import data from "styles/blog/data"
-import { useSearchResults } from "utils/useSearchResults"
+import styled from "styled-components"
 
-import BlogLayout from "components/blog/BlogLayout"
-import Categories from "components/blog/Categories"
-import ClearButton from "components/blog/ClearButton"
-import EmailInput from "components/blog/EmailInput"
-import LargeCard from "components/blog/LargeCard"
-import SmallCard from "components/blog/SmallCard"
+export default function TemplateBlogPage({
+	data,
+}: PageProps<Queries.BlogTemplateQuery>) {
+	const allCards = data.allContentfulUnifiedTemplateBlogArticle.nodes
 
-const textStyles = data.projectTextStyles
-const colors = data.projectColors
-
-/**
- * This file needs to be updated to match the new project's design.
- *
- * There are 8 TODOs in this file:
- * 1. Update the title and description in the SEO Head component.
- * 2. Optionally update the headerKicker prop in the 3 BlogLayout components.
- * 		The header does not have to have a kicker.
- * 3. The LargeCard component defaults to a placeholder button. Pass it a
- * 		custom button whenever the project buttons are ready.
- * 4. The CardGroup also has a placeholder button. A custom button can be
- * 		inserted into the CustomWidthButton styled component when ready.
- * 5. Once the custom button has been inserted into the CustomWidthButton
- * 		styled component, the PlaceholderButton styled component can be removed.
- *
- * Note: Each of these TODOs has a corresponding comment in the code.
- * Note: You can optionally flip the orientation of the LargeCard and menu
- * 			 using the flipOrientation prop in the BlogLayout component.
- *
- * Additional TODO: Optionally replace hubHeader.jpeg in /images/blog with
- * 									an image that matches the new project's design. Make sure
- * 									to name the new image hubHeader.jpeg exactly.
- */
-
-export default function BlogPage({ data }: PageProps<Queries.BlogPageQuery>) {
-	const unfilteredCards = data.allContentfulPageBlogPost.nodes
-	const featuredCard = data.contentfulPageBlogHub?.featuredBlogPost
-
-	const restOfCards = unfilteredCards.filter(
+	// first card with featuredArticle
+	const featuredCard = allCards.find((x) => x.featuredArticle)
+	const allUnfeaturedCards = allCards.filter(
 		(card) => card.id !== featuredCard?.id,
 	)
-	const smallCards = restOfCards.slice(0, 9)
-	const hasMoreCards = restOfCards.length > 9
+	const firstPageCards = allUnfeaturedCards.slice(0, 9)
+	const hasMoreThanOnePage = allUnfeaturedCards.length > 9
 
-	const [query] = useParamState("query")
-	const [category] = useParamState("category")
+	const [query, setQuery] = useParamState("query")
+	const [category, setCategory] = useParamState("category")
 	const [showAll, setShowAll] = useParamState("showAll")
 
 	/**
@@ -61,251 +33,171 @@ export default function BlogPage({ data }: PageProps<Queries.BlogPageQuery>) {
 	 */
 	// biome-ignore lint/correctness/useExhaustiveDependencies: allowable side effect
 	useEffect(() => {
+		if (query || category) setShowAll(null)
 		ScrollSmoother.get()?.scrollTo(0)
 	}, [query, category, showAll])
 
 	const searchedCards = useSearchResults(
 		query ?? "",
-		[...unfilteredCards],
-		["articleTextPreview", "author", "slug", "title"],
+		[...allCards],
+		["fields", "author", "slug", "title"],
 	)
-	const categorizedCards = category
+	const searchedAndCategorizedCards = category
 		? searchedCards.filter((card) => card.categories?.includes(category))
 		: searchedCards
 
-	if (Boolean(query) || Boolean(category))
-		return (
-			<BlogLayout
-				// TODO remove the kicker or update with a project kicker when ready
-				headerKicker={<PlaceholderKicker>Example Kicker</PlaceholderKicker>}
-			>
-				{(query || category) && (
-					<HeaderWrapper>
-						{query && category ? (
-							<LightHeader>
-								Search results for <span>“{query}”</span> in{" "}
-								<span>{category}</span>
-							</LightHeader>
-						) : category ? (
-							<Header>Categories / {category}</Header>
-						) : (
-							<LightHeader>
-								Search results for <span>“{query}”</span>
-							</LightHeader>
-						)}
-						<ClearButton />
-					</HeaderWrapper>
-				)}
-				<CardGroup>
-					{categorizedCards.map((card) => (
-						<SmallCard key={card.id} data={card} />
-					))}
-					{categorizedCards.length === 0 && <div>No results found</div>}
-				</CardGroup>
-			</BlogLayout>
-		)
-
-	if (showAll) {
-		return (
-			<BlogLayout
-				// TODO remove the kicker or update with a project kicker when ready
-				headerKicker={<PlaceholderKicker>Example Kicker</PlaceholderKicker>}
-			>
-				<Header>All Articles</Header>
-				<CardGroup>
-					{unfilteredCards.map((card) => (
-						<SmallCard key={card.id} data={card} />
-					))}
-				</CardGroup>
-			</BlogLayout>
-		)
-	}
+	const view = query || category ? "search" : showAll ? "all" : "firstPage"
 
 	return (
-		<BlogLayout
-			// TODO remove the kicker or update with a project kicker when ready
-			headerKicker={<PlaceholderKicker>Example Kicker</PlaceholderKicker>}
-		>
-			{featuredCard && (
-				<LargeCard
-					data={featuredCard}
-					// TODO insert a custom project button here
-					// button={}
-				/>
-			)}
-			<MobileOnly>
-				<Categories />
-			</MobileOnly>
-			<Header>Previous Articles</Header>
-			<CardGroup>
-				{smallCards.map((card) => (
-					<SmallCard key={card.id} data={card} />
-				))}
-			</CardGroup>
-			{hasMoreCards && (
-				// TODO remove the PlaceholderButton and uncomment the CustomWidthButton when the project buttons are ready
-				<PlaceholderButton onClick={() => setShowAll("true")}>
-					See All Articles
-				</PlaceholderButton>
-				// <CustomWidthButton
-				// 	type="button"
-				// 	onClick={() => {
-				// 		setShowAll("true")
-				// 	}}
-				// >
-				// 	See More
-				// </CustomWidthButton>
-			)}
-			<MobileEmail>
-				<EmailInput />
-			</MobileEmail>
-		</BlogLayout>
+		<Wrapper>
+			<div>pre blog content! anything can go here! make a component!</div>
+			<SearchBar />
+			<Categories />
+			<div>
+				{view === "all" && (
+					<>
+						<h1>all cards</h1>
+						<Grid>
+							{allCards.map((card) => (
+								<SmallCard
+									image={card.mainImage}
+									preview={card.fields?.textPreview}
+									published={card.fields?.calculatedDate}
+									slug={card.slug}
+									title={card.title}
+									key={card.id}
+									author={card.author}
+								/>
+							))}
+						</Grid>
+					</>
+				)}
+				{view === "firstPage" && (
+					<>
+						<h1>normal blog display</h1>
+						{featuredCard && (
+							<LargeCard
+								image={featuredCard.mainImage}
+								preview={featuredCard.fields?.textPreview}
+								published={featuredCard.fields?.calculatedDate}
+								slug={featuredCard.slug}
+								title={featuredCard.title}
+								key={featuredCard.id}
+								author={featuredCard.author}
+							/>
+						)}
+						<Grid>
+							{firstPageCards.map((card) => (
+								<SmallCard
+									image={card.mainImage}
+									preview={card.fields?.textPreview}
+									published={card.fields?.calculatedDate}
+									slug={card.slug}
+									title={card.title}
+									key={card.id}
+									author={card.author}
+								/>
+							))}
+						</Grid>
+						{hasMoreThanOnePage && (
+							<UniversalLink type="button" onClick={() => setShowAll("true")}>
+								show all
+							</UniversalLink>
+						)}
+					</>
+				)}
+				{view === "search" && (
+					<>
+						{query && category ? (
+							<h1>
+								Search results for <span>“{query}”</span> in{" "}
+								<span>{category}</span>
+							</h1>
+						) : category ? (
+							<h1>Categories / {category}</h1>
+						) : (
+							<h1>
+								Search results for <span>“{query}”</span>
+							</h1>
+						)}
+						<UniversalLink
+							type="button"
+							onClick={() => {
+								setQuery("")
+								setCategory("")
+							}}
+						>
+							clear all
+						</UniversalLink>
+
+						<Grid>
+							{searchedAndCategorizedCards.map((card) => (
+								<SmallCard
+									image={card.mainImage}
+									preview={card.fields?.textPreview}
+									published={card.fields?.calculatedDate}
+									slug={card.slug}
+									title={card.title}
+									key={card.id}
+									author={card.author}
+								/>
+							))}
+						</Grid>
+					</>
+				)}
+			</div>
+		</Wrapper>
 	)
 }
-// TODO change the title and description according to the project
-export function Head() {
-	return <Seo title="Starter | Blog" description="" pathname="/blog" />
+
+export const Head = ({ location }: HeadProps) => {
+	return (
+		<Seo
+			title="Blog"
+			description={"blog template starter"}
+			gatsbyPathname={location.pathname}
+		/>
+	)
 }
 
-const Header = styled.div`
-	${textStyles.sh1}
-	color: ${colors.neutral700};
-
-	${fresponsive(css`
-		margin-bottom: 18px;
-	`)}
-
-	${fmobile(css`
-		${textStyles.sh2}
-		margin-bottom: 30px;
-	`)}
+const Wrapper = styled.div`
+	max-width: 1024px;
+	margin: 0 auto;
 `
 
-const HeaderWrapper = styled.div`
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-
-	${fresponsive(css`
-		padding-top: 12px;
-		margin-bottom: 20px;
-	`)}
-
-	${fmobile(css`
-		flex-direction: column-reverse;
-		align-items: flex-start;
-		gap: 24px;
-	`)}
-`
-
-const LightHeader = styled(Header)`
-	margin-bottom: unset;
-
-	span {
-		color: ${colors.neutral900};
-	}
-`
-
-const CardGroup = styled.div`
-	${fresponsive(css`
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 48px 24px;
-		margin-bottom: 55px;
-	`)}
-	${ftablet(css`
-		grid-template-columns: 1fr 1fr;
-		gap: 35px 25px;
-	`)}
-  ${fmobile(css`
-		grid-template-columns: 1fr;
-		gap: 36px;
-	`)}
-`
-
-// TODO uncomment this component and insert the desired button when the project buttons are ready
-// const CustomWidthButton = styled()`
-//   ${fresponsive(css`
-//     width: 280px;
-//   `)}
-//   ${ftablet(css`
-//     width: 100%;
-//   `)}
-//   ${fmobile(css`
-//     width: 100%;
-//   `)}
-// `
-
-// TODO the components below can be removed once project buttons have been inserted above
-const PlaceholderButton = styled.button`
-	${fresponsive(css`
-		${textStyles.sh3};
-		border: 1px solid ${colors.neutralBlack};
-		border-radius: 8px;
-		width: fit-content;
-		cursor: pointer;
-		padding: 4px 6px;
-	`)}
-`
-
-// TODO the component below can be removed once project kickers have been inserted above
-const PlaceholderKicker = styled(PlaceholderButton)`
-	cursor: default;
-`
-
-const MobileEmail = styled(MobileOnly)`
-	${fmobile(css`
-		border-top: 1px solid ${colors.neutral300};
-		padding-top: 50px;
-		margin-top: 50px;
-	`)}
+const Grid = styled.div`
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 `
 
 export const query = graphql`
-	query BlogPage {
-		allContentfulPageBlogPost(sort: { createdAt: DESC }) {
+	query BlogTemplate {
+		allContentfulUnifiedTemplateBlogArticle(
+			sort: { fields: { calculatedDate: DESC } }
+		) {
 			nodes {
-				slug
 				id
-				author {
-					id
-					headshot {
-						gatsbyImageData
-						createdAt
-					}
-					fullName
-					roleAndCompany
-				}
-				title
+				categories
 				mainImage {
 					gatsbyImageData
 					description
 				}
-				categories
-				articleTextPreview
-			}
-		}
-		contentfulPageBlogHub {
-			id
-			featuredBlogPost {
-				slug
-				id
-				author {
-					id
-					headshot {
-						gatsbyImageData
-						createdAt
-					}
-					fullName
-					roleAndCompany
-				}
 				title
-				mainImage {
-					gatsbyImageData
-					description
+				featuredArticle
+				slug
+				createdAt
+				author {
+					fullName
+					slug
+					roleAndCompany
+					photo {
+						gatsbyImageData
+					}
 				}
-				categories
-				articleTextPreview
+				fields {
+					calculatedDate
+					textPreview
+				}
 			}
 		}
 	}

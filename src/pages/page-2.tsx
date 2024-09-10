@@ -1,6 +1,6 @@
 import Seo from "components/Seo"
+import type { HeadProps } from "gatsby"
 import UniversalLink from "library/Loader/UniversalLink"
-
 import { Filler } from "./404"
 
 export default function SecondPage() {
@@ -27,12 +27,12 @@ export default function SecondPage() {
 	)
 }
 
-export function Head() {
+export function Head({ location }: HeadProps) {
 	return (
 		<Seo
 			title="Second Page"
 			description="This is the second page of the site."
-			pathname="/page-2"
+			gatsbyPathname={location.pathname}
 		/>
 	)
 }

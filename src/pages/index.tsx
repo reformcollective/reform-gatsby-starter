@@ -1,8 +1,7 @@
 import Seo from "components/Seo"
-import type { PageProps } from "gatsby"
+import type { HeadProps, PageProps } from "gatsby"
 import { graphql } from "gatsby"
 import UniversalLink from "library/Loader/UniversalLink"
-
 import { Filler } from "./404"
 
 export default function IndexPage({
@@ -49,8 +48,14 @@ export default function IndexPage({
 	)
 }
 
-export function Head() {
-	return <Seo title="Home" description="This is the homepage!" pathname="/" />
+export function Head({ location }: HeadProps) {
+	return (
+		<Seo
+			title="Home"
+			description="This is the homepage!"
+			gatsbyPathname={location.pathname}
+		/>
+	)
 }
 
 export const query = graphql`

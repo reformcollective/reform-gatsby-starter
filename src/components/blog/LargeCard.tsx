@@ -1,146 +1,48 @@
-import { loadPage } from "library/Loader/TransitionUtils"
-import UniversalImage from "library/UniversalImage"
-import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
-import type { ReactNode } from "react"
-import styled, { css } from "styled-components"
-import data from "styles/blog/data"
-import { clampText } from "styles/text"
-import type { BlogCard } from "types/alias"
-import Author from "./Author"
+import { DisplayDate } from "library/DisplayDate"
+import UniversalLink from "library/Loader/UniversalLink"
+import UniversalImage, { type UniversalImageData } from "library/UniversalImage"
+import styled from "styled-components"
+import { Author, type AuthorInfo } from "./Author"
 
-const textStyles = data.projectTextStyles
-const colors = data.projectColors
+type Nullish = null | undefined
 
-export default function LargeCard({
-	data,
-	button,
+export function LargeCard({
+	published,
+	slug,
+	title,
+	image,
+	preview,
+	author,
 }: {
-	data: BlogCard
-	button?: ReactNode
+	slug: string | Nullish
+	title: string | Nullish
+	preview: string | Nullish
+	published: string | number | Nullish
+	image:
+		| {
+				gatsbyImageData: UniversalImageData | Nullish
+				description: string | Nullish
+		  }
+		| Nullish
+	author: AuthorInfo
 }) {
-	const { author, mainImage, title, articleTextPreview, slug } = data
-
 	return (
-		<Wrapper
-			role="presentation"
-			onClick={() => {
-				loadPage(`/blog/${slug}`, "fade").catch(console.error)
-			}}
-		>
-			<Image
-				image={mainImage?.gatsbyImageData}
-				alt={mainImage?.description ?? ""}
-			/>
-			<Title>{title}</Title>
-			<Details>
-				<Description>{articleTextPreview}</Description>
-				{author && <Author data={author} />}
-			</Details>
-			{button ? (
-				button
-			) : (
-				<PlaceholderButton>Continue Reading</PlaceholderButton>
+		<Wrapper ariaLabel={title ?? "blog post"} to={`/blog/${slug}`}>
+			<Author author={author} />
+			{published && <DisplayDate date={published} />}
+			{image && (
+				<UniversalImage
+					image={image.gatsbyImageData}
+					alt={image.description ?? ""}
+				/>
 			)}
+			<h1>{title}</h1>
+			<p>{preview}</p>
 		</Wrapper>
 	)
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled(UniversalLink)`
+	border: 1px solid orange;
 	display: grid;
-	cursor: pointer;
-	width: 100%;
-
-	${fresponsive(css`
-		gap: 26px;
-		margin-bottom: 60px;
-	`)}
-
-	${ftablet(css`
-		margin-bottom: 48px;
-		gap: 20px;
-	`)}
-
-  ${fmobile(css`
-		margin-top: 20px;
-		padding-bottom: 50px;
-		margin-bottom: 10px;
-		border-bottom: 1px solid ${colors.neutral300};
-		gap: 16px;
-	`)}
-`
-
-const Image = styled(UniversalImage)`
-	${fresponsive(css`
-		width: 100%;
-		aspect-ratio: 768 / 440;
-		border-radius: 16px;
-	`)}
-	${ftablet(css`
-		aspect-ratio: 585 / 440;
-	`)}
-  ${fmobile(css`
-		aspect-ratio: 313 / 222;
-	`)}
-`
-
-const Title = styled.div`
-	${clampText(2)}
-	${textStyles.h6};
-
-	${fresponsive(css`
-		padding-bottom: 4px;
-	`)}
-
-	${fresponsive(css`
-		${textStyles.sh1}
-	`)}
-`
-
-const Details = styled.div`
-	${fresponsive(css`
-		display: grid;
-		grid-template-columns: auto 1fr;
-		gap: 16px 8px;
-	`)}
-
-	${ftablet(css`
-		gap: 28px 10px;
-		margin-bottom: 10px;
-	`)}
-
-  ${fmobile(css`
-		gap: 16px;
-	`)}
-`
-
-const Description = styled.div`
-	${clampText(2)}
-  ${textStyles.bodyS};
-	color: ${colors.neutral700};
-	grid-column: span 2;
-
-	${fresponsive(css`
-		padding-bottom: 2px;
-	`)}
-
-	${ftablet(css`
-		${textStyles.bodyR};
-		
-		margin-top: 10px;
-	`)}
-  ${fmobile(css`
-		${textStyles.bodyS};
-		
-	`)}
-`
-
-export const PlaceholderButton = styled.button`
-	${fresponsive(css`
-		${textStyles.sh3};
-		border: 1px solid ${colors.neutralBlack};
-		border-radius: 8px;
-		width: fit-content;
-		cursor: pointer;
-		padding: 4px 6px;
-	`)}
 `

@@ -1,65 +1,48 @@
+import { DisplayDate } from "library/DisplayDate"
 import UniversalLink from "library/Loader/UniversalLink"
-import UniversalImage from "library/UniversalImage"
-import { fmobile, fresponsive, ftablet } from "library/fullyResponsive"
-import styled, { css } from "styled-components"
-import data from "styles/blog/data"
-import { clampText } from "styles/text"
-import type { BlogCard } from "types/alias"
-import Author from "./Author"
+import UniversalImage, { type UniversalImageData } from "library/UniversalImage"
+import styled from "styled-components"
+import { Author, type AuthorInfo } from "./Author"
 
-const textStyles = data.projectTextStyles
+type Nullish = null | undefined
 
-export default function SmallCard({ data }: { data: BlogCard }) {
-	const { slug, author, mainImage, title } = data
-
+export function SmallCard({
+	published,
+	slug,
+	title,
+	image,
+	preview,
+	author,
+}: {
+	slug: string | Nullish
+	title: string | Nullish
+	preview: string | Nullish
+	published: string | number | Nullish
+	image:
+		| {
+				gatsbyImageData: UniversalImageData | Nullish
+				description: string | Nullish
+		  }
+		| Nullish
+	author: AuthorInfo
+}) {
 	return (
-		<Wrapper to={`/blog/${slug}`}>
-			<Image
-				image={mainImage?.gatsbyImageData}
-				alt={mainImage?.description ?? ""}
-			/>
-			<Title>{title}</Title>
-			{author && <Author data={author} />}
+		<Wrapper ariaLabel={title ?? "blog post"} to={`/blog/${slug}`}>
+			<Author author={author} />
+			{published && <DisplayDate date={published} />}
+			{image && (
+				<UniversalImage
+					image={image.gatsbyImageData}
+					alt={image.description ?? ""}
+				/>
+			)}
+			<h1>{title}</h1>
+			<p>{preview}</p>
 		</Wrapper>
 	)
 }
 
 const Wrapper = styled(UniversalLink)`
-	width: 100%;
-
-	${fresponsive(css`
-		display: grid;
-		gap: 12px;
-	`)}
-`
-
-const Image = styled(UniversalImage)`
-	width: 100%;
-
-	${fresponsive(css`
-		aspect-ratio: 372 / 215;
-		border-radius: 18px;
-	`)}
-
-	${ftablet(css`
-		aspect-ratio: 268 / 215;
-	`)}
-  
-  ${fmobile(css`
-		aspect-ratio: 273 / 215;
-	`)}
-`
-
-const Title = styled.div`
-	${clampText(2)}
-  ${textStyles.sh1};
-
-	${fresponsive(css`
-		padding: 4px 0;
-		margin: -4px 0;
-	`)}
-
-	${fmobile(css`
-		${textStyles.sh2}
-	`)}
+	border: 1px solid orange;
+	display: grid;
 `

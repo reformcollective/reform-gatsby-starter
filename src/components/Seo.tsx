@@ -1,37 +1,36 @@
 import { graphql, useStaticQuery } from "gatsby"
 
+type Nullish = null | undefined
+
 interface SEOProps {
 	/**
 	 * provide the title of this page
 	 */
-	title: string | null | undefined
+	title: string | Nullish
 	/**
-	 * provide the description that will be used in search engines
+	 * provide the description that will be used when shared on social media and by some search engines
 	 */
-	description: string | null | undefined
+	description: string | Nullish
 	/**
 	 * provide the pathname of this page (e.g. /page/example or /blog)
 	 * this will be used to generate this page's url
+	 *
+	 * accessible at location.pathname from gatsby head props
 	 */
-	pathname: `/${string}`
+	gatsbyPathname: string
 	/**
 	 * if applicable, provide the full URL of an OG image to be used in social media
 	 * this must be a complete URL
 	 * (e.g. https://example.com/image.jpg)
 	 */
-	image?: string
-	/**
-	 * if applicable, provide the twitter creator's handle
-	 */
-	creator?: string
+	image?: string | Nullish
 }
 
 export default function Seo({
 	title,
 	description,
-	pathname,
+	gatsbyPathname: pathname,
 	image,
-	creator,
 }: SEOProps) {
 	const data: Queries.SeoQuery = useStaticQuery(graphql`
 		query Seo {
@@ -54,11 +53,10 @@ export default function Seo({
 	} = data.site?.siteMetadata ?? {}
 
 	const seo = {
-		title: title ?? defaultTitle,
-		description: description ?? defaultDescription,
-		image: image ?? defaultImage,
+		title: title || defaultTitle,
+		description: description || defaultDescription,
+		image: image || defaultImage,
 		url: `${siteUrl}${pathname}`,
-		creator,
 	}
 
 	return (
@@ -73,7 +71,6 @@ export default function Seo({
 
 			{/* twitter seo */}
 			<meta name="twitter:card" content="summary_large_image" />
-			<meta name="twitter:creator" content={seo.creator} />
 			<meta name="twitter:title" content={seo.title ?? ""} />
 			<meta name="twitter:description" content={seo.description ?? ""} />
 			<meta name="twitter:image" content={seo.image ?? ""} />
@@ -84,6 +81,7 @@ export default function Seo({
 			<meta property="og:image" content={seo.image ?? ""} />
 			<meta property="og:url" content={seo.url} />
 			<meta property="og:type" content="website" />
+			{defaultTitle && <meta property="og:site_name" content={defaultTitle} />}
 		</>
 	)
 }
