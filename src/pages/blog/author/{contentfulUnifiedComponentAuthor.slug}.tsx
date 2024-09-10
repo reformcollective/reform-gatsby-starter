@@ -11,7 +11,7 @@ export default function TemplateAuthor({
 	if (!author) throw new Error("author not found")
 
 	return (
-		<div>
+		<Wrapper>
 			<ProfilePhoto
 				image={author.photo?.gatsbyImageData}
 				alt={author.fullName ?? ""}
@@ -34,9 +34,14 @@ export default function TemplateAuthor({
 						/>
 					))}
 			</Grid>
-		</div>
+		</Wrapper>
 	)
 }
+
+const Wrapper = styled.div`
+	max-width: 1024px;
+	margin: 0 auto;
+`
 
 const ProfilePhoto = styled(UniversalImage)`
 	width: 100px;

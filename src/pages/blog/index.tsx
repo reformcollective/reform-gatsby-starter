@@ -150,7 +150,7 @@ export default function TemplateBlogPage({
 }
 
 const Wrapper = styled.div`
-	max-width: 1440px;
+	max-width: 1024px;
 	margin: 0 auto;
 `
 
