@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 export default function Footer() {
 	return (
-		<Wrapper id="hide-header">
+		<Wrapper data-header-hide>
 			<Content>
 				<h1>Footer</h1>
 				<p>The header is hidden while the Footer is in view</p>
