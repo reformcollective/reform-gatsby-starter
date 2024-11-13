@@ -1,5 +1,6 @@
 import Seo from "components/Seo"
 import { Categories } from "components/blog/Categories"
+import EmailInput from "components/blog/EmailInput"
 import { LargeCard } from "components/blog/LargeCard"
 import { SearchBar } from "components/blog/SearchBar"
 import { SmallCard } from "components/blog/SmallCard"
@@ -53,6 +54,7 @@ export default function TemplateBlogPage({
 			<div>pre blog content! anything can go here! make a component!</div>
 			<SearchBar />
 			<Categories />
+			<EmailInput />
 			<div>
 				{view === "all" && (
 					<>

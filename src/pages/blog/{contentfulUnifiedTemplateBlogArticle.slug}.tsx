@@ -1,10 +1,16 @@
 import Seo from "components/Seo"
 import { Author } from "components/blog/Author"
+import Share from "components/blog/Share"
 import { SmallCard } from "components/blog/SmallCard"
 import { type HeadProps, type PageProps, graphql } from "gatsby"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 import UniversalLink from "library/Loader/UniversalLink"
 import RichText from "library/RichText"
+import { usePinType } from "library/Scroll"
 import UniversalImage from "library/UniversalImage"
+import useAnimation from "library/useAnimation"
+import { getResponsivePixels } from "library/viewportUtils"
+import { useRef } from "react"
 import styled from "styled-components"
 
 export default function TemplateArticle({
@@ -15,10 +21,31 @@ export default function TemplateArticle({
 
 	const related = data.allContentfulUnifiedTemplateBlogArticle.nodes
 
+	const pin = useRef<HTMLDivElement>(null)
+	const pinType = usePinType()
+
+	useAnimation(() => {
+		ScrollTrigger.create({
+			trigger: pin.current,
+			start: () => `top top+=${getResponsivePixels(120)}`,
+			end: () =>
+				// the height of the parent less the height of the pin
+				`+=${
+					(pin.current?.parentElement?.offsetHeight ?? 0) -
+					(pin.current?.offsetHeight ?? 0)
+				}`,
+			pin: true,
+			pinType,
+		})
+	}, [pinType])
+
 	return (
 		<Wrapper>
 			<UniversalLink to="/blog">back to blog</UniversalLink>
 			<h1>{post.title}</h1>
+			<ShareContainer ref={pin}>
+				<Share title={post.title} />
+			</ShareContainer>
 			<UniversalImage
 				image={post.mainImage?.gatsbyImageData}
 				alt={post.mainImage?.description ?? ""}
@@ -85,6 +112,14 @@ const Categories = styled.div`
 const Related = styled.div`
 	display: flex;
 	gap: 8px;
+`
+
+const ShareContainer = styled.div`
+	position: absolute;
+	right: 25px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
 `
 
 export const query = graphql`

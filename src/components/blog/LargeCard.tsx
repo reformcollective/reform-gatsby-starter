@@ -1,5 +1,5 @@
+import { navigate } from "gatsby"
 import { DisplayDate } from "library/DisplayDate"
-import UniversalLink from "library/Loader/UniversalLink"
 import UniversalImage, { type UniversalImageData } from "library/UniversalImage"
 import styled from "styled-components"
 import { Author, type AuthorInfo } from "./Author"
@@ -26,8 +26,13 @@ export function LargeCard({
 		| Nullish
 	author: AuthorInfo
 }) {
+	const handleNavigation = (event: React.MouseEvent, childRoute: string) => {
+		event.stopPropagation()
+		navigate(childRoute)
+	}
+
 	return (
-		<Wrapper ariaLabel={title ?? "blog post"} to={`/blog/${slug}`}>
+		<Wrapper onClick={(event) => handleNavigation(event, `/blog/${slug}`)}>
 			<Author author={author} />
 			{published && <DisplayDate date={published} />}
 			{image && (
@@ -42,7 +47,7 @@ export function LargeCard({
 	)
 }
 
-const Wrapper = styled(UniversalLink)`
+const Wrapper = styled.div`
 	border: 1px solid orange;
 	display: grid;
 `
