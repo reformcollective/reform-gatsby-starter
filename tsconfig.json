@@ -1,31 +1,7 @@
-// see https://www.totaltypescript.com/tsconfig-cheat-sheet
 {
-	"include": ["./src/**/*", "./*.tsx", "./*.ts"],
+	"extends": "@total-typescript/tsconfig/bundler/dom/app",
 	"compilerOptions": {
-		// Base Options
-		"esModuleInterop": true,
-		"skipLibCheck": true,
-		"target": "es2022",
-		"allowJs": true,
-		"resolveJsonModule": true,
-		"moduleDetection": "force",
-		"isolatedModules": true,
-
-		// Strictness
-		"strict": true,
-		"noUncheckedIndexedAccess": true,
-
-		// Transpilation
-		"module": "Preserve",
-		"noEmit": true,
-		"sourceMap": true,
-		"lib": ["es2022", "dom", "dom.iterable"],
-
-		// Miscellaneous
-		"baseUrl": "src",
 		"jsx": "react-jsx",
-		"incremental": true,
-		"noErrorTruncation": true,
-		"forceConsistentCasingInFileNames": true
+		"baseUrl": "src"
 	}
 }
