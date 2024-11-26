@@ -50,7 +50,7 @@
 		"husky": "9.1.7",
 		"lint-staged": "15.2.10",
 		"stylelint": "16.10.0",
-		"stylelint-config-reform-collective": "github:reformcollective/stylelint-config-reform#updated",
+		"stylelint-config-reform-collective": "github:reformcollective/stylelint-config-reform",
 		"typescript": "5.7.2"
 	},
 	"license": "0BSD",
