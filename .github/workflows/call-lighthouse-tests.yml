@@ -1,0 +1,7 @@
+name: Lighthouse
+on: pull_request
+jobs:
+  library:
+    uses: reformcollective/library/.github/workflows/lighthouse-tests.yml@unlighthouse-workflow-update
+    secrets:
+      SECRETS_JSON: ${{ toJSON(secrets) }}

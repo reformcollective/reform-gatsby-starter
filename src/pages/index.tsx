@@ -38,7 +38,11 @@ export default function IndexPage({
 			<Filler>
 				<h1>Please enjoy the following template pages:</h1> <br />
 				{pluginList.map(({ node }) => (
-					<UniversalLink transition="fade" to={`/${node.id}`} key={node.id}>
+					<UniversalLink
+						transition="fade"
+						to={`/plugin/${node.id}`}
+						key={node.id}
+					>
 						{node.name}
 						<br />
 					</UniversalLink>
