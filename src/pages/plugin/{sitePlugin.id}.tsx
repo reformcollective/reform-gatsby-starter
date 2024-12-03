@@ -2,7 +2,7 @@ import Seo from "components/Seo"
 import type { HeadProps, PageProps } from "gatsby"
 import { graphql } from "gatsby"
 import UniversalLink from "library/Loader/UniversalLink"
-import { Filler } from "./404"
+import { Filler } from "../404"
 
 /**
  * as an example, this template page generates a page for each plugin
